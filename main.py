@@ -22,6 +22,11 @@ def get_html_for_word(word):
     return text
 
 
+def get_def_new(word):
+    f = open("do_downloaded.htm")
+    text = f.read()
+    return text
+
 def get_related_for_word(word):
     text = ""
     # f = open("file.htm")
@@ -40,7 +45,8 @@ def get_syn_for_word(word):
 
 # text = get_html_for_word("do")
 # text = get_related_for_word("do")
-text = get_syn_for_word("do")
+# text = get_syn_for_word("do")
+text = get_def_new("do")
 
 root = etree.HTML(text)
 

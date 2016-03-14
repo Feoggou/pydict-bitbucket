@@ -162,7 +162,7 @@ class DictRelatedParser:
                                      '*[@class="row"]/'          # 8 KEYS
                                      'a/text()')                # 9 KEYS
 
-        print("items=", items)
+        # print("items=", items)
         return items
 
 
