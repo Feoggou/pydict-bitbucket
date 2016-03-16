@@ -251,7 +251,8 @@
                             ]
                         }
                     ],
-                    "phrases": [
+                    "related": [
+                        "do a deal",
                         "do by",
                         "do down",
                         "do in",
@@ -285,7 +286,7 @@
                             ]
                         }
                     ],
-                    "phrases": []
+                    "related": []
                 },
                 {
                     "def_group": "do",
@@ -306,7 +307,7 @@
                             ]
                         }
                     ],
-                    "phrases": []
+                    "related": []
                 },
                 {
                     "def_group": "Do or do",
@@ -323,7 +324,7 @@
                             ]
                         }
                     ],
-                    "phrases": []
+                    "related": []
                 },
                 {
                     "def_group": "DO or D.O.",
@@ -340,7 +341,7 @@
                             ]
                         }
                     ],
-                    "phrases": []
+                    "related": []
                 }
             ]
         },

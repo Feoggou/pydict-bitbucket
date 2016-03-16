@@ -55,9 +55,9 @@ class WordTest(unittest.TestCase):
         {"word": [
             {"word_frequency": "Extremely Common"},
             {"def_groups": [
-                {"def_group": "do", "phrases": [
-                    'do by', 'do down', 'do in', 'do it', 'do over', "do's and don'ts", 'do up',
-                    'do up right', 'do oneself well', 'do with', 'do without', 'have to do with'
+                {"def_group": "do", "related": [
+                    "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
+                    "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"
                 ],
                  "items": [
                      {"gram_group": [
@@ -133,7 +133,7 @@ class WordTest(unittest.TestCase):
                         ]}
                     ]}
                 ]},
-                {"def_group": "do", "phrases": [], "items": [
+                {"def_group": "do", "related": [], "items": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -141,7 +141,7 @@ class WordTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"def_group": "do", "phrases": [], "items": [
+                {"def_group": "do", "related": [], "items": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -149,14 +149,14 @@ class WordTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"def_group": "Do or do", "phrases": [], "items": [
+                {"def_group": "Do or do", "related": [], "items": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "ditto"}
                         ]}
                     ]},
                 ]},
-                {"def_group": "DO or D.O.", "phrases": [], "items": [
+                {"def_group": "DO or D.O.", "related": [], "items": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "Doctor of Osteopathy"}

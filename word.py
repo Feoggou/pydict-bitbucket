@@ -9,7 +9,8 @@ class WordData:
         self.related_content = ""
         self.synonyms_content = ""
 
-    def _fetch_from_web(self, suffix):
+    @staticmethod
+    def _fetch_from_web(suffix):
         hostname = "www.collinsdictionary.com"
         conn = http.client.HTTPConnection(hostname)
         conn.request("GET", "/dictionary/" + suffix)

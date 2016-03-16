@@ -224,7 +224,7 @@ class HtmlToJsonTest(unittest.TestCase):
             group = DefGroup(dict_parser, etree_group)
             group.build()
             result = group.translate()
-            self.assertEqual({"def_group": "do", "phrases": [], "items": []}, result)
+            self.assertEqual({"def_group": "do", "related": [], "items": []}, result)
 
     # word / def_groups
     def test_def_groups_returns_5_def_groups(self):
@@ -236,9 +236,9 @@ class HtmlToJsonTest(unittest.TestCase):
             group.build()
             result = group.translate()
             self.assertEqual({"def_groups": [
-                {"def_group": "do", "phrases": [], "items": []}, {"def_group": "do", "phrases": [], "items": []},
-                {"def_group": "do", "phrases": [], "items": []}, {"def_group": "Do or do", "phrases": [], "items": []},
-                {"def_group": "DO or D.O.", "phrases": [], "items": []}]},
+                {"def_group": "do", "related": [], "items": []}, {"def_group": "do", "related": [], "items": []},
+                {"def_group": "do", "related": [], "items": []}, {"def_group": "Do or do", "related": [], "items": []},
+                {"def_group": "DO or D.O.", "related": [], "items": []}]},
                 result)
 
     # word / def_groups / def_group [0] / gram_groups
@@ -248,12 +248,11 @@ class HtmlToJsonTest(unittest.TestCase):
         def_group = dict_parser.get_all_def_groups()[0]
 
         with patch('html_to_json.GramGroup.build'):
-            with patch('html_to_json.PhrasesGroup.build'):
+            with patch('html_to_json.RelatedGroup.build'):
                 group = DefGroup(dict_parser, def_group)
                 group.build()
                 result = group.translate()
-                print(result)
-                self.assertEqual({"def_group": "do", "phrases": [], "items": [
+                self.assertEqual({"def_group": "do", "related": [], "items": [
                     {"gram_group": []}, {"gram_group": []}, {"gram_group": []}, {"gram_group": []}]},
                                  result)
 
@@ -464,8 +463,6 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
 
-        print(result)
-
         self.assertEqual(
             {"gram_group": [
                 {"grammar_value": "auxiliary verb"},
@@ -488,8 +485,6 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
 
-        print(result)
-
         self.assertEqual(
             {"gram_group": [
                 {"word_forms": ["do's", "dos"]},
@@ -509,11 +504,10 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        print(result)
         self.assertEqual(
             {"def_group": "do",
-             "phrases": ['do by', 'do down', 'do in', 'do it', 'do over', "do's and don'ts", 'do up',
-                         'do up right', 'do oneself well', 'do with', 'do without', 'have to do with'],
+             "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
+                         "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
              "items": [
                  {"gram_group": [
                     {"word_forms": ["did", "done", "'doing"]},
@@ -599,7 +593,7 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
         print(result)
         self.assertEqual(
-            {"def_group": "do", "phrases": [], "items": [
+            {"def_group": "do", "related": [], "items": [
                 {"gram_group": [
                     {"grammar_value": "noun"},
                     {"defs": [
@@ -616,9 +610,8 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        print(result)
         self.assertEqual(
-            {"def_group": "do", "phrases": [], "items": [
+            {"def_group": "do", "related": [], "items": [
                 {"gram_group": [
                     {"grammar_value": "noun"},
                     {"defs": [
@@ -635,9 +628,8 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        print(result)
         self.assertEqual(
-            {"def_group": "Do or do", "phrases": [], "items": [
+            {"def_group": "Do or do", "related": [], "items": [
                 {"gram_group": [
                     {"defs": [
                         {"def": "ditto"}
@@ -653,9 +645,8 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        print(result)
         self.assertEqual(
-            {"def_group": "DO or D.O.", "phrases": [], "items": [
+            {"def_group": "DO or D.O.", "related": [], "items": [
                 {"gram_group": [
                     {"defs": [
                         {"def": "Doctor of Osteopathy"}
@@ -670,12 +661,11 @@ class HtmlToJsonTest(unittest.TestCase):
         groups = DefGroups(dict_parser)
         groups.build()
         result = groups.translate()
-        print(result)
         self.assertEqual(
             {"def_groups": [
                 {"def_group": "do",
-                 "phrases": ['do by', 'do down', 'do in', 'do it', 'do over', "do's and don'ts", 'do up',
-                             'do up right', 'do oneself well', 'do with', 'do without', 'have to do with'],
+                 "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
+                             "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
                  "items": [
                     {"gram_group": [
                         {"word_forms": ["did", "done", "'doing"]},
@@ -754,7 +744,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]},
-                {"def_group": "do", "phrases": [], "items": [
+                {"def_group": "do", "related": [], "items": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -762,7 +752,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"def_group": "do", "phrases": [], "items": [
+                {"def_group": "do", "related": [], "items": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -770,14 +760,14 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"def_group": "Do or do", "phrases": [], "items": [
+                {"def_group": "Do or do", "related": [], "items": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "ditto"}
                         ]}
                     ]},
                 ]},
-                {"def_group": "DO or D.O.", "phrases": [], "items": [
+                {"def_group": "DO or D.O.", "related": [], "items": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "Doctor of Osteopathy"}
@@ -809,30 +799,29 @@ class HtmlToJsonTest(unittest.TestCase):
                 'Dnestr', 'Dnieper', 'Dniester', 'do a deal', 'do a number on', 'do away with', 'do business with',
                 'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to']}, result)
 
-    def test_word_returns_phrases_defgroup_1(self):
+    def test_word_returns_related_defgroup_1(self):
         root = etree.HTML(self.html_content)
         dict_parser = DictParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
 
-        group = PhrasesGroup(dict_parser, def_group)
+        group = RelatedGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        self.assertEqual({"phrases": ['do by', 'do down', 'do in', 'do it', 'do over', "do's and don'ts", 'do up',
-              'do up right', 'do oneself well', 'do with', 'do without', 'have to do with']}, result)
+        self.assertEqual({"related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
+                                      "do up", "do up right", "do oneself well", "do with", "do without",
+                                      "have to do with"]}, result)
 
     def test_translate_html_to_json(self):
         obj = HtmlToJson(self.word_name, self.html_content)
         json_str = obj.translate()
 
-        print(json_str)
-
         self.assertEqual(json_str,
         {"word": [
             {"word_frequency": "Extremely Common"},
             {"def_groups": [
-                {"def_group": "do", "phrases": [
-                    'do by', 'do down', 'do in', 'do it', 'do over', "do's and don'ts", 'do up',
-                    'do up right', 'do oneself well', 'do with', 'do without', 'have to do with'
+                {"def_group": "do", "related": [
+                    "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts", "do up",
+                    "do up right", "do oneself well", "do with", "do without", "have to do with"
                 ],
                  "items": [
                      {"gram_group": [
@@ -908,7 +897,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]},
-                {"def_group": "do", "phrases": [], "items": [
+                {"def_group": "do", "related": [], "items": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -916,7 +905,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"def_group": "do", "phrases": [], "items": [
+                {"def_group": "do", "related": [], "items": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -924,14 +913,14 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"def_group": "Do or do", "phrases": [], "items": [
+                {"def_group": "Do or do", "related": [], "items": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "ditto"}
                         ]}
                     ]},
                 ]},
-                {"def_group": "DO or D.O.", "phrases": [], "items": [
+                {"def_group": "DO or D.O.", "related": [], "items": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "Doctor of Osteopathy"}
@@ -967,15 +956,13 @@ class HtmlToJsonTest(unittest.TestCase):
         """self.assertEqual(json_obj, )"""
         # end related
 
-        print(do_word)
-
         self.assertEqual(do_word,
         {"word": [
             {"word_frequency": "Extremely Common"},
             {"def_groups": [
-                {"def_group": "do", "phrases": [
-                    'do by', 'do down', 'do in', 'do it', 'do over', "do's and don'ts", 'do up',
-                    'do up right', 'do oneself well', 'do with', 'do without', 'have to do with'
+                {"def_group": "do", "related": [
+                    "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
+                    "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"
                 ],
                  "items": [
                      {"gram_group": [
@@ -1051,7 +1038,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]},
-                {"def_group": "do", "phrases": [], "items": [
+                {"def_group": "do", "related": [], "items": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -1059,7 +1046,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"def_group": "do", "phrases": [], "items": [
+                {"def_group": "do", "related": [], "items": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -1067,14 +1054,14 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"def_group": "Do or do", "phrases": [], "items": [
+                {"def_group": "Do or do", "related": [], "items": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "ditto"}
                         ]}
                     ]},
                 ]},
-                {"def_group": "DO or D.O.", "phrases": [], "items": [
+                {"def_group": "DO or D.O.", "related": [], "items": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "Doctor of Osteopathy"}

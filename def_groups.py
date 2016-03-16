@@ -185,7 +185,7 @@ class DefGroup(JsonGroup):
         self.etree_elem = etree_def_group
         self.name = ''
         self.gram_groups = []
-        self.phrases = None
+        self.related = None
 
         """name = self.etree_elem.get('id')
         match = re.search("\d+", name)
@@ -199,8 +199,8 @@ class DefGroup(JsonGroup):
             child.build()
             self.gram_groups.append(child)
 
-        self.phrases = PhrasesGroup(self.dict_parser, self.etree_elem)
-        self.phrases.build()
+        self.related = RelatedGroup(self.dict_parser, self.etree_elem)
+        self.related.build()
 
     def translate(self) -> dict:
         json_children = []
@@ -209,12 +209,12 @@ class DefGroup(JsonGroup):
             if json_child is not None:
                 json_children.append(json_child)
 
-        phrase_children = []
-        if self.phrases is not None:
-            phrase_children = self.phrases.translate()["phrases"]
+        related_children = []
+        if self.related is not None:
+            related_children = self.related.translate()["related"]
 
         if len(self.word):
-            return {"def_group": self.word, "items": json_children, "phrases" : phrase_children}
+            return {"def_group": self.word, "items": json_children, "related" : related_children}
         return None
 
 
@@ -283,27 +283,18 @@ class NearbyWordsGroup(JsonGroup):
         return {"nearby_words": self.words}
 
 
-"""class SynonymsGroup(JsonGroup):
-    def __init__(self, dict_parser):
-        JsonGroup.__init__(self, dict_parser)
-        # self.dict_parser.get_all_synonyms()
-
-    def translate(self):
-        children = []
-        return {"synonyms": children}"""
-
-
-class PhrasesGroup(JsonGroup):
+class RelatedGroup(JsonGroup):
     def __init__(self, dict_parser, defgroup_etree):
         JsonGroup.__init__(self, dict_parser)
         self.defgroup_etree = defgroup_etree
-        self.phrases = []
+        self.related = []
 
     def build(self):
-        self.phrases = self.dict_parser.get_all_phrases(self.defgroup_etree)
+        self.related = self.dict_parser.get_all_related_words(self.defgroup_etree)
 
     def translate(self):
-        return {"phrases": self.phrases}
+        return {"related": self.related}
+
 
 #####################################
 

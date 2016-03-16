@@ -207,14 +207,10 @@ class DictParser:
     def get_def_main(self):
         return self.main_elem
 
-    def get_all_phrases(self, def_group):
-        results = []
-        phrase_elems = def_group.xpath('./*[@class="homograph-entry"]/'         # 8 KEYS
-                                       '*[@class="phrase"]')                    # 9 KEYS
-
-        for phrase in phrase_elems:
-            elem = phrase.xpath('.//a')[0]
-            results.append(elem.text)
+    def get_all_related_words(self, def_group):
+        results = def_group.xpath('./*[@class="homograph-entry"]/'         # 8 KEYS
+                                    '*[@class="re hom-subsec"]//'            # 9 KEYS
+                                    '*[@class="xr_ref"]/a/text()')
 
         return results
 
