@@ -173,22 +173,22 @@ class WordTest(unittest.TestCase):
                 'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'
             ]},
             {"synonyms": [
-                {"syn_group": "do", "gram_groups": [
+                {"word": "do", "gram_groups": [
                     {"gram_group": {
-                        "grammar_value": "verb",
+                        "value": "verb",
                         "synonyms": [
-                            {"group": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
-                            {"group": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
-                            {"group": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
-                            {"group": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
-                            {"group": ["cause", "bring about", "create", "effect", "produce"]}
+                            {"line": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
+                            {"line": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
+                            {"line": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
+                            {"line": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
+                            {"line": ["cause", "bring about", "create", "effect", "produce"]}
                         ]
                     }},
                     {"gram_group": {
-                        "grammar_value": "noun",
+                        "value": "noun",
                         "synonyms": [
                             {"category": "informal mainly British New Zealand",
-                             "group": ["event", "affair", "function", "gathering", "occasion", "party"]},
+                             "line": ["event", "affair", "function", "gathering", "occasion", "party"]},
                         ]
                     }}
                 ]}

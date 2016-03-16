@@ -312,7 +312,7 @@ class SynListGroup(JsonGroup):
         self.category = self.dict_parser.get_synonyms_category(self.etree_elem)
 
     def translate(self) -> dict:
-        json_obj = {"group": self.list}
+        json_obj = {"line": self.list}
 
         if len(self.category):
             json_obj["category"] = self.category
@@ -362,7 +362,7 @@ class SynGramGroup(JsonGroup):
     def translate(self) -> dict:
         json_object = {}
         if self.grammar_value is not None:
-            json_object["grammar_value"] = self.grammar_value
+            json_object["value"] = self.grammar_value
         if self.synonyms is not None:
             json_object["synonyms"] = self.synonyms.translate()
 
@@ -394,5 +394,5 @@ class SynGroup(JsonGroup):
                 json_children.append(json_child)
 
         if len(self.word):
-            return {"syn_group": self.word, "gram_groups": json_children}
+            return {"word": self.word, "gram_groups": json_children}
         return None
