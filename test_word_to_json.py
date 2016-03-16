@@ -267,7 +267,7 @@ class HtmlToJsonTest(unittest.TestCase):
             group = SenseListGroup(dict_parser, gram_group)
             group.build()
             result = group.translate()
-            self.assertEqual({"defs": []}, result)
+            self.assertEqual([], result)
 
     def test_defs_group_3_returns_3_empty_items(self):
         root = etree.HTML(self.html_content)
@@ -279,10 +279,7 @@ class HtmlToJsonTest(unittest.TestCase):
             group = SenseListGroup(dict_parser, gram_group)
             group.build()
             result = group.translate()
-            self.assertEqual({"defs": [{"def": ""},
-                                       {"def": ""},
-                                       {"def": ""}]},
-                              result)
+            self.assertEqual([{"def": ""}, {"def": ""}, {"def": ""}], result)
 
     def test_def_returns_def_json(self):
         root = etree.HTML(self.html_content)
@@ -324,7 +321,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group = SenseListGroup(dict_parser, gram_group)
         group.build()
         result = group.translate()
-        self.assertEqual({"defs": [
+        self.assertEqual([
             {"def_subgroup": [
                 {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
                 {"def": "to carry out; fulfill", "example": "do what I tell you"}
@@ -359,7 +356,7 @@ class HtmlToJsonTest(unittest.TestCase):
             {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
             {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
             {"category": "slang", "def": "to kill"},
-        ]}, result)
+        ], result)
 
     def test_first_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
@@ -779,9 +776,9 @@ class HtmlToJsonTest(unittest.TestCase):
         group = RelatedGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        self.assertEqual({"related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
+        self.assertEqual(["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                                       "do up", "do up right", "do oneself well", "do with", "do without",
-                                      "have to do with"]}, result)
+                                      "have to do with"], result)
 
     def test_translate_html_to_json(self):
         obj = HtmlToJson(self.word_name, self.html_content)

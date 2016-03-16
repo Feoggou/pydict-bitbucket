@@ -77,7 +77,7 @@ class DefSubgroup(JsonGroup):
         self.subdefs.build()
 
     def translate(self) -> dict:
-        return {"def_subgroup": self.subdefs.translate()["defs"]}
+        return {"def_subgroup": self.subdefs.translate()}
 
 
 # {"category":"slang", "def":"excrement; feces", "example":"dog do"}
@@ -143,7 +143,7 @@ class SenseListGroup(JsonGroup):
             for word_def in self.defs:
                 json_children.append(word_def.translate())
 
-        return {"defs": json_children}
+        return json_children
 
 
 # {"gram_group": [{"word_forms": "did, done, doing"}, {"grammar_value": "transitive verb"}, {"defs": []}]}
@@ -173,7 +173,7 @@ class GramGroup(JsonGroup):
         if self.grammar_value is not None:
             json_object["value"] = self.grammar_value
         if self.defs is not None:
-            json_object["defs"] = self.defs.translate()["defs"]
+            json_object["defs"] = self.defs.translate()
 
         return json_object
 
@@ -209,7 +209,7 @@ class DefGroup(JsonGroup):
         json_obj = {"word": self.word, "gram_groups": gram_groups}
 
         if self.related is not None:
-            related_children = self.related.translate()["related"]
+            related_children = self.related.translate()
             if len(related_children) > 0:
                 json_obj["related"] = related_children
 
@@ -291,7 +291,7 @@ class RelatedGroup(JsonGroup):
         self.related = self.dict_parser.get_all_related_words(self.defgroup_etree)
 
     def translate(self):
-        return {"related": self.related}
+        return self.related
 
 
 #####################################
