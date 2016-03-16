@@ -211,7 +211,7 @@ class DefGroup(JsonGroup):
             related_children = self.related.translate()["related"]
 
         if len(self.word):
-            return {"word": self.word, "def_group": json_children, "related" : related_children}
+            return {"word": self.word, "gram_groups": json_children, "related" : related_children}
         return None
 
 

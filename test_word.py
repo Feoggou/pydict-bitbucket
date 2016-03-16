@@ -59,7 +59,7 @@ class WordTest(unittest.TestCase):
                     "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                     "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"
                 ],
-                 "def_group": [
+                 "gram_groups": [
                      {"gram_group": [
                         {"word_forms": ["did", "done", "'doing"]},
                         {"grammar_value": "transitive verb"},
@@ -133,7 +133,7 @@ class WordTest(unittest.TestCase):
                         ]}
                     ]}
                 ]},
-                {"word": "do", "related": [], "def_group": [
+                {"word": "do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -141,7 +141,7 @@ class WordTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"word": "do", "related": [], "def_group": [
+                {"word": "do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -149,14 +149,14 @@ class WordTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"word": "Do or do", "related": [], "def_group": [
+                {"word": "Do or do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "ditto"}
                         ]}
                     ]},
                 ]},
-                {"word": "DO or D.O.", "related": [], "def_group": [
+                {"word": "DO or D.O.", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "Doctor of Osteopathy"}

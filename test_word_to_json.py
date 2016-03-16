@@ -210,7 +210,7 @@ class HtmlToJsonTest(unittest.TestCase):
             group = DefGroup(dict_parser, etree_group)
             group.build()
             result = group.translate()
-            self.assertEqual({"word": "do", "related": [], "def_group": []}, result)
+            self.assertEqual({"word": "do", "related": [], "gram_groups": []}, result)
 
     # word / def_groups
     def test_def_groups_returns_5_def_groups(self):
@@ -222,9 +222,9 @@ class HtmlToJsonTest(unittest.TestCase):
             group.build()
             result = group.translate()
             self.assertEqual([
-                {"word": "do", "related": [], "def_group": []}, {"word": "do", "related": [], "def_group": []},
-                {"word": "do", "related": [], "def_group": []}, {"word": "Do or do", "related": [], "def_group": []},
-                {"word": "DO or D.O.", "related": [], "def_group": []}],
+                {"word": "do", "related": [], "gram_groups": []}, {"word": "do", "related": [], "gram_groups": []},
+                {"word": "do", "related": [], "gram_groups": []}, {"word": "Do or do", "related": [], "gram_groups": []},
+                {"word": "DO or D.O.", "related": [], "gram_groups": []}],
                 result)
 
     # word / def_groups / def_group [0] / gram_groups
@@ -238,7 +238,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 group = DefGroup(dict_parser, def_group)
                 group.build()
                 result = group.translate()
-                self.assertEqual({"word": "do", "related": [], "def_group": [
+                self.assertEqual({"word": "do", "related": [], "gram_groups": [
                     {"gram_group": []}, {"gram_group": []}, {"gram_group": []}, {"gram_group": []}]},
                                  result)
 
@@ -494,7 +494,7 @@ class HtmlToJsonTest(unittest.TestCase):
             {"word": "do",
              "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                          "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
-             "def_group": [
+             "gram_groups": [
                  {"gram_group": [
                     {"word_forms": ["did", "done", "'doing"]},
                     {"grammar_value": "transitive verb"},
@@ -578,7 +578,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual(
-            {"word": "do", "related": [], "def_group": [
+            {"word": "do", "related": [], "gram_groups": [
                 {"gram_group": [
                     {"grammar_value": "noun"},
                     {"defs": [
@@ -596,7 +596,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual(
-            {"word": "do", "related": [], "def_group": [
+            {"word": "do", "related": [], "gram_groups": [
                 {"gram_group": [
                     {"grammar_value": "noun"},
                     {"defs": [
@@ -614,7 +614,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual(
-            {"word": "Do or do", "related": [], "def_group": [
+            {"word": "Do or do", "related": [], "gram_groups": [
                 {"gram_group": [
                     {"defs": [
                         {"def": "ditto"}
@@ -631,7 +631,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual(
-            {"word": "DO or D.O.", "related": [], "def_group": [
+            {"word": "DO or D.O.", "related": [], "gram_groups": [
                 {"gram_group": [
                     {"defs": [
                         {"def": "Doctor of Osteopathy"}
@@ -651,7 +651,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 {"word": "do",
                  "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                              "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
-                 "def_group": [
+                 "gram_groups": [
                     {"gram_group": [
                         {"word_forms": ["did", "done", "'doing"]},
                         {"grammar_value": "transitive verb"},
@@ -725,7 +725,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]},
-                {"word": "do", "related": [], "def_group": [
+                {"word": "do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -733,7 +733,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"word": "do", "related": [], "def_group": [
+                {"word": "do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -741,14 +741,14 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"word": "Do or do", "related": [], "def_group": [
+                {"word": "Do or do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "ditto"}
                         ]}
                     ]},
                 ]},
-                {"word": "DO or D.O.", "related": [], "def_group": [
+                {"word": "DO or D.O.", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "Doctor of Osteopathy"}
@@ -804,7 +804,7 @@ class HtmlToJsonTest(unittest.TestCase):
                     "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts", "do up",
                     "do up right", "do oneself well", "do with", "do without", "have to do with"
                 ],
-                 "def_group": [
+                 "gram_groups": [
                      {"gram_group": [
                         {"word_forms": ["did", "done", "'doing"]},
                         {"grammar_value": "transitive verb"},
@@ -878,7 +878,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]},
-                {"word": "do", "related": [], "def_group": [
+                {"word": "do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -886,7 +886,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"word": "do", "related": [], "def_group": [
+                {"word": "do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -894,14 +894,14 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"word": "Do or do", "related": [], "def_group": [
+                {"word": "Do or do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "ditto"}
                         ]}
                     ]},
                 ]},
-                {"word": "DO or D.O.", "related": [], "def_group": [
+                {"word": "DO or D.O.", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "Doctor of Osteopathy"}
@@ -938,7 +938,7 @@ class HtmlToJsonTest(unittest.TestCase):
                      "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                      "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"
                  ],
-                 "def_group": [
+                 "gram_groups": [
                      {"gram_group": [
                         {"word_forms": ["did", "done", "'doing"]},
                         {"grammar_value": "transitive verb"},
@@ -1012,7 +1012,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]},
-                {"word": "do", "related": [], "def_group": [
+                {"word": "do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -1020,7 +1020,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"word": "do", "related": [], "def_group": [
+                {"word": "do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "noun"},
                         {"defs": [
@@ -1028,14 +1028,14 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]},
                 ]},
-                {"word": "Do or do", "related": [], "def_group": [
+                {"word": "Do or do", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "ditto"}
                         ]}
                     ]},
                 ]},
-                {"word": "DO or D.O.", "related": [], "def_group": [
+                {"word": "DO or D.O.", "related": [], "gram_groups": [
                     {"gram_group": [
                         {"defs": [
                             {"def": "Doctor of Osteopathy"}

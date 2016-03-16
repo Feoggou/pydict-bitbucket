@@ -1,7 +1,7 @@
 {
     "def_groups": [
         {
-            "def_group": [
+            "gram_groups": [
                 {
                     "gram_group": [
                         {
@@ -263,7 +263,7 @@
             "word": "do"
         },
         {
-            "def_group": [
+            "gram_groups": [
                 {
                     "gram_group": [
                         {
@@ -284,7 +284,7 @@
             "word": "do"
         },
         {
-            "def_group": [
+            "gram_groups": [
                 {
                     "gram_group": [
                         {
@@ -305,7 +305,7 @@
             "word": "do"
         },
         {
-            "def_group": [
+            "gram_groups": [
                 {
                     "gram_group": [
                         {
@@ -322,7 +322,7 @@
             "word": "Do or do"
         },
         {
-            "def_group": [
+            "gram_groups": [
                 {
                     "gram_group": [
                         {
