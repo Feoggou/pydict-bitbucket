@@ -341,7 +341,7 @@ class SynSenseListGroup(JsonGroup):
             for group in self.groups:
                 json_children.append(group.translate())
 
-        return {"synonyms": json_children}
+        return json_children
 
 
 class SynGramGroup(JsonGroup):
@@ -360,13 +360,13 @@ class SynGramGroup(JsonGroup):
         self.synonyms.build()
 
     def translate(self) -> dict:
-        json_children = []
+        json_object = {}
         if self.grammar_value is not None:
-            json_children.append({"grammar_value": self.grammar_value})
+            json_object["grammar_value"] = self.grammar_value
         if self.synonyms is not None:
-            json_children.append(self.synonyms.translate())
+            json_object["synonyms"] = self.synonyms.translate()
 
-        return {"gram_group": json_children}
+        return {"gram_group": json_object}
 
 
 # {"syn_group": 1, "items": []}

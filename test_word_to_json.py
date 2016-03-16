@@ -27,23 +27,23 @@ class HtmlToJsonSynTest(unittest.TestCase):
         json_obj = obj.translate()
         self.assertEqual(json_obj, {"synonyms": [
             {"syn_group": "do", "gram_groups": [
-                {"gram_group": [
-                    {"grammar_value": "verb"},
-                    {"synonyms": [
+                {"gram_group": {
+                    "grammar_value": "verb",
+                    "synonyms": [
                         {"group": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
                         {"group": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
                         {"group": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
                         {"group": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
                         {"group": ["cause", "bring about", "create", "effect", "produce"]}
-                    ]}
-                ]},
-                {"gram_group": [
-                    {"grammar_value": "noun"},
-                    {"synonyms": [
+                    ]
+                }},
+                {"gram_group": {
+                    "grammar_value": "noun",
+                    "synonyms": [
                         {"category": "informal mainly British New Zealand",
                          "group": ["event", "affair", "function", "gathering", "occasion", "party"]},
-                    ]}
-                ]}
+                    ]
+                }}
             ]}
         ]})
 
@@ -56,23 +56,23 @@ class HtmlToJsonSynTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual({"syn_group": "do", "gram_groups": [
-            {"gram_group": [
-                {"grammar_value": "verb"},
-                {"synonyms": [
+            {"gram_group": {
+                "grammar_value": "verb",
+                "synonyms": [
                     {"group": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
                     {"group": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
                     {"group": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
                     {"group": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
                     {"group": ["cause", "bring about", "create", "effect", "produce"]}
-                ]}
-            ]},
-            {"gram_group": [
-                {"grammar_value": "noun"},
-                {"synonyms": [
+                ]
+            }},
+            {"gram_group": {
+                "grammar_value": "noun",
+                "synonyms": [
                     {"category": "informal mainly British New Zealand",
                      "group": ["event", "affair", "function", "gathering", "occasion", "party"]},
-                ]}
-            ]}
+                ]
+            }}
         ]}, result)
 
     def test_first_gram_group_returns_empty_synonyms(self):
@@ -84,16 +84,16 @@ class HtmlToJsonSynTest(unittest.TestCase):
         group = SynGramGroup(dict_parser, gram_group)
         group.build()
         result = group.translate()
-        self.assertEqual({"gram_group": [
-            {"grammar_value": "verb"},
-            {"synonyms": [
+        self.assertEqual({"gram_group": {
+            "grammar_value": "verb",
+            "synonyms": [
                 {"group": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
                 {"group": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
                 {"group": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
                 {"group": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
                 {"group": ["cause", "bring about", "create", "effect", "produce"]}
-            ]}
-        ]}, result)
+            ]
+        }}, result)
 
     def test_1st_syn_group_list1_returns_items(self):
         root = etree.HTML(self.html_content)
@@ -119,13 +119,13 @@ class HtmlToJsonSynTest(unittest.TestCase):
         group.build()
         result = group.translate()
         print("result=", result)
-        self.assertEqual({"synonyms": [
+        self.assertEqual([
             {"group": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
             {"group": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
             {"group": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
             {"group": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
             {"group": ["cause", "bring about", "create", "effect", "produce"]}
-        ]}, result)
+        ], result)
 
 
 # {"related_words": []},
@@ -949,12 +949,8 @@ class HtmlToJsonTest(unittest.TestCase):
         synonyms = HtmlToJsonSynonyms(self.word_name, self.syn_content)
         do_word["word"].append(synonyms.translate())
 
-        # related
         related = HtmlToJsonRelated(self.related_content)
         do_word["word"].append(related.translate())
-
-        """self.assertEqual(json_obj, )"""
-        # end related
 
         self.assertEqual(do_word,
         {"word": [
@@ -1079,23 +1075,23 @@ class HtmlToJsonTest(unittest.TestCase):
             ]},
             {"synonyms": [
                 {"syn_group": "do", "gram_groups": [
-                    {"gram_group": [
-                        {"grammar_value": "verb"},
-                        {"synonyms": [
+                    {"gram_group": {
+                        "grammar_value": "verb",
+                        "synonyms": [
                             {"group": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
                             {"group": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
                             {"group": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
                             {"group": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
                             {"group": ["cause", "bring about", "create", "effect", "produce"]}
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"grammar_value": "noun"},
-                        {"synonyms": [
+                        ]
+                    }},
+                    {"gram_group": {
+                        "grammar_value": "noun",
+                        "synonyms": [
                             {"category": "informal mainly British New Zealand",
                              "group": ["event", "affair", "function", "gathering", "occasion", "party"]},
-                        ]}
-                    ]}
+                        ]
+                    }}
                 ]}
             ]},
             {"related_words": [
