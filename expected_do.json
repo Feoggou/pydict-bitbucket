@@ -1,8 +1,7 @@
 {
     "def_groups": [
         {
-            "def_group": "do",
-            "items": [
+            "def_group": [
                 {
                     "gram_group": [
                         {
@@ -260,11 +259,11 @@
                 "do with",
                 "do without",
                 "have to do with"
-            ]
+            ],
+            "word": "do"
         },
         {
-            "def_group": "do",
-            "items": [
+            "def_group": [
                 {
                     "gram_group": [
                         {
@@ -281,11 +280,11 @@
                     ]
                 }
             ],
-            "related": []
+            "related": [],
+            "word": "do"
         },
         {
-            "def_group": "do",
-            "items": [
+            "def_group": [
                 {
                     "gram_group": [
                         {
@@ -302,11 +301,11 @@
                     ]
                 }
             ],
-            "related": []
+            "related": [],
+            "word": "do"
         },
         {
-            "def_group": "Do or do",
-            "items": [
+            "def_group": [
                 {
                     "gram_group": [
                         {
@@ -319,11 +318,11 @@
                     ]
                 }
             ],
-            "related": []
+            "related": [],
+            "word": "Do or do"
         },
         {
-            "def_group": "DO or D.O.",
-            "items": [
+            "def_group": [
                 {
                     "gram_group": [
                         {
@@ -336,7 +335,8 @@
                     ]
                 }
             ],
-            "related": []
+            "related": [],
+            "word": "DO or D.O."
         }
     ],
     "examples": [

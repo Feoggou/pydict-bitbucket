@@ -187,9 +187,6 @@ class DefGroup(JsonGroup):
         self.gram_groups = []
         self.related = None
 
-        """name = self.etree_elem.get('id')
-        match = re.search("\d+", name)
-        self.name = match.group(0)"""
         self.word = dict_parser.get_word_form_for_def_group(etree_def_group)
 
     def build(self):
@@ -214,7 +211,7 @@ class DefGroup(JsonGroup):
             related_children = self.related.translate()["related"]
 
         if len(self.word):
-            return {"def_group": self.word, "items": json_children, "related" : related_children}
+            return {"word": self.word, "def_group": json_children, "related" : related_children}
         return None
 
 
