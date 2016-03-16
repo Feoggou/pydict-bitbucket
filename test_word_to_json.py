@@ -1,15 +1,12 @@
 import unittest
 from unittest.mock import Mock, MagicMock, patch
 from def_groups import *
-from etree_printer import *
 from dict_parse import DictParser, DictSynParser
 import html_to_json
 from html_to_json import HtmlToJson, HtmlToJsonRelated, HtmlToJsonSynonyms
 from lxml import etree
-import json
 
 
-# {"synonyms": []}
 class HtmlToJsonSynTest(unittest.TestCase):
     def setUp(self):
         f = open("do_syn.html")
@@ -41,7 +38,9 @@ class HtmlToJsonSynTest(unittest.TestCase):
                     "value": "noun",
                     "synonyms": [
                         {"category": "informal mainly British New Zealand",
-                         "line": ["event", "affair", "function", "gathering", "occasion", "party"]},
+                         "line": [
+                             "event", "affair", "function", "gathering", "occasion", "party"]
+                         },
                     ]
                 }}
             ]}
@@ -179,17 +178,6 @@ class HtmlToJsonTest(unittest.TestCase):
             json_obj = obj.translate()
             html_to_json.MainDefGroup.build_children.assert_called_once_with()
             self.assertEqual(json_obj, {"word": []})
-
-    """def test_translate_main_to_json_returns_main_with_empty_fields(self):
-        obj = HtmlToJson(self.word_name, self.html_content)
-        json_obj = obj.translate()
-        print(json_obj)
-        self.assertEqual(json_obj, {"word": [{"word_frequency": ""}, {"def_groups": []}, {"examples": []},
-                                             {"nearby_words": []}
-                                             ]})
-                                             # {"related_terms": []}
-                                             # , {"synonyms": []}]})
-                                             # {"phrases": []}]})"""
 
     def test_word_freq_group_value_is_extremely_common(self):
         root = etree.HTML(self.html_content)
