@@ -49,10 +49,9 @@ class WordData:
         content = obj.translate()
 
         synonyms = html_to_json.HtmlToJsonSynonyms(self.word_name, self.synonyms_content)
-        content["word"].append(synonyms.translate())
+        content["synonyms"] = synonyms.translate()
 
-        # related
         related = html_to_json.HtmlToJsonRelated(self.related_content)
-        content["word"].append(related.translate())
+        content["related_words"] = related.translate()
 
         return content

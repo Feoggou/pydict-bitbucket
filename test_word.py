@@ -52,9 +52,9 @@ class WordTest(unittest.TestCase):
         content = word_data.build_content()
 
         self.assertEqual(content,
-        {"word": [
-            {"word_frequency": "Extremely Common"},
-            {"def_groups": [
+        {
+            "frequency": "Extremely Common",
+            "def_groups": [
                 {"def_group": "do", "related": [
                     "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                     "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"
@@ -163,16 +163,16 @@ class WordTest(unittest.TestCase):
                         ]}
                     ]}
                 ]}
-            ]},
-            {"examples": [
+            ],
+            "examples": [
                 {"example": "You should write the general principles down somewhere, Dad, like they do with the United States Code."}
-            ]},
-            {"nearby_words": [
+            ],
+            "nearby_words": [
                 'Dn', 'DNA', 'DNA fingerprinting', 'DNB', 'Dnepr','Dneprodzerzhinsk', 'Dnepropetrovsk',
                 'Dnestr', 'Dnieper', 'Dniester', 'do a deal', 'do a number on', 'do away with', 'do business with',
                 'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'
-            ]},
-            {"synonyms": [
+            ],
+            "synonyms": [
                 {"word": "do", "gram_groups": [
                     {"gram_group": {
                         "value": "verb",
@@ -192,8 +192,8 @@ class WordTest(unittest.TestCase):
                         ]
                     }}
                 ]}
-            ]},
-            {"related_words": [
+            ],
+            "related_words": [
                 "do by", "do up", "do down", "do time", "make do", "do-gooder", "do penance", "do-or-die", "do honor to",
                 "do up right", "whoop-de-do", "do credit to", "do the honors", "do oneself well", "do-it-yourself",
                 "do one's (or its) business", "have to do with", "Mato Grosso do Sul", "do in", "to-do", "do gree",
@@ -203,8 +203,8 @@ class WordTest(unittest.TestCase):
                 "do tell!", "do a deal", "do-nothing", "do duty for", "do up brown", "well-to-do", "do away with",
                 "do one's bit", "ne'er-do-well", "do wonders for", "do business with", "do oneself proud",
                 "do the bidding of", "Rio Grande do Sul"
-            ]}
-        ]})
+            ]
+        })
 
     @patch('word.WordData.fetch', word.WordData.fetch_mock)
     def test_json_result(self):

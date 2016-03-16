@@ -22,7 +22,7 @@ class MainDefGroupSyn:
         for x in self.syn_groups:
             json_children.append(x.translate())
 
-        return {'synonyms': json_children}
+        return json_children
 
 
 # RELATED
@@ -36,7 +36,7 @@ class MainDefGroupRel:
         self.related_words = self.dict_parser.get_all_related_words()
 
     def translate(self):
-        return {'related_words': self.related_words}
+        return self.related_words
 
 
 class MainDefGroup:
@@ -47,10 +47,7 @@ class MainDefGroup:
         self.word_frequency = None
         self.def_groups = None
         self.examples = None
-        # self.related_terms = None
         self.nearby_words = None
-        # self.synonyms = None
-        # self.phrases = None
 
     def build_children(self):
         self.word_frequency = WordFrequencyGroup(self.dict_parser)
@@ -62,30 +59,21 @@ class MainDefGroup:
         self.examples = ExamplesGroup(self.dict_parser)
         self.examples.build()
 
-        # self.related_terms = RelatedTermsGroup(self.dict_parser)
         self.nearby_words = NearbyWordsGroup(self.dict_parser)
         self.nearby_words.build()
-        # self.synonyms = SynonymsGroup(self.dict_        #
-        # self.phrases = PhrasesGroup(self.dict_parser, self.def_groups[0])
 
     def translate(self):
-        children = []
+        json_object = {}
         if self.word_frequency is not None:
-            children.append(self.word_frequency.translate())
+            json_object["frequency"] = self.word_frequency.translate()
         if self.def_groups is not None:
-            children.append(self.def_groups.translate())
+            json_object["def_groups"] = self.def_groups.translate()
         if self.examples is not None:
-            children.append(self.examples.translate())
-        """if self.related_terms is not None:
-            children.append(self.related_terms.translate())"""
+            json_object["examples"] = self.examples.translate()
         if self.nearby_words is not None:
-            children.append(self.nearby_words.translate())
-        """if self.synonyms is not None:
-             children.append(self.synonyms.translate())"""
-        """if self.phrases is not None:
-            children.append(self.phrases.translate())"""
+            json_object["nearby_words"] = self.nearby_words.translate()
 
-        return {'word': children}
+        return json_object
 
 
 class HtmlToJson:

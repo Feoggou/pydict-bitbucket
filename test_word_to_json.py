@@ -22,7 +22,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
         obj = HtmlToJsonSynonyms(self.word_name, self.html_content)
 
         json_obj = obj.translate()
-        self.assertEqual(json_obj, {"synonyms": [
+        self.assertEqual(json_obj, [
             {"word": "do", "gram_groups": [
                 {"gram_group": {
                     "value": "verb",
@@ -44,7 +44,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
                     ]
                 }}
             ]}
-        ]})
+        ])
 
     def test_first_syngroup_returns_2_gram_groups(self):
         root = etree.HTML(self.html_content)
@@ -139,7 +139,7 @@ class HtmlToJsonRelTest(unittest.TestCase):
     def test_translate_main_to_json_returns_all_related_words(self):
         obj = HtmlToJsonRelated(self.html_content)
         json_obj = obj.translate()
-        self.assertEqual(json_obj, {"related_words": [
+        self.assertEqual(json_obj, [
             "do by", "do up", "do down", "do time", "make do", "do-gooder", "do penance", "do-or-die", "do honor to",
             "do up right", "whoop-de-do", "do credit to", "do the honors", "do oneself well", "do-it-yourself",
             "do one's (or its) business", "have to do with", "Mato Grosso do Sul", "do in", "to-do", "do gree",
@@ -148,7 +148,7 @@ class HtmlToJsonRelTest(unittest.TestCase):
             "do one's damnedest (or damndest)", "Rio Grande do Norte", "do it", "can-do", "do over", "do-rag",
             "do tell!", "do a deal", "do-nothing", "do duty for", "do up brown", "well-to-do", "do away with",
             "do one's bit", "ne'er-do-well", "do wonders for", "do business with", "do oneself proud",
-            "do the bidding of", "Rio Grande do Sul"]})
+            "do the bidding of", "Rio Grande do Sul"])
 
 
 class HtmlToJsonTest(unittest.TestCase):
@@ -177,7 +177,7 @@ class HtmlToJsonTest(unittest.TestCase):
             mock.return_value = None
             json_obj = obj.translate()
             html_to_json.MainDefGroup.build_children.assert_called_once_with()
-            self.assertEqual(json_obj, {"word": []})
+            self.assertEqual(json_obj, {})
 
     def test_word_freq_group_value_is_extremely_common(self):
         root = etree.HTML(self.html_content)
@@ -186,7 +186,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group = WordFrequencyGroup(dict_parser)
         group.build()
         result = group.translate()
-        self.assertEqual(result, {"word_frequency": "Extremely Common"})
+        self.assertEqual(result, "Extremely Common")
 
     # word / def_groups
     def test_def_groups_returns_empty_groups(self):
@@ -197,7 +197,7 @@ class HtmlToJsonTest(unittest.TestCase):
             group = DefGroups(dict_parser)
             group.build()
             result = group.translate()
-            self.assertEqual({"def_groups": []}, result)
+            self.assertEqual([], result)
 
     # word / def_groups / def_group [0]
     def test_first_def_group_returns_no_items(self):
@@ -221,10 +221,10 @@ class HtmlToJsonTest(unittest.TestCase):
             group = DefGroups(dict_parser)
             group.build()
             result = group.translate()
-            self.assertEqual({"def_groups": [
+            self.assertEqual([
                 {"def_group": "do", "related": [], "items": []}, {"def_group": "do", "related": [], "items": []},
                 {"def_group": "do", "related": [], "items": []}, {"def_group": "Do or do", "related": [], "items": []},
-                {"def_group": "DO or D.O.", "related": [], "items": []}]},
+                {"def_group": "DO or D.O.", "related": [], "items": []}],
                 result)
 
     # word / def_groups / def_group [0] / gram_groups
@@ -577,7 +577,6 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        print(result)
         self.assertEqual(
             {"def_group": "do", "related": [], "items": [
                 {"gram_group": [
@@ -648,7 +647,7 @@ class HtmlToJsonTest(unittest.TestCase):
         groups.build()
         result = groups.translate()
         self.assertEqual(
-            {"def_groups": [
+            [
                 {"def_group": "do",
                  "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                              "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
@@ -760,7 +759,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]}
-            ]}, result)
+            ], result)
 
     def test_word_returns_examples(self):
         root = etree.HTML(self.html_content)
@@ -769,9 +768,9 @@ class HtmlToJsonTest(unittest.TestCase):
         group = ExamplesGroup(dict_parser)
         group.build()
         result = group.translate()
-        self.assertEqual({"examples": [
+        self.assertEqual([
                 {"example": "You should write the general principles down somewhere, Dad, like they do with the United States Code."}
-            ]}, result)
+            ], result)
 
     def test_word_returns_nearby_words(self):
         root = etree.HTML(self.html_content)
@@ -780,10 +779,10 @@ class HtmlToJsonTest(unittest.TestCase):
         group = NearbyWordsGroup(dict_parser)
         group.build()
         result = group.translate()
-        self.assertEqual({"nearby_words": [
+        self.assertEqual([
                 'Dn', 'DNA', 'DNA fingerprinting', 'DNB', 'Dnepr','Dneprodzerzhinsk', 'Dnepropetrovsk',
                 'Dnestr', 'Dnieper', 'Dniester', 'do a deal', 'do a number on', 'do away with', 'do business with',
-                'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to']}, result)
+                'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'], result)
 
     def test_word_returns_related_defgroup_1(self):
         root = etree.HTML(self.html_content)
@@ -802,9 +801,9 @@ class HtmlToJsonTest(unittest.TestCase):
         json_str = obj.translate()
 
         self.assertEqual(json_str,
-        {"word": [
-            {"word_frequency": "Extremely Common"},
-            {"def_groups": [
+        {
+            "frequency": "Extremely Common",
+            "def_groups": [
                 {"def_group": "do", "related": [
                     "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts", "do up",
                     "do up right", "do oneself well", "do with", "do without", "have to do with"
@@ -913,35 +912,31 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]}
-            ]},
-            {"examples": [
+            ],
+            "examples": [
                 {"example": "You should write the general principles down somewhere, Dad, like they do with the United States Code."}
-            ]},
-            # {"related terms": [
-            # ]},
-            {"nearby_words": [
+            ],
+            "nearby_words": [
                 'Dn', 'DNA', 'DNA fingerprinting', 'DNB', 'Dnepr','Dneprodzerzhinsk', 'Dnepropetrovsk',
                 'Dnestr', 'Dnieper', 'Dniester', 'do a deal', 'do a number on', 'do away with', 'do business with',
                 'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'
-            ]},
-            # {"synonyms": [
-            # ]},
-        ]})
+            ]
+        })
 
     def test_translate_html_syn_rel_to_json(self):
         obj = HtmlToJson(self.word_name, self.html_content)
         do_word = obj.translate()
 
         synonyms = HtmlToJsonSynonyms(self.word_name, self.syn_content)
-        do_word["word"].append(synonyms.translate())
+        do_word["synonyms"] = synonyms.translate()
 
         related = HtmlToJsonRelated(self.related_content)
-        do_word["word"].append(related.translate())
+        do_word["related_words"] = related.translate()
 
         self.assertEqual(do_word,
-        {"word": [
-            {"word_frequency": "Extremely Common"},
-            {"def_groups": [
+        {
+            "frequency": "Extremely Common",
+            "def_groups": [
                 {"def_group": "do", "related": [
                     "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                     "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"
@@ -1050,16 +1045,16 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]}
                     ]}
                 ]}
-            ]},
-            {"examples": [
+            ],
+            "examples": [
                 {"example": "You should write the general principles down somewhere, Dad, like they do with the United States Code."}
-            ]},
-            {"nearby_words": [
+            ],
+            "nearby_words": [
                 'Dn', 'DNA', 'DNA fingerprinting', 'DNB', 'Dnepr','Dneprodzerzhinsk', 'Dnepropetrovsk',
                 'Dnestr', 'Dnieper', 'Dniester', 'do a deal', 'do a number on', 'do away with', 'do business with',
                 'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'
-            ]},
-            {"synonyms": [
+            ],
+            "synonyms": [
                 {"word": "do", "gram_groups": [
                     {"gram_group": {
                         "value": "verb",
@@ -1079,8 +1074,8 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]
                     }}
                 ]}
-            ]},
-            {"related_words": [
+            ],
+            "related_words": [
                 "do by", "do up", "do down", "do time", "make do", "do-gooder", "do penance", "do-or-die", "do honor to",
                 "do up right", "whoop-de-do", "do credit to", "do the honors", "do oneself well", "do-it-yourself",
                 "do one's (or its) business", "have to do with", "Mato Grosso do Sul", "do in", "to-do", "do gree",
@@ -1090,5 +1085,5 @@ class HtmlToJsonTest(unittest.TestCase):
                 "do tell!", "do a deal", "do-nothing", "do duty for", "do up brown", "well-to-do", "do away with",
                 "do one's bit", "ne'er-do-well", "do wonders for", "do business with", "do oneself proud",
                 "do the bidding of", "Rio Grande do Sul"
-            ]}
-        ]})
+            ]
+        })

@@ -63,7 +63,7 @@ class WordFrequencyGroup(JsonGroup):
         self.word_freq = freq_phrase.partition(".")[0]
 
     def translate(self) -> dict:
-        return {"word_frequency": self.word_freq}
+        return self.word_freq
 
 
 class DefSubgroup(JsonGroup):
@@ -238,7 +238,7 @@ class DefGroups(JsonGroup):
             if json_child is not None:
                 json_children.append(json_child)
 
-        return {"def_groups": json_children}
+        return json_children
 
 
 class ExamplesGroup(JsonGroup):
@@ -252,8 +252,7 @@ class ExamplesGroup(JsonGroup):
             self.examples.append({"example": ex})
 
     def translate(self):
-        # children = []
-        return {"examples": self.examples}
+        return self.examples
 
 
 """class RelatedTermsGroup(JsonGroup):
@@ -279,8 +278,7 @@ class NearbyWordsGroup(JsonGroup):
         self.words = self.dict_parser.get_all_nearby_words()
 
     def translate(self):
-        children = []
-        return {"nearby_words": self.words}
+        return self.words
 
 
 class RelatedGroup(JsonGroup):
