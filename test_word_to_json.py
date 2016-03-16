@@ -26,7 +26,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
 
         json_obj = obj.translate()
         self.assertEqual(json_obj, {"synonyms": [
-            {"syn_group": "do", "items": [
+            {"syn_group": "do", "gram_groups": [
                 {"gram_group": [
                     {"grammar_value": "verb"},
                     {"synonyms": [
@@ -55,7 +55,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
         group = SynGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        self.assertEqual({"syn_group": "do", "items": [
+        self.assertEqual({"syn_group": "do", "gram_groups": [
             {"gram_group": [
                 {"grammar_value": "verb"},
                 {"synonyms": [
@@ -1078,7 +1078,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'
             ]},
             {"synonyms": [
-                {"syn_group": "do", "items": [
+                {"syn_group": "do", "gram_groups": [
                     {"gram_group": [
                         {"grammar_value": "verb"},
                         {"synonyms": [

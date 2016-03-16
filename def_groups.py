@@ -394,5 +394,5 @@ class SynGroup(JsonGroup):
                 json_children.append(json_child)
 
         if len(self.word):
-            return {"syn_group": self.word, "items": json_children}
+            return {"syn_group": self.word, "gram_groups": json_children}
         return None

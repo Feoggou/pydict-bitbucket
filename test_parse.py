@@ -286,7 +286,6 @@ class TestParser(unittest.TestCase):
         def_group = self.d_parser.get_all_def_groups()[0]
         rel_words = self.d_parser.get_all_related_words(def_group)
 
-        # self.assertEqual(phrases[0], "do by")
         self.assertEqual(len(rel_words), 13)
         self.assertEqual(rel_words, ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                                      "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"])
