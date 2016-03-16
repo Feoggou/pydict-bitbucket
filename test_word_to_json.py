@@ -210,7 +210,7 @@ class HtmlToJsonTest(unittest.TestCase):
             group = DefGroup(dict_parser, etree_group)
             group.build()
             result = group.translate()
-            self.assertEqual({"word": "do", "related": [], "gram_groups": []}, result)
+            self.assertEqual({"word": "do", "gram_groups": []}, result)
 
     # word / def_groups
     def test_def_groups_returns_5_def_groups(self):
@@ -222,9 +222,9 @@ class HtmlToJsonTest(unittest.TestCase):
             group.build()
             result = group.translate()
             self.assertEqual([
-                {"word": "do", "related": [], "gram_groups": []}, {"word": "do", "related": [], "gram_groups": []},
-                {"word": "do", "related": [], "gram_groups": []}, {"word": "Do or do", "related": [], "gram_groups": []},
-                {"word": "DO or D.O.", "related": [], "gram_groups": []}],
+                {"word": "do", "gram_groups": []}, {"word": "do", "gram_groups": []},
+                {"word": "do", "gram_groups": []}, {"word": "Do or do", "gram_groups": []},
+                {"word": "DO or D.O.", "gram_groups": []}],
                 result)
 
     # word / def_groups / def_group [0] / gram_groups
@@ -238,7 +238,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 group = DefGroup(dict_parser, def_group)
                 group.build()
                 result = group.translate()
-                self.assertEqual({"word": "do", "related": [], "gram_groups": [{}, {}, {}, {}]},
+                self.assertEqual({"word": "do", "gram_groups": [{}, {}, {}, {}]},
                                  result)
 
     # word / def_groups / def_group [0] / gram_group[0]
@@ -577,7 +577,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual(
-            {"word": "do", "related": [], "gram_groups": [
+            {"word": "do", "gram_groups": [
                 {
                     "value": "noun",
                     "defs": [
@@ -595,7 +595,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual(
-            {"word": "do", "related": [], "gram_groups": [
+            {"word": "do", "gram_groups": [
                 {
                     "value": "noun",
                     "defs": [
@@ -613,7 +613,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual(
-            {"word": "Do or do", "related": [], "gram_groups": [
+            {"word": "Do or do", "gram_groups": [
                 {
                     "defs": [
                         {"def": "ditto"}
@@ -630,7 +630,7 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual(
-            {"word": "DO or D.O.", "related": [], "gram_groups": [
+            {"word": "DO or D.O.", "gram_groups": [
                 {
                     "defs": [
                         {"def": "Doctor of Osteopathy"}
@@ -724,24 +724,24 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]
                     }
                 ]},
-                {"word": "do", "related": [], "gram_groups": [
+                {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
                         "defs": [ {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"} ]
                     },
                 ]},
-                {"word": "do", "related": [], "gram_groups": [
+                {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
                         "defs": [ {"category": "slang", "def": "hairdo"} ]
                     },
                 ]},
-                {"word": "Do or do", "related": [], "gram_groups": [
+                {"word": "Do or do", "gram_groups": [
                     {
                         "defs": [ {"def": "ditto"} ]
                     },
                 ]},
-                {"word": "DO or D.O.", "related": [], "gram_groups": [
+                {"word": "DO or D.O.", "gram_groups": [
                     {
                         "defs": [ {"def": "Doctor of Osteopathy"} ]
                     }
@@ -869,24 +869,24 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]
                     }
                 ]},
-                {"word": "do", "related": [], "gram_groups": [
+                {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
                         "defs": [ {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"} ]
                     },
                 ]},
-                {"word": "do", "related": [], "gram_groups": [
+                {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
                         "defs": [ {"category": "slang", "def": "hairdo"} ]
                     },
                 ]},
-                {"word": "Do or do", "related": [], "gram_groups": [
+                {"word": "Do or do", "gram_groups": [
                     {
                         "defs": [ {"def": "ditto"} ]
                     },
                 ]},
-                {"word": "DO or D.O.", "related": [], "gram_groups": [
+                {"word": "DO or D.O.", "gram_groups": [
                     {
                         "defs": [ {"def": "Doctor of Osteopathy"} ]
                     }
@@ -995,7 +995,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]
                     }
                 ]},
-                {"word": "do", "related": [], "gram_groups": [
+                {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
                         "defs": [
@@ -1003,7 +1003,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]
                     },
                 ]},
-                {"word": "do", "related": [], "gram_groups": [
+                {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
                         "defs": [
@@ -1011,14 +1011,14 @@ class HtmlToJsonTest(unittest.TestCase):
                         ]
                     },
                 ]},
-                {"word": "Do or do", "related": [], "gram_groups": [
+                {"word": "Do or do", "gram_groups": [
                     {
                         "defs": [
                             {"def": "ditto"}
                         ]
                     },
                 ]},
-                {"word": "DO or D.O.", "related": [], "gram_groups": [
+                {"word": "DO or D.O.", "gram_groups": [
                     {
                         "defs": [
                             {"def": "Doctor of Osteopathy"}

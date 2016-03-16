@@ -200,18 +200,21 @@ class DefGroup(JsonGroup):
         self.related.build()
 
     def translate(self) -> dict:
-        json_children = []
+        gram_groups = []
         for child in self.gram_groups:
             json_child = child.translate()
             if json_child is not None:
-                json_children.append(json_child)
+                gram_groups.append(json_child)
 
-        related_children = []
+        json_obj = {"word": self.word, "gram_groups": gram_groups}
+
         if self.related is not None:
             related_children = self.related.translate()["related"]
+            if len(related_children) > 0:
+                json_obj["related"] = related_children
 
         if len(self.word):
-            return {"word": self.word, "gram_groups": json_children, "related" : related_children}
+            return json_obj
         return None
 
 
