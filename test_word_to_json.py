@@ -158,7 +158,7 @@ class HtmlToJsonTest(unittest.TestCase):
         self.word_name = "do"
 
         self.html_content = f.read()
-        self.maxDiff = None
+        # self.maxDiff = None
 
         f = open("do_syn.html")
         self.syn_content = f.read()
@@ -238,8 +238,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 group = DefGroup(dict_parser, def_group)
                 group.build()
                 result = group.translate()
-                self.assertEqual({"word": "do", "related": [], "gram_groups": [
-                    {"gram_group": []}, {"gram_group": []}, {"gram_group": []}, {"gram_group": []}]},
+                self.assertEqual({"word": "do", "related": [], "gram_groups": [{}, {}, {}, {}]},
                                  result)
 
     # word / def_groups / def_group [0] / gram_group[0]
@@ -253,10 +252,10 @@ class HtmlToJsonTest(unittest.TestCase):
             group = GramGroup(dict_parser, gram_group)
             group.build()
             result = group.translate()
-            self.assertEqual({"gram_group": [{"word_forms": ["did", "done", "'doing"]},
-                                             {"grammar_value": "transitive verb"},
-                                             {"defs": []}]
-                              }, result)
+            self.assertEqual({
+                "word_forms": ["did", "done", "'doing"],
+                "value": "transitive verb",
+                "defs": []}, result)
 
     def test_empty_defs_returns_empty(self):
         root = etree.HTML(self.html_content)
@@ -373,10 +372,10 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
 
         self.assertEqual(
-            {"gram_group": [
-                {"word_forms": ["did", "done", "'doing"]},
-                {"grammar_value": "transitive verb"},
-                {"defs": [
+            {
+                "word_forms": ["did", "done", "'doing"],
+                "value": "transitive verb",
+                "defs": [
                     {"def_subgroup": [
                         {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
                         {"def": "to carry out; fulfill", "example": "do what I tell you"}
@@ -411,8 +410,8 @@ class HtmlToJsonTest(unittest.TestCase):
                     {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
                     {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
                     {"category": "slang", "def": "to kill"},
-                ]}
-            ]}, result)
+                ]
+            }, result)
 
     def test_second_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
@@ -425,9 +424,9 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
 
         self.assertEqual(
-            {"gram_group": [
-                {"grammar_value": "intransitive verb"},
-                {"defs": [
+            {
+                "value": "intransitive verb",
+                "defs": [
                     {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
                     {"def": "to be active; work", "example": "do; don\'t merely talk"},
                     {"def": "to finish", "category": "used in the perfect tense [have done with dreaming ]"},
@@ -436,8 +435,8 @@ class HtmlToJsonTest(unittest.TestCase):
                     {"def": "to take place; go on", "example": "anything doing tonight?"},
                     {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
                      "example": "I haven\'t seen the film, but she may have done"},
-                ]}
-            ]}, result)
+                ]
+            }, result)
 
     def test_third_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
@@ -450,16 +449,16 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
 
         self.assertEqual(
-            {"gram_group": [
-                {"grammar_value": "auxiliary verb"},
-                {"defs": [
+            {
+                "value": "auxiliary verb",
+                "defs": [
                     {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
                     {"def": "used to ask a question", "example": "did you write?"},
                     {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
                     {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
                     {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                ]}
-            ]}, result)
+                ]
+            }, result)
 
     def test_fourth_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
@@ -472,15 +471,15 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
 
         self.assertEqual(
-            {"gram_group": [
-                {"word_forms": ["do's", "dos"]},
-                {"grammar_value": "noun"},
-                {"defs": [
+            {
+                "word_forms": ["do's", "dos"],
+                "value": "noun",
+                "defs": [
                     {"category": "mainly British, informal", "def": "a hoax; swindle"},
                     {"category": "mainly British, informal", "def": "a party or social event"},
                     {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                ]}
-            ]}, result)
+                ]
+            }, result)
 
     def test_first_def_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
@@ -495,10 +494,10 @@ class HtmlToJsonTest(unittest.TestCase):
              "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                          "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
              "gram_groups": [
-                 {"gram_group": [
-                    {"word_forms": ["did", "done", "'doing"]},
-                    {"grammar_value": "transitive verb"},
-                    {"defs": [
+                 {
+                    "word_forms": ["did", "done", "'doing"],
+                    "value": "transitive verb",
+                    "defs": [
                         {"def_subgroup": [
                             {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
                             {"def": "to carry out; fulfill", "example": "do what I tell you"}
@@ -533,11 +532,11 @@ class HtmlToJsonTest(unittest.TestCase):
                         {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
                         {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
                         {"category": "slang", "def": "to kill"},
-                    ]}
-                ]},
-                {"gram_group": [
-                    {"grammar_value": "intransitive verb"},
-                    {"defs": [
+                    ]
+                },
+                {
+                    "value": "intransitive verb",
+                    "defs": [
                         {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
                         {"def": "to be active; work", "example": "do; don\'t merely talk"},
                         {"def": "to finish", "category": "used in the perfect tense [have done with dreaming ]"},
@@ -546,27 +545,27 @@ class HtmlToJsonTest(unittest.TestCase):
                         {"def": "to take place; go on", "example": "anything doing tonight?"},
                         {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
                          "example": "I haven\'t seen the film, but she may have done"},
-                    ]}
-                ]},
-                {"gram_group": [
-                    {"grammar_value": "auxiliary verb"},
-                    {"defs": [
+                    ]
+                },
+                {
+                    "value": "auxiliary verb",
+                    "defs": [
                         {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
                         {"def": "used to ask a question", "example": "did you write?"},
                         {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
                         {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
                         {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                    ]}
-                ]},
-                {"gram_group": [
-                    {"word_forms": ["do's", "dos"]},
-                    {"grammar_value": "noun"},
-                    {"defs": [
+                    ]
+                },
+                {
+                    "word_forms": ["do's", "dos"],
+                    "value": "noun",
+                    "defs": [
                         {"category": "mainly British, informal", "def": "a hoax; swindle"},
                         {"category": "mainly British, informal", "def": "a party or social event"},
                         {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                    ]}
-                ]}
+                    ]
+                }
             ]}, result)
 
     def test_second_def_group_returns_full_content(self):
@@ -579,12 +578,12 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
         self.assertEqual(
             {"word": "do", "related": [], "gram_groups": [
-                {"gram_group": [
-                    {"grammar_value": "noun"},
-                    {"defs": [
+                {
+                    "value": "noun",
+                    "defs": [
                         {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"}
-                    ]}
-                ]},
+                    ]
+                },
             ]}, result)
 
     def test_third_def_group_returns_full_content(self):
@@ -597,12 +596,12 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
         self.assertEqual(
             {"word": "do", "related": [], "gram_groups": [
-                {"gram_group": [
-                    {"grammar_value": "noun"},
-                    {"defs": [
+                {
+                    "value": "noun",
+                    "defs": [
                         {"category": "slang", "def": "hairdo"}
-                    ]}
-                ]},
+                    ]
+                },
             ]}, result)
 
     def test_fourth_def_group_returns_full_content(self):
@@ -615,11 +614,11 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
         self.assertEqual(
             {"word": "Do or do", "related": [], "gram_groups": [
-                {"gram_group": [
-                    {"defs": [
+                {
+                    "defs": [
                         {"def": "ditto"}
-                    ]}
-                ]},
+                    ]
+                },
             ]}, result)
 
     def test_fifth_def_group_returns_full_content(self):
@@ -632,11 +631,11 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
         self.assertEqual(
             {"word": "DO or D.O.", "related": [], "gram_groups": [
-                {"gram_group": [
-                    {"defs": [
+                {
+                    "defs": [
                         {"def": "Doctor of Osteopathy"}
-                    ]}
-                ]}
+                    ]
+                }
             ]}, result)
 
     def test_translate_def_groups(self):
@@ -652,10 +651,10 @@ class HtmlToJsonTest(unittest.TestCase):
                  "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
                              "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
                  "gram_groups": [
-                    {"gram_group": [
-                        {"word_forms": ["did", "done", "'doing"]},
-                        {"grammar_value": "transitive verb"},
-                        {"defs": [
+                    {
+                        "word_forms": ["did", "done", "'doing"],
+                        "value": "transitive verb",
+                        "defs": [
                             {"def_subgroup": [
                                 {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
                                 {"def": "to carry out; fulfill", "example": "do what I tell you"}
@@ -690,11 +689,11 @@ class HtmlToJsonTest(unittest.TestCase):
                             {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
                             {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
                             {"category": "slang", "def": "to kill"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"grammar_value": "intransitive verb"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "value": "intransitive verb",
+                        "defs": [
                             {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
                             {"def": "to be active; work", "example": "do; don\'t merely talk"},
                             {"def": "to finish", "category": "used in the perfect tense [have done with dreaming ]"},
@@ -703,57 +702,49 @@ class HtmlToJsonTest(unittest.TestCase):
                             {"def": "to take place; go on", "example": "anything doing tonight?"},
                             {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
                              "example": "I haven\'t seen the film, but she may have done"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"grammar_value": "auxiliary verb"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "value": "auxiliary verb",
+                        "defs": [
                             {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
                             {"def": "used to ask a question", "example": "did you write?"},
                             {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
                             {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
                             {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"word_forms": ["do's", "dos"]},
-                        {"grammar_value": "noun"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "word_forms": ["do's", "dos"],
+                        "value": "noun",
+                        "defs": [
                             {"category": "mainly British, informal", "def": "a hoax; swindle"},
                             {"category": "mainly British, informal", "def": "a party or social event"},
                             {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                        ]}
-                    ]}
+                        ]
+                    }
                 ]},
                 {"word": "do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"grammar_value": "noun"},
-                        {"defs": [
-                            {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"}
-                        ]}
-                    ]},
+                    {
+                        "value": "noun",
+                        "defs": [ {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"} ]
+                    },
                 ]},
                 {"word": "do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"grammar_value": "noun"},
-                        {"defs": [
-                            {"category": "slang", "def": "hairdo"}
-                        ]}
-                    ]},
+                    {
+                        "value": "noun",
+                        "defs": [ {"category": "slang", "def": "hairdo"} ]
+                    },
                 ]},
                 {"word": "Do or do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"defs": [
-                            {"def": "ditto"}
-                        ]}
-                    ]},
+                    {
+                        "defs": [ {"def": "ditto"} ]
+                    },
                 ]},
                 {"word": "DO or D.O.", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"defs": [
-                            {"def": "Doctor of Osteopathy"}
-                        ]}
-                    ]}
+                    {
+                        "defs": [ {"def": "Doctor of Osteopathy"} ]
+                    }
                 ]}
             ], result)
 
@@ -805,10 +796,10 @@ class HtmlToJsonTest(unittest.TestCase):
                     "do up right", "do oneself well", "do with", "do without", "have to do with"
                 ],
                  "gram_groups": [
-                     {"gram_group": [
-                        {"word_forms": ["did", "done", "'doing"]},
-                        {"grammar_value": "transitive verb"},
-                        {"defs": [
+                     {
+                        "word_forms": ["did", "done", "'doing"],
+                        "value": "transitive verb",
+                        "defs": [
                             {"def_subgroup": [
                                 {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
                                 {"def": "to carry out; fulfill", "example": "do what I tell you"}
@@ -843,11 +834,11 @@ class HtmlToJsonTest(unittest.TestCase):
                             {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
                             {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
                             {"category": "slang", "def": "to kill"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"grammar_value": "intransitive verb"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "value": "intransitive verb",
+                        "defs": [
                             {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
                             {"def": "to be active; work", "example": "do; don\'t merely talk"},
                             {"def": "to finish", "category": "used in the perfect tense [have done with dreaming ]"},
@@ -856,57 +847,49 @@ class HtmlToJsonTest(unittest.TestCase):
                             {"def": "to take place; go on", "example": "anything doing tonight?"},
                             {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
                              "example": "I haven\'t seen the film, but she may have done"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"grammar_value": "auxiliary verb"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "value": "auxiliary verb",
+                        "defs": [
                             {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
                             {"def": "used to ask a question", "example": "did you write?"},
                             {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
                             {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
                             {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"word_forms": ["do's", "dos"]},
-                        {"grammar_value": "noun"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "word_forms": ["do's", "dos"],
+                        "value": "noun",
+                        "defs": [
                             {"category": "mainly British, informal", "def": "a hoax; swindle"},
                             {"category": "mainly British, informal", "def": "a party or social event"},
                             {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                        ]}
-                    ]}
+                        ]
+                    }
                 ]},
                 {"word": "do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"grammar_value": "noun"},
-                        {"defs": [
-                            {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"}
-                        ]}
-                    ]},
+                    {
+                        "value": "noun",
+                        "defs": [ {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"} ]
+                    },
                 ]},
                 {"word": "do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"grammar_value": "noun"},
-                        {"defs": [
-                            {"category": "slang", "def": "hairdo"}
-                        ]}
-                    ]},
+                    {
+                        "value": "noun",
+                        "defs": [ {"category": "slang", "def": "hairdo"} ]
+                    },
                 ]},
                 {"word": "Do or do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"defs": [
-                            {"def": "ditto"}
-                        ]}
-                    ]},
+                    {
+                        "defs": [ {"def": "ditto"} ]
+                    },
                 ]},
                 {"word": "DO or D.O.", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"defs": [
-                            {"def": "Doctor of Osteopathy"}
-                        ]}
-                    ]}
+                    {
+                        "defs": [ {"def": "Doctor of Osteopathy"} ]
+                    }
                 ]}
             ],
             "examples": [
@@ -939,10 +922,10 @@ class HtmlToJsonTest(unittest.TestCase):
                      "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"
                  ],
                  "gram_groups": [
-                     {"gram_group": [
-                        {"word_forms": ["did", "done", "'doing"]},
-                        {"grammar_value": "transitive verb"},
-                        {"defs": [
+                     {
+                         "word_forms": ["did", "done", "'doing"],
+                         "value": "transitive verb",
+                         "defs": [
                             {"def_subgroup": [
                                 {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
                                 {"def": "to carry out; fulfill", "example": "do what I tell you"}
@@ -977,11 +960,11 @@ class HtmlToJsonTest(unittest.TestCase):
                             {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
                             {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
                             {"category": "slang", "def": "to kill"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"grammar_value": "intransitive verb"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "value": "intransitive verb",
+                        "defs": [
                             {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
                             {"def": "to be active; work", "example": "do; don\'t merely talk"},
                             {"def": "to finish", "category": "used in the perfect tense [have done with dreaming ]"},
@@ -990,57 +973,57 @@ class HtmlToJsonTest(unittest.TestCase):
                             {"def": "to take place; go on", "example": "anything doing tonight?"},
                             {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
                              "example": "I haven\'t seen the film, but she may have done"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"grammar_value": "auxiliary verb"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "value": "auxiliary verb",
+                        "defs": [
                             {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
                             {"def": "used to ask a question", "example": "did you write?"},
                             {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
                             {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
                             {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                        ]}
-                    ]},
-                    {"gram_group": [
-                        {"word_forms": ["do's", "dos"]},
-                        {"grammar_value": "noun"},
-                        {"defs": [
+                        ]
+                    },
+                    {
+                        "word_forms": ["do's", "dos"],
+                        "value": "noun",
+                        "defs": [
                             {"category": "mainly British, informal", "def": "a hoax; swindle"},
                             {"category": "mainly British, informal", "def": "a party or social event"},
                             {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                        ]}
-                    ]}
+                        ]
+                    }
                 ]},
                 {"word": "do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"grammar_value": "noun"},
-                        {"defs": [
+                    {
+                        "value": "noun",
+                        "defs": [
                             {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"}
-                        ]}
-                    ]},
+                        ]
+                    },
                 ]},
                 {"word": "do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"grammar_value": "noun"},
-                        {"defs": [
+                    {
+                        "value": "noun",
+                        "defs": [
                             {"category": "slang", "def": "hairdo"}
-                        ]}
-                    ]},
+                        ]
+                    },
                 ]},
                 {"word": "Do or do", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"defs": [
+                    {
+                        "defs": [
                             {"def": "ditto"}
-                        ]}
-                    ]},
+                        ]
+                    },
                 ]},
                 {"word": "DO or D.O.", "related": [], "gram_groups": [
-                    {"gram_group": [
-                        {"defs": [
+                    {
+                        "defs": [
                             {"def": "Doctor of Osteopathy"}
-                        ]}
-                    ]}
+                        ]
+                    }
                 ]}
             ],
             "examples": [

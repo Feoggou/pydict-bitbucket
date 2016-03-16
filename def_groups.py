@@ -167,15 +167,15 @@ class GramGroup(JsonGroup):
         self.defs.build()
 
     def translate(self) -> dict:
-        json_children = []
+        json_object = {}
         if self.word_forms is not None:
-            json_children.append({"word_forms": self.word_forms})
+            json_object["word_forms"] = self.word_forms
         if self.grammar_value is not None:
-            json_children.append({"grammar_value": self.grammar_value})
+            json_object["value"] = self.grammar_value
         if self.defs is not None:
-            json_children.append(self.defs.translate())
+            json_object["defs"] = self.defs.translate()["defs"]
 
-        return {"gram_group": json_children}
+        return json_object
 
 
 # {"def_group": 1, "items": []}
