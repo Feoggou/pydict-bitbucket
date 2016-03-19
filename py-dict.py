@@ -119,6 +119,20 @@ while True:
     if word_name == "quit()" or word_name == "exit()":
         exit()
 
+    if word_name == "help()":
+        print("Available commands:\n\n")
+        print("exit()\t\texit the script -- also quit().")
+        print("show(word)\tshow the json file for the word")
+        print("related(word)\tprint all related words from .json")
+        print("nearby(word)\tprint the nearby words from .json")
+        print("search(word)\tsearch all .json files for the word (searches contents)")
+        print("addex(word)\tadd an example json object into the .json file")
+        print("print(word)\tprints a concise .txt representation for the .json file")
+        print("word\t\tif the file <word>.json does not exist, downloads the\n"
+              "\t\tcontent and creates it. Prints the textual representation\n"
+              "\t\tin either case.")
+        print("")
+
     elif re.match("^related\(.*\)$", word_name):
         value = re.match("related\(([A-Za-z0-9 ]+)\)", word_name)
         if value is not None:
