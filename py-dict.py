@@ -9,8 +9,12 @@
 import sys
 import os
 import json
+import re
 
+from json_printer import JsonPrinter
 from word import WordData
+
+dir_path = sys.argv[1]
 
 
 def get_word_def(word_name):
@@ -28,7 +32,21 @@ def get_word_def(word_name):
     print("Done! Created file: ", file_name)
 
 
-dir_path = sys.argv[1]
+def call_printer(word):
+    json_printer = JsonPrinter()
+    file_name = dir_path + "/" + word + ".json"
+    text = json_printer.to_text(file_name)
+    print(text)
+
+
+def print_help():
+    print("usage:\tpy-dict.py <dir_path> [<word_def>]")
+
+
+if len(sys.argv) == 1:
+    print_help()
+    exit(0)
+
 if not os.path.isdir(dir_path):
     print("argument is not a valid directory path: ", dir_path)
     exit(-1)
@@ -44,12 +62,25 @@ word_name = ""
 while True:
     word_name = input("word: ")
     assert isinstance(word_name, str)
-    print("word_name = ", word_name)
 
     if word_name == "quit()" or word_name == "exit()":
         exit()
-
-    get_word_def(word_name)
+    elif word_name == "search()":
+        print("search not yet implemented!")
+    elif word_name == "addex()":
+        print("addex not yet implemented!")
+    elif re.match("^print\(.*\)$", word_name):
+        value = re.match("print\((\w+)\)", word_name)
+        if value is not None:
+            call_printer(value.groups()[0])
+        else:
+            print("no word to print!")
+    else:
+        print("ERROR!")
+        exit(-1)
+        print("word_name = ", word_name)
+        get_word_def(word_name)
+        # TODO: get word def ONLY IF not found. Also print the read result.
 
 print("Bye!\n")
 

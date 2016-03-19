@@ -379,6 +379,3 @@ class DictParser:
 
         return text
 
-
-
-print("main!")
