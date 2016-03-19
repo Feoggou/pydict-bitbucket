@@ -26,6 +26,7 @@ class WordData:
         return self._fetch_from_web("american-thesaurus/" + suffix)
 
     def fetch(self):
+        print("fetching...")
         self.def_content = self._fetch_from_web_dict(self.word_name)
         if len(self.def_content) == 0:
             return

@@ -14,6 +14,7 @@ import subprocess
 
 from json_printer import JsonPrinter
 from word import WordData
+from json_search import JsonSeeker
 
 dir_path = sys.argv[1]
 
@@ -87,6 +88,34 @@ def call_search(word):
     print(text)
 
 
+def call_search_examples(word):
+    json_printer = JsonPrinter()
+    file_name = dir_path + "/" + word + ".json"
+    # text = json_printer.to_text(file_name)
+    print(text)
+
+
+# given a word, find all files that have the word in any of its definitions, return
+# the definitions
+def call_search_definitions(word):
+    word = word.replace(" ", "-")
+
+    json_seeker = JsonSeeker()
+    definitions = json_seeker.search_definitions(word, dir_path)
+
+    for x in definitions:
+        assert isinstance(x, dict)
+
+        file = list(x)[0]
+        print("[" + file + "]")
+        for definition in x[file]:
+            print("o) " + definition)
+
+        print("")
+
+    print("")
+
+
 def print_help():
     print("usage:\tpy-dict.py <dir_path> [<word_def>]")
 
@@ -122,6 +151,8 @@ while True:
     if word_name == "help()":
         print("Available commands:\n\n")
         print("exit()\t\texit the script -- also quit().")
+        print("defs(word)\tsearch all .json files, and print all definitions\n"
+              "\t\tthat contain the word <word>")
         print("show(word)\tshow the json file for the word")
         print("related(word)\tprint all related words from .json")
         print("nearby(word)\tprint the nearby words from .json")
@@ -174,6 +205,13 @@ while True:
             call_printer(value.groups()[0])
         else:
             print("no word to print!")
+
+    elif re.match("^defs\(.*\)$", word_name):
+        value = re.match("defs\(([A-Za-z0-9 ]+)\)", word_name)
+        if value is not None:
+            call_search_definitions(value.groups()[0])
+        else:
+            print("word not found!")
 
     elif re.match("^[A-Za-z0-9\- ]+$", word_name):
         word_name = word_name.replace(" ", "-")
