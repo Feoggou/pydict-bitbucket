@@ -26,9 +26,12 @@ class WordData:
         return self._fetch_from_web("american-thesaurus/" + suffix)
 
     def fetch(self):
-        print("real fetch!")
         self.def_content = self._fetch_from_web_dict(self.word_name)
+        if len(self.def_content) == 0:
+            return
+
         self.related_content = self._fetch_from_web_dict(self.word_name + "/related")
+
         self.synonyms_content = self._fetch_web_thesaurus(self.word_name)
 
     def fetch_mock(self):
@@ -45,13 +48,18 @@ class WordData:
         return self._fetch_from_web_dict(self.word_name)
 
     def build_content(self) -> dict:
+        if len(self.def_content) == 0:
+            return None
+
         obj = html_to_json.HtmlToJson(self.word_name, self.def_content)
         content = obj.translate()
 
-        synonyms = html_to_json.HtmlToJsonSynonyms(self.word_name, self.synonyms_content)
-        content["synonyms"] = synonyms.translate()
+        if len(self.synonyms_content) > 0:
+            synonyms = html_to_json.HtmlToJsonSynonyms(self.word_name, self.synonyms_content)
+            content["synonyms"] = synonyms.translate()
 
-        related = html_to_json.HtmlToJsonRelated(self.related_content)
-        content["related_words"] = related.translate()
+        if len(self.related_content) > 0:
+            related = html_to_json.HtmlToJsonRelated(self.related_content)
+            content["related_words"] = related.translate()
 
         return content

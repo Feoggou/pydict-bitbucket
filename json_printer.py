@@ -91,8 +91,11 @@ def read_syn_def_group(syn_obj) -> str:
     return s
 
 
-def read_synonyms(obj) -> str:
+def read_synonyms(obj: dict) -> str:
     s = "SYNONYMS\n"
+    if "synonyms" not in obj.keys():
+        return ""
+
     for syn_obj in obj["synonyms"]:
         s += read_syn_def_group(syn_obj)
     s += "\n"
