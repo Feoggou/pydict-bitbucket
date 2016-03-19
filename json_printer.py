@@ -1,4 +1,5 @@
 import json
+import re
 
 tab = "    "
 
@@ -101,6 +102,43 @@ def read_synonyms(obj: dict) -> str:
     s += "\n"
     return s
 
+
+def read_nearby(obj: dict) -> str:
+    if "nearby_words" not in obj.keys():
+        return ""
+
+    s = "\n".join(obj["nearby_words"])
+
+    return s
+
+
+def read_related(obj: dict, word: str) -> str:
+    rel_list = []
+    if "related_words" in obj.keys():
+        rel_list += obj["related_words"]
+
+    in_rel_list = []
+    for def_group in obj["def_groups"]:
+        if "related" in def_group.keys():
+            in_rel_list += def_group["related"]
+
+    nby_list = []
+    pattern = re.compile(r'\b%s\b' % word)
+    if "nearby_words" in obj.keys():
+        nby_list += [x for x in obj["nearby_words"] if re.search(pattern, x)]
+
+    all_items = set()
+    all_items.update(rel_list)
+    all_items.update(in_rel_list)
+    all_items.update(nby_list)
+
+    # s = "\n".join(rel_list)
+    s = "\n".join(all_items)
+    s += "\n\n{} related words\n{} related\n{} nearby\n{} total".format(
+        len(rel_list), len(in_rel_list), len(nby_list), len(all_items))
+
+    return s
+
 # HERE WE HAVE THE ACTUAL CALLING CODE
 
 
@@ -118,3 +156,16 @@ class JsonPrinter:
 
             return s
 
+    def nearby_to_text(self, json_file_name: str):
+        with open(json_file_name, "r") as json_file:
+            obj = json.load(json_file)
+            s = read_nearby(obj)
+
+            return s
+
+    def related_to_text(self, json_file_name: str, word: str):
+        with open(json_file_name, "r") as json_file:
+            obj = json.load(json_file)
+            s = read_related(obj, word)
+
+            return s

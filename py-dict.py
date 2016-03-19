@@ -10,6 +10,7 @@ import sys
 import os
 import json
 import re
+import subprocess
 
 from json_printer import JsonPrinter
 from word import WordData
@@ -41,6 +42,29 @@ def call_printer(word):
     file_name = dir_path + "/" + word + ".json"
     text = json_printer.to_text(file_name)
     print(text)
+
+
+def call_nearby(word):
+    word = word.replace(" ", "-")
+    json_printer = JsonPrinter()
+    file_name = dir_path + "/" + word + ".json"
+    text = json_printer.nearby_to_text(file_name)
+    print(text)
+
+
+def call_related(word):
+    word = word.replace(" ", "-")
+    json_printer = JsonPrinter()
+    file_name = dir_path + "/" + word + ".json"
+    text = json_printer.related_to_text(file_name, word)
+    print(text)
+
+
+def call_show(word):
+    word = word.replace(" ", "-")
+    file_name = dir_path + "/" + word + ".json"
+    subprocess.run(['cat', file_name])
+    print("\n")
 
 
 def call_addex(word):
@@ -95,15 +119,36 @@ while True:
     if word_name == "quit()" or word_name == "exit()":
         exit()
 
+    elif re.match("^related\(.*\)$", word_name):
+        value = re.match("related\(([A-Za-z0-9 ]+)\)", word_name)
+        if value is not None:
+            call_related(value.groups()[0])
+        else:
+            print("word not found!")
+
+    elif re.match("^show\(.*\)$", word_name):
+        value = re.match("show\(([A-Za-z0-9 ]+)\)", word_name)
+        if value is not None:
+            call_show(value.groups()[0])
+        else:
+            print("word not found!")
+
+    elif re.match("^nearby\(.*\)$", word_name):
+        value = re.match("nearby\((\w+)\)", word_name)
+        if value is not None:
+            call_nearby(value.groups()[0])
+        else:
+            print("word not found!")
+
     elif re.match("^search\(.*\)$", word_name):
-        value = re.match("search\((\w+)\)", word_name)
+        value = re.match("search\(([A-Za-z0-9 ]+)\)", word_name)
         if value is not None:
             call_search(value.groups()[0])
         else:
             print("word not found!")
 
     elif re.match("^addex\(.*\)$", word_name):
-        value = re.match("addex\((\w+)\)", word_name)
+        value = re.match("addex\(([A-Za-z0-9 ]+)\)", word_name)
         if value is not None:
             call_addex(value.groups()[0])
         else:
