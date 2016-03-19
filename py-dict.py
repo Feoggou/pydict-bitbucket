@@ -39,6 +39,19 @@ def call_printer(word):
     print(text)
 
 
+def call_addex(word):
+    json_file_name = dir_path + "/" + word + ".json"
+
+    with open(json_file_name, "r") as json_file:
+        obj = json.load(json_file)
+
+    example_value = input("example: ")
+    obj["examples"].append({"example": example_value})
+
+    with open(json_file_name, "w") as json_file:
+        json.dump(obj, json_file, indent=4, sort_keys=True)
+
+
 def print_help():
     print("usage:\tpy-dict.py <dir_path> [<word_def>]")
 
@@ -60,27 +73,42 @@ if len(sys.argv) > 2:
 word_name = ""
 
 while True:
-    word_name = input("word: ")
+    word_name = input("command: ")
     assert isinstance(word_name, str)
 
     if word_name == "quit()" or word_name == "exit()":
         exit()
+
     elif word_name == "search()":
         print("search not yet implemented!")
-    elif word_name == "addex()":
-        print("addex not yet implemented!")
+
+    elif re.match("^addex\(.*\)$", word_name):
+        value = re.match("addex\((\w+)\)", word_name)
+        if value is not None:
+            call_addex(value.groups()[0])
+        else:
+            print("word not found!")
+
     elif re.match("^print\(.*\)$", word_name):
         value = re.match("print\((\w+)\)", word_name)
         if value is not None:
             call_printer(value.groups()[0])
         else:
             print("no word to print!")
-    else:
-        print("ERROR!")
-        exit(-1)
-        print("word_name = ", word_name)
+
+    elif re.match("^[A-Za-z\-0-9]+$", word_name):
+        if os.path.exists(dir_path + "/" + word_name + ".json"):
+            x = input("The json file exists, do you want to replace it? (Yes/No)\n")
+            assert(isinstance(x, str))
+            if x.upper() != "YES":
+                continue
+
         get_word_def(word_name)
         # TODO: get word def ONLY IF not found. Also print the read result.
+
+    else:
+        print("Error: unrecognized command, nor word.")
+
 
 print("Bye!\n")
 
