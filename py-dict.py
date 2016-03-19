@@ -89,10 +89,22 @@ def call_search(word):
 
 
 def call_search_examples(word):
-    json_printer = JsonPrinter()
-    file_name = dir_path + "/" + word + ".json"
-    # text = json_printer.to_text(file_name)
-    print(text)
+    word = word.replace(" ", "-")
+
+    json_seeker = JsonSeeker()
+    definitions = json_seeker.search_examples(word, dir_path)
+
+    for x in definitions:
+        assert isinstance(x, dict)
+
+        file = list(x)[0]
+        print("[" + file + "]")
+        for definition in x[file]:
+            print("o) " + definition)
+
+        print("")
+
+    print("")
 
 
 # given a word, find all files that have the word in any of its definitions, return
@@ -153,6 +165,8 @@ while True:
         print("exit()\t\texit the script -- also quit().")
         print("defs(word)\tsearch all .json files, and print all definitions\n"
               "\t\tthat contain the word <word>")
+        print("ex(word)\tsearch all .json files, and print all examples that\n"
+              "\t\tcontain the word <word>")
         print("show(word)\tshow the json file for the word")
         print("related(word)\tprint all related words from .json")
         print("nearby(word)\tprint the nearby words from .json")
@@ -210,6 +224,13 @@ while True:
         value = re.match("defs\(([A-Za-z0-9 ]+)\)", word_name)
         if value is not None:
             call_search_definitions(value.groups()[0])
+        else:
+            print("word not found!")
+
+    elif re.match("^ex\(.*\)$", word_name):
+        value = re.match("ex\(([A-Za-z0-9 ]+)\)", word_name)
+        if value is not None:
+            call_search_examples(value.groups()[0])
         else:
             print("word not found!")
 
