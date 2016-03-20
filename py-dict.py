@@ -24,6 +24,10 @@ def retrieve_word_def(word_name):
     word_data.fetch()
 
     content = word_data.build_content()
+    if content is None:
+        print("Word not found! (or network error?)")
+        return
+
     if len(content) == 0:
         print("No content, sorry!")
         return
@@ -126,6 +130,35 @@ def call_search_definitions(word):
         print("")
 
     print("")
+
+
+def call_search_word_forms(word):
+    word = word.replace(" ", "-")
+
+    json_seeker = JsonSeeker()
+    definitions = json_seeker.search_word_forms(word, dir_path)
+    if len(definitions) == 0:
+        return False
+
+    print("Found '{}' saved as: \n".format(word))
+
+    for x in definitions:
+        assert isinstance(x, dict)
+
+        file = list(x)[0]
+        print("[" + file + "]")
+        for definition in x[file]:
+            print("o) " + definition)
+
+        print("")
+
+    print("")
+
+    do_download = input("Try downloading '{}' anyway? (Yes/No) ".format(word))
+    if do_download.upper() == "YES":
+        return True
+
+    return False
 
 
 def print_help():
@@ -234,14 +267,15 @@ while True:
         else:
             print("word not found!")
 
-    elif re.match("^[A-Za-z0-9\- ]+$", word_name):
+    elif re.match("^[A-Za-z0-9\- \.\']+$", word_name):
         word_name = word_name.replace(" ", "-")
 
         if os.path.exists(dir_path + "/" + word_name + ".json"):
             call_printer(word_name)
             continue
 
-        retrieve_word_def(word_name)
+        if call_search_word_forms(word_name):
+            retrieve_word_def(word_name)
 
     else:
         print("Error: unrecognized command, nor word.")

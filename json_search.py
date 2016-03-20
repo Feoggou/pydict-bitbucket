@@ -83,3 +83,38 @@ class JsonSeeker:
                     results.append({file: defs})
 
         return results
+
+    def search_word_forms(self, word: str, dir_name: str) -> list:
+        from os.path import isfile, join
+        files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+
+        results = []
+
+        for file in files:
+            file_name = join(dir_name, file)
+
+            with open(file_name, "r") as json_file:
+                obj = json.load(json_file)
+
+                items = []
+                for x in obj["def_groups"]:
+                    items.append(x["word"])
+
+                    if "derived_forms" in x.keys():
+                        items += list(x["derived_forms"].values())
+
+                    for ggroup in x["gram_groups"]:
+                        if "word_forms" in ggroup.keys():
+                            items += ggroup["word_forms"]
+
+                if re.search('[\- \.\']', word):
+                    defs = [x for x in items if word in x]
+                    if len(defs) > 0:
+                        results.append({file: defs})
+                else:
+                    pattern = re.compile(r'\b%s\b' % word)
+                    defs = [x for x in items if re.search(pattern, x)]
+                    if len(defs) > 0:
+                        results.append({file: defs})
+
+        return results
