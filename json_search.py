@@ -71,6 +71,9 @@ class JsonSeeker:
 
                 items = []
                 for x in obj["def_groups"]:
+                    if "semantics" in x.keys():
+                        items.append(x["semantics"])
+
                     for ggroup in x["gram_groups"]:
                         items += _get_all_defs(ggroup["defs"])
 

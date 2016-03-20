@@ -42,6 +42,11 @@ def read_gram_groups(gram_groups) -> str:
     for gram_group in gram_groups["gram_groups"]:
         s += read_gram_group(gram_group)
 
+    if "semantics" in gram_groups.keys():
+        s += "SEMANTICS\n"
+        s += gram_groups["semantics"]
+        s+= "\n"
+
     return s
 
 
@@ -51,6 +56,7 @@ def read_def_groups(obj) -> str:
         s += read_gram_groups(gram_groups)
 
     s += "\n"
+
     return s
 
 
