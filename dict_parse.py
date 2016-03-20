@@ -1,4 +1,5 @@
 from lxml import etree
+from etree_printer import *
 import re
 
 
@@ -246,7 +247,7 @@ class DictParser:
             return elem.text
 
     @staticmethod
-    def _get_all_home_subsecs(def_group):
+    def get_all_home_subsecs(def_group):
         elems = def_group.xpath('./*[@class="homograph-entry"]/'              # 8 KEYS
                            '*[@class="definitions hom-subsec"]')              # 9 KEYS
 
@@ -254,7 +255,7 @@ class DictParser:
 
     @staticmethod
     def get_all_grammar_groups(def_group):
-        homss = DictParser._get_all_home_subsecs(def_group)[0]
+        homss = DictParser.get_all_home_subsecs(def_group)[0]
 
         elems = homss.xpath('./*[@class="hom"]')                                # 10 KEYS
 
@@ -262,7 +263,7 @@ class DictParser:
 
     @staticmethod
     def get_all_grammar_values(def_group):
-        homss = DictParser._get_all_home_subsecs(def_group)[0]
+        homss = DictParser.get_all_home_subsecs(def_group)[0]
 
         elems = homss.xpath('./*[@class="hom"]/'                                # 10 KEYS
                             '*[@class="gramGrp h3_entry"]/'                     # 11 KEYS
@@ -270,6 +271,28 @@ class DictParser:
 
         result = [elem.text for elem in elems]
         return result
+
+    @staticmethod
+    def get_semantics(def_group):
+        homss = DictParser.get_all_home_subsecs(def_group)[0]
+
+        sems = homss.xpath('./*[@class="semantic"]')[0]
+
+        text = ""
+
+        for item in sems.getchildren():
+            if "class" in item.keys() and item.get("class") == "xr":
+                subelement = item.xpath('./*[@class="xr_ref"]/a/text()')[0]
+                text += subelement + item.tail
+            elif "class" in item.keys() and item.get("class") == "hi":
+                if item.text is not None:
+                    text += item.text
+                if item.tail is not None:
+                    text += item.tail
+
+        text = re.sub(' +', ' ', text)
+        text = text.replace("\n", "")
+        return text
 
     @staticmethod
     def get_gram_value(gram_group):
