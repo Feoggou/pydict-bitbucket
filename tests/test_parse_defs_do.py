@@ -9,7 +9,7 @@ class TestParser(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        f = open("do_defs.htm")
+        f = open("do_defs.html")
         text = f.read()
         TestParser.root = etree.HTML(text)
 

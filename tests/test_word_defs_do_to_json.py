@@ -10,7 +10,7 @@ from lxml import etree
 class HtmlToJsonTest(unittest.TestCase):
 
     def setUp(self):
-        f = open("do_defs.htm")
+        f = open("do_defs.html")
         self.word_name = "do"
 
         self.html_content = f.read()

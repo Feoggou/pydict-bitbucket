@@ -22,7 +22,7 @@ def get_html_for_word(word):
 
 
 def get_def_new(word):
-    f = open("do_defs.htm")
+    f = open("do_defs.html")
     text = f.read()
     return text
 

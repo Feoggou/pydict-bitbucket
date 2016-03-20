@@ -36,13 +36,13 @@ class WordData:
         self.synonyms_content = self._fetch_web_thesaurus(self.word_name)
 
     def fetch_mock(self):
-        f = open("do_defs.htm")
+        f = open("{}_defs.html".format(self.word_name))
         self.def_content = f.read()
 
-        f = open("do_related.html")
+        f = open("{}_related.html".format(self.word_name))
         self.related_content = f.read()
 
-        f = open("do_syn.html")
+        f = open("{}_syn.html".format(self.word_name))
         self.synonyms_content = f.read()
 
     def download_definition(self) -> str:
