@@ -8,12 +8,12 @@ Notify.init("Hello world")
 
 
 def show_notification(message: str):
-    notif_obj = Notify.Notification.new("Hello world", message, "dialog-information")
+    notif_obj = Notify.Notification.new("word: <word>", message, "dialog-information")
     notif_obj.show()
 
 
 def timer_callback(count):
-    show_notification("Moowahahahahaha!")
+    show_notification("definition: <def>\n\te.g. <example>")
 
     count += 1
     if count < 3:
