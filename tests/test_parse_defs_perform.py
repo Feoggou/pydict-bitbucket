@@ -79,6 +79,12 @@ class TestParser(unittest.TestCase):
             "effected by the use of certain drugs ]; fulfill, in strict discrimination, implies the full realization of "
             "what is expected or demanded [to fulfill a promise ]")
 
+    def test_get_derived_forms(self):
+        def_group = self.d_parser.get_all_def_groups()[0]
+        derived_forms = self.d_parser.get_all_derived_forms(def_group)
+
+        self.assertEqual(derived_forms, {"adjective": "performable", "noun": "performer"})
+
 
 if __name__ == '__main__':
     unittest.main()

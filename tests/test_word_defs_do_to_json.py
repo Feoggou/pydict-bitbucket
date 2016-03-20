@@ -103,7 +103,7 @@ class HtmlToJsonTest(unittest.TestCase):
             group.build()
             result = group.translate()
             self.assertEqual({
-                "word_forms": ["did", "done", "'doing"],
+                "word_forms": ["did", "done", "doing"],
                 "value": "transitive verb",
                 "defs": []}, result)
 
@@ -220,7 +220,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
         self.assertEqual(
             {
-                "word_forms": ["did", "done", "'doing"],
+                "word_forms": ["did", "done", "doing"],
                 "value": "transitive verb",
                 "defs": [
                     {"def_subgroup": [
@@ -342,7 +342,7 @@ class HtmlToJsonTest(unittest.TestCase):
                          "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
              "gram_groups": [
                  {
-                    "word_forms": ["did", "done", "'doing"],
+                    "word_forms": ["did", "done", "doing"],
                     "value": "transitive verb",
                     "defs": [
                         {"def_subgroup": [
@@ -499,7 +499,7 @@ class HtmlToJsonTest(unittest.TestCase):
                              "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
                  "gram_groups": [
                     {
-                        "word_forms": ["did", "done", "'doing"],
+                        "word_forms": ["did", "done", "doing"],
                         "value": "transitive verb",
                         "defs": [
                             {"def_subgroup": [
@@ -644,7 +644,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 ],
                  "gram_groups": [
                      {
-                        "word_forms": ["did", "done", "'doing"],
+                        "word_forms": ["did", "done", "doing"],
                         "value": "transitive verb",
                         "defs": [
                             {"def_subgroup": [

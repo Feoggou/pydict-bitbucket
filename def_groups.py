@@ -187,6 +187,7 @@ class DefGroup(JsonGroup):
         self.semantics = None
         self.gram_groups = []
         self.related = None
+        self.derived_forms = None
 
         self.word = dict_parser.get_word_form_for_def_group(etree_def_group)
 
@@ -201,6 +202,7 @@ class DefGroup(JsonGroup):
         self.related.build()
 
         self.semantics = self.dict_parser.get_semantics(self.etree_elem)
+        self.derived_forms = self.dict_parser.get_all_derived_forms(self.etree_elem)
 
     def translate(self) -> dict:
         gram_groups = []
@@ -218,6 +220,9 @@ class DefGroup(JsonGroup):
 
         if self.semantics is not None:
             json_obj["semantics"] = self.semantics
+
+        if self.derived_forms is not None:
+            json_obj["derived_forms"] = self.derived_forms
 
         if len(self.word):
             return json_obj

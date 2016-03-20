@@ -163,7 +163,6 @@ class DictRelatedParser:
                                      '*[@class="row"]/'          # 8 KEYS
                                      'a/text()')                # 9 KEYS
 
-        # print("items=", items)
         return items
 
 
@@ -214,6 +213,29 @@ class DictParser:
                                     '*[@class="xr_ref"]/a/text()')
 
         return results
+
+    def get_all_derived_forms(self, def_group):
+        # may be null.
+        re_hom_subsecs = def_group.xpath('./*[@class="homograph-entry"]/'         # 8 KEYS
+                                         '*[@class="re hom-subsec"]')           # 9 KEYS
+
+        der_forms = {}
+        for item in re_hom_subsecs:
+            gram_values = item.xpath('./*[@class="gramGrp"]/'
+                                    '*[@class="pos"]/text()')
+            if len(gram_values) == 0:
+                continue
+
+            gram_value = gram_values[0]
+            derived_form = item.xpath('./*[@class="drv"]/text()')[0]
+            derived_form = derived_form.replace("ˈ", "")
+
+            der_forms[gram_value] = derived_form
+
+        if der_forms == {}:
+            return None
+
+        return der_forms
 
     def get_all_nearby_words(self):
         results = []
@@ -315,7 +337,8 @@ class DictParser:
 
         result = []
         for e in elems:
-            t = e.text.replace("ˈ", "'")
+            # t = e.text.replace("ˈ", "'")
+            t = e.text.replace("ˈ", "")
             text = "".join(x for x in t if re.match("[^\s,]", x))   # ("[A-Za-z']", x))
             if len(text):
                 result.append(text)

@@ -38,7 +38,7 @@ class HtmlToJsonTest(unittest.TestCase):
                  ],
                  "gram_groups": [
                      {
-                         "word_forms": ["did", "done", "'doing"],
+                         "word_forms": ["did", "done", "doing"],
                          "value": "transitive verb",
                          "defs": [
                             {"def_subgroup": [

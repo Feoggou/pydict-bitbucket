@@ -62,7 +62,9 @@ class HtmlToJsonTest(unittest.TestCase):
                 group.build()
                 result = group.translate()
                 self.assertEqual(
-                    {"word": "perform", "gram_groups": [{}, {}],
+                    {"word": "perform",
+                     "gram_groups": [{}, {}],
+                     "derived_forms": {"adjective": "performable", "noun": "performer"},
                      "semantics": "perform, often a mere formal equivalent for do, is usually used of a more or less involved process "
                      "rather than a single act [to perform an experiment ]; execute implies a putting into effect or completing "
                      "that which has been planned or ordered [to execute a law ]; accomplish suggests effort and perseverance in "
@@ -198,6 +200,7 @@ class HtmlToJsonTest(unittest.TestCase):
                      ]
                  },
              ],
+             "derived_forms": {"adjective": "performable", "noun": "performer"},
              "semantics":
                  "perform, often a mere formal equivalent for do, is usually used of a more or less involved process "
                  "rather than a single act [to perform an experiment ]; execute implies a putting into effect or completing "
@@ -219,6 +222,7 @@ class HtmlToJsonTest(unittest.TestCase):
         self.assertEqual(
             [
                 {"word": "perform",
+                 "derived_forms": {"adjective": "performable", "noun": "performer"},
                  "semantics":
                      "perform, often a mere formal equivalent for do, is usually used of a more or less involved process "
                      "rather than a single act [to perform an experiment ]; execute implies a putting into effect or completing "
@@ -289,6 +293,7 @@ class HtmlToJsonTest(unittest.TestCase):
             "frequency": "Very Common",
             "def_groups": [
                 {"word": "perform",
+                 "derived_forms": {"adjective": "performable", "noun": "performer"},
                  "semantics":
                      "perform, often a mere formal equivalent for do, is usually used of a more or less involved process "
                      "rather than a single act [to perform an experiment ]; execute implies a putting into effect or completing "
