@@ -86,10 +86,10 @@ def call_addex(word):
 
 
 def call_search(word):
-    json_printer = JsonPrinter()
-    file_name = dir_path + "/" + word + ".json"
-    # text = json_printer.to_text(file_name)
-    print(text)
+    word = word.replace(" ", "-")
+
+    json_seeker = JsonSeeker()
+    json_seeker.search_all(word, dir_path)
 
 
 def call_search_examples(word):
@@ -138,7 +138,7 @@ def call_search_word_forms(word):
     json_seeker = JsonSeeker()
     definitions = json_seeker.search_word_forms(word, dir_path)
     if len(definitions) == 0:
-        return False
+        return True
 
     print("Found '{}' saved as: \n".format(word))
 
@@ -233,7 +233,8 @@ while True:
             print("word not found!")
 
     elif re.match("^search\(.*\)$", word_name):
-        value = re.match("search\(([A-Za-z0-9 ]+)\)", word_name)
+        # [\- \.\']
+        value = re.match("search\(([A-Za-z0-9\- \.\']+)\)", word_name)
         if value is not None:
             call_search(value.groups()[0])
         else:
@@ -276,6 +277,8 @@ while True:
 
         if call_search_word_forms(word_name):
             retrieve_word_def(word_name)
+            print("")
+            call_printer(word_name)
 
     else:
         print("Error: unrecognized command, nor word.")
