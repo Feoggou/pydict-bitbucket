@@ -154,7 +154,7 @@ class HtmlToJsonRelTest(unittest.TestCase):
 class HtmlToJsonTest(unittest.TestCase):
 
     def setUp(self):
-        f = open("file.htm")
+        f = open("do_defs.htm")
         self.word_name = "do"
 
         self.html_content = f.read()

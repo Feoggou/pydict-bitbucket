@@ -184,7 +184,7 @@ class TestParser(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        f = open("file.htm")
+        f = open("do_defs.htm")
         text = f.read()
         TestParser.root = etree.HTML(text)
 

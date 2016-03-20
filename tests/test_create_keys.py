@@ -17,13 +17,13 @@ def get_html_for_word(word):
         data = reason.read()
         text = data.decode()
     else:
-        f = open("file.htm")
+        f = open("old_do_defs.htm")
         text = f.read()
     return text
 
 
 def get_def_new(word):
-    f = open("do_downloaded.htm")
+    f = open("do_defs.htm")
     text = f.read()
     return text
 
