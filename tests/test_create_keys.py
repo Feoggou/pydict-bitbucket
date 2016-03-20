@@ -3,13 +3,12 @@
 import http.client
 from lxml import etree
 from etree_printer import *
-# from lxml.html import tostring, fromstring
-# from html_parse import traverse_children
+import sys
 
 
 def get_html_for_word(word):
     text = ""
-    if 0:
+    if 1:
         hostname = "www.collinsdictionary.com"
         conn = http.client.HTTPConnection(hostname)
         conn.request("GET", "/dictionary/american/" + word)
@@ -43,18 +42,19 @@ def get_syn_for_word(word):
     return text
 
 
-# text = get_html_for_word("do")
+# text = get_html_for_word("perform")
 # text = get_related_for_word("do")
 # text = get_syn_for_word("do")
 text = get_def_new("do")
 
+# with open("perform_defs.html", "w") as f:
+#     f.write(text)
+
 root = etree.HTML(text)
 
-# print(root.xpath('//meta[@name="viewport"]/@content'))
-# print(root.xpath('//body/div[@id="wrapper"]/div[@class="content english"]/div[@class="dictionary"]'
-#     '/div[@class="definition_wrapper english"]/div[@class="definition_main"]/div[@class="definition_content col main_bar"]'
-#     ''))
-
+# temp = sys.stdout
+# sys.stdout = open("perform_defs.keys.txt", "w")
 print_children(root, padding=0)
+# sys.stdout = temp
 
 # traverse_children(root, None)
