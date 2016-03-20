@@ -276,7 +276,11 @@ class DictParser:
     def get_semantics(def_group):
         homss = DictParser.get_all_home_subsecs(def_group)[0]
 
-        sems = homss.xpath('./*[@class="semantic"]')[0]
+        sems_items = homss.xpath('./*[@class="semantic"]')
+        if len(sems_items) == 0:
+            return None
+
+        sems = sems_items[0]
 
         text = ""
 
@@ -359,6 +363,8 @@ class DictParser:
                 text += y.tail
 
         text = text.strip()
+        text = text.replace("\n", "")
+        text = re.sub(' +', ' ', text)
 
         if len(text) == 0:
             hrlink = elem.xpath('.//*[@class="xr_ref_link"]')[0]
