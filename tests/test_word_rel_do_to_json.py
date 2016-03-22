@@ -1,5 +1,5 @@
 import unittest
-from html_to_json import HtmlToJsonRelated
+from src.html_to_json import HtmlToJsonRelated
 
 
 # {"related_words": []},
@@ -27,3 +27,5 @@ class HtmlToJsonRelTest(unittest.TestCase):
             "do one's bit", "ne'er-do-well", "do wonders for", "do business with", "do oneself proud",
             "do the bidding of", "Rio Grande do Sul"])
 
+if __name__ == '__main__':
+    unittest.main()

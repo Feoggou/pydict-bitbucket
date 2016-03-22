@@ -1,7 +1,7 @@
 import unittest
 import filecmp
 import os
-from json_printer import JsonPrinter
+from src.json_printer import JsonPrinter
 
 
 class JsonPrinterTest(unittest.TestCase):
@@ -27,3 +27,6 @@ class JsonPrinterTest(unittest.TestCase):
 
         os.remove(file_name)
 
+
+if __name__ == '__main__':
+    unittest.main()

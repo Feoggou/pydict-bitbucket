@@ -1,5 +1,5 @@
 import unittest
-from html_to_json import HtmlToJson, HtmlToJsonRelated, HtmlToJsonSynonyms
+from src.html_to_json import HtmlToJson, HtmlToJsonRelated, HtmlToJsonSynonyms
 
 
 class HtmlToJsonTest(unittest.TestCase):
@@ -182,3 +182,6 @@ class HtmlToJsonTest(unittest.TestCase):
                 "do the bidding of", "Rio Grande do Sul"
             ]
         })
+
+if __name__ == '__main__':
+    unittest.main()

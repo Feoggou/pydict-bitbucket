@@ -1,11 +1,8 @@
-import sys
-
-print("sys path: ", sys.path)
-
 import unittest
+
 from src.dict_parse import DictParser
 from lxml import etree
-from ..src.etree_printer import *
+from src.etree_printer import *
 
 
 class TestParser(unittest.TestCase):

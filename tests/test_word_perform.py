@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import patch
 import os
-import shutil
-import word
+# import shutil
+from src import word
 import json
 import filecmp
 
@@ -33,7 +33,7 @@ class WordTest(unittest.TestCase):
         WordTest.count += 1
         return file_name
 
-    @patch('word.WordData.fetch', word.WordData.fetch_mock)
+    @patch('src.word.WordData.fetch', word.WordData.fetch_mock)
     def test_get_word_contents_using_mock(self):
         word_data = word.WordData(self.word_name)
         word_data.fetch()
@@ -44,7 +44,7 @@ class WordTest(unittest.TestCase):
         self.assertGreater(len(word_data.related_content), 0)
         self.assertGreater(len(word_data.synonyms_content), 0)
 
-    @patch('word.WordData.fetch', word.WordData.fetch_mock)
+    @patch('src.word.WordData.fetch', word.WordData.fetch_mock)
     def test_json_result(self):
         word_data = word.WordData(self.word_name)
         word_data.fetch()
@@ -91,3 +91,5 @@ class WordTest(unittest.TestCase):
         # shutil.rmtree(self.dir_path)
 
 
+if __name__ == '__main__':
+    unittest.main()

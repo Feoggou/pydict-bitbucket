@@ -2,8 +2,7 @@
 
 import http.client
 from lxml import etree
-from ..src.etree_printer import *
-import sys
+from src.etree_printer import *
 
 
 def get_html_for_word(word):

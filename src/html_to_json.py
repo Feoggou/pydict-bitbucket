@@ -1,6 +1,6 @@
 from lxml import etree
-from def_groups import *
-from dict_parse import *
+from .def_groups import *
+from .dict_parse import *
 
 
 # SYNONYMS

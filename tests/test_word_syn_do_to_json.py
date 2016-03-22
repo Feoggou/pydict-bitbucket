@@ -1,7 +1,7 @@
 import unittest
-from def_groups import *
-from dict_parse import DictSynParser
-from html_to_json import HtmlToJsonSynonyms
+from src.def_groups import *
+from src.dict_parse import DictSynParser
+from src.html_to_json import HtmlToJsonSynonyms
 from lxml import etree
 
 
@@ -122,3 +122,5 @@ class HtmlToJsonSynTest(unittest.TestCase):
             {"line": ["cause", "bring about", "create", "effect", "produce"]}
         ], result)
 
+if __name__ == '__main__':
+    unittest.main()

@@ -1,6 +1,5 @@
-from dict_parse import DictParser, DictSynParser
-from etree_printer import *
-import re
+from .dict_parse import DictParser, DictSynParser
+from .etree_printer import *
 
 """class WordFrequencyGroup:
     def __init__(self, etree_parent):

@@ -1,5 +1,5 @@
 from lxml import etree
-from etree_printer import *
+from .etree_printer import *
 import re
 
 

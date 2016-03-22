@@ -1,4 +1,4 @@
-import html_to_json
+from . import html_to_json
 import http.client
 
 

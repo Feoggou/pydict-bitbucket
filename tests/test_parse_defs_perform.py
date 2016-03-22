@@ -1,7 +1,6 @@
 import unittest
-from dict_parse import DictParser, DictRelatedParser, DictSynParser
+from src.dict_parse import DictParser
 from lxml import etree
-from etree_printer import *
 
 
 class TestParser(unittest.TestCase):
