@@ -115,6 +115,7 @@ class JsonSeeker:
     def search_categories(self, word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+        files = [x for x in files if ".json" in x]
 
         results = []
 
@@ -145,6 +146,7 @@ class JsonSeeker:
     def search_examples(self, word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+        files = [x for x in files if ".json" in x]
 
         results = []
 
@@ -172,6 +174,7 @@ class JsonSeeker:
     def search_definitions(self, word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+        files = [x for x in files if ".json" in x]
 
         results = []
 
@@ -202,6 +205,7 @@ class JsonSeeker:
     def search_word_forms(self, word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+        files = [x for x in files if ".json" in x]
 
         results = []
 
@@ -239,6 +243,7 @@ class JsonSeeker:
     def search_synonyms(self, word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+        files = [x for x in files if ".json" in x]
 
         results = []
 
@@ -281,6 +286,7 @@ class JsonSeeker:
     def search_related(self, word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+        files = [x for x in files if ".json" in x]
 
         results = []
 
@@ -323,7 +329,7 @@ class JsonSeeker:
         # P0: files with the name "<word>.json"
         from os.path import isfile, join
 
-        files = [x.replace(".json", "") for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+        files = [x.replace(".json", "") for x in os.listdir(dir_name) if isfile(join(dir_name, x)) and ".json" in x]
         if word in files:
             print("=== FILES ===")
             print(word + ".json\n")

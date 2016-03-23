@@ -19,7 +19,7 @@ from src.word import WordData
 from src.json_search import JsonSeeker
 
 
-def print_help():
+"""def print_help():
     print("usage:\tpy-dict.py <dir_path> [<word_def>]")
 
 
@@ -27,7 +27,8 @@ if len(sys.argv) == 1:
     print_help()
     exit(0)
 
-dir_path = sys.argv[1]
+dir_path = sys.argv[1]"""
+dir_path = "/home/zenith/Dropbox/Docs/DICTIONARY"
 
 
 def retrieve_word_def(word_name):
@@ -56,35 +57,42 @@ def call_printer(word):
     word = word.replace(" ", "-")
     json_printer = JsonPrinter()
     file_name = dir_path + "/" + word + ".json"
-    text = json_printer.to_text(file_name)
-    print(text)
+    if os.path.exists(file_name):
+        text = json_printer.to_text(file_name)
+        print(text)
 
 
 def call_nearby(word):
     word = word.replace(" ", "-")
     json_printer = JsonPrinter()
     file_name = dir_path + "/" + word + ".json"
-    text = json_printer.nearby_to_text(file_name)
-    print(text)
+    if os.path.exists(file_name):
+        text = json_printer.nearby_to_text(file_name)
+        print(text)
 
 
 def call_related(word):
     word = word.replace(" ", "-")
     json_printer = JsonPrinter()
     file_name = dir_path + "/" + word + ".json"
-    text = json_printer.related_to_text(file_name, word)
-    print(text)
+    if os.path.exists(file_name):
+        text = json_printer.related_to_text(file_name, word)
+        print(text)
 
 
 def call_show(word):
     word = word.replace(" ", "-")
     file_name = dir_path + "/" + word + ".json"
-    subprocess.run(['cat', file_name])
-    print("\n")
+    if os.path.exists(file_name):
+        subprocess.run(['cat', file_name])
+        print("\n")
 
 
 def call_addex(word):
     json_file_name = dir_path + "/" + word + ".json"
+
+    if not os.path.exists(json_file_name):
+        return
 
     with open(json_file_name, "r") as json_file:
         obj = json.load(json_file)
@@ -176,11 +184,11 @@ if not os.path.isdir(dir_path):
     print("argument is not a valid directory path: ", dir_path)
     exit(-1)
 
-if len(sys.argv) > 2:
-    word_name = sys.argv[2]
+if len(sys.argv) > 1:           # was: 2
+    word_name = sys.argv[1]     # was: 2
 
     if os.path.exists(dir_path + "/" + word_name + ".json"):
-        # call_printer(word_name)
+        call_printer(word_name)
         exit(0)
 
     try:
