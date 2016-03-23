@@ -10,7 +10,7 @@ import json
 sys.path.append("/home/zenith/PycharmProjects/EDictionary")
 dict_path = "/home/zenith/Dropbox/Docs/DICTIONARY"
 
-count_times = 0
+# count_times = 0
 random.seed()
 
 Notify.init("Hello world")
@@ -28,7 +28,11 @@ def get_random_word(dir_path: str) -> dict:
     file_name = os.path.join(dir_path, word)
 
     with open(file_name, "r") as f:
-        dict_obj = json.load(f)
+        try:
+            dict_obj = json.load(f)
+        except:
+            show_notification("EDictionary --- " + word, "ERROR: " + str(sys.exc_info()[0]))
+            dict_obj = None
 
     return dict_obj
 
@@ -62,6 +66,7 @@ def get_random_definition(dict_obj: dict) -> (str, str):
 
     def_group = def_groups[index]
     word = def_group["word"]
+    word = "{} ({})".format(word, dict_obj["frequency"])
     ggroups = def_group["gram_groups"]
     index = random.randrange(0, len(ggroups))
     ggroup = ggroups[index]
@@ -73,26 +78,22 @@ def get_random_definition(dict_obj: dict) -> (str, str):
 
 
 def show_notification(word: str, definition: str):
-    notif_obj = Notify.Notification.new("word:   " + word, definition, "dialog-information")
+    notif_obj = Notify.Notification.new(word, definition, "dialog-information")
     notif_obj.show()
 
 
-def timer_callback(count):
+def timer_callback():
     dict_obj = get_random_word(dict_path)
-    if dict_obj is None:
-        exit(0)
 
-    word, definition = get_random_definition(dict_obj)
+    if dict_obj is not None:
+        word, definition = get_random_definition(dict_obj)
+        show_notification("word:   " + word, definition)
 
-    show_notification(word, definition)
-
-    count += 1
-    if count < 3:
-        timer = Timer(5, timer_callback, [count])
-        timer.start()
+    timer = Timer(20 * 60, timer_callback)
+    timer.start()
 
 
-timer = Timer(2, timer_callback, [count_times])
+timer = Timer(2, timer_callback)
 timer.start()
 
 
