@@ -12,9 +12,20 @@ import json
 import re
 import subprocess
 
-from json_printer import JsonPrinter
-from word import WordData
-from json_search import JsonSeeker
+sys.path.append("/home/zenith/PycharmProjects/EDictionary")
+
+from src.json_printer import JsonPrinter
+from src.word import WordData
+from src.json_search import JsonSeeker
+
+
+def print_help():
+    print("usage:\tpy-dict.py <dir_path> [<word_def>]")
+
+
+if len(sys.argv) == 1:
+    print_help()
+    exit(0)
 
 dir_path = sys.argv[1]
 
@@ -25,7 +36,7 @@ def retrieve_word_def(word_name):
 
     content = word_data.build_content()
     if content is None:
-        print("Word not found! (or network error?)")
+        print("Word not found! (or network error?) --- word: ", word_name)
         return
 
     if len(content) == 0:
@@ -161,14 +172,6 @@ def call_search_word_forms(word):
     return False
 
 
-def print_help():
-    print("usage:\tpy-dict.py <dir_path> [<word_def>]")
-
-
-if len(sys.argv) == 1:
-    print_help()
-    exit(0)
-
 if not os.path.isdir(dir_path):
     print("argument is not a valid directory path: ", dir_path)
     exit(-1)
@@ -177,10 +180,16 @@ if len(sys.argv) > 2:
     word_name = sys.argv[2]
 
     if os.path.exists(dir_path + "/" + word_name + ".json"):
-        call_printer(word_name)
+        # call_printer(word_name)
         exit(0)
 
-    retrieve_word_def(word_name)
+    try:
+        retrieve_word_def(word_name)
+
+    except:
+        print("----- ERRROR for: ", word_name)
+        exit(-1)
+
     exit(0)
 
 

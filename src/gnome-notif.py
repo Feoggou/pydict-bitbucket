@@ -8,7 +8,7 @@ import os
 import json
 
 sys.path.append("/home/zenith/PycharmProjects/EDictionary")
-dict_path = "/home/zenith/PycharmProjects/EDictionary/test-data"
+dict_path = "/home/zenith/Dropbox/Docs/DICTIONARY"
 
 count_times = 0
 random.seed()
@@ -19,6 +19,9 @@ Notify.init("Hello world")
 def get_random_word(dir_path: str) -> dict:
     items = os.listdir(dir_path)
     items = [x for x in items if os.path.isfile(os.path.join(dir_path, x))]
+
+    if len(items) == 0:
+        return None
 
     index = random.randrange(0, len(items))
     word = items[index]
@@ -76,6 +79,9 @@ def show_notification(word: str, definition: str):
 
 def timer_callback(count):
     dict_obj = get_random_word(dict_path)
+    if dict_obj is None:
+        exit(0)
+
     word, definition = get_random_definition(dict_obj)
 
     show_notification(word, definition)
