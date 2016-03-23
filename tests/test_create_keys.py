@@ -12,7 +12,11 @@ def get_html_for_word(word):
         conn = http.client.HTTPConnection(hostname)
         conn.request("GET", "/dictionary/american/" + word)
         reason = conn.getresponse()
+        loc = reason.getheader('location')
+        print("loc = ", loc)
+        print("reason=", reason)
         data = reason.read()
+        print("data='{}'".format(data))
         text = data.decode()
     else:
         f = open("old_do_defs.htm")
@@ -41,7 +45,8 @@ def get_syn_for_word(word):
     return text
 
 
-# text = get_html_for_word("perform")
+# text = get_html_for_word("adjudicator")
+
 # text = get_related_for_word("do")
 # text = get_syn_for_word("do")
 text = get_def_new("do")

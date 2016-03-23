@@ -2,6 +2,11 @@ from . import html_to_json
 import http.client
 
 
+class RedirectError(Exception):
+    def __init__(self, value: str):
+        self.value = value
+
+
 class WordData:
     def __init__(self, word_name):
         self.word_name = word_name
@@ -15,8 +20,16 @@ class WordData:
         conn = http.client.HTTPConnection(hostname)
         conn.request("GET", "/dictionary/" + suffix)
         reason = conn.getresponse()
+
         data = reason.read()
         text = data.decode()
+
+        if len(text) == 0:
+            redirect_loc = reason.getheader('location')
+            if redirect_loc is not None:
+                redir_word = redirect_loc.split('/')[-1]
+                raise RedirectError(redir_word)
+
         return text
 
     def _fetch_from_web_dict(self, suffix):

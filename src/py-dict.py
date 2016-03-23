@@ -15,7 +15,7 @@ import subprocess
 sys.path.append("/home/zenith/PycharmProjects/EDictionary")
 
 from src.json_printer import JsonPrinter
-from src.word import WordData
+from src.word import WordData, RedirectError
 from src.json_search import JsonSeeker
 
 
@@ -187,16 +187,22 @@ if not os.path.isdir(dir_path):
 if len(sys.argv) > 1:           # was: 2
     word_name = sys.argv[1]     # was: 2
 
-    if os.path.exists(dir_path + "/" + word_name + ".json"):
-        call_printer(word_name)
-        exit(0)
+    while len(word_name) > 0:
+        try:
+            if os.path.exists(dir_path + "/" + word_name + ".json"):
+                call_printer(word_name)
+                exit(0)
 
-    try:
-        retrieve_word_def(word_name)
+            retrieve_word_def(word_name)
+            break
 
-    except:
-        print("----- ERRROR for: ", word_name)
-        exit(-1)
+        except RedirectError as e:
+            word_name = e.value
+
+        except Exception as e:
+            print("----- ERRROR for: ", word_name, ": ", e)
+            word_name = ""
+            exit(-1)
 
     exit(0)
 
@@ -288,14 +294,24 @@ while True:
     elif re.match("^[A-Za-z0-9\- \.\']+$", word_name):
         word_name = word_name.replace(" ", "-")
 
-        if os.path.exists(dir_path + "/" + word_name + ".json"):
-            call_printer(word_name)
-            continue
+        while len(word_name):
+            try:
+                if os.path.exists(dir_path + "/" + word_name + ".json"):
+                    call_printer(word_name)
+                    break
 
-        if call_search_word_forms(word_name):
-            retrieve_word_def(word_name)
-            print("")
-            call_printer(word_name)
+                if call_search_word_forms(word_name):
+                    retrieve_word_def(word_name)
+                    print("")
+                    call_printer(word_name)
+                break
+            except RedirectError as e:
+                question = "Word '{}' not found. Redirect to '{}'? (Yes/No) ".format(word_name, e.value)
+                answer = input(question)
+                if answer.lower() == "yes":
+                    word_name = e.value
+                else:
+                    word_name = ""
 
     else:
         print("Error: unrecognized command, nor word.")
