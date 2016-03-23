@@ -19,6 +19,7 @@ Notify.init("Hello world")
 def get_random_word(dir_path: str) -> dict:
     items = os.listdir(dir_path)
     items = [x for x in items if os.path.isfile(os.path.join(dir_path, x))]
+    items = [x for x in items if ".json" in x]
 
     if len(items) == 0:
         return None
