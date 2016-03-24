@@ -56,7 +56,7 @@ def get_syn_for_word(word):
 
 
 add_new_word_to_test = True
-word_name = "bellow"
+word_name = "exact"
 
 if add_new_word_to_test is True:
     text_def = get_html_for_word(word_name)
