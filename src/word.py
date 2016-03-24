@@ -18,6 +18,7 @@ class WordData:
     def _fetch_from_web(suffix):
         hostname = "www.collinsdictionary.com"
         conn = http.client.HTTPConnection(hostname)
+        print("from " + hostname + "/dictionary/" + suffix)
         conn.request("GET", "/dictionary/" + suffix)
         reason = conn.getresponse()
 
@@ -44,9 +45,14 @@ class WordData:
         if len(self.def_content) == 0:
             return
 
-        self.related_content = self._fetch_from_web_dict(self.word_name + "/related")
+        try:
+            self.related_content = self._fetch_from_web_dict(self.word_name + "/related")
 
-        self.synonyms_content = self._fetch_web_thesaurus(self.word_name)
+            self.synonyms_content = self._fetch_web_thesaurus(self.word_name)
+        except RedirectError:
+            print("ignored redirect")
+        except:
+            raise
 
     def fetch_mock(self):
         f = open("{}_defs.html".format(self.word_name))
