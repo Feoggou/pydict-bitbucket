@@ -1,0 +1,102 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "to roar with a powerful, reverberating sound, as a bull does"
+                        },
+                        {
+                            "def": "to cry out loudly, as in anger or pain"
+                        }
+                    ],
+                    "value": "intransitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "to utter loudly or powerfully"
+                        }
+                    ],
+                    "value": "transitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "the sound of bellowing"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "bellow"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "Saul(born Solomon Bellows) 1915-2005; U.S. novelist, born in Canada"
+                        }
+                    ]
+                }
+            ],
+            "word": "Bellow"
+        }
+    ],
+    "examples": [],
+    "frequency": "Used Occasionally",
+    "nearby_words": [
+        "belligerence",
+        "belligerency",
+        "belligerent",
+        "Bellingham",
+        "Bellingshausen Sea",
+        "Bellini",
+        "bellman",
+        "bellmouthed",
+        "Belloc",
+        "Bellona",
+        "bellows",
+        "bells and whistles",
+        "bellwether",
+        "bellwort",
+        "belly",
+        "belly dance",
+        "belly laugh",
+        "belly up",
+        "belly-flop",
+        "bellyache"
+    ],
+    "related_words": [
+        "bell"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    "shout",
+                                    "bawl",
+                                    "clamor",
+                                    "cry",
+                                    "howl",
+                                    "roar",
+                                    "scream",
+                                    "shriek",
+                                    "yell"
+                                ]
+                            }
+                        ],
+                        "value": "noun verb"
+                    }
+                }
+            ],
+            "word": "bellow"
+        }
+    ]
+}

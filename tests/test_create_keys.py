@@ -25,24 +25,33 @@ def get_html_for_word(word):
     return text
 
 
-def get_def_new(word):
-    f = open("do_defs.html")
-    text = f.read()
-    return text
-
 def get_related_for_word(word):
     text = ""
-    # f = open("file.htm")
-    f = open("do_related.html")
-    text = f.read()
+    hostname = "www.collinsdictionary.com"
+    conn = http.client.HTTPConnection(hostname)
+    conn.request("GET", "/dictionary/american/" + word + "/related")
+    response = conn.getresponse()
+    loc = response.getheader('location')
+    if loc is not None:
+        print("loc = ", loc)
+
+    data = response.read()
+    text = data.decode()
     return text
 
 
 def get_syn_for_word(word):
     text = ""
-    # f = open("file.htm")
-    f = open("do_syn.html")
-    text = f.read()
+    hostname = "www.collinsdictionary.com"
+    conn = http.client.HTTPConnection(hostname)
+    conn.request("GET", "/dictionary/american-thesaurus/" + word)
+    response = conn.getresponse()
+    loc = response.getheader('location')
+    if loc is not None:
+        print("loc = ", loc)
+
+    data = response.read()
+    text = data.decode()
     return text
 
 
@@ -50,19 +59,36 @@ add_new_word_to_test = True
 word_name = "bellow"
 
 if add_new_word_to_test is True:
-    text = get_html_for_word(word_name)
+    text_def = get_html_for_word(word_name)
     with open(word_name + "_defs.html", "w") as f:
-        f.write(text)
+        f.write(text_def)
 
-    root = etree.HTML(text)
+    text_related = get_related_for_word(word_name)
+    with open(word_name + "_related.html", "w") as f:
+        f.write(text_related)
+
+    text_syn = get_syn_for_word(word_name)
+    with open(word_name + "_syn.html", "w") as f:
+        f.write(text_syn)
+
+    root = etree.HTML(text_def)
 
     temp = sys.stdout
     sys.stdout = open(word_name + "_defs.keys.txt", "w")
     print_children(root, padding=0)
+
+    root = etree.HTML(text_related)
+    sys.stdout = open(word_name + "_related.keys.txt", "w")
+    print_children(root, padding=0)
+
+    root = etree.HTML(text_syn)
+    sys.stdout = open(word_name + "_syn.keys.txt", "w")
+    print_children(root, padding=0)
+
     sys.stdout = temp
 else:
     # text = get_related_for_word("do")
     # text = get_syn_for_word("do")
-    text = get_def_new("do")
+    pass
 
 # traverse_children(root, None)

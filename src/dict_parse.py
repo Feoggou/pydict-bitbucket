@@ -71,7 +71,8 @@ class DictSynParser:
                                 '*[@class="pos"]')                               # 12 KEYS
 
         if len(elems):
-            return elems[0].text
+            text = " ".join([x.text for x in elems if len(x.text) > 0])
+            return text
 
         return ""
 
@@ -91,6 +92,13 @@ class DictSynParser:
         results = sslist_etree.xpath('./*[re:match(@class, "sense_list_item level_\d") '  # 11 KEYS or 13 KEYS
                             'and @value="' + value + '"]',
                              namespaces={"re": "http://exslt.org/regular-expressions"})
+
+        if len(results) == 0:
+            results = sslist_etree.xpath('./*[re:match(@class, "sense_list_item level_\d")]',  # 11 KEYS or 13 KEYS
+                                         namespaces={"re": "http://exslt.org/regular-expressions"})
+            assert(len(results) == 1)
+            assert "value" not in results[0].keys()
+
         elem = results[0]
 
         return elem
@@ -377,8 +385,9 @@ class DictParser:
         results = sense_list_item.xpath('./*[@class="def"]')   # 13 KEYS or 15 KEYS
         elem = results[0]
 
-        text_r = elem.xpath('./*[@class="hi"]')
-        text = elem.text
+        text_r = elem.xpath('./*[@class="hi"] | ./strong')
+        text = elem.text if elem.text is not None else ""
+
         for y in text_r:
             if y.text is not None:
                 text += y.text

@@ -162,6 +162,7 @@ class GramGroup(JsonGroup):
         self.grammar_value = self.dict_parser.get_gram_value(self.etree_elem)
         if len(self.grammar_value) == 0:
             self.grammar_value = None
+
         self.defs = SenseListGroup(self.dict_parser, self.etree_elem)
         self.defs.build()
 
