@@ -159,14 +159,12 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
 
-        print(result)
-
         self.assertEqual(
             {
                 "value": "transitive verb",
                 "defs": [
-                    {"category": "with from or of", "def": "to force payment of; extort (with from or of)"},
-                    {"category": "with from or of", "def": "to demand and get by authority or force; insist on (with from or of)"},
+                    {"def": "to force payment of; extort (with from or of)"},
+                    {"def": "to demand and get by authority or force; insist on (with from or of)"},
                     {"def": "to call for; make necessary; require"}
                 ]
             }, result)
@@ -196,8 +194,8 @@ class HtmlToJsonTest(unittest.TestCase):
                 {
                     "value": "transitive verb",
                     "defs": [
-                        {"category": "with from or of", "def": "to force payment of; extort (with from or of)"},
-                        {"category": "with from or of", "def": "to demand and get by authority or force; insist on (with from or of)"},
+                        {"def": "to force payment of; extort (with from or of)"},
+                        {"def": "to demand and get by authority or force; insist on (with from or of)"},
                         {"def": "to call for; make necessary; require"}
                     ]
                 },
@@ -218,9 +216,8 @@ class HtmlToJsonTest(unittest.TestCase):
                      {
                          "value": "adjective",
                          "defs": [
-                             {
-                                 "def": "characterized by, requiring, or capable of accuracy of detail; very accurate; methodical; correct",
-                                 "example": "an exact science"},
+                             {"def": "characterized by, requiring, or capable of accuracy of detail; very accurate; methodical; correct",
+                              "example": "an exact science"},
                              {"def": "not deviating in form or content; without variation; precise",
                               "example": "an exact replica"},
                              {"def": "being the very (one specified or understood)",
@@ -231,9 +228,8 @@ class HtmlToJsonTest(unittest.TestCase):
                      {
                          "value": "transitive verb",
                          "defs": [
-                             {"category": "with from or of", "def": "to force payment of; extort (with from or of)"},
-                             {"category": "with from or of",
-                              "def": "to demand and get by authority or force; insist on (with from or of)"},
+                             {"def": "to force payment of; extort (with from or of)"},
+                             {"def": "to demand and get by authority or force; insist on (with from or of)"},
                              {"def": "to call for; make necessary; require"}
                          ]
                      },
@@ -289,9 +285,8 @@ class HtmlToJsonTest(unittest.TestCase):
                      {
                          "value": "transitive verb",
                          "defs": [
-                             {"category": "with from or of", "def": "to force payment of; extort (with from or of)"},
-                             {"category": "with from or of",
-                              "def": "to demand and get by authority or force; insist on (with from or of)"},
+                             {"def": "to force payment of; extort (with from or of)"},
+                             {"def": "to demand and get by authority or force; insist on (with from or of)"},
                              {"def": "to call for; make necessary; require"}
                          ]
                      },

@@ -82,7 +82,7 @@ class HtmlToJsonTest(unittest.TestCase):
                         "defs": [
                             {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
                             {"def": "to be active; work", "example": "do; don\'t merely talk"},
-                            {"def": "to finish", "category": "used in the perfect tense [have done with dreaming ]"},
+                            {"def": "to finish (used in the perfect tense [have done with dreaming ])"},
                             {"def": "to get along; fare", "example": "mother and child are doing well"},
                             {"def": "to be adequate or suitable; serve the purpose", "example": "the black dress will do"},
                             {"def": "to take place; go on", "example": "anything doing tonight?"},

@@ -238,7 +238,15 @@ class DictParser:
             derived_form = item.xpath('./*[@class="drv"]/text()')[0]
             derived_form = derived_form.replace("ˈ", "")
 
-            der_forms[gram_value] = derived_form
+            if gram_value in der_forms:
+                der_forms[gram_value] += ", " + derived_form
+            else:
+                der_forms[gram_value] = derived_form
+
+            derived_forms = item.xpath('./*[@class="hom"]/*[@class="var"]/*[@class="var"]/text()')
+
+            if len(derived_forms):
+                der_forms[gram_value] += " " + derived_forms[0].replace("ˈ", "")
 
         if der_forms == {}:
             return None
@@ -255,6 +263,36 @@ class DictParser:
             results.append(nby_elem.text)
 
         return results
+
+    def get_all_translations(self):
+        results = self.mainbar_elem.xpath('./*[@id="translations_box"]/'          # 7 KEYS
+                                         '*[@id="translations-content"]/'        # 8 KEYS
+                                         '*[@class="translation_list clear"]')   # 9 KEYS
+
+        list_results = []
+        for item in results:
+            text = ""
+            subitems = item.xpath('./*[@class="translation"]/'
+                                 '*[@class="hom lang_EN-US"]/'
+                                 '*[@class="hi"]')
+
+            for subitem in subitems:
+                begin_item = subitem.getprevious()
+
+                if "class" in begin_item.keys() and begin_item.get("class") == "neutral":
+                    if begin_item.tail is not None:
+                        text += begin_item.tail
+
+                if subitem.text is not None:
+                    text += subitem.text
+
+                if subitem.tail is not None:
+                    text += subitem.tail
+
+            list_results.append(text)
+
+        return list_results
+
 
     def get_all_def_groups(self):
         id_name_re = '"{}_\d"'.format(self.word_name)
@@ -385,8 +423,32 @@ class DictParser:
         results = sense_list_item.xpath('./*[@class="def"]')   # 13 KEYS or 15 KEYS
         elem = results[0]
 
-        text_r = elem.xpath('./*[@class="hi"] | ./strong')
+        assert isinstance(elem, etree._Element)
         text = elem.text if elem.text is not None else ""
+
+        next_elem = elem.getnext()
+        additional_notes = None
+        if next_elem is not None:
+            for key in next_elem.keys():
+                if key == "class" and re.match("lbl .+", next_elem.get(key)):
+                    additional_notes = next_elem
+
+        if additional_notes is not None:
+
+            if elem.tail is not None:
+                text += elem.tail
+            text += additional_notes.text
+
+            hi_nodes = additional_notes.xpath('./*[@class="hi"]')
+            for node in hi_nodes:
+                if node.text is not None:
+                    text += node.text
+                if node.tail is not None:
+                    text += node.tail
+
+            text += additional_notes.tail
+
+        text_r = elem.xpath('./*[@class="hi"] | ./strong')
 
         for y in text_r:
             if y.text is not None:
@@ -409,6 +471,16 @@ class DictParser:
         results = sense_list_item.xpath('./*[re:match(@class, "lbl .+")]',          # 13 KEYS or 15 KEYS
                              namespaces={"re": "http://exslt.org/regular-expressions"})
         if len(results) == 0:
+            return ""
+
+        first_child = sense_list_item.getchildren()[0]
+        additional_notes = None
+        if first_child is not None:
+            for key in first_child.keys():
+                if key == "class" and re.match("lbl .+", first_child.get(key)):
+                    additional_notes = first_child
+
+        if additional_notes is None:
             return ""
 
         text_items = []

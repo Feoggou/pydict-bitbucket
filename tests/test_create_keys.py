@@ -55,7 +55,7 @@ def get_syn_for_word(word):
     return text
 
 
-add_new_word_to_test = True
+add_new_word_to_test = False
 word_name = "exact"
 
 if add_new_word_to_test is True:
