@@ -17,11 +17,11 @@ class WordTest(unittest.TestCase):
     count = 0
 
     def setUp(self):
-        self.word_name = "do"
+        self.word_name = "exact"
         self.dir_path = "./test-data"
 
         self.base_file_name = self.dir_path + "/" + self.word_name
-        self.expected_file = "expected_do.json"
+        self.expected_file = "expected_exact.json"
 
         if not os.path.isdir(self.dir_path):
             os.mkdir(self.dir_path)
@@ -75,15 +75,6 @@ class WordTest(unittest.TestCase):
         self.assertTrue(files_same)
 
         os.remove(file_name)
-
-    def test_download_html(self):
-        """word_data = word.WordData(self.word_name)
-        text = word_data.download_definition()
-
-        f = open(self.base_file_name + "_downloaded.htm", "w")
-        f.write(text)"""
-        # TODO: use printer to write etree keys into .keys file, then search the "phrases" and see what changed.
-        pass
 
     def tearDown(self):
         pass
