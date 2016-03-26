@@ -56,7 +56,7 @@ def get_syn_for_word(word):
 
 
 add_new_word_to_test = False
-word_name = "exact"
+word_name = "pundit"
 
 if add_new_word_to_test is True:
     text_def = get_html_for_word(word_name)
@@ -71,19 +71,22 @@ if add_new_word_to_test is True:
     with open(word_name + "_syn.html", "w") as f:
         f.write(text_syn)
 
+    assert len(text_def)
     root = etree.HTML(text_def)
 
     temp = sys.stdout
     sys.stdout = open(word_name + "_defs.keys.txt", "w")
     print_children(root, padding=0)
 
-    root = etree.HTML(text_related)
-    sys.stdout = open(word_name + "_related.keys.txt", "w")
-    print_children(root, padding=0)
+    if len(text_related):
+        root = etree.HTML(text_related)
+        sys.stdout = open(word_name + "_related.keys.txt", "w")
+        print_children(root, padding=0)
 
-    root = etree.HTML(text_syn)
-    sys.stdout = open(word_name + "_syn.keys.txt", "w")
-    print_children(root, padding=0)
+    if len(text_syn):
+        root = etree.HTML(text_syn)
+        sys.stdout = open(word_name + "_syn.keys.txt", "w")
+        print_children(root, padding=0)
 
     sys.stdout = temp
 else:
