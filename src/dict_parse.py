@@ -481,7 +481,15 @@ class DictParser:
 
         if len(text) == 0:
             hrlink = elem.xpath('.//*[@class="xr_ref_link"]')[0]
-            return hrlink.text
+            text = hrlink.text
+
+            link = hrlink.get("href")
+            word_def = re.match("\w+#\w+_(\d)", link)
+            assert len(word_def.groups()) == 1
+            word_def = word_def.groups()[0]
+
+            text += " (def. {})".format(word_def)
+            return text
 
         return text
 
@@ -505,7 +513,7 @@ class DictParser:
         text_items = []
         for x in results:
             text_r = x.xpath('./*[@class="hi"]')
-            text = x.text
+            text = x.text if x.text is not None else ""
             for y in text_r:
                 if y.text is not None:
                     text += y.text

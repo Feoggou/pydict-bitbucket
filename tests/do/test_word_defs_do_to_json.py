@@ -446,7 +446,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 {
                     "value": "noun",
                     "defs": [
-                        {"category": "slang", "def": "hairdo"}
+                        {"category": "slang", "def": "hairdo (def. 1)"}
                     ]
                 },
             ]}, result)
@@ -580,7 +580,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
-                        "defs": [ {"category": "slang", "def": "hairdo"} ]
+                        "defs": [ {"category": "slang", "def": "hairdo (def. 1)"} ]
                     },
                 ]},
                 {"word": "Do or do", "gram_groups": [
@@ -733,7 +733,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
-                        "defs": [ {"category": "slang", "def": "hairdo"} ]
+                        "defs": [ {"category": "slang", "def": "hairdo (def. 1)"}]
                     },
                 ]},
                 {"word": "Do or do", "gram_groups": [

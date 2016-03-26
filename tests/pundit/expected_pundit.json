@@ -1,0 +1,58 @@
+{
+    "def_groups": [
+        {
+            "derived_forms": {
+                "noun": "punditry"
+            },
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "category": "var. of",
+                            "def": "pandit (def. 1)"
+                        },
+                        {
+                            "def": "a person who has or professes to have great learning; actual or self-professed authority"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "pundit"
+        }
+    ],
+    "examples": [
+        {
+            "example": "Everyone who was anyone on the political pundit circuit had to have Am\u00e9s appear on his or her show or play in his or her game milieu."
+        }
+    ],
+    "frequency": "Used Occasionally",
+    "nearby_words": [
+        "punctate",
+        "punctilio",
+        "punctilious",
+        "punctual",
+        "punctuate",
+        "punctuated equilibrium",
+        "punctuation",
+        "punctuation mark",
+        "punctulate",
+        "puncture",
+        "Pune",
+        "pung",
+        "pungent",
+        "Punic",
+        "Punic Wars",
+        "puniness",
+        "punish",
+        "punishable",
+        "punishment",
+        "punitive"
+    ],
+    "related_words": [
+        "pandit"
+    ],
+    "translations": [
+        "A pundit is a person who knows a lot about a subject and is often asked to give information or opinions about it to the public. pundits --- ...a well-known political pundit."
+    ]
+}

@@ -6,19 +6,19 @@ from src.json_printer import JsonPrinter
 
 class JsonPrinterTest(unittest.TestCase):
     def setUp(self):
-        self.word_name = "do"
+        self.word_name = "pundit"
         self.dir_path = "test-data"
 
-        self.expected_file = "expected_do.txt"
+        self.expected_file = "expected_pundit.txt"
 
         if not os.path.isdir(self.dir_path):
             os.mkdir(self.dir_path)
 
     def test_json_to_text(self):
         json_printer = JsonPrinter()
-        text = json_printer.to_text("expected_do.json")
+        text = json_printer.to_text("expected_pundit.json")
 
-        file_name = self.dir_path + "/do.txt"
+        file_name = self.dir_path + "/pundit.txt"
         with open(file_name, "w") as f:
             f.write(text)
 
