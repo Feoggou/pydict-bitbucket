@@ -191,10 +191,13 @@ class DictParser:
 
     # GET-s
     def get_word_freq(self) -> str:
-        elem = self.sidebar_elem.xpath('./*[@class="commonness"]/'                      # 7 KEYS
-                                       '*[@title]')[0]                                  # 8 KEYS
+        elems = self.sidebar_elem.xpath('./*[@class="commonness"]/'                      # 7 KEYS
+                                       '*[@title]')                                      # 8 KEYS
 
-        return elem.get("title")
+        if len(elems):
+            return elems[0].get("title")
+
+        return ""
 
     def get_all_examples(self):
         results = []
@@ -387,7 +390,8 @@ class DictParser:
                                 '*[@class="pos"]')                               # 12 KEYS
 
         if len(elems):
-            return elems[0].text
+            text = " ".join([x.text for x in elems])
+            return text
 
         return ""
 

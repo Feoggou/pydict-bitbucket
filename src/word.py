@@ -1,5 +1,6 @@
 from . import html_to_json
 import http.client
+import os
 
 
 class RedirectError(Exception):
@@ -47,10 +48,15 @@ class WordData:
 
         try:
             self.related_content = self._fetch_from_web_dict(self.word_name + "/related")
+        except RedirectError as e:
+            print("ignored redirect related: ", e.value)
+        except:
+            raise
 
+        try:
             self.synonyms_content = self._fetch_web_thesaurus(self.word_name)
-        except RedirectError:
-            print("ignored redirect")
+        except RedirectError as e:
+            print("ignored redirect syn: ", e.value)
         except:
             raise
 
@@ -58,11 +64,15 @@ class WordData:
         f = open("{}_defs.html".format(self.word_name))
         self.def_content = f.read()
 
-        f = open("{}_related.html".format(self.word_name))
-        self.related_content = f.read()
+        related = "{}_related.html".format(self.word_name)
+        if os.path.exists(related):
+            f = open(related)
+            self.related_content = f.read()
 
-        f = open("{}_syn.html".format(self.word_name))
-        self.synonyms_content = f.read()
+        synonyms = "{}_syn.html".format(self.word_name)
+        if os.path.exists(synonyms):
+            f = open(synonyms)
+            self.synonyms_content = f.read()
 
     def download_definition(self) -> str:
         return self._fetch_from_web_dict(self.word_name)
@@ -80,6 +90,8 @@ class WordData:
 
         if len(self.related_content) > 0:
             related = html_to_json.HtmlToJsonRelated(self.related_content)
-            content["related_words"] = related.translate()
+            text = related.translate()
+            if len(text):
+                content["related_words"] = text
 
         return content

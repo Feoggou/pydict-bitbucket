@@ -1,0 +1,58 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "in a jumbled, confused mass or manner; without order or method"
+                        },
+                        {
+                            "def": "in wild, disorderly haste; headlong"
+                        }
+                    ],
+                    "value": "adverb adjective"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "a jumble; confusion; disorder"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "pell-mell"
+        }
+    ],
+    "examples": [
+        {
+            "example": "Somehow in his pell-mell race through the woods he had left her behind."
+        }
+    ],
+    "frequency": "",
+    "nearby_words": [
+        "pelecypod",
+        "Pel\u00e9e",
+        "pelerine",
+        "Peleus",
+        "pelf",
+        "Pelias",
+        "pelican",
+        "pelican hook",
+        "Pelion",
+        "pelisse",
+        "pellagra",
+        "pellagrin",
+        "pellet",
+        "pelletize",
+        "pellicle",
+        "pellitory",
+        "pellucid",
+        "pelmet",
+        "Pelopidas",
+        "Peloponnesian War"
+    ],
+    "related_words": [],
+    "translations": []
+}

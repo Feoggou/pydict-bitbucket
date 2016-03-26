@@ -70,6 +70,8 @@ def read_examples(obj) -> str:
 
 
 def read_frequency(obj) -> str:
+    if len(obj["frequency"]) == 0:
+        return ""
     return "[{}]\n\n".format(obj["frequency"])
 
 
