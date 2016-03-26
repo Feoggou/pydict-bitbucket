@@ -5,9 +5,9 @@ bellow
 crane
 laud
 pell-mell
-pundit
-roving
-sear
+* pundit
+* roving
+* sear
 
 
 NOT FOUND:
