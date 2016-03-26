@@ -180,6 +180,9 @@ class HtmlToJsonTest(unittest.TestCase):
                 "do tell!", "do a deal", "do-nothing", "do duty for", "do up brown", "well-to-do", "do away with",
                 "do one's bit", "ne'er-do-well", "do wonders for", "do business with", "do oneself proud",
                 "do the bidding of", "Rio Grande do Sul"
+            ],
+            "translations": [
+                "When you do something, you take some action or perform an activity or task.I was trying to do some work. done"
             ]
         })
 

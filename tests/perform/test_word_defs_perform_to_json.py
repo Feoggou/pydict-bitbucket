@@ -283,6 +283,13 @@ class HtmlToJsonTest(unittest.TestCase):
         result = group.translate()
         self.assertEqual([], result)
 
+    def test_get_translations_to_json(self):
+        obj = HtmlToJson(self.word_name, self.html_content)
+        json_obj = obj.translate()
+
+        self.assertEqual(json_obj["translations"],
+            ["When you perform a task or action, you do it....people who have performed outstanding acts of bravery. performs, performing, performed"])
+
     def test_translate_html_to_json(self):
         obj = HtmlToJson(self.word_name, self.html_content)
         json_str = obj.translate()
@@ -327,6 +334,9 @@ class HtmlToJsonTest(unittest.TestCase):
                 "perfecto", "perfervid", "perfidious", "perfidy", "perfoliate", "perforate", "perforated", "perforation",
                 "perforative", "perforce", "performance", "performance art", "performative", "performing arts", "perfume",
                 "perfumer", "perfumery", "perfunctory", "perfuse", "perfusionist"
+            ],
+            "translations": [
+                "When you perform a task or action, you do it....people who have performed outstanding acts of bravery. performs, performing, performed"
             ]
         })
 

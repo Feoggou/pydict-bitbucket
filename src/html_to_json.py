@@ -48,6 +48,7 @@ class MainDefGroup:
         self.def_groups = None
         self.examples = None
         self.nearby_words = None
+        self.translations = None
 
     def build_children(self):
         self.word_frequency = WordFrequencyGroup(self.dict_parser)
@@ -62,6 +63,8 @@ class MainDefGroup:
         self.nearby_words = NearbyWordsGroup(self.dict_parser)
         self.nearby_words.build()
 
+        self.translations = self.dict_parser.get_all_translations()
+
     def translate(self):
         json_object = {}
         if self.word_frequency is not None:
@@ -72,6 +75,8 @@ class MainDefGroup:
             json_object["examples"] = self.examples.translate()
         if self.nearby_words is not None:
             json_object["nearby_words"] = self.nearby_words.translate()
+        if self.translations is not None:
+            json_object["translations"] = self.translations
 
         return json_object
 

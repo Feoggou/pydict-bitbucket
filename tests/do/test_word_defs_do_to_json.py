@@ -630,6 +630,14 @@ class HtmlToJsonTest(unittest.TestCase):
                                       "do up", "do up right", "do oneself well", "do with", "do without",
                                       "have to do with"], result)
 
+    def test_get_translations_to_json(self):
+        obj = HtmlToJson(self.word_name, self.html_content)
+        json_obj = obj.translate()
+
+        print(json_obj["translations"])
+        self.assertEqual(json_obj["translations"],
+            ["When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
+
     def test_translate_html_to_json(self):
         obj = HtmlToJson(self.word_name, self.html_content)
         json_str = obj.translate()
@@ -746,6 +754,9 @@ class HtmlToJsonTest(unittest.TestCase):
                 'Dn', 'DNA', 'DNA fingerprinting', 'DNB', 'Dnepr','Dneprodzerzhinsk', 'Dnepropetrovsk',
                 'Dnestr', 'Dnieper', 'Dniester', 'do a deal', 'do a number on', 'do away with', 'do business with',
                 'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'
+            ],
+            "translations": [
+                "When you do something, you take some action or perform an activity or task.I was trying to do some work. done"
             ]
         })
 

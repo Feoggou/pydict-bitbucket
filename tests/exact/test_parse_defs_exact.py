@@ -210,7 +210,7 @@ class TestParser(unittest.TestCase):
         self.assertEqual(translations, [
             "Exact means correct, accurate, and complete in every way.I don't remember the exact words.",
             "When someone exacts something, they demand and obtain it from another person, especially because they are "
-            "in a superior or more powerful position.Already he has exacted a written apology "
+            "in a superior or more powerful position. exacts, exacting, exacted --- Already he has exacted a written apology "
             "from the chairman of the commission."
         ])
 

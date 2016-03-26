@@ -283,10 +283,25 @@ class DictParser:
                     if begin_item.tail is not None:
                         text += begin_item.tail
 
+                subtext = ""
+                if len(subitem.getchildren()):
+                    assert len(subitem.getchildren()) == 1
+                    child = subitem.getchildren()[0]
+
+                    if "class" in child.keys() and child.get("class") == "neutral":
+                        if child.text is not None:
+                            subtext += child.text
+                        if child.tail is not None:
+                            subtext += child.tail
+
+                text += subtext
+
                 if subitem.text is not None:
                     text += subitem.text
 
                 if subitem.tail is not None:
+                    if len(subtext):
+                        text += " --- "
                     text += subitem.tail
 
             list_results.append(text)

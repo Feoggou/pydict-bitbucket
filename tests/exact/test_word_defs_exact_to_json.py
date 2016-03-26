@@ -299,6 +299,12 @@ class HtmlToJsonTest(unittest.TestCase):
                 "ex nihilo", "ex officio", "ex parte", "ex post facto", "ex-", "ex-directory", "ex-dividend", "ex-voto",
                 "exa-", "exacerbate", "exacta", "exacting", "exaction", "exactitude", "exactly", "exaggerate", "exalt",
                 "exaltation", "exam", "examen"
+            ],
+            "translations": [
+                "Exact means correct, accurate, and complete in every way.I don't remember the exact words.",
+                "When someone exacts something, they demand and obtain it from another person, especially because they are "
+                "in a superior or more powerful position. exacts, exacting, exacted --- Already he has exacted a written apology "
+                "from the chairman of the commission."
             ]
         })
 

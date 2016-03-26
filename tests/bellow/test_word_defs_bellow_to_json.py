@@ -51,7 +51,8 @@ class HtmlToJsonTest(unittest.TestCase):
             group = DefGroups(dict_parser)
             group.build()
             result = group.translate()
-            self.assertEqual([{"word": "bellow", "gram_groups": []}, {"word": "Bellow", "gram_groups": []}],
+            self.assertEqual([{"word": "bellow", "gram_groups": []},
+                              {"word": "Bellow", "gram_groups": []}],
                 result)
 
     # word / def_groups / def_group [0] / gram_groups
@@ -298,6 +299,14 @@ class HtmlToJsonTest(unittest.TestCase):
             "bellmouthed", "Belloc", "Bellona", "bellows", "bells and whistles", "bellwether", "bellwort", "belly",
             "belly dance", "belly laugh", "belly up", "belly-flop", "bellyache"], result)
 
+    def test_get_translations_to_json(self):
+        obj = HtmlToJson(self.word_name, self.html_content)
+        json_obj = obj.translate()
+
+        self.assertEqual(json_obj["translations"],
+            ["If someone bellows, they shout angrily in a loud, deep voice. bellowed, bellowing, bellows --- I didn't "
+             "ask to be born! she bellowed.I could hear the crowd bellowing."])
+
     def test_translate_html_to_json(self):
         obj = HtmlToJson(self.word_name, self.html_content)
         json_str = obj.translate()
@@ -341,6 +350,10 @@ class HtmlToJsonTest(unittest.TestCase):
                 "belligerence", "belligerency", "belligerent", "Bellingham", "Bellingshausen Sea", "Bellini", "bellman",
                 "bellmouthed", "Belloc", "Bellona", "bellows", "bells and whistles", "bellwether", "bellwort", "belly",
                 "belly dance", "belly laugh", "belly up", "belly-flop", "bellyache"
+            ],
+            "translations": [
+                "If someone bellows, they shout angrily in a loud, deep voice. bellowed, bellowing, bellows --- I didn't "
+                "ask to be born! she bellowed.I could hear the crowd bellowing."
             ]
         })
 
