@@ -164,8 +164,6 @@ class JsonSeeker:
                 items = list(set(items))
 
                 defs = find_word_in_list_loose(word, items)
-                """pattern = re.compile(r'\b%s\b' % word)
-                defs = [x for x in items if re.search(pattern, x)]"""
                 if len(defs) > 0:
                     results.append({file: defs})
 
@@ -195,8 +193,6 @@ class JsonSeeker:
                 items = list(set(items))
 
                 defs = find_word_in_list_exact(word, items)
-                """pattern = re.compile(r'\b%s\b' % word)
-                defs = [x for x in items if re.search(pattern, x)]"""
                 if len(defs) > 0:
                     results.append({file: defs})
 
@@ -271,15 +267,6 @@ class JsonSeeker:
                 defs = find_word_in_list_loose(word, items)
                 if len(defs) > 0:
                         results.append({file: defs})
-                """if re.search('[\- \.\']', word):
-                    defs = [x for x in items if word in x]
-                    if len(defs) > 0:
-                        results.append({file: defs})
-                else:
-                    pattern = re.compile(r'\b%s\b' % word)
-                    defs = [x for x in items if re.search(pattern, x)]
-                    if len(defs) > 0:
-                        results.append({file: defs})"""
 
         return results
 
@@ -313,15 +300,6 @@ class JsonSeeker:
                 defs = find_word_in_list_loose(word, items)
                 if len(defs) > 0:
                         results.append({file: defs})
-                """if re.search('[\- \.\']', word):
-                    defs = [x for x in items if word in (x.replace(" ", "-").lower())]
-                    if len(defs) > 0:
-                        results.append({file: defs})
-                else:
-                    pattern = re.compile(r'\b%s\b' % word)
-                    defs = [x for x in items if re.search(pattern, x.lower())]
-                    if len(defs) > 0:
-                        results.append({file: defs})"""
 
         return results
 
