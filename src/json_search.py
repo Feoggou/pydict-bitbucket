@@ -112,7 +112,8 @@ class JsonSeeker:
         # search_categories
         pass
 
-    def search_categories(self, word: str, dir_name: str) -> list:
+    @staticmethod
+    def search_categories(word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -143,7 +144,8 @@ class JsonSeeker:
 
         return results
 
-    def search_examples(self, word: str, dir_name: str, translations=False) -> list:
+    @staticmethod
+    def search_examples(word: str, dir_name: str, translations=True) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -173,7 +175,8 @@ class JsonSeeker:
 
         return results
 
-    def search_definitions(self, word: str, dir_name: str, translations=False) -> list:
+    @staticmethod
+    def search_definitions(word: str, dir_name: str, translations=True) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -206,7 +209,8 @@ class JsonSeeker:
 
         return results
 
-    def search_translations(self, word: str, dir_name: str) -> list:
+    @staticmethod
+    def search_translations(word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -231,7 +235,8 @@ class JsonSeeker:
 
         return results
 
-    def search_word_forms(self, word: str, dir_name: str) -> list:
+    @staticmethod
+    def search_word_forms(word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -269,7 +274,8 @@ class JsonSeeker:
 
         return results
 
-    def search_synonyms(self, word: str, dir_name: str) -> list:
+    @staticmethod
+    def search_synonyms(word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -303,7 +309,8 @@ class JsonSeeker:
 
         return results
 
-    def search_related(self, word: str, dir_name: str) -> list:
+    @staticmethod
+    def search_related(word: str, dir_name: str) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -336,7 +343,8 @@ class JsonSeeker:
 
         return results
 
-    def search_all(self, word: str, dir_name: str) -> list:
+    @staticmethod
+    def search_all(word: str, dir_name: str) -> list:
         # P0: files with the name "<word>.json"
         from os.path import isfile, join
 
@@ -346,43 +354,43 @@ class JsonSeeker:
             print(word + ".json\n")
 
         # P1. word forms (and derived forms)
-        word_forms = self.search_word_forms(word, dir_name)
+        word_forms = JsonSeeker.search_word_forms(word, dir_name)
         if len(word_forms):
             print("=== WORD FORMS ===")
             print_list(word_forms)
 
         # P2. synonyms
-        synonyms = self.search_synonyms(word, dir_name)
+        synonyms = JsonSeeker.search_synonyms(word, dir_name)
         if len(synonyms):
             print("=== SYNONYMS ===")
             print_list(synonyms)
 
         # P3. related & nearby
-        related = self.search_related(word, dir_name)
+        related = JsonSeeker.search_related(word, dir_name)
         if len(related):
             print("=== RELATED / NEARBY ===")
             print_list(related)
 
         # P4. definitions & semantics
-        definitions = self.search_definitions(word, dir_name, translations=False)
+        definitions = JsonSeeker.search_definitions(word, dir_name, translations=False)
         if len(definitions):
             print("=== DEFINITIONS ===")
             print_list(definitions)
 
         # P5. examples
-        examples = self.search_examples(word, dir_name, translations=False)
+        examples = JsonSeeker.search_examples(word, dir_name, translations=False)
         if len(examples):
             print("=== EXAMPLES ===")
             print_list(examples)
 
         # P6. translations
-        translations = self.search_translations(word, dir_name)
+        translations = JsonSeeker.search_translations(word, dir_name)
         if len(definitions):
             print("=== TRANSLATIONS ===")
             print_list(translations)
 
         # P7. categories
-        categories = self.search_categories(word, dir_name)
+        categories = JsonSeeker.search_categories(word, dir_name)
         if len(categories):
             print("=== CATEGORIES ===")
             print_list(categories)
