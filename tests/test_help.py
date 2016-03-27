@@ -31,25 +31,28 @@ class TestCommandHelp(unittest.TestCase):
 
     def test_command_help_on_quit(self):
         command = HelpCommand()
+        command.set_argument_value("quit")
 
         # Dict> help(quit)
-        result = command.execute("quit")
+        result = command.execute()
 
         self.assertEqual("quit()        exit the script -- also exit()", result)
 
     def test_command_help_on_exit(self):
         command = HelpCommand()
+        command.set_argument_value("exit")
 
         # Dict> help(exit)
-        result = command.execute("exit")
+        result = command.execute()
 
         self.assertEqual(result, "quit()        exit the script -- also exit()")
 
     def test_command_help_on_help(self):
         command = HelpCommand()
+        command.set_argument_value("help")
 
         # Dict> help(help)
-        result = command.execute("help")
+        result = command.execute()
 
         print(result)
 
