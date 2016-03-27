@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 from src.def_groups import *
-from src.dict_parse import DictParser
+from src.def_parser import DictParser
 from src.html_to_json import HtmlToJson
 from lxml import etree
 

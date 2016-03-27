@@ -1,5 +1,5 @@
 import unittest
-from src.dict_parse import DictRelatedParser
+from src.rel_parser import DictRelatedParser
 from lxml import etree
 
 

@@ -1,47 +1,5 @@
-from .dict_parse import DictParser, DictSynParser
-from .etree_printer import *
-
-"""class WordFrequencyGroup:
-    def __init__(self, etree_parent):
-        self.etree_parent = etree_parent
-        self.word_frequency = ""
-
-    def translate(self):
-        return {"word_frequency": ""}
-
-
-# JSON: {"word": [...]};
-class MainDefGroup:
-    def __init__(self, etree_elem):
-        self.etree_elem = etree_elem
-        self.def_groups = []
-        self.word_frequency = WordFrequencyGroup(etree_elem)
-
-        # self.word.append({"word_frequency": ""})
-        # self.word.append({"def_groups": []})
-        # self.word.append({"examples": []})
-        # self.word.append({"related_terms": []})
-        # self.word.append({"nearby_words": []})
-        # self.word.append({"synonyms": []})
-        # self.word.append({"phrases": []})
-
-    def translate_child(self, field):
-        field_obj = getattr(self, field)
-        if field_obj is self.word_frequency:
-            return field_obj.translate()
-
-        return None
-
-    def translate(self):
-        dict = {'word': []}
-        return dict
-
-        # if len(self.word_frequency):
-#             dict.append(self.word_frequency)
-#         if len(self.def_groups):
-#             dict.append(self.def_groups)
-#
-#         return dict"""
+from .def_parser import DictParser
+from .syn_parser import DictSynParser
 
 
 class JsonGroup:

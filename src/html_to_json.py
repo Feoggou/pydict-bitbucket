@@ -1,6 +1,8 @@
-from lxml import etree
+# from lxml import etree
 from .def_groups import *
-from .dict_parse import *
+from .def_parser import *
+from .syn_parser import *
+from .rel_parser import *
 
 
 # SYNONYMS
@@ -18,7 +20,7 @@ class MainDefGroupSyn:
             self.syn_groups.append(item)
 
     def translate(self):
-        json_children =  []
+        json_children = []
         for x in self.syn_groups:
             json_children.append(x.translate())
 
