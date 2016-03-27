@@ -143,7 +143,7 @@ class JsonSeeker:
 
         return results
 
-    def search_examples(self, word: str, dir_name: str) -> list:
+    def search_examples(self, word: str, dir_name: str, translations=False) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -161,7 +161,11 @@ class JsonSeeker:
                     for ggroup in x["gram_groups"]:
                         items += _get_all_examples(ggroup["defs"])
 
-                items = list(set(items))
+                if translations and "translations" in obj.keys():
+                    trans_list = ["[transl.] " + x for x in obj["translations"]]
+                    items += trans_list
+
+                items = sorted(list(set(items)), reverse=True)
 
                 defs = find_word_in_list_loose(word, items)
                 if len(defs) > 0:
@@ -169,7 +173,7 @@ class JsonSeeker:
 
         return results
 
-    def search_definitions(self, word: str, dir_name: str) -> list:
+    def search_definitions(self, word: str, dir_name: str, translations=False) -> list:
         from os.path import isfile, join
         files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
         files = [x for x in files if ".json" in x]
@@ -190,7 +194,36 @@ class JsonSeeker:
                     for ggroup in x["gram_groups"]:
                         items += _get_all_defs(ggroup["defs"])
 
-                items = list(set(items))
+                if translations and "translations" in obj.keys():
+                    trans_list = ["[transl.] " + x for x in obj["translations"]]
+                    items += trans_list
+
+                items = sorted(list(set(items)), reverse=True)
+
+                defs = find_word_in_list_exact(word, items)
+                if len(defs) > 0:
+                    results.append({file: defs})
+
+        return results
+
+    def search_translations(self, word: str, dir_name: str) -> list:
+        from os.path import isfile, join
+        files = [x for x in os.listdir(dir_name) if isfile(join(dir_name, x))]
+        files = [x for x in files if ".json" in x]
+
+        results = []
+
+        for file in files:
+            file_name = join(dir_name, file)
+
+            with open(file_name, "r") as json_file:
+                obj = json.load(json_file)
+
+                items = []
+                if "translations" in obj.keys():
+                    items += obj["translations"]
+
+                items = sorted(list(set(items)), reverse=True)
 
                 defs = find_word_in_list_exact(word, items)
                 if len(defs) > 0:
@@ -331,18 +364,24 @@ class JsonSeeker:
             print_list(related)
 
         # P4. definitions & semantics
-        definitions = self.search_definitions(word, dir_name)
+        definitions = self.search_definitions(word, dir_name, translations=False)
         if len(definitions):
             print("=== DEFINITIONS ===")
             print_list(definitions)
 
         # P5. examples
-        examples = self.search_examples(word, dir_name)
+        examples = self.search_examples(word, dir_name, translations=False)
         if len(examples):
             print("=== EXAMPLES ===")
             print_list(examples)
 
-        # P6. categories
+        # P6. translations
+        translations = self.search_translations(word, dir_name)
+        if len(definitions):
+            print("=== TRANSLATIONS ===")
+            print_list(translations)
+
+        # P7. categories
         categories = self.search_categories(word, dir_name)
         if len(categories):
             print("=== CATEGORIES ===")
