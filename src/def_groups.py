@@ -224,20 +224,6 @@ class ExamplesGroup(JsonGroup):
         return self.examples
 
 
-"""class RelatedTermsGroup(JsonGroup):
-    def __init__(self, dict_parser):
-        JsonGroup.__init__(self, dict_parser)
-        self.terms = []
-
-    def build(self):
-        # self.terms = self.dict_parser.get_all_related_terms()
-        pass
-
-    def translate(self):
-        children = []
-        return {"related_terms": self.terms}"""
-
-
 class NearbyWordsGroup(JsonGroup):
     def __init__(self, dict_parser):
         JsonGroup.__init__(self, dict_parser)
