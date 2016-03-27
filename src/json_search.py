@@ -136,7 +136,7 @@ class JsonSeeker:
                         for ggroup in x["gram_groups"]:
                             items += _get_all_categs(ggroup["gram_group"]["synonyms"])
 
-                items = list(set(items))
+                items = sorted(list(set(items)))
 
                 defs = find_word_in_list_loose(word, items)
                 if len(defs) > 0:
@@ -227,7 +227,7 @@ class JsonSeeker:
                 if "translations" in obj.keys():
                     items += obj["translations"]
 
-                items = sorted(list(set(items)), reverse=True)
+                items = sorted(list(set(items)))
 
                 defs = find_word_in_list_exact(word, items)
                 if len(defs) > 0:
@@ -260,7 +260,7 @@ class JsonSeeker:
                         if "word_forms" in ggroup.keys():
                             items += ggroup["word_forms"]
 
-                items = list(set(items))
+                items = sorted(list(set(items)))
 
                 if re.search('[\- \.\']', word):
                     defs = [x for x in items if word in x]
@@ -301,7 +301,7 @@ class JsonSeeker:
                         for line in syns_obj["synonyms"]:
                             items += line["line"]
 
-                items = list(set(items))
+                items = sorted(list(set(items)))
 
                 defs = find_word_in_list_loose(word, items)
                 if len(defs) > 0:
@@ -335,7 +335,7 @@ class JsonSeeker:
                 if "nearby_words" in obj.keys():
                     items += obj["nearby_words"]
 
-                items = list(set(items))
+                items = sorted(list(set(items)))
 
                 defs = find_word_in_list_loose(word, items)
                 if len(defs) > 0:
