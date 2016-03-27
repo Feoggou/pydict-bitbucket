@@ -1,5 +1,6 @@
 # from lxml import etree
 from .def_groups import *
+from .syn_groups import *
 from .def_parser import *
 from .syn_parser import *
 from .rel_parser import *
