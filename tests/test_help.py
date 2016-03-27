@@ -35,7 +35,7 @@ class TestCommandHelp(unittest.TestCase):
         # Dict> help(quit)
         result = command.execute("quit")
 
-        self.assertEqual("quit()\t\texit the script -- also exit().", result)
+        self.assertEqual("quit()        exit the script -- also exit()", result)
 
     def test_command_help_on_exit(self):
         command = HelpCommand()
@@ -43,7 +43,7 @@ class TestCommandHelp(unittest.TestCase):
         # Dict> help(exit)
         result = command.execute("exit")
 
-        self.assertEqual(result, "quit()\t\texit the script -- also exit().")
+        self.assertEqual(result, "quit()        exit the script -- also exit()")
 
     def test_command_help_on_help(self):
         command = HelpCommand()
@@ -51,9 +51,11 @@ class TestCommandHelp(unittest.TestCase):
         # Dict> help(help)
         result = command.execute("help")
 
-        self.assertEqual("help(cmd)\t\tshow help for the command 'cmd'\n"
+        print(result)
+
+        self.assertEqual("help(cmd)     show help for the command 'cmd'\n"
                          "or\n"
-                         "help()\t\t\tshow help for commands",
+                         "help()        show help for commands",
                          result)
 
     def test_command_help_with_no_param_shows_all(self):
@@ -63,8 +65,8 @@ class TestCommandHelp(unittest.TestCase):
 
         self.assertEqual(result,
             "Available commands:\n\n"
-            "exit()\t\texit the script -- also quit()."
-            "help(command)\t\tshows help for the command")
+            "help()        show help for commands\n"
+            "quit()        exit the script -- also exit()\n")
 
             # "defs(word)\tsearch all .json files, and print all definitions\n"
             #     "\t\tthat contain the word <word>"

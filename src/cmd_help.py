@@ -26,11 +26,25 @@ class HelpCommand(Command):
         return "show help for commands"
 
     @staticmethod
+    def _build_help_simple(cmd_class: Command) -> str:
+        help_str = "{:14}{}".format(cmd_class.get_name() + "()", cmd_class.get_description())
+        return help_str
+
+    @staticmethod
+    def _build_help_with_param(cmd_class: Command, param: Parameter) -> str:
+        cmd_call = "{}({})".format(cmd_class.get_name(), param.name)
+        help_str = "{:14}{}".format(cmd_call, cmd_class.get_description(param.name))
+        return help_str
+
+    @staticmethod
     def _help_generic() -> str:
         """show help for commands"""
-        result = ("Available commands:\n\n"
-                  "exit()\t\texit the script -- also quit()."
-                  "help(command)\t\tshows help for the command")
+        result = "Available commands:\n\n"
+        result += HelpCommand._build_help_simple(HelpCommand) + "\n"
+
+        for command in dict_cmd.CMD_CLASSES:
+            if command is not HelpCommand:
+                result += HelpCommand._help_command(command.get_name()) + "\n"
 
         return result
 
@@ -44,16 +58,16 @@ class HelpCommand(Command):
         param = command.get_argument()
 
         if param is not None:
-            help_str = "{}({})\t\t{}".format(command.get_name(), param.name, command.get_description(param.name))
+            help_str = HelpCommand._build_help_with_param(command, param)
             if not param.required:
                 help_str += "\nor\n"
-                help_str += "{}()\t\t\t{}".format(command.get_name(), command.get_description())
+                help_str += HelpCommand._build_help_simple(command)
 
         else:
-            help_str = "{}()\t\t{}".format(command.get_name(), command.get_description())
+            help_str = HelpCommand._build_help_simple(command)
 
         if len(command.get_alias()):
-            help_str += " -- also {}().".format(command.get_alias())
+            help_str += " -- also {}()".format(command.get_alias())
 
         return help_str
 
