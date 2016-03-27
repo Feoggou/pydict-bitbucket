@@ -1,7 +1,7 @@
 from lxml import etree
 
 
-class DictRelatedParser:
+class RelatedParser:
     def __init__(self, root):
         self.root = root
         assert isinstance(self.root, etree._Element)

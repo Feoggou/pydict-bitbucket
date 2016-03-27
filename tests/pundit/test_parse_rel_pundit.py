@@ -1,5 +1,5 @@
 import unittest
-from src.rel_parser import DictRelatedParser
+from src.rel_parser import RelatedParser
 from lxml import etree
 
 
@@ -13,7 +13,7 @@ class TestRelatedParser(unittest.TestCase):
         TestRelatedParser.root = etree.HTML(text)
 
     def setUp(self):
-        self.parser = DictRelatedParser(TestRelatedParser.root)
+        self.parser = RelatedParser(TestRelatedParser.root)
 
     def test_have_item_columns(self):
         columns_etree = self.parser.get_def_main()

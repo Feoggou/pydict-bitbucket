@@ -29,7 +29,7 @@ class MainDefGroupSyn:
 
 # RELATED
 class MainDefGroupRel:
-    def __init__(self, dict_parser: DictRelatedParser):
+    def __init__(self, dict_parser: RelatedParser):
         self.dict_parser = dict_parser
         self.etree_main = self.dict_parser.get_def_main()
         self.related_words = []
@@ -106,7 +106,7 @@ class HtmlToJsonRelated:
 
     def translate(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictRelatedParser(root)
+        dict_parser = RelatedParser(root)
 
         main_def = MainDefGroupRel(dict_parser)
         main_def.build_children()
