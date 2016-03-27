@@ -103,6 +103,23 @@ def read_syn_def_group(syn_obj) -> str:
     return s
 
 
+def read_translations_groups(obj: dict) -> str:
+    if "translations" not in obj.keys():
+        return ""
+
+    if len(obj["translations"]) == 0:
+        return ""
+
+    s = "TRANSLATIONS\n"
+
+    for trans in obj["translations"]:
+        s += trans
+        s += "\n"
+
+    s += "\n\n"
+    return s
+
+
 def read_synonyms(obj: dict) -> str:
     s = "SYNONYMS\n"
     if "synonyms" not in obj.keys():
@@ -162,6 +179,7 @@ class JsonPrinter:
             obj = json.load(json_file)
             s = read_frequency(obj)
             s += read_def_groups(obj)
+            s += read_translations_groups(obj)
             s += read_synonyms(obj)
             s += read_examples(obj)
 
