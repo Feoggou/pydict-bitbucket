@@ -29,6 +29,7 @@ if len(sys.argv) == 1:
 
 dir_path = sys.argv[1]"""
 dir_path = "/home/zenith/Dropbox/Docs/DICTIONARY"
+# dir_path = "./down"
 
 
 def retrieve_word_def(word_name):

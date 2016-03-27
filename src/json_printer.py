@@ -61,6 +61,9 @@ def read_def_groups(obj) -> str:
 
 
 def read_examples(obj) -> str:
+    if len(obj["examples"]) == 0:
+        return ""
+
     s = "EXAMPLES\n"
     for example in obj["examples"]:
         s += "o) " + example["example"] + "\n"

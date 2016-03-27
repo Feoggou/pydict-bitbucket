@@ -114,16 +114,20 @@ class DictSynParser:
     def get_synonyms(sense_list_item):
         results = []
 
-        syn_classes = sense_list_item.xpath('./*[@class="syn"]')
+        syn_classes = sense_list_item.xpath('./*[@class="syn"] | ./*[@class="phrase"]/*[@class="xr"]')
         for syn_cls in syn_classes:
+            text = syn_cls.text if syn_cls.text is not None else ""
+            text = text.strip()
             links = syn_cls.xpath('./*[@class="xr_ref"]')
             if len(links):
                 text_elems = syn_cls.xpath('./*[@class="xr_ref"]/'
                                            'a/text()')
+                if len(text):
+                    text_elems[0] = text + " " + text_elems[0]
                 results = results + text_elems
 
             else:
-                results.append(syn_cls.text)
+                results.append(text)
 
         return results
 
@@ -188,6 +192,106 @@ class DictParser:
 
         assert isinstance(self.mainbar_elem, etree._Element)
         assert isinstance(self.sidebar_elem, etree._Element)
+
+    @staticmethod
+    def _parse_hi(node: etree._Element) -> str:
+        text = ""
+
+        if node.text is not None:
+            text += node.text
+        if node.tail is not None:
+            text += node.tail
+        return text
+
+    @staticmethod
+    def _parse_xr_ref(elem: etree._Element) -> str:
+        assert elem.text is None
+        assert elem.tail is None
+
+        xr_ref_link = elem.xpath("./*[@class='xr_ref_link']")[0]
+        assert xr_ref_link.text is not None
+        assert xr_ref_link.tail is None
+
+        text = xr_ref_link.text
+        # print("xr ref text: ", text)
+        href = xr_ref_link.get("href")
+        word_def = re.match("[\w-]+#[\w-]+_(\d)", href)
+
+        assert len(word_def.groups()) == 1
+        word_def = word_def.groups()[0]
+
+        text += " (def. {})".format(word_def)
+        # print("xr ref return: ", text)
+        return text
+
+    @staticmethod
+    def _parse_xr(elem: etree._Element) -> str:
+        text = ""
+        tail = ""
+
+        if elem.text is not None:
+            # print("xr text: ", elem.text)
+            text += elem.text
+
+        if len(elem.getchildren()):
+            # print("xr has children...")
+            pass
+
+        for child in elem.getchildren():
+            assert len(child.keys()) == 1
+            key = child.keys()[0]
+
+            # print("xr child: ({}, {})".format(key, child.get(key)))
+
+            if key == "class" and child.get(key) == "lbl":
+                if child.text is not None:
+                    # print("xr lbl text: ", child.text)
+                    text += child.text
+                if child.tail is not None:
+                    # print("xr lbl tail: ", child.tail)
+                    text += child.tail
+
+            elif key == "class" and child.get(key) == "xr_ref":
+                xr_href_text = DictParser._parse_xr_ref(child)
+                # print("xr_href_text: ", xr_href_text)
+                text += xr_href_text
+
+        if elem.tail is not None:
+            # print("xr tail: ", elem.tail)
+            text += elem.tail
+
+        return text
+
+    @staticmethod
+    def _parse_lbl(elem: etree._Element, use_tail=True) -> (str, str):
+        # print("label: ", elem.get(elem.keys()[0]))
+
+        text = ""
+        tail = ""
+
+        if elem.text is not None:
+            # print("label text: ", elem.text)
+            text += elem.text
+
+        hi_nodes = elem.xpath('./*[@class="hi"]')
+        if len(hi_nodes):
+            # print("have hi nodes in label!")
+            pass
+
+        for node in hi_nodes:
+            hi_text = DictParser._parse_hi(node)
+            text += hi_text
+            # print("found hi text: ", hi_text)
+
+        if elem.tail is not None:
+            if use_tail:
+                # print("label tail: ", elem.tail)
+                text += elem.tail
+            else:
+                # print("tail 'ignored': ", elem.tail)
+                tail = elem.tail
+
+        return text, tail
 
     # GET-s
     def get_word_freq(self) -> str:
@@ -310,7 +414,6 @@ class DictParser:
             list_results.append(text)
 
         return list_results
-
 
     def get_all_def_groups(self):
         id_name_re = '"{}_\d"'.format(self.word_name)
@@ -441,46 +544,56 @@ class DictParser:
     def get_definition(sense_list_item):
         results = sense_list_item.xpath('./*[@class="def"]')   # 13 KEYS or 15 KEYS
         elem = results[0]
-
         assert isinstance(elem, etree._Element)
+
         text = elem.text if elem.text is not None else ""
+        tail = elem.tail if elem.tail is not None else ""
+        # print("DEFINITION text='{}'; tail='{}'".format(text, tail))
 
-        next_elem = elem.getnext()
-        additional_notes = None
-        if next_elem is not None:
-            for key in next_elem.keys():
-                if key == "class" and re.match("lbl .+", next_elem.get(key)):
-                    additional_notes = next_elem
+        text += tail
 
-        if additional_notes is not None:
-
-            if elem.tail is not None:
-                text += elem.tail
-            text += additional_notes.text
-
-            hi_nodes = additional_notes.xpath('./*[@class="hi"]')
-            for node in hi_nodes:
-                if node.text is not None:
-                    text += node.text
-                if node.tail is not None:
-                    text += node.tail
-
-            text += additional_notes.tail
-
+        # TODO: what is THIS??
         text_r = elem.xpath('./*[@class="hi"] | ./strong')
 
         for y in text_r:
             if y.text is not None:
+                # print("text_r text: ", y.text)
                 text += y.text
             if y.tail is not None:
+                # print("text_r tail: ", y.tail)
                 text += y.tail
+
+        next_elem = elem.getnext()
+
+        while next_elem is not None:
+            assert len(next_elem.keys()) == 1
+
+            key = next_elem.keys()[0]
+            # print("next: ({}, {})".format(key, next_elem.get(key)))
+            if key == "class" and re.match("lbl .+", next_elem.get(key)):
+                addit_text = DictParser._parse_lbl(next_elem)
+                # print("label addit text: ", addit_text)
+
+                text += addit_text[0]
+
+            elif key == "class" and next_elem.get(key) == "xr":
+                xr_text = DictParser._parse_xr(next_elem)
+                # print("called xr: text=", xr_text)
+
+                text += xr_text
+
+            next_elem = next_elem.getnext()
 
         text = text.strip()
         text = text.replace("\n", "")
         text = re.sub(' +', ' ', text)
 
-        if len(text) == 0:
-            hrlink = elem.xpath('.//*[@class="xr_ref_link"]')[0]
+        # if len(text) == 0:
+        hrlinks = elem.xpath('.//*[@class="xr_ref_link"]')
+        if len(hrlinks):
+            assert len(hrlinks) == 1
+            hrlink = hrlinks[0]
+
             text = hrlink.text
 
             link = hrlink.get("href")
@@ -489,43 +602,39 @@ class DictParser:
             word_def = word_def.groups()[0]
 
             text += " (def. {})".format(word_def)
-            return text
+        # return text
+
+        # print("------ DEFINITION")
 
         return text
 
     @staticmethod
     def get_definition_categ(sense_list_item):
-        results = sense_list_item.xpath('./*[re:match(@class, "lbl .+")]',          # 13 KEYS or 15 KEYS
-                             namespaces={"re": "http://exslt.org/regular-expressions"})
-        if len(results) == 0:
-            return ""
+        assert sense_list_item.getchildren()
+        text = ""
 
-        first_child = sense_list_item.getchildren()[0]
-        additional_notes = None
-        if first_child is not None:
-            for key in first_child.keys():
-                if key == "class" and re.match("lbl .+", first_child.get(key)):
-                    additional_notes = first_child
+        # print("CATEG")
 
-        if additional_notes is None:
-            return ""
+        child = sense_list_item.getchildren()[0]
+        label_tail = ""
+        while child is not None:
+            # print("child is not none")
+            keys = child.keys()
+            assert len(keys) == 1
+            key = keys[0]
 
-        text_items = []
-        for x in results:
-            text_r = x.xpath('./*[@class="hi"]')
-            text = x.text if x.text is not None else ""
-            for y in text_r:
-                if y.text is not None:
-                    text += y.text
-                if y.tail is not None:
-                    text += y.tail
+            if key != "class" or not re.match("lbl .+", child.get(key)):
+                break
 
-            if len(text):
-                text_items.append(text)
+            # add the previous tail
+            text += label_tail
 
-        text = ", ".join([x for x in text_items])
-        text = text.replace("  ", " ")
+            label_text, label_tail = DictParser._parse_lbl(child, use_tail=False)
+            text += label_text
 
+            child = child.getnext()
+
+        # print("categ text: ", text)
         return text
 
     @staticmethod

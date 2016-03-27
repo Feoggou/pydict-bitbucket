@@ -1,0 +1,417 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "from a higher to a lower place; toward the ground"
+                        },
+                        {
+                            "def": "in, on, or to a lower position or level; specif., to a sitting or reclining position"
+                        },
+                        {
+                            "def_subgroup": [
+                                {
+                                    "def": "in or to a place thought of as lower or below; often, specif., southward",
+                                    "example": "to go down to Florida"
+                                },
+                                {
+                                    "def": "out of one's hand",
+                                    "example": "put it down"
+                                }
+                            ]
+                        },
+                        {
+                            "def": "below the horizon"
+                        },
+                        {
+                            "def": "from an earlier to a later period or person",
+                            "example": "down through the years"
+                        },
+                        {
+                            "def": "into a low or dejected emotional condition"
+                        },
+                        {
+                            "def": "into a low or prostrate physical condition",
+                            "example": "to come down with a cold"
+                        },
+                        {
+                            "def": "in or into an inferior position or condition",
+                            "example": "held down by harsh laws"
+                        },
+                        {
+                            "def": "to a lower amount, value, or bulk",
+                            "example": "to come down in price"
+                        },
+                        {
+                            "def_subgroup": [
+                                {
+                                    "def": "to a less excited or active condition; into a tranquil or quiet state",
+                                    "example": "to settle down"
+                                },
+                                {
+                                    "def": "to a lower volume of sound",
+                                    "example": "turn down the radio"
+                                }
+                            ]
+                        },
+                        {
+                            "def": "in a serious or earnest manner",
+                            "example": "to get down to work"
+                        },
+                        {
+                            "def": "completely; to the full extent",
+                            "example": "loaded down"
+                        },
+                        {
+                            "def": "in cash or when bought",
+                            "example": "five dollars down and the remainder in installments"
+                        },
+                        {
+                            "def": "in writing; on record",
+                            "example": "take down his name"
+                        }
+                    ],
+                    "value": "adverb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "descending; directed toward a lower position"
+                        },
+                        {
+                            "def": "in a lower place; on the ground"
+                        },
+                        {
+                            "def": "gone, brought, pulled, etc. down"
+                        },
+                        {
+                            "def_subgroup": [
+                                {
+                                    "def": "depressed; dejected"
+                                },
+                                {
+                                    "category": "slang",
+                                    "def": "depressing or downbeat",
+                                    "example": "a down atmosphere"
+                                }
+                            ]
+                        },
+                        {
+                            "def": "dejected; discouraged"
+                        },
+                        {
+                            "def": "prostrate; ill"
+                        },
+                        {
+                            "def": "completed; finished",
+                            "example": "four down, six to go"
+                        },
+                        {
+                            "def": "inoperative",
+                            "example": "the computer is down"
+                        },
+                        {
+                            "def": "characterized by low or falling prices"
+                        },
+                        {
+                            "category": "slang",
+                            "def_subgroup": [
+                                {
+                                    "category": "a generalized term of approval meaning variously",
+                                    "def": "nice, good, excellent, etc."
+                                },
+                                {
+                                    "def": "sophisticated, stylish, etc.; cool; hip"
+                                }
+                            ]
+                        },
+                        {
+                            "category": "sport",
+                            "def_subgroup": [
+                                {
+                                    "category": "US",
+                                    "def": "no longer in play (said of a football)"
+                                },
+                                {
+                                    "def": "trailing an opponent by a specified number of points, strokes, etc."
+                                },
+                                {
+                                    "category": "US, baseball",
+                                    "def": "put out"
+                                }
+                            ]
+                        }
+                    ],
+                    "value": "adjective"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "down or downward, along, through, into, or upon",
+                            "example": "down the street, down the chimney, down the river, down the stairs"
+                        }
+                    ],
+                    "value": "preposition"
+                },
+                {
+                    "defs": [
+                        {
+                            "def_subgroup": [
+                                {
+                                    "def": "to put, bring, get, throw, or knock down"
+                                },
+                                {
+                                    "def": "to defeat, as in a game"
+                                }
+                            ]
+                        },
+                        {
+                            "def": "to gulp or eat rapidly"
+                        }
+                    ],
+                    "value": "transitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "category": "rare",
+                            "def": "to go, come, or get down"
+                        }
+                    ],
+                    "value": "intransitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "a downward movement or depressed condition; defeat, misfortune, etc. see also ups and downs (def. 1) at up (def. 1)"
+                        },
+                        {
+                            "category": "US, American football",
+                            "def_subgroup": [
+                                {
+                                    "def": "one of four consecutive plays in which a team, in order to keep possession of the ball, must either score or advance the ball at least ten yards"
+                                },
+                                {
+                                    "def": "the declaring of the ball as down, or no longer in play"
+                                }
+                            ]
+                        },
+                        {
+                            "category": "slang",
+                            "def": "a barbiturate or other depressant drug; downer"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "related": [
+                "down and out",
+                "down on",
+                "down to the ground",
+                "down with!"
+            ],
+            "word": "down"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "soft, fluffy feathers, as the outer covering on young birds or an inner layer of feathers on adult birds"
+                        },
+                        {
+                            "def": "soft, fine hair or hairy growth"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "down"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "an expanse of open, high, grassy land (usually used in pl.)"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "down"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "former county of E Northern Ireland: c. 952 sq mi (2,466 sq km)"
+                        },
+                        {
+                            "def": "district in E Northern Ireland, in the S part of the former county: 249 sq mi (645 sq km); pop. 58,000"
+                        }
+                    ]
+                }
+            ],
+            "word": "Down"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "down",
+                            "example": "downhill"
+                        }
+                    ]
+                }
+            ],
+            "word": "down-"
+        }
+    ],
+    "examples": [],
+    "frequency": "Extremely Common",
+    "nearby_words": [
+        "Dow",
+        "Dow Jones industrial average",
+        "dowager",
+        "dowager's hump",
+        "Dowden",
+        "dowdy",
+        "dowel",
+        "dower",
+        "dowitcher",
+        "Dowland",
+        "down and out",
+        "down at the heel",
+        "Down East",
+        "down in the mouth",
+        "down on",
+        "down on one's luck",
+        "down payment",
+        "down quark",
+        "Down syndrome",
+        "down the drain"
+    ],
+    "related_words": [
+        "down-",
+        "go down",
+        "cut down",
+        "lay down",
+        "pay down",
+        "put-down",
+        "run-down",
+        "sit-down",
+        "bear down",
+        "burn down",
+        "come down",
+        "Down East",
+        "face down",
+        "hold down",
+        "hunt down",
+        "mark down",
+        "pipe down",
+        "ride down",
+        "do down",
+        "bed down",
+        "down-bow",
+        "let down",
+        "pin down",
+        "rub down",
+        "set down",
+        "tie down",
+        "beat down",
+        "call down",
+        "cool down",
+        "down-home",
+        "gear down",
+        "howl down",
+        "kick down",
+        "melt down",
+        "play down",
+        "send down",
+        "down on",
+        "cry down",
+        "get down",
+        "mow down",
+        "put down",
+        "run down",
+        "sit down",
+        "back down",
+        "boil down",
+        "cast down",
+        "cool-down",
+        "dumb down",
+        "hand down",
+        "hull down",
+        "live down",
+        "nail down",
+        "pull down",
+        "shut down"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    "depressed",
+                                    "dejected",
+                                    "disheartened",
+                                    "downcast",
+                                    "low",
+                                    "miserable",
+                                    "sad",
+                                    "unhappy"
+                                ]
+                            }
+                        ],
+                        "value": "adjective"
+                    }
+                },
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "category": "informal",
+                                "line": [
+                                    "swallow",
+                                    "drain",
+                                    "drink",
+                                    "drink down",
+                                    "gulp",
+                                    "put away",
+                                    "toss off"
+                                ]
+                            }
+                        ],
+                        "value": "verb"
+                    }
+                },
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    "See have a down on"
+                                ]
+                            }
+                        ],
+                        "value": "noun"
+                    }
+                }
+            ],
+            "word": "down"
+        }
+    ],
+    "translations": [
+        "Down means at or to a lower level or position.A man came down the stairs to meet them.",
+        "If you say that someone downs food or a drink, you mean that they eat or drink it.We downed bottles of local wine.",
+        "Down consists of the small, soft feathers on young birds. Down is used to make bed-covers and pillows.... goose down."
+    ]
+}

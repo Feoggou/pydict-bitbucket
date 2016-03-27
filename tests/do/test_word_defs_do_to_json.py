@@ -423,12 +423,16 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
+        # print(result)
+
         self.assertEqual(
             {"word": "do", "gram_groups": [
                 {
                     "value": "noun",
                     "defs": [
-                        {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"}
+                        {"category": "music",
+                         "def": "a syllable representing the first or last tone of the diatonic scale "
+                                "see also solfeggio (def. 1)"}
                     ]
                 },
             ]}, result)
@@ -574,23 +578,25 @@ class HtmlToJsonTest(unittest.TestCase):
                 {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
-                        "defs": [ {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"} ]
+                        "defs": [{"category": "music",
+                                   "def": "a syllable representing the first or last tone of the diatonic scale "
+                                          "see also solfeggio (def. 1)"}]
                     },
                 ]},
                 {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
-                        "defs": [ {"category": "slang", "def": "hairdo (def. 1)"} ]
+                        "defs": [{"category": "slang", "def": "hairdo (def. 1)"}]
                     },
                 ]},
                 {"word": "Do or do", "gram_groups": [
                     {
-                        "defs": [ {"def": "ditto"} ]
+                        "defs": [{"def": "ditto"}]
                     },
                 ]},
                 {"word": "DO or D.O.", "gram_groups": [
                     {
-                        "defs": [ {"def": "Doctor of Osteopathy"} ]
+                        "defs": [{"def": "Doctor of Osteopathy"}]
                     }
                 ]}
             ], result)
@@ -634,7 +640,6 @@ class HtmlToJsonTest(unittest.TestCase):
         obj = HtmlToJson(self.word_name, self.html_content)
         json_obj = obj.translate()
 
-        print(json_obj["translations"])
         self.assertEqual(json_obj["translations"],
             ["When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
 
@@ -727,7 +732,9 @@ class HtmlToJsonTest(unittest.TestCase):
                 {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
-                        "defs": [ {"category": "music", "def": "a syllable representing the first or last tone of the diatonic scale"} ]
+                        "defs": [{"category": "music",
+                                  "def": "a syllable representing the first or last tone of the diatonic scale "
+                                         "see also solfeggio (def. 1)"}]
                     },
                 ]},
                 {"word": "do", "gram_groups": [
