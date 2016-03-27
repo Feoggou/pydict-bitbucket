@@ -13,7 +13,7 @@ dict_path = "/home/zenith/Dropbox/Docs/DICTIONARY"
 # count_times = 0
 random.seed()
 
-Notify.init("Hello world")
+Notify.init("EDictionary")
 
 
 def get_random_word(dir_path: str) -> dict:
