@@ -58,6 +58,20 @@ class TestCommandHelp(unittest.TestCase):
                          "help()        show help for commands",
                          result)
 
+    def test_cmd_help_matched_with_argument(self):
+        # Dict> help(exit)
+        command = commands.match_command("help(exit)")
+        result = command.execute()
+
+        self.assertEqual("quit()        exit the script -- also exit()", result)
+
+    def test_cmd_help_matched_no_argument(self):
+        # Dict> help(exit)
+        command = commands.match_command("help()")
+        result = command.execute()
+
+        self.assertIn("Available commands", result)
+
     def test_command_help_with_no_param_shows_all(self):
         command = HelpCommand()
 

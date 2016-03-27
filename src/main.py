@@ -2,7 +2,7 @@
 
 import sys
 import os
-from src.dict_cmd import *
+from src import commands
 from src.colors import *
 
 DIR_PATH = ""
@@ -23,7 +23,9 @@ elif len(sys.argv) > 2:
 
 
 while True:
-    word_name = input(BOLDBLACK + "Dict> " + RESET)
+    input_str = input(BOLDBLACK + "Dict> " + RESET)
 
-    print(word_name)
+    cmd = commands.match_command(input_str)
+    print(cmd.execute())
+
 

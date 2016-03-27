@@ -78,11 +78,12 @@ class HelpCommand(Command):
 
         return help_str
 
-    @staticmethod
-    def execute(cmd_name: str = "") -> str:
-        """show help for the command"""
-        if len(cmd_name):
-            return HelpCommand._help_command(cmd_name)
+    def execute(self) -> str:
+        if self._argument is not None:
+            if len(self._argument) == 0:
+                raise ValueError("Argument cannot be empty string!")
+
+            return HelpCommand._help_command(self._argument)
         else:
             return HelpCommand._help_generic()
 
