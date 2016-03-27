@@ -1,6 +1,6 @@
 import unittest
 
-from src.def_parser import DictParser
+from src.def_parser import DefParser
 from lxml import etree
 from src.etree_printer import *
 
@@ -15,7 +15,7 @@ class TestParser(unittest.TestCase):
         TestParser.root = etree.HTML(text)
 
     def setUp(self):
-        self.d_parser = DictParser(TestParser.root, "do")
+        self.d_parser = DefParser(TestParser.root, "do")
 
     def assertElemKey(self, e, key):
         self.assertTrue(isinstance(e, etree._Element))
@@ -169,7 +169,7 @@ class TestParser(unittest.TestCase):
 
     def test_get_wordforms_for_gram_group(self):
         def_group = self.d_parser.get_all_def_groups()[0]
-        ggroup = DictParser.get_all_grammar_groups(def_group)[0]
+        ggroup = DefParser.get_all_grammar_groups(def_group)[0]
 
         gram_value = self.d_parser.get_word_forms(ggroup)
         self.assertEqual(['did', 'done', 'doing'], gram_value)

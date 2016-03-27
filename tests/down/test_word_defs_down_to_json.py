@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 from src.def_groups import *
-from src.def_parser import DictParser
+from src.def_parser import DefParser
 from src import html_to_json
 from src.html_to_json import HtmlToJson
 from lxml import etree
@@ -18,7 +18,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_word_freq_group_value_is_extremely_common(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
 
         group = WordFrequencyGroup(dict_parser)
         group.build()
@@ -28,7 +28,7 @@ class HtmlToJsonTest(unittest.TestCase):
     # word / def_groups
     def test_def_groups_returns_5_def_groups(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
 
         with patch('src.html_to_json.DefGroup.build'):
             group = DefGroups(dict_parser)
@@ -43,7 +43,7 @@ class HtmlToJsonTest(unittest.TestCase):
     # word / def_groups / def_group [0] / gram_groups
     def test_first_def_group_returns_6_gram_groups(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
 
         with patch('src.html_to_json.GramGroup.build'):
@@ -57,7 +57,7 @@ class HtmlToJsonTest(unittest.TestCase):
     # word / def_groups / def_group [0] / gram_group[0]
     def test_first_gram_group_returns_without_defs(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 
@@ -71,7 +71,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_def_returns_def_json(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
         sslist = dict_parser.get_senselist(gram_group)
@@ -84,7 +84,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_def_subgroup_returns_full_defs(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
         sslist = dict_parser.get_senselist(gram_group)
@@ -101,7 +101,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_first_defs_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 
@@ -136,7 +136,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_first_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 
@@ -175,7 +175,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_second_ggroup_def_subgroup_football(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[1]
         sslist = dict_parser.get_senselist(gram_group)
@@ -191,7 +191,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_second_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[1]
 
@@ -229,7 +229,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_third_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[2]
 
@@ -248,7 +248,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_fourth_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[3]
 
@@ -270,7 +270,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_fifth_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[4]
 
@@ -288,7 +288,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_sixth_gram_group_first_def(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[5]
         sslist = dict_parser.get_senselist(gram_group)
@@ -302,7 +302,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_sixth_gram_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[5]
 
@@ -329,7 +329,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_first_def_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
 
         group = DefGroup(dict_parser, def_group)
@@ -438,7 +438,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_second_def_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[1]
 
         group = DefGroup(dict_parser, def_group)
@@ -458,7 +458,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_third_def_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[2]
 
         group = DefGroup(dict_parser, def_group)
@@ -476,7 +476,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_fourth_def_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[3]
 
         group = DefGroup(dict_parser, def_group)
@@ -495,7 +495,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_fifth_def_group_returns_full_content(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[4]
 
         group = DefGroup(dict_parser, def_group)
@@ -512,7 +512,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_translate_def_groups(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
 
         groups = DefGroups(dict_parser)
         groups.build()
@@ -659,7 +659,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_word_returns_nearby_words(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
 
         group = NearbyWordsGroup(dict_parser)
         group.build()
@@ -671,7 +671,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     def test_word_returns_related_defgroup_1(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
 
         group = RelatedGroup(dict_parser, def_group)

@@ -42,7 +42,7 @@ class MainDefGroupRel:
 
 
 class MainDefGroup:
-    def __init__(self, dict_parser: DictParser):
+    def __init__(self, dict_parser: DefParser):
         self.dict_parser = dict_parser
         self.etree_main = self.dict_parser.get_def_main()
 
@@ -91,7 +91,7 @@ class HtmlToJson:
 
     def translate(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictParser(root, self.word_name)
+        dict_parser = DefParser(root, self.word_name)
 
         main_def = MainDefGroup(dict_parser)
         main_def.build_children()

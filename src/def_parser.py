@@ -2,7 +2,7 @@ from lxml import etree
 import re
 
 
-class DictParser:
+class DefParser:
     def __init__(self, root, word_name):
         self.root = root
         self.word_name = word_name
@@ -76,7 +76,7 @@ class DictParser:
                     text += child.tail
 
             elif key == "class" and child.get(key) == "xr_ref":
-                xr_href_text = DictParser._parse_xr_ref(child)
+                xr_href_text = DefParser._parse_xr_ref(child)
                 # print("xr_href_text: ", xr_href_text)
                 text += xr_href_text
 
@@ -103,7 +103,7 @@ class DictParser:
             pass
 
         for node in hi_nodes:
-            hi_text = DictParser._parse_hi(node)
+            hi_text = DefParser._parse_hi(node)
             text += hi_text
             # print("found hi text: ", hi_text)
 
@@ -268,7 +268,7 @@ class DictParser:
 
     @staticmethod
     def get_all_grammar_groups(def_group):
-        homss = DictParser.get_all_home_subsecs(def_group)[0]
+        homss = DefParser.get_all_home_subsecs(def_group)[0]
 
         elems = homss.xpath('./*[@class="hom"]')                                # 10 KEYS
 
@@ -276,7 +276,7 @@ class DictParser:
 
     @staticmethod
     def get_all_grammar_values(def_group):
-        homss = DictParser.get_all_home_subsecs(def_group)[0]
+        homss = DefParser.get_all_home_subsecs(def_group)[0]
 
         elems = homss.xpath('./*[@class="hom"]/'                                # 10 KEYS
                             '*[@class="gramGrp h3_entry"]/'                     # 11 KEYS
@@ -287,7 +287,7 @@ class DictParser:
 
     @staticmethod
     def get_semantics(def_group):
-        homss = DictParser.get_all_home_subsecs(def_group)[0]
+        homss = DefParser.get_all_home_subsecs(def_group)[0]
 
         sems_items = homss.xpath('./*[@class="semantic"]')
         if len(sems_items) == 0:
@@ -395,13 +395,13 @@ class DictParser:
             key = next_elem.keys()[0]
             # print("next: ({}, {})".format(key, next_elem.get(key)))
             if key == "class" and re.match("lbl .+", next_elem.get(key)):
-                addit_text = DictParser._parse_lbl(next_elem)
+                addit_text = DefParser._parse_lbl(next_elem)
                 # print("label addit text: ", addit_text)
 
                 text += addit_text[0]
 
             elif key == "class" and next_elem.get(key) == "xr":
-                xr_text = DictParser._parse_xr(next_elem)
+                xr_text = DefParser._parse_xr(next_elem)
                 # print("called xr: text=", xr_text)
 
                 text += xr_text
@@ -453,7 +453,7 @@ class DictParser:
             # add the previous tail
             text += label_tail
 
-            label_text, label_tail = DictParser._parse_lbl(child, use_tail=False)
+            label_text, label_tail = DefParser._parse_lbl(child, use_tail=False)
             text += label_text
 
             child = child.getnext()

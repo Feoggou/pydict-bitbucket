@@ -1,5 +1,5 @@
 import unittest
-from src.def_parser import DictParser
+from src.def_parser import DefParser
 from lxml import etree
 
 
@@ -13,7 +13,7 @@ class TestParser(unittest.TestCase):
         TestParser.root = etree.HTML(text)
 
     def setUp(self):
-        self.d_parser = DictParser(TestParser.root, "perform")
+        self.d_parser = DefParser(TestParser.root, "perform")
 
     def assertElemKey(self, e, key):
         self.assertTrue(isinstance(e, etree._Element))

@@ -1,9 +1,9 @@
-from .def_parser import DictParser
+from .def_parser import DefParser
 from .syn_parser import DictSynParser
 
 
 class JsonGroup:
-    def __init__(self, dict_parser: DictParser):
+    def __init__(self, dict_parser: DefParser):
         self.dict_parser = dict_parser
 
     def translate(self) -> dict:
@@ -11,7 +11,7 @@ class JsonGroup:
 
 
 class WordFrequencyGroup(JsonGroup):
-    def __init__(self, dict_parser: DictParser):
+    def __init__(self, dict_parser: DefParser):
         JsonGroup.__init__(self, dict_parser)
         self.word_freq = ''
 
@@ -24,7 +24,7 @@ class WordFrequencyGroup(JsonGroup):
 
 
 class DefSubgroup(JsonGroup):
-    def __init__(self, dict_parser: DictParser, etree_elem):
+    def __init__(self, dict_parser: DefParser, etree_elem):
         JsonGroup.__init__(self, dict_parser)
         self.subdefs = None
         self.etree_elem = etree_elem
@@ -39,7 +39,7 @@ class DefSubgroup(JsonGroup):
 
 # {"category":"slang", "def":"excrement; feces", "example":"dog do"}
 class WordDefinition(JsonGroup):
-    def __init__(self, dict_parser: DictParser, etree_elem):
+    def __init__(self, dict_parser: DefParser, etree_elem):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_elem
         self.category = ""
@@ -80,7 +80,7 @@ class WordDefinition(JsonGroup):
 # {"defs": []}
 # {"defs": [{"def": ""}, {"def": ""}, {"def": ""}]
 class SenseListGroup(JsonGroup):
-    def __init__(self, dict_parser: DictParser, etree_elem):
+    def __init__(self, dict_parser: DefParser, etree_elem):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_elem
         self.defs = []
@@ -105,7 +105,7 @@ class SenseListGroup(JsonGroup):
 
 # {"gram_group": [{"word_forms": "did, done, doing"}, {"grammar_value": "transitive verb"}, {"defs": []}]}
 class GramGroup(JsonGroup):
-    def __init__(self, dict_parser: DictParser, etree_elem):
+    def __init__(self, dict_parser: DefParser, etree_elem):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_elem
         self.word_forms = None
@@ -138,7 +138,7 @@ class GramGroup(JsonGroup):
 
 # {"def_group": 1, "items": []}
 class DefGroup(JsonGroup):
-    def __init__(self, dict_parser: DictParser, etree_def_group):
+    def __init__(self, dict_parser: DefParser, etree_def_group):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_def_group
         self.name = ''
