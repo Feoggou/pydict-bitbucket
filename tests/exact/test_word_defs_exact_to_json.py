@@ -2,8 +2,6 @@ import unittest
 from unittest.mock import patch
 from src.def_groups import *
 from src.def_parser import DefParser
-from src import html_to_json
-from src.html_to_json import HtmlToJson
 from lxml import etree
 
 
@@ -23,10 +21,10 @@ class HtmlToJsonTest(unittest.TestCase):
     def test_translate_empty_main_to_json_returns_empty_word(self):
         obj = HtmlToJson(self.word_name, self.html_content)
 
-        with patch('src.html_to_json.MainDefGroup.build_children') as mock:
+        with patch('src.def_groups.MainDefGroup.build_children') as mock:
             mock.return_value = None
             json_obj = obj.translate()
-            html_to_json.MainDefGroup.build_children.assert_called_once_with()
+            MainDefGroup.build_children.assert_called_once_with()
             self.assertEqual(json_obj, {})
 
     def test_word_freq_group_value_is_extremely_common(self):
@@ -44,7 +42,7 @@ class HtmlToJsonTest(unittest.TestCase):
         dict_parser = DefParser(root, self.word_name)
         etree_group = dict_parser.get_all_def_groups()[0]
 
-        with patch('src.html_to_json.DefGroup.build') as mock:
+        with patch('src.def_groups.DefGroup.build') as mock:
             mock.return_value = None
             group = DefGroup(dict_parser, etree_group)
             group.build()
@@ -56,7 +54,7 @@ class HtmlToJsonTest(unittest.TestCase):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
 
-        with patch('src.html_to_json.DefGroup.build'):
+        with patch('src.def_groups.DefGroup.build'):
             group = DefGroups(dict_parser)
             group.build()
             result = group.translate()
@@ -68,8 +66,8 @@ class HtmlToJsonTest(unittest.TestCase):
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
 
-        with patch('src.html_to_json.GramGroup.build'):
-            with patch('src.html_to_json.RelatedGroup.build'):
+        with patch('src.def_groups.GramGroup.build'):
+            with patch('src.def_groups.RelatedGroup.build'):
                 group = DefGroup(dict_parser, def_group)
                 group.build()
                 result = group.translate()
@@ -85,7 +83,7 @@ class HtmlToJsonTest(unittest.TestCase):
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 
-        with patch('src.html_to_json.SenseListGroup.build'):
+        with patch('src.def_groups.SenseListGroup.build'):
             group = GramGroup(dict_parser, gram_group)
             group.build()
             result = group.translate()

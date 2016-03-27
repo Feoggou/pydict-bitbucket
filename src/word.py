@@ -1,6 +1,9 @@
-from . import html_to_json
 import http.client
 import os
+
+from .def_groups import  *
+from .syn_groups import  *
+from .rel_groups import  *
 
 
 class RedirectError(Exception):
@@ -81,15 +84,15 @@ class WordData:
         if len(self.def_content) == 0:
             return None
 
-        obj = html_to_json.HtmlToJson(self.word_name, self.def_content)
+        obj = HtmlToJson(self.word_name, self.def_content)
         content = obj.translate()
 
         if len(self.synonyms_content) > 0:
-            synonyms = html_to_json.HtmlToJsonSynonyms(self.word_name, self.synonyms_content)
+            synonyms = HtmlToJsonSynonyms(self.word_name, self.synonyms_content)
             content["synonyms"] = synonyms.translate()
 
         if len(self.related_content) > 0:
-            related = html_to_json.HtmlToJsonRelated(self.related_content)
+            related = HtmlToJsonRelated(self.related_content)
             text = related.translate()
             if len(text):
                 content["related_words"] = text

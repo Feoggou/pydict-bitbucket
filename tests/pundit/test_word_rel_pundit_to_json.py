@@ -1,5 +1,5 @@
 import unittest
-from src.html_to_json import HtmlToJsonRelated
+from src.rel_groups import *
 
 
 # {"related_words": []},

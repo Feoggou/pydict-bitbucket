@@ -1,4 +1,5 @@
 from .def_parser import DefParser
+from lxml import etree
 
 
 class JsonGroup:
@@ -260,4 +261,62 @@ class RelatedGroup(JsonGroup):
 
     def translate(self):
         return self.related
+
+
+class MainDefGroup:
+    def __init__(self, dict_parser: DefParser):
+        self.dict_parser = dict_parser
+        self.etree_main = self.dict_parser.get_def_main()
+
+        self.word_frequency = None
+        self.def_groups = None
+        self.examples = None
+        self.nearby_words = None
+        self.translations = None
+
+    def build_children(self):
+        self.word_frequency = WordFrequencyGroup(self.dict_parser)
+        self.word_frequency.build()
+
+        self.def_groups = DefGroups(self.dict_parser)
+        self.def_groups.build()
+
+        self.examples = ExamplesGroup(self.dict_parser)
+        self.examples.build()
+
+        self.nearby_words = NearbyWordsGroup(self.dict_parser)
+        self.nearby_words.build()
+
+        self.translations = self.dict_parser.get_all_translations()
+
+    def translate(self):
+        json_object = {}
+        if self.word_frequency is not None:
+            json_object["frequency"] = self.word_frequency.translate()
+        if self.def_groups is not None:
+            json_object["def_groups"] = self.def_groups.translate()
+        if self.examples is not None:
+            json_object["examples"] = self.examples.translate()
+        if self.nearby_words is not None:
+            json_object["nearby_words"] = self.nearby_words.translate()
+        if self.translations is not None:
+            json_object["translations"] = self.translations
+
+        return json_object
+
+
+class HtmlToJson:
+    def __init__(self, word_name, html_content):
+        self.word_name = word_name
+        self.html_content = html_content
+        self.translated_obj = None
+
+    def translate(self):
+        root = etree.HTML(self.html_content)
+        dict_parser = DefParser(root, self.word_name)
+
+        main_def = MainDefGroup(dict_parser)
+        main_def.build_children()
+        self.translated_obj = main_def.translate()
+        return self.translated_obj
 

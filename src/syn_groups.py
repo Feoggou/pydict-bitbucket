@@ -1,3 +1,5 @@
+from lxml import etree
+
 from .syn_parser import SynParser
 
 
@@ -106,3 +108,41 @@ class SynGroup(JsonGroup):
         if len(self.word):
             return {"word": self.word, "gram_groups": json_children}
         return None
+
+
+# SYNONYMS
+class MainDefGroupSyn:
+    def __init__(self, dict_parser: SynParser):
+        self.dict_parser = dict_parser
+        self.etree_main = self.dict_parser.get_def_main()
+        self.syn_groups = []
+
+    def build_children(self):
+        groups = self.dict_parser.get_all_def_groups()
+        for g in groups:
+            item = SynGroup(self.dict_parser, g)
+            item.build()
+            self.syn_groups.append(item)
+
+    def translate(self):
+        json_children = []
+        for x in self.syn_groups:
+            json_children.append(x.translate())
+
+        return json_children
+
+
+class HtmlToJsonSynonyms:
+    def __init__(self, word_name, html_content):
+        self.word_name = word_name
+        self.html_content = html_content
+        self.translated_obj = None
+
+    def translate(self):
+        root = etree.HTML(self.html_content)
+        dict_parser = SynParser(root, self.word_name)
+
+        main_def = MainDefGroupSyn(dict_parser)
+        main_def.build_children()
+        self.translated_obj = main_def.translate()
+        return self.translated_obj
