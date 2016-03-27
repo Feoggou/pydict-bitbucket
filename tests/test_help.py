@@ -1,56 +1,55 @@
 import unittest
 
-from src import commands
+from src import dict_cmd
+from src.cmd_help import HelpCommand
 
 
 class TestCommandHelp(unittest.TestCase):
     def test_command_help_returns_help_class(self):
         input_str = "help"
 
-        cmd = commands.get_command(input_str)
-        self.assertIsInstance(cmd, commands.HelpCommand)
+        command = dict_cmd.get_command(input_str)
+        self.assertIsInstance(command, HelpCommand)
 
     def test_command_help_has_name(self):
-        cmd = commands.HelpCommand()
+        command = HelpCommand()
 
-        name = cmd.get_name()
+        name = command.get_name()
         self.assertEqual(name, "help")
 
     def test_command_help_has_no_alias(self):
-        cmd = commands.HelpCommand()
+        command = HelpCommand()
 
-        alias = cmd.get_alias()
+        alias = command.get_alias()
         self.assertEqual(alias, "")
 
     def test_command_help_has_description(self):
-        cmd = commands.HelpCommand()
+        command = HelpCommand()
 
-        description = cmd.get_description()
+        description = command.get_description()
         self.assertEqual(description, "show help for commands")
 
     def test_command_help_on_quit(self):
-        cmd = commands.HelpCommand()
+        command = HelpCommand()
 
         # Dict> help(quit)
-        result = cmd.execute("quit")
+        result = command.execute("quit")
 
         self.assertEqual("quit()\t\texit the script -- also exit().", result)
 
     def test_command_help_on_exit(self):
-        cmd = commands.HelpCommand()
+        command = HelpCommand()
 
         # Dict> help(exit)
-        result = cmd.execute("exit")
+        result = command.execute("exit")
 
         self.assertEqual(result, "quit()\t\texit the script -- also exit().")
 
     def test_command_help_on_help(self):
-        cmd = commands.HelpCommand()
+        command = HelpCommand()
 
         # Dict> help(help)
-        result = cmd.execute("help")
-
-        print(result)
+        result = command.execute("help")
 
         self.assertEqual("help(cmd)\t\tshow help for the command 'cmd'\n"
                          "or\n"
@@ -58,9 +57,9 @@ class TestCommandHelp(unittest.TestCase):
                          result)
 
     def test_command_help_with_no_param_shows_all(self):
-        cmd = commands.HelpCommand()
+        command = HelpCommand()
 
-        result = cmd.execute()
+        result = command.execute()
 
         self.assertEqual(result,
             "Available commands:\n\n"

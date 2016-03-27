@@ -1,41 +1,42 @@
 import unittest
 
-from src import commands
+from src import dict_cmd
+from src.cmd_quit import QuitCommand
 
 
 class TestCommandQuit(unittest.TestCase):
     def test_command_quit_returns_quit_class(self):
         input_str = "quit"
 
-        cmd = commands.get_command(input_str)
-        self.assertIsInstance(cmd, commands.QuitCommand)
+        cmd = dict_cmd.get_command(input_str)
+        self.assertIsInstance(cmd, QuitCommand)
 
     def test_command_exit_returns_quit_class(self):
         input_str = "exit"
 
-        cmd = commands.get_command(input_str)
-        self.assertIsInstance(cmd, commands.QuitCommand)
+        cmd = dict_cmd.get_command(input_str)
+        self.assertIsInstance(cmd, QuitCommand)
 
     def test_command_quit_exits(self):
-        cmd = commands.QuitCommand()
+        cmd = QuitCommand()
 
         with self.assertRaises(SystemExit):
             cmd.execute()
 
     def test_command_quit_has_description(self):
-        cmd = commands.QuitCommand()
+        cmd = QuitCommand()
 
         description = cmd.get_description()
         self.assertEqual(description, "exit the script")
 
     def test_command_quit_has_name(self):
-        cmd = commands.QuitCommand()
+        cmd = QuitCommand()
 
         name = cmd.get_name()
         self.assertEqual(name, "quit")
 
     def test_command_quit_has_alias(self):
-        cmd = commands.QuitCommand()
+        cmd = QuitCommand()
 
         alias = cmd.get_alias()
         self.assertEqual(alias, "exit")
