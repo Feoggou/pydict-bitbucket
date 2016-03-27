@@ -5,6 +5,7 @@ from .dict_cmd import Command, Parameter
 class HelpCommand(Command):
     def __init__(self):
         Command.__init__(self)
+        self._argument = None
 
     @staticmethod
     def get_name() -> str:
@@ -15,8 +16,14 @@ class HelpCommand(Command):
         return ""
 
     @staticmethod
-    def get_argument() -> Parameter:
+    def get_argument_info() -> Parameter:
         return Parameter("cmd", required=False)
+
+    def set_argument_value(self, v: str):
+        self._argument = v
+
+    def get_argument_value(self) -> str:
+        return self._argument
 
     @staticmethod
     def get_description(cmd_name: str = "") -> str:
@@ -55,7 +62,7 @@ class HelpCommand(Command):
         if command is None:
             raise ValueError("command is None!")
 
-        param = command.get_argument()
+        param = command.get_argument_info()
 
         if param is not None:
             help_str = HelpCommand._build_help_with_param(command, param)

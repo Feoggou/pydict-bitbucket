@@ -21,7 +21,13 @@ class QuitCommand(Command):
         return "exit the script"
 
     @staticmethod
-    def get_argument() -> Parameter:
+    def get_argument_info() -> Parameter:
+        return None
+
+    def set_argument_value(self, v: str):
+        raise ValueError("Command doesn't take arguments!")
+
+    def get_argument_value(self) -> str:
         return None
 
     def execute(self):
