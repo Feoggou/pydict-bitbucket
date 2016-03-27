@@ -1,6 +1,6 @@
 import unittest
 from src.def_groups import *
-from src.syn_parser import DictSynParser
+from src.syn_parser import SynParser
 from src.html_to_json import HtmlToJsonSynonyms
 from lxml import etree
 
@@ -46,7 +46,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
 
     def test_first_syngroup_returns_2_gram_groups(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictSynParser(root, self.word_name)
+        dict_parser = SynParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
 
         group = SynGroup(dict_parser, def_group)
@@ -74,7 +74,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
 
     def test_first_gram_group_returns_empty_synonyms(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictSynParser(root, self.word_name)
+        dict_parser = SynParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 
@@ -94,7 +94,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
 
     def test_1st_syn_group_list1_returns_items(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictSynParser(root, self.word_name)
+        dict_parser = SynParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
         sslist = dict_parser.get_senselist(gram_group)
@@ -107,7 +107,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
 
     def test_1st_syn_group_returns_5_filled_lists(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictSynParser(root, self.word_name)
+        dict_parser = SynParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 

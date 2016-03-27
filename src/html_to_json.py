@@ -7,7 +7,7 @@ from .rel_parser import *
 
 # SYNONYMS
 class MainDefGroupSyn:
-    def __init__(self, dict_parser: DictSynParser):
+    def __init__(self, dict_parser: SynParser):
         self.dict_parser = dict_parser
         self.etree_main = self.dict_parser.get_def_main()
         self.syn_groups = []
@@ -122,7 +122,7 @@ class HtmlToJsonSynonyms:
 
     def translate(self):
         root = etree.HTML(self.html_content)
-        dict_parser = DictSynParser(root, self.word_name)
+        dict_parser = SynParser(root, self.word_name)
 
         main_def = MainDefGroupSyn(dict_parser)
         main_def.build_children()

@@ -1,6 +1,6 @@
 import unittest
 from src.def_groups import *
-from src.syn_parser import DictSynParser
+from src.syn_parser import SynParser
 from src.html_to_json import HtmlToJsonSynonyms
 from lxml import etree
 

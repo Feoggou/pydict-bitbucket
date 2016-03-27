@@ -1,5 +1,5 @@
 import unittest
-from src.syn_parser import DictSynParser
+from src.syn_parser import SynParser
 from lxml import etree
 
 
@@ -13,7 +13,7 @@ class TestSynParser(unittest.TestCase):
         TestSynParser.root = etree.HTML(text)
 
     def setUp(self):
-        self.parser = DictSynParser(TestSynParser.root, "do")
+        self.parser = SynParser(TestSynParser.root, "do")
 
     def assertElemKey(self, key, e):
         self.assertTrue(isinstance(e, etree._Element))

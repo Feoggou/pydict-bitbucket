@@ -1,7 +1,7 @@
 from lxml import etree
 
 
-class DictSynParser:
+class SynParser:
     def __init__(self, root, word_name):
         self.root = root
         self.word_name = word_name
@@ -46,7 +46,7 @@ class DictSynParser:
 
     @staticmethod
     def get_all_grammar_groups(def_group):
-        homss = DictSynParser._get_all_home_subsecs(def_group)[0]
+        homss = SynParser._get_all_home_subsecs(def_group)[0]
 
         elems = homss.xpath('./*[@class="hom"]')                                # 10 KEYS
 
@@ -54,7 +54,7 @@ class DictSynParser:
 
     @staticmethod
     def get_all_grammar_values(def_group):
-        homss = DictSynParser._get_all_home_subsecs(def_group)[0]
+        homss = SynParser._get_all_home_subsecs(def_group)[0]
 
         elems = homss.xpath('./*[@class="hom"]/'                                # 10 KEYS
                             '*[@class="gramGrp h2_entry"]/'                     # 11 KEYS

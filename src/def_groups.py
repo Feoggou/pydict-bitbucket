@@ -1,5 +1,5 @@
 from .def_parser import DefParser
-from .syn_parser import DictSynParser
+from .syn_parser import SynParser
 
 
 class JsonGroup:
@@ -267,7 +267,7 @@ class RelatedGroup(JsonGroup):
 
 
 class SynListGroup(JsonGroup):
-    def __init__(self, dict_parser: DictSynParser, etree_elem):
+    def __init__(self, dict_parser: SynParser, etree_elem):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_elem
         self.dict_parser = dict_parser
@@ -288,7 +288,7 @@ class SynListGroup(JsonGroup):
 
 
 class SynSenseListGroup(JsonGroup):
-    def __init__(self, dict_parser: DictSynParser, etree_elem):
+    def __init__(self, dict_parser: SynParser, etree_elem):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_elem
         self.groups = []
@@ -312,7 +312,7 @@ class SynSenseListGroup(JsonGroup):
 
 
 class SynGramGroup(JsonGroup):
-    def __init__(self, dict_parser: DictSynParser, etree_elem):
+    def __init__(self, dict_parser: SynParser, etree_elem):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_elem
         self.dict_parser = dict_parser
@@ -338,7 +338,7 @@ class SynGramGroup(JsonGroup):
 
 # {"syn_group": 1, "items": []}
 class SynGroup(JsonGroup):
-    def __init__(self, dict_parser: DictSynParser, etree_def_group):
+    def __init__(self, dict_parser: SynParser, etree_def_group):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_def_group
         self.name = ''
