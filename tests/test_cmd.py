@@ -1,12 +1,12 @@
 import unittest
-from src import dict_cmd
+from src import commands
 
 
 class TestCommandQuit(unittest.TestCase):
     def test_match_input_zero_args(self):
         input_str = "quit()"
 
-        cmd = dict_cmd.match_command(input_str)
+        cmd = commands.match_command(input_str)
 
         self.assertEqual("quit", cmd.get_name())
         self.assertEqual(None, cmd.get_argument_value())
@@ -14,7 +14,7 @@ class TestCommandQuit(unittest.TestCase):
     def test_match_input_opt_zero_args(self):
         input_str = "help()"
 
-        cmd = dict_cmd.match_command(input_str)
+        cmd = commands.match_command(input_str)
 
         self.assertEqual("help", cmd.get_name())
         self.assertEqual(None, cmd.get_argument_value())
@@ -22,7 +22,7 @@ class TestCommandQuit(unittest.TestCase):
     def test_match_input_with_arg(self):
         input_str = "help(exit)"
 
-        cmd = dict_cmd.match_command(input_str)
+        cmd = commands.match_command(input_str)
 
         self.assertEqual("help", cmd.get_name())
         self.assertEqual("exit", cmd.get_argument_value())
@@ -31,14 +31,13 @@ class TestCommandQuit(unittest.TestCase):
         input_str = "quit(exit)"
 
         with self.assertRaises(ValueError):
-            cmd = dict_cmd.match_command(input_str)
+            cmd = commands.match_command(input_str)
 
     def test_default_command_finds_default(self):
         input_str = "do"
 
-        default_cmd = dict_cmd.match_command(input_str)
-        self.assertIsInstance(default_cmd, dict_cmd.DefaultCommand)
-
+        default_cmd = commands.match_command(input_str)
+        self.assertIsInstance(default_cmd, commands.DefaultCommand)
 
 
 if __name__ == "__main__":

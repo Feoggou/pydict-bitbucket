@@ -1,6 +1,6 @@
 import unittest
 
-from src import dict_cmd
+from src import commands
 from src.cmd_help import HelpCommand
 
 
@@ -8,7 +8,7 @@ class TestCommandHelp(unittest.TestCase):
     def test_command_help_returns_help_class(self):
         input_str = "help"
 
-        command = dict_cmd.get_command(input_str)
+        command = commands.get_command(input_str)
         self.assertIsInstance(command, HelpCommand)
 
     def test_command_help_has_name(self):

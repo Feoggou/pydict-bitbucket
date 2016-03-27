@@ -1,6 +1,6 @@
 import unittest
 
-from src import dict_cmd
+from src import commands
 from src.cmd_quit import QuitCommand
 
 
@@ -8,13 +8,13 @@ class TestCommandQuit(unittest.TestCase):
     def test_command_quit_returns_quit_class(self):
         input_str = "quit"
 
-        cmd = dict_cmd.get_command(input_str)
+        cmd = commands.get_command(input_str)
         self.assertIsInstance(cmd, QuitCommand)
 
     def test_command_exit_returns_quit_class(self):
         input_str = "exit"
 
-        cmd = dict_cmd.get_command(input_str)
+        cmd = commands.get_command(input_str)
         self.assertIsInstance(cmd, QuitCommand)
 
     def test_command_quit_exits(self):

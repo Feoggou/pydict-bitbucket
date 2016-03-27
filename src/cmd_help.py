@@ -1,4 +1,4 @@
-from . import dict_cmd
+from . import commands
 from .dict_cmd import Command, Parameter
 
 
@@ -49,7 +49,7 @@ class HelpCommand(Command):
         result = "Available commands:\n\n"
         result += HelpCommand._build_help_simple(HelpCommand) + "\n"
 
-        for command in dict_cmd.CMD_CLASSES:
+        for command in commands.CMD_CLASSES:
             if command is not HelpCommand:
                 result += HelpCommand._help_command(command.get_name()) + "\n"
 
@@ -58,7 +58,7 @@ class HelpCommand(Command):
     @staticmethod
     def _help_command(cmd_name: str) -> str:
         """show help for the command"""
-        command = dict_cmd.get_command(cmd_name)
+        command = commands.get_command(cmd_name)
         if command is None:
             raise ValueError("command is None!")
 
@@ -87,4 +87,4 @@ class HelpCommand(Command):
             return HelpCommand._help_generic()
 
 
-dict_cmd.CMD_CLASSES.append(HelpCommand)
+commands.CMD_CLASSES.append(HelpCommand)
