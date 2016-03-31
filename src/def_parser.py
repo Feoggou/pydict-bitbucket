@@ -431,7 +431,7 @@ class DefParser:
             text = hrlink.text
 
             link = hrlink.get("href")
-            word_def = re.match("\w+#\w+_(\d)", link)
+            word_def = re.match("[A-Za-z0-9\- \.\']+#[A-Za-z0-9\- \.\']+_(\d)", link)
             assert len(word_def.groups()) == 1
             word_def = word_def.groups()[0]
 
