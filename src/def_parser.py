@@ -30,7 +30,6 @@ class DefParser:
     @staticmethod
     def _parse_xr_ref(elem: etree._Element) -> str:
         assert elem.text is None
-        assert elem.tail is None
 
         xr_ref_link = elem.xpath("./*[@class='xr_ref_link']")[0]
         assert xr_ref_link.text is not None
@@ -45,13 +44,24 @@ class DefParser:
         word_def = word_def.groups()[0]
 
         text += " (def. {})".format(word_def)
+
+        if len(xr_ref_link.getchildren()):
+            for child in xr_ref_link.getchildren():
+                if len(child.keys()):
+                    print("child keys: ", child.keys())
+                    assert child.get("class") == "hi"
+                    child_text = DefParser._parse_hi(child)
+                    text += child_text
+
+        if elem.tail is not None:
+            text += elem.tail
         # print("xr ref return: ", text)
         return text
 
     @staticmethod
     def _parse_xr(elem: etree._Element) -> str:
         text = ""
-        tail = ""
+        # tail = ""
 
         if elem.text is not None:
             # print("xr text: ", elem.text)
