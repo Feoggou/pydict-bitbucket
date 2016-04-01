@@ -424,11 +424,14 @@ class DefParser:
 
         # if len(text) == 0:
         hrlinks = elem.xpath('.//*[@class="xr_ref_link"]')
-        if len(hrlinks):
-            assert len(hrlinks) == 1
-            hrlink = hrlinks[0]
+        for hrlink in hrlinks:
+            # if len(hrlinks):
+            # assert len(hrlinks) == 1
+            # hrlink = hrlinks[0]
 
-            text = hrlink.text
+            if len(text):
+                text += " "
+            text += hrlink.text
 
             link = hrlink.get("href")
             word_def = re.match("[A-Za-z0-9\- \.\']+#[A-Za-z0-9\- \.\']+_(\d)", link)
