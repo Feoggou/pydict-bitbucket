@@ -400,6 +400,12 @@ class DefParser:
         next_elem = elem.getnext()
 
         while next_elem is not None:
+            if len(next_elem.keys()) == 0:
+                assert next_elem.tag == "br"
+                text += " "
+                next_elem = next_elem.getnext()
+                continue
+
             assert len(next_elem.keys()) == 1
 
             key = next_elem.keys()[0]

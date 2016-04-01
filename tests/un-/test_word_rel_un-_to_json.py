@@ -5,7 +5,7 @@ from src.rel_groups import *
 # {"related_words": []},
 class HtmlToJsonRelTest(unittest.TestCase):
     def setUp(self):
-        f = open("con_related.html")
+        f = open("un-_related.html")
         self.html_content = f.read()
         self.maxDiff = None
 
@@ -18,8 +18,7 @@ class HtmlToJsonRelTest(unittest.TestCase):
         json_obj = obj.translate()
 
         self.assertEqual(json_obj, [
-            "con-", "con moto", "nem. con.", "arroz con pollo", "chili con carne", "con man", "crim con", "con dolore",
-            "café con leche", "can", "con brio", "con amore", "con spirito", "chile con carne", "convict"
+            "UN", "un-American", "vingt-et-un"
         ])
 
 if __name__ == '__main__':
