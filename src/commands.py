@@ -2,7 +2,7 @@ import re
 
 from .dict_cmd import *
 
-from .cmd_default import GetWordCommand
+from .cmd_getword import GetWordCommand
 from . import cmd_help
 from . import cmd_quit
 

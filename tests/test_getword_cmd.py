@@ -4,7 +4,7 @@ from unittest.mock import patch
 import os
 
 from src import commands
-from src.cmd_default import GetWordCommand, WordInvalidError
+from src.cmd_getword import GetWordCommand, WordInvalidError
 from src.word import RedirectError
 
 
