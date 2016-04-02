@@ -1,0 +1,9 @@
+o) WordHandler for get-word
+o) redirect problems: not found at all (?q=<word>)
+o) list(regular_expression)
+o) update(word)
+o) doing - do
+o) unfazed redirects to un- not to fazed. + word forms. (fazed, faze, etc.)
+o) synonyms -- category for each synonym
+o) refactor word definition in parser
+
