@@ -8,23 +8,23 @@ from src.cmd_getword import GetWordCommand, WordInvalidError
 from src.word import RedirectError
 
 
-class TestDefaultCommand(unittest.TestCase):
+class TestGetWordCommand(unittest.TestCase):
     word_exp_content = None
 
     @classmethod
     def setUpClass(cls):
-        TestDefaultCommand.word_exp_content = None
+        TestGetWordCommand.word_exp_content = None
 
         os.chdir("./do")
         exp_do = "expected_do.json"
 
         with open(exp_do, "r") as f:
-            TestDefaultCommand.word_exp_content = json.load(f)
+            TestGetWordCommand.word_exp_content = json.load(f)
 
     def setUp(self):
         self.word = "do"
 
-    def test_command_default_returns_Default_class(self):
+    def test_command_getword_returns_GetWord_class(self):
         input_str = self.word
 
         command = commands.match_command(input_str)
@@ -39,13 +39,13 @@ class TestDefaultCommand(unittest.TestCase):
         # I assume the content is correct
         # it needs to know where to put the file, but I could receive it as string.
         with patch.object(GetWordCommand, '_fetch_content') as mock:
-            mock.return_value = TestDefaultCommand.word_exp_content
+            mock.return_value = TestGetWordCommand.word_exp_content
             with patch.object(GetWordCommand, '_word_already_exists') as mock_exists:
                 mock_exists.return_value = False
 
                 json_content = cmd.execute()
 
-        self.assertEqual(TestDefaultCommand.word_exp_content, json_content)
+        self.assertEqual(TestGetWordCommand.word_exp_content, json_content)
 
     def test_ill_formed_word_raises_exception(self):
         with patch.object(GetWordCommand, '_fetch_content'):
@@ -89,14 +89,14 @@ class TestDefaultCommand(unittest.TestCase):
                 mock_exists.return_value = False
 
                 with patch.object(GetWordCommand, '_redirect_to') as mock_redirect:
-                    mock_redirect.return_value = TestDefaultCommand.word_exp_content
+                    mock_redirect.return_value = TestGetWordCommand.word_exp_content
 
                     cmd = GetWordCommand(auto=True)
                     cmd.set_argument_value("do")
 
                     content = cmd.execute()
 
-                    self.assertEqual(TestDefaultCommand.word_exp_content, content)
+                    self.assertEqual(TestGetWordCommand.word_exp_content, content)
 
     def test_on_redirect_if_not_auto_then_ask_user_answers_no(self):
         with patch.object(GetWordCommand, '_fetch_content') as mock_fetch_content:
@@ -126,14 +126,14 @@ class TestDefaultCommand(unittest.TestCase):
                     mock_input.return_value = "Yes"
 
                     with patch.object(GetWordCommand, '_redirect_to') as mock_redirect:
-                        mock_redirect.return_value = TestDefaultCommand.word_exp_content
+                        mock_redirect.return_value = TestGetWordCommand.word_exp_content
 
                         cmd = GetWordCommand(auto=False)
                         cmd.set_argument_value("do")
 
                         content = cmd.execute()
 
-                        self.assertEqual(TestDefaultCommand.word_exp_content, content)
+                        self.assertEqual(TestGetWordCommand.word_exp_content, content)
 
 
 if __name__ == '__main__':
