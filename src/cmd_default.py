@@ -12,7 +12,7 @@ class WordInvalidError(RuntimeError):
         return "Invalid word: " + self.msg
 
 
-class DefaultCommand(Command):
+class GetWordCommand(Command):
     """Responsible with taking the content of the word as json / dict object"""
     def __init__(self, auto=False):
         Command.__init__(self)

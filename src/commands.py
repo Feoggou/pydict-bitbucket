@@ -2,7 +2,7 @@ import re
 
 from .dict_cmd import *
 
-from .cmd_default import DefaultCommand
+from .cmd_default import GetWordCommand
 from . import cmd_help
 from . import cmd_quit
 
@@ -24,7 +24,7 @@ def match_default_command(in_str: str) -> Command:
     if match is None:
         raise ValueError("Invalid word: '{}'".format(in_str))
 
-    cmd = DefaultCommand()
+    cmd = GetWordCommand()
     cmd.set_argument_value(in_str)
     return cmd
 

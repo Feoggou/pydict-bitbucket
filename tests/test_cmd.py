@@ -37,7 +37,7 @@ class TestCommandQuit(unittest.TestCase):
         input_str = "do"
 
         default_cmd = commands.match_command(input_str)
-        self.assertIsInstance(default_cmd, commands.DefaultCommand)
+        self.assertIsInstance(default_cmd, commands.GetWordCommand)
 
 
 if __name__ == "__main__":
