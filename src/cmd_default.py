@@ -13,6 +13,7 @@ class WordInvalidError(RuntimeError):
 
 
 class DefaultCommand(Command):
+    """Responsible with taking the content of the word as json / dict object"""
     def __init__(self, auto=False):
         Command.__init__(self)
         self.auto = auto
@@ -57,7 +58,15 @@ class DefaultCommand(Command):
         return content
 
     def execute(self) -> dict:
+        """Retrieves the content for the word self._word
+
+        Performs the required word validation.
+        Returns a dict object containing the word. Either from the web site or offline, depending where it can be found.
+        If the word cannot be found (either doesn't exist or the site redirects to a different location), the
+        appropriate exception is risen.
+        """
         match = re.match("^[A-Za-z0-9\- \.\']+$", self._word)
+
         if match is None:
             raise WordInvalidError(self._word)
 
@@ -80,6 +89,9 @@ class DefaultCommand(Command):
                     return self._redirect_to(e.value)
                 return None
 
+        # if word is 'doing', and contains wordform 'do', then ask user.
+        # if 'do' exists, we must read do and make sure it is the same. if so, do not take that defgroup. else, take it.
+        # if 'do' doesn't exist, we must ask user if he wants to take it separately. (auto=separate)
 
         return content
 
