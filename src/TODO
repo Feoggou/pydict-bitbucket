@@ -6,4 +6,4 @@ o) doing - do
 o) unfazed redirects to un- not to fazed. + word forms. (fazed, faze, etc.)
 o) synonyms -- category for each synonym
 o) refactor word definition in parser
-
+o) asserting by what's printed on stdout is pretty bad...
