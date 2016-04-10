@@ -1,0 +1,51 @@
+from .cmd_getword import WordInvalidError
+from . import cmd_getword
+from .word import RedirectError
+
+import os
+import re
+
+
+class WordHandler:
+    def __init__(self, dir_path: str):
+        self.dir_path = dir_path
+
+    def _already_exists(self, word: str) -> bool:
+        file_path = os.path.join(self.dir_path, word + ".json")
+        exists = os.path.exists(file_path)
+        return exists
+
+    def _print_word(self, word: str):
+        pass
+
+    def get(self, word: str):
+        if self._already_exists(word):
+            self._print_word(word)
+            return
+
+        cmd = cmd_getword.GetWordCommand()
+        cmd.set_argument_value(word)
+
+        answer = "yes"
+
+        while answer.lower() == "yes":
+            try:
+                value = cmd.execute()
+                print(value)
+            except WordInvalidError as e:
+                print(e)
+                return
+            except RedirectError as e:
+                if re.match("american\?q=.*", e.value):
+                    print("The word '{}' was not found!".format(word))
+                    return
+
+                answer = input("Word 'fazed' not found. Would you like to get word 'faze' instead?")
+                assert answer == "Yes"
+
+                if answer.lower() == "yes":
+                    word = "faze"
+
+                cmd.set_argument_value(word)
+            else:
+                return
