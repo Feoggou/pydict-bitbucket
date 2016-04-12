@@ -20,7 +20,7 @@ class WordHandler:
         return exists
 
     def _print_word(self, word: str):
-        pass
+        raise NotImplementedError()
 
     def get(self, word: str):
         if self._already_exists(word):
