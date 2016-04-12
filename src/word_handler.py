@@ -44,11 +44,9 @@ class WordHandler:
                     output_msg("The word '{}' was not found!".format(word))
                     return
 
-                answer = input("Word 'fazed' not found. Would you like to get word 'faze' instead?")
-                assert answer == "Yes"
-
+                answer = input("Word '{}' not found. Would you like to get word '{}' instead?".format(word, e.value))
                 if answer.lower() == "yes":
-                    word = "faze"
+                    word = e.value
 
                 cmd.set_argument_value(word)
             else:

@@ -102,16 +102,49 @@ class TestWordHandler(unittest.TestCase):
                 # returns what we need.
                 word_handler.get("fazed")
 
+                mock_input.assert_called_once_with(
+                    "Word 'fazed' not found. Would you like to get word 'faze' instead?")
+
             calls = [call("fazed"), call("faze")]
             mock_obj.set_argument_value.assert_has_calls(calls)
 
         mock_out.assert_called_once_with("faze_content_json")
 
-    def test_word_unfazed_not_found_no_redirect(self):
-        self.fail()
-
     @patch("src.word_handler.output_msg", mock_out)
-    def test_word_do_already_exists_print_do(self):
+    def test_word_creat_not_found_ask_user_if_redirect_he_answers_yes(self):
+        with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
+            mock_obj = MockGetWordCommand.return_value
+            mock_obj.execute.side_effect = [RedirectError("create"), "create_content_json"]
+
+            word_handler = WordHandler(self.DIR_PATH)
+            with patch('builtins.input') as mock_input:
+                mock_input.return_value = "Yes"
+
+                word_handler.get("creat")
+
+                mock_input.assert_called_once_with(
+                    "Word 'creat' not found. Would you like to get word 'create' instead?")
+
+            calls = [call("creat"), call("create")]
+            mock_obj.set_argument_value.assert_has_calls(calls)
+
+        # TODO: What EXACTLY do I want to test here: that the question was asked correctly? that the calls were correct? that the content was retrieved?
+        mock_out.assert_called_once_with("create_content_json")
+
+    def test_word_unintended_not_found_do_not_accept_redirect_version(self):
+        with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
+            mock_obj = MockGetWordCommand.return_value
+            mock_obj.execute.side_effect = RedirectError("un-")
+
+            word_handler = WordHandler(self.DIR_PATH)
+            with patch('builtins.input') as mock_input:
+                mock_input.return_value = "No"
+
+                word_handler.get("unintended")
+
+                mock_input.assert_called_once_with("Word 'unintended' not found. Would you like to get word 'un-' instead?")
+
+    def test_word_do_already_exists_calls_print_do(self):
         word_handler = WordHandler(self.DIR_PATH)
 
         with patch.object(WordHandler, '_already_exists') as mock_exists:
