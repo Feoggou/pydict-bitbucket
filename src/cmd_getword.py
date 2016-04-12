@@ -33,9 +33,6 @@ class GetWordCommand(Command):
     def get_argument_value(self) -> str:
         return self._word
 
-    def _word_already_exists(self) -> bool:
-        raise NotImplementedError
-
     def _call_printer(self):
         raise NotImplementedError
 
@@ -65,6 +62,10 @@ class GetWordCommand(Command):
         If the word cannot be found (either doesn't exist or the site redirects to a different location), the
         appropriate exception is risen.
         """
+
+        if self._word is None:
+            raise WordInvalidError("No word was provided!")
+
         match = re.match("^[A-Za-z0-9\- \.\']+$", self._word)
 
         if match is None:
@@ -72,12 +73,10 @@ class GetWordCommand(Command):
 
         self._word = self._word.replace(" ", "-")
 
-        if self._word_already_exists():
-            self._call_printer()
-            return None
-
+        """# TODO: Not actually part of 'getword' responsibility
         content = None
 
+        # TODO: Redirection not actually part of 'getword' responsibility
         try:
             content = self._fetch_content()
         except word.RedirectError as e:
@@ -91,7 +90,9 @@ class GetWordCommand(Command):
 
         # if word is 'doing', and contains wordform 'do', then ask user.
         # if 'do' exists, we must read do and make sure it is the same. if so, do not take that defgroup. else, take it.
-        # if 'do' doesn't exist, we must ask user if he wants to take it separately. (auto=separate)
+        # if 'do' doesn't exist, we must ask user if he wants to take it separately. (auto=separate)"""
+
+        content = self._fetch_content()
 
         return content
 

@@ -6,6 +6,10 @@ import os
 import re
 
 
+def output_msg(args):
+    print(args)
+
+
 class WordHandler:
     def __init__(self, dir_path: str):
         self.dir_path = dir_path
@@ -31,13 +35,13 @@ class WordHandler:
         while answer.lower() == "yes":
             try:
                 value = cmd.execute()
-                print(value)
+                output_msg(value)
             except WordInvalidError as e:
-                print(e)
+                output_msg(str(e))
                 return
             except RedirectError as e:
                 if re.match("american\?q=.*", e.value):
-                    print("The word '{}' was not found!".format(word))
+                    output_msg("The word '{}' was not found!".format(word))
                     return
 
                 answer = input("Word 'fazed' not found. Would you like to get word 'faze' instead?")

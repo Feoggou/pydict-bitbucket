@@ -13,6 +13,9 @@ from unittest.mock import call
 from unittest import mock
 
 
+mock_out = mock.Mock()
+
+
 # TODO: Find a better name!
 class TestWordHandler(unittest.TestCase):
     word_exp_print = None
@@ -34,16 +37,13 @@ class TestWordHandler(unittest.TestCase):
             TestWordHandler.word_exp_print = f.read()
 
     def setUp(self):
-        self._saved_stdout = sys.stdout
-        self.stdout = io.StringIO()
-        sys.stdout = self.stdout
-
         self.DIR_PATH = "./test-data"
+        mock_out.reset_mock()
 
     def tearDown(self):
-        sys.stdout = self._saved_stdout
         pass
 
+    @patch("src.word_handler.output_msg", mock_out)
     def test_word_do_is_retrieved(self):
         word_handler = WordHandler(self.DIR_PATH)
 
@@ -53,16 +53,18 @@ class TestWordHandler(unittest.TestCase):
                 mock.return_value = TestWordHandler.word_exp_print
                 word_handler.get("do")
 
-        self.assertEqual(TestWordHandler.word_exp_print + "\n", self.stdout.getvalue())
+        mock_out.assert_called_once_with(TestWordHandler.word_exp_print)
 
+    @patch("src.word_handler.output_msg", mock_out)
     def test_ill_formed_word_prints_error(self):
         word_handler = WordHandler(self.DIR_PATH)
 
         # the exception must be risen, caught, message printed.
         word_handler.get("a;&%&i")
 
-        self.assertEqual("Invalid word: a;&%&i\n", self.stdout.getvalue())
+        mock_out.assert_called_once_with("Invalid word: a;&%&i")
 
+    @patch("src.word_handler.output_msg", mock_out)
     def test_word_worddoesnotexist_not_found_prints_error(self):
         word_handler = WordHandler(self.DIR_PATH)
 
@@ -71,8 +73,9 @@ class TestWordHandler(unittest.TestCase):
             mock.side_effect = RedirectError("american?q=worddoesnotexist")
             word_handler.get("worddoesnotexist")
 
-        self.assertEqual("The word 'worddoesnotexist' was not found!\n", self.stdout.getvalue())
+        mock_out.assert_called_once_with("The word 'worddoesnotexist' was not found!")
 
+    @patch("src.word_handler.output_msg", mock_out)
     def test_word_commoditization_not_found_prints_error(self):
         word_handler = WordHandler(self.DIR_PATH)
 
@@ -81,8 +84,9 @@ class TestWordHandler(unittest.TestCase):
             mock.side_effect = RedirectError("american?q=commoditization")
             word_handler.get("commoditization")
 
-        self.assertEqual("The word 'commoditization' was not found!\n", self.stdout.getvalue())
+        mock_out.assert_called_once_with("The word 'commoditization' was not found!")
 
+    @patch("src.word_handler.output_msg", mock_out)
     def test_word_fazed_not_found_ask_user_if_redirect_he_answers_yes(self):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
@@ -101,21 +105,22 @@ class TestWordHandler(unittest.TestCase):
             calls = [call("fazed"), call("faze")]
             mock_obj.set_argument_value.assert_has_calls(calls)
 
-        self.assertEqual("faze_content_json\n", self.stdout.getvalue())
+        mock_out.assert_called_once_with("faze_content_json")
 
     def test_word_unfazed_not_found_no_redirect(self):
         self.fail()
 
+    @patch("src.word_handler.output_msg", mock_out)
     def test_word_do_already_exists_print_do(self):
         word_handler = WordHandler(self.DIR_PATH)
 
         with patch.object(WordHandler, '_already_exists') as mock_exists:
             mock_exists.return_value = True
             with patch.object(WordHandler, '_print_word') as mock_print:
-                mock_print.side_effect = print(TestWordHandler.word_exp_print)
+                mock_print.side_effect = mock_out(TestWordHandler.word_exp_print)
                 word_handler.get("do")
 
-        self.assertEqual(TestWordHandler.word_exp_print + "\n", self.stdout.getvalue())
+        mock_out.assert_called_once_with(TestWordHandler.word_exp_print)
 
 
 if __name__ == "__main__":
