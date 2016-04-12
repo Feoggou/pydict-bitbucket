@@ -6,3 +6,4 @@ o) doing - do
 o) unfazed redirects to un- not to fazed. + word forms. (fazed, faze, etc.)
 o) synonyms -- category for each synonym
 o) refactor word definition in parser
+o) _print_word for word handler -- need to implement command print()
