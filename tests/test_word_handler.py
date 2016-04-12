@@ -76,7 +76,7 @@ class TestWordHandler(unittest.TestCase):
         mock_out.assert_called_once_with("The word 'worddoesnotexist' was not found!")
 
     @patch("src.word_handler.output_msg", mock_out)
-    def test_word_commoditization_not_found_prints_error(self):
+    def test_word_commoditization_not_found_no_rediect_available_prints_error(self):
         word_handler = WordHandler(self.DIR_PATH)
 
         # the exception must be risen, caught, message printed.

@@ -1,9 +1,11 @@
-o) WordHandler for get-word
-o) redirect problems: not found at all (?q=<word>)
-o) list(regular_expression)
-o) update(word)
-o) doing - do
-o) unfazed redirects to un- not to fazed. + word forms. (fazed, faze, etc.)
+NEXT:
+print(word)
+
 o) synonyms -- category for each synonym
 o) refactor word definition in parser
 o) _print_word for word handler -- need to implement command print()
+o) doing - do + word forms (doing, done, did -- asking for either, should we automatically get all? should we redirect automatically?)
+
+COMMANDS
+o) list(regular_expression)
+o) update(word)
