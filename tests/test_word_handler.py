@@ -24,7 +24,6 @@ class TestWordHandler(unittest.TestCase):
 
         with patch.object(WordHandler, '_already_exists') as mock_exists:
             mock_exists.return_value = False
-
             with patch.object(WordHandler, '_save_json') as mock_save:
                 with patch.object(GetWordCommand, '_fetch_content') as mock_fetch:
                     mock_fetch.return_value = "json_content"
@@ -52,7 +51,6 @@ class TestWordHandler(unittest.TestCase):
 
         with patch.object(WordHandler, '_already_exists') as mock_exists:
             mock_exists.return_value = False
-
             with patch.object(GetWordCommand, '_fetch_content') as mock_fetch:
                 mock_fetch.side_effect = RedirectError("american?q=worddoesnotexist")
 
@@ -83,7 +81,6 @@ class TestWordHandler(unittest.TestCase):
 
             with patch.object(WordHandler, '_already_exists') as mock_exists:
                 mock_exists.return_value = False
-
                 with patch.object(WordHandler, '_save_json'):
                     with patch('builtins.input') as mock_input:
                         mock_input.return_value = "Yes"
@@ -97,10 +94,6 @@ class TestWordHandler(unittest.TestCase):
                         # 5. GetWordCommand is called once again, with word "faze", which yields content
                         word_handler.get("fazed")
 
-                        # TODO: should test this in a separate test function!
-                        mock_input.assert_called_once_with(
-                            "Word 'fazed' not found. Would you like to get word 'faze' instead?")
-
             calls = [call("fazed"), call("faze")]
             mock_obj.set_argument_value.assert_has_calls(calls)
         mock_out.assert_called_once_with("faze_content_json")
@@ -110,10 +103,8 @@ class TestWordHandler(unittest.TestCase):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
             mock_obj.execute.side_effect = [RedirectError("create"), "create_content_json"]
-
             with patch.object(WordHandler, '_already_exists') as mock_exists:
                 mock_exists.return_value = False
-
                 with patch.object(WordHandler, '_save_json'):
                     with patch('builtins.input') as mock_input:
                         mock_input.return_value = "Yes"
@@ -121,13 +112,27 @@ class TestWordHandler(unittest.TestCase):
                         word_handler = WordHandler(self.DIR_PATH)
                         word_handler.get("creat")
 
-                        mock_input.assert_called_once_with(
-                            "Word 'creat' not found. Would you like to get word 'create' instead?")
-
             calls = [call("creat"), call("create")]
             mock_obj.set_argument_value.assert_has_calls(calls)
-        # TODO: What EXACTLY do I want to test here: that the question was asked correctly? that the calls were correct? that the content was retrieved?
         mock_out.assert_called_once_with("create_content_json")
+
+    @patch("src.word_handler.output_msg", mock_out)
+    def test_onRedirectionError_outputMessageIsCorrect(self):
+        word_orig = "somethin"
+        word_redir = "something"
+
+        with patch.object(GetWordCommand, 'execute') as mock_exec:
+            mock_exec.side_effect = RedirectError(word_redir)
+            with patch.object(WordHandler, '_already_exists') as mock_exists:
+                mock_exists.return_value = False
+                with patch('builtins.input') as mock_input:
+                    mock_input.return_value = "No"
+
+                    word_handler = WordHandler(self.DIR_PATH)
+                    word_handler.get(word_orig)
+
+                    mock_input.assert_called_once_with(
+                        "Word '{}' not found. Would you like to get word '{}' instead?".format(word_orig, word_redir))
 
     def test_when_unintended_isNotFoundAnd_askUserForRedirection_No_cancel(self):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
@@ -136,7 +141,6 @@ class TestWordHandler(unittest.TestCase):
 
             with patch.object(WordHandler, '_already_exists') as mock_exists:
                 mock_exists.return_value = False
-
                 with patch.object(WordHandler, '_save_json') as mock_save:
                     with patch('builtins.input') as mock_input:
                         mock_input.return_value = "No"
@@ -154,7 +158,6 @@ class TestWordHandler(unittest.TestCase):
             mock_exists.return_value = True
             with patch.object(WordHandler, '_print_word') as mock_print:
                 mock_print.side_effect = mock_out("printed_content")
-
                 with patch.object(GetWordCommand, 'execute') as mock_exec:
                     word_handler.get("do")
 
