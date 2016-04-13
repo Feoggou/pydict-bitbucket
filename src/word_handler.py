@@ -22,6 +22,7 @@ class WordHandler:
     def _print_word(self, word: str):
         raise NotImplementedError()
 
+    # not tested: too simple
     def _save_json(self, word: str, content: str):
         file_path = os.path.join(self.dir_path, word)
 
@@ -50,8 +51,7 @@ class WordHandler:
                 answer = input("Word '{}' not found. Would you like to get word '{}' instead?".format(word, e.value))
                 if answer.lower() == "yes":
                     word = e.value
-
-                cmd.set_argument_value(word)
+                    cmd.set_argument_value(word)
             else:
                 WordHandler._save_json(word, value)
                 return value
