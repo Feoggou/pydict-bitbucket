@@ -22,9 +22,11 @@ class WordHandler:
     def _print_word(self, word: str):
         raise NotImplementedError()
 
-    @staticmethod
-    def _save_json(word: str, content: str):
-        raise NotImplementedError()
+    def _save_json(self, word: str, content: str):
+        file_path = os.path.join(self.dir_path, word)
+
+        with open(file_path, "w") as f:
+            f.write(content)
 
     @staticmethod
     def _get_word_definition(word):

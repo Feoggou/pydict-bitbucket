@@ -177,6 +177,22 @@ class TestWordHandler(unittest.TestCase):
 
         mock_out.assert_called_once_with(TestWordHandler.word_exp_print)
 
+    def test_save_json_saves_content(self):
+        word_handler = WordHandler(self.DIR_PATH)
+
+        word = "do"
+        content = "json_content"
+
+        m = mock.mock_open()
+        with patch("builtins.open", m):
+            mock_file_obj = m.return_value
+
+            word_handler._save_json(word, content)
+
+            file_path = os.path.join(self.DIR_PATH, word)
+            m.assert_called_once_with(file_path, "w")
+            mock_file_obj.write.assert_called_once_with(content)
+
 
 if __name__ == "__main__":
     unittest.main()
