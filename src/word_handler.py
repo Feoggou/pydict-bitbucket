@@ -23,6 +23,10 @@ class WordHandler:
         raise NotImplementedError()
 
     @staticmethod
+    def _save_json(word: str, content: str):
+        raise NotImplementedError()
+
+    @staticmethod
     def _get_word_definition(word):
         cmd = cmd_getword.GetWordCommand()
         cmd.set_argument_value(word)
@@ -47,6 +51,7 @@ class WordHandler:
 
                 cmd.set_argument_value(word)
             else:
+                WordHandler._save_json(word, value)
                 return value
 
     def get(self, word: str):
