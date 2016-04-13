@@ -20,11 +20,11 @@ class WordHandler:
         exists = os.path.exists(file_path)
         return exists
 
-    def _print_word(self, word: dict):
+    def _print_word(self, word: str):
         raise NotImplementedError()
 
     # not tested: too simple
-    def _save_json(self, word: dict, content: str):
+    def _save_json(self, word: str, content: dict):
         file_path = os.path.join(self.dir_path, word)
         file_path += ".json"
 
@@ -33,13 +33,12 @@ class WordHandler:
 
     def _get_word_definition(self, word):
         cmd = cmd_getword.GetWordCommand()
-        cmd.set_argument_value(word)
 
         answer = "yes"
 
         while answer.lower() == "yes":
             try:
-                json_content = cmd.execute()
+                json_content = cmd.execute(word)
             except WordInvalidError as e:
                 output_msg(str(e))
                 return None
@@ -51,7 +50,6 @@ class WordHandler:
                 answer = input("Word '{}' not found. Would you like to get word '{}' instead?".format(word, e.value))
                 if answer.lower() == "yes":
                     word = e.value
-                    cmd.set_argument_value(word)
             else:
                 self._save_json(word, json_content)
                 self._print_word(json_content)

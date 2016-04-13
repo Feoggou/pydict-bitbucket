@@ -95,7 +95,7 @@ class TestWordHandler(unittest.TestCase):
                         word_handler.get("fazed")
 
             calls = [call("fazed"), call("faze")]
-            mock_obj.set_argument_value.assert_has_calls(calls)
+            mock_obj.execute.assert_has_calls(calls)
         mock_out.assert_called_once_with("faze_content_json")
 
     @patch.object(WordHandler, '_print_word', mock_out)
@@ -113,7 +113,7 @@ class TestWordHandler(unittest.TestCase):
                         word_handler.get("creat")
 
             calls = [call("creat"), call("create")]
-            mock_obj.set_argument_value.assert_has_calls(calls)
+            mock_obj.execute.assert_has_calls(calls)
         mock_out.assert_called_once_with("create_content_json")
 
     @patch("src.word_handler.output_msg", mock_out)
@@ -177,7 +177,7 @@ class TestWordHandler(unittest.TestCase):
                 word_handler.get("do")
                 word_handler.get("do")
 
-                mock_fetch.assert_called_once_with()
+                mock_fetch.assert_called_once_with("do")
 
 
 if __name__ == "__main__":

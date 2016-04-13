@@ -25,7 +25,6 @@ def match_default_command(in_str: str) -> Command:
         raise ValueError("Invalid word: '{}'".format(in_str))
 
     cmd = GetWordCommand()
-    cmd.set_argument_value(in_str)
     return cmd
 
 
