@@ -29,8 +29,7 @@ class WordHandler:
         file_path += ".json"
 
         with open(file_path, "w") as f:
-            # json.dump(content, f, indent=4, sort_keys=True)
-            f.write(content)
+            json.dump(content, f, indent=4, sort_keys=True)
 
     def _get_word_definition(self, word):
         cmd = cmd_getword.GetWordCommand()
@@ -41,7 +40,6 @@ class WordHandler:
         while answer.lower() == "yes":
             try:
                 json_content = cmd.execute()
-                self._print_word(json_content)
             except WordInvalidError as e:
                 output_msg(str(e))
                 return None
@@ -56,6 +54,7 @@ class WordHandler:
                     cmd.set_argument_value(word)
             else:
                 self._save_json(word, json_content)
+                self._print_word(json_content)
                 return json_content
 
     def get(self, word: str):
