@@ -40,8 +40,8 @@ class WordHandler:
 
         while answer.lower() == "yes":
             try:
-                value = cmd.execute()
-                self._print_word(value)
+                json_content = cmd.execute()
+                self._print_word(json_content)
             except WordInvalidError as e:
                 output_msg(str(e))
                 return None
@@ -55,8 +55,8 @@ class WordHandler:
                     word = e.value
                     cmd.set_argument_value(word)
             else:
-                self._save_json(word, value)
-                return value
+                self._save_json(word, json_content)
+                return json_content
 
     def get(self, word: str):
         if self._already_exists(word):
