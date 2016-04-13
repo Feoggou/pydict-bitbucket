@@ -4,7 +4,7 @@ import unittest
 from unittest import mock
 from unittest.mock import patch
 
-from src.json_reader import JsonReader
+from src.json_reader import JsonReader, DefGroupReader
 
 
 class TestJsonReader(unittest.TestCase):
@@ -50,7 +50,7 @@ class TestJsonReader(unittest.TestCase):
     def test_toText_Definitions(self):
         cmd = JsonReader(TestJsonReader.content_json)
 
-        with patch.object(JsonReader, "_read_gram_groups") as mock_ggroups:
+        with patch.object(DefGroupReader, "read_def_group") as mock_ggroups:
             mock_ggroups.side_effect = ["group1\n", "group2\n", "group3\n", "group4\n", "group5\n"]
 
             text = cmd.definitions()

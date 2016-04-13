@@ -1,5 +1,21 @@
 
 
+class DefGroupReader:
+    def __init__(self, obj: dict):
+        self.def_groups = obj
+
+    def read_def_group(self, def_group: dict):
+        raise NotImplementedError()
+
+    def __call__(self) -> str:
+        text = ""
+
+        for item in self.def_groups:
+            text += self.read_def_group(item)
+
+        return text
+
+
 class JsonReader:
     def __init__(self, content: dict):
         self.content = content
@@ -9,19 +25,13 @@ class JsonReader:
         }
 
     def frequency(self) -> str:
-        # # TODO: could be nicer with a dictionary { key : function }
-        # if len(self.content["frequency"]) == 0:
-        #     return ""
         return "[{}]\n\n".format(self.content["frequency"])
-
-    def _read_gram_groups(self, obj: dict):
-        raise NotImplementedError()
 
     def definitions(self) -> str:
         text = "DEFINTIONS\n"
-        for gram_groups in self.content["def_groups"]:
-            text += self._read_gram_groups(gram_groups)
-            pass
+
+        reader = DefGroupReader(self.content["def_groups"])
+        text += reader()
 
         text += "\n"
 
