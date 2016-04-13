@@ -53,13 +53,13 @@ class TestCommandPrint(unittest.TestCase):
         cmd = PrintCommand()
         cmd.set_dir_path(self.DIR_PATH)
 
-        with patch.object(PrintCommand, "_print_content") as mock_print:
+        with patch.object(PrintCommand, "_json_to_text") as mock_totext:
             with patch("json.load") as mock_load:
                 mock_load.return_value = TestCommandPrint.word_exp_json
 
                 cmd.execute(self.word)
 
-                mock_print.assert_called_once_with(TestCommandPrint.word_exp_json)
+                mock_totext.assert_called_once_with(TestCommandPrint.word_exp_json)
 
     def test_printContent_callsAllToTextMethods(self):
         cmd = PrintCommand()
@@ -70,7 +70,7 @@ class TestCommandPrint(unittest.TestCase):
                     with patch.object(PrintCommand, "_synonyms_to_text") as mock_syns:
                         with patch.object(PrintCommand, "_examples_to_text") as mock_ex:
 
-                            cmd._print_content(TestCommandPrint.word_exp_json)
+                            cmd._json_to_text(TestCommandPrint.word_exp_json)
 
                             mock_freq.assert_called_once_with(mock.ANY)
                             mock_defs.assert_called_once_with(mock.ANY)
@@ -78,13 +78,35 @@ class TestCommandPrint(unittest.TestCase):
                             mock_syns.assert_called_once_with(mock.ANY)
                             mock_ex.assert_called_once_with(mock.ANY)
 
-    @unittest.skip("SKIP ---- not yet")
-    def test_print_frequency(self):
+    @unittest.skip("SKIP ---- not yet impl")
+    def test_jsonToText_returnsAll(self):
+        cmd = PrintCommand()
+
+        text = cmd._json_to_text(TestCommandPrint.word_exp_json)
+
+        self.assertEqual(text, TestCommandPrint.word_exp_print)
+
+    def test_toText_frequency(self):
         cmd = PrintCommand()
 
         text = cmd._frequency_to_text(TestCommandPrint.word_exp_json)
 
         self.assertEqual(text, "[Extremely Common]\n\n")
+
+    def test_toText_Definitions(self):
+        cmd = PrintCommand()
+
+        with patch.object(PrintCommand, "_read_gram_groups") as mock_ggroups:
+            mock_ggroups.side_effect = ["group1\n", "group2\n", "group3\n", "group4\n", "group5\n"]
+
+            text = cmd._definitions_to_text(TestCommandPrint.word_exp_json)
+
+        self.assertEqual(text, "DEFINTIONS\n"
+                               "group1\n"
+                               "group2\n"
+                               "group3\n"
+                               "group4\n"
+                               "group5\n\n")
 
 
 if __name__ == "__main__":

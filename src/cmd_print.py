@@ -36,29 +36,44 @@ class PrintCommand(Command):
         with open(file_name, "r") as json_file:
             content = json.load(json_file)
 
-        self._print_content(content)
+        self._json_to_text(content)
         return None
 
-    def _print_content(self, content: dict):
+    def _json_to_text(self, content: dict) -> str:
         self._frequency_to_text(content)
         self._definitions_to_text(content)
         self._translations_to_text(content)
         self._synonyms_to_text(content)
         self._examples_to_text(content)
 
-    def _frequency_to_text(self, content: dict):
+    @staticmethod
+    def _frequency_to_text(content: dict) -> str:
+        # TODO: could be nicer with a dictionary { key : function }
+        if len(content["frequency"]) == 0:
+            return ""
+        return "[{}]\n\n".format(content["frequency"])
+
+    @staticmethod
+    def _read_gram_groups(obj: dict):
+        raise NotImplementedError()
+
+    @staticmethod
+    def _definitions_to_text(content: dict) -> str:
+        text = "DEFINTIONS\n"
+        for gram_groups in content["def_groups"]:
+            text += PrintCommand._read_gram_groups(gram_groups)
+
+        text += "\n"
+
+        return text
+
+    def _translations_to_text(self, content: dict) -> str:
         raise NotImplementedError
 
-    def _definitions_to_text(self, content: dict):
+    def _synonyms_to_text(self, content: dict) -> str:
         raise NotImplementedError
 
-    def _translations_to_text(self, content: dict):
-        raise NotImplementedError
-
-    def _synonyms_to_text(self, content: dict):
-        raise NotImplementedError
-
-    def _examples_to_text(self, content: dict):
+    def _examples_to_text(self, content: dict) -> str:
         raise NotImplementedError
 
 
