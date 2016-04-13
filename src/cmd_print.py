@@ -40,7 +40,26 @@ class PrintCommand(Command):
         return None
 
     def _print_content(self, content: dict):
-        raise NotImplementedError()
+        self._frequency_to_text(content)
+        self._definitions_to_text(content)
+        self._translations_to_text(content)
+        self._synonyms_to_text(content)
+        self._examples_to_text(content)
+
+    def _frequency_to_text(self, content: dict):
+        raise NotImplementedError
+
+    def _definitions_to_text(self, content: dict):
+        raise NotImplementedError
+
+    def _translations_to_text(self, content: dict):
+        raise NotImplementedError
+
+    def _synonyms_to_text(self, content: dict):
+        raise NotImplementedError
+
+    def _examples_to_text(self, content: dict):
+        raise NotImplementedError
 
 
 dict_cmd.CMD_CLASSES.append(PrintCommand)

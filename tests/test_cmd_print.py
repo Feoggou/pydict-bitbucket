@@ -61,11 +61,28 @@ class TestCommandPrint(unittest.TestCase):
 
                 mock_print.assert_called_once_with(TestCommandPrint.word_exp_json)
 
+    def test_printContent_callsAllToTextMethods(self):
+        cmd = PrintCommand()
+
+        with patch.object(PrintCommand, "_frequency_to_text") as mock_freq:
+            with patch.object(PrintCommand, "_definitions_to_text") as mock_defs:
+                with patch.object(PrintCommand, "_translations_to_text") as mock_trans:
+                    with patch.object(PrintCommand, "_synonyms_to_text") as mock_syns:
+                        with patch.object(PrintCommand, "_examples_to_text") as mock_ex:
+
+                            cmd._print_content(TestCommandPrint.word_exp_json)
+
+                            mock_freq.assert_called_once_with(mock.ANY)
+                            mock_defs.assert_called_once_with(mock.ANY)
+                            mock_trans.assert_called_once_with(mock.ANY)
+                            mock_syns.assert_called_once_with(mock.ANY)
+                            mock_ex.assert_called_once_with(mock.ANY)
+
     @unittest.skip("SKIP ---- not yet")
     def test_print_frequency(self):
         cmd = PrintCommand()
 
-        text = cmd.execute(self.word)
+        text = cmd._frequency_to_text(TestCommandPrint.word_exp_json)
 
         self.assertEqual(text, "[Extremely Common]\n\n")
 
