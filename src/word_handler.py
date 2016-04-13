@@ -23,6 +23,9 @@ class WordHandler:
     def _print_word(self, word: str):
         raise NotImplementedError()
 
+    def _print_json_content(self, content: dict):
+        raise NotImplementedError()
+
     # not tested: too simple
     def _save_json(self, word: str, content: dict):
         file_path = os.path.join(self.dir_path, word)
@@ -52,7 +55,7 @@ class WordHandler:
                     word = e.value
             else:
                 self._save_json(word, json_content)
-                self._print_word(json_content)
+                self._print_json_content(json_content)
                 return json_content
 
     def get(self, word: str):

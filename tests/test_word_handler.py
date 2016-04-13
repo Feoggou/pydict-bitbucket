@@ -18,7 +18,7 @@ class TestWordHandler(unittest.TestCase):
         mock_out.reset_mock()
 
     # -------------------- TESTS --------------------
-    @patch.object(WordHandler, '_print_word', mock_out)
+    @patch.object(WordHandler, '_print_json_content', mock_out)
     def test_when_do_isRequested_contentIsSavedAndPrinted(self):
         word_handler = WordHandler(self.DIR_PATH)
 
@@ -73,7 +73,7 @@ class TestWordHandler(unittest.TestCase):
 
         mock_out.assert_called_once_with("The word 'commoditization' was not found!")
 
-    @patch.object(WordHandler, '_print_word', mock_out)
+    @patch.object(WordHandler, '_print_json_content', mock_out)
     def test_when_fazed_isNotFound_askUserForRedirection_Yes_retrieve_faze(self):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
@@ -98,7 +98,7 @@ class TestWordHandler(unittest.TestCase):
             mock_obj.execute.assert_has_calls(calls)
         mock_out.assert_called_once_with("faze_content_json")
 
-    @patch.object(WordHandler, '_print_word', mock_out)
+    @patch.object(WordHandler, '_print_json_content', mock_out)
     def test_when_creat_isNotFound_askUserForRedirection_Yes_retrieve_create(self):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
@@ -164,6 +164,8 @@ class TestWordHandler(unittest.TestCase):
                     mock_exec.assert_not_called()
         mock_out.assert_called_once_with("printed_content")
 
+    @patch.object(WordHandler, '_print_word', mock_out)
+    @patch.object(WordHandler, '_print_json_content', mock_out)
     def test_whenWordIsRetrievedTwice_2ndTimeDoesntDownload(self):
         word_handler = WordHandler(self.DIR_PATH)
         os.makedirs(self.DIR_PATH, exist_ok=True)
@@ -173,11 +175,11 @@ class TestWordHandler(unittest.TestCase):
 
         with patch.object(GetWordCommand, '_fetch_content') as mock_fetch:
             mock_fetch.return_value = "json_content"
-            with patch.object(WordHandler, '_print_word'):
-                word_handler.get("do")
-                word_handler.get("do")
 
-                mock_fetch.assert_called_once_with("do")
+            word_handler.get("do")
+            word_handler.get("do")
+
+            mock_fetch.assert_called_once_with("do")
 
 
 if __name__ == "__main__":
