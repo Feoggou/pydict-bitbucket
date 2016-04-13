@@ -4,6 +4,7 @@ from .word import RedirectError
 
 import os
 import re
+import json
 
 
 def output_msg(args):
@@ -23,14 +24,15 @@ class WordHandler:
         raise NotImplementedError()
 
     # not tested: too simple
-    def _save_json(self, word: str, content: str):
+    def _save_json(self, word: dict, content: str):
         file_path = os.path.join(self.dir_path, word)
+        # file_path += ".json"
 
         with open(file_path, "w") as f:
+            # json.dump(content, f)
             f.write(content)
 
-    @staticmethod
-    def _get_word_definition(word):
+    def _get_word_definition(self, word):
         cmd = cmd_getword.GetWordCommand()
         cmd.set_argument_value(word)
 
@@ -39,6 +41,7 @@ class WordHandler:
         while answer.lower() == "yes":
             try:
                 value = cmd.execute()
+                # TODO: must use _print_word
                 output_msg(value)
             except WordInvalidError as e:
                 output_msg(str(e))
@@ -53,7 +56,7 @@ class WordHandler:
                     word = e.value
                     cmd.set_argument_value(word)
             else:
-                WordHandler._save_json(word, value)
+                self._save_json(word, value)
                 return value
 
     def get(self, word: str):
@@ -61,6 +64,6 @@ class WordHandler:
             self._print_word(word)
             return
 
-        definition = WordHandler._get_word_definition(word)
+        definition = self._get_word_definition(word)
         return definition
 
