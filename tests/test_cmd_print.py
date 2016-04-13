@@ -61,20 +61,11 @@ class TestCommandPrint(unittest.TestCase):
 
                 mock_print.assert_called_once_with(TestCommandPrint.word_exp_json)
 
-    def test_printReadsJsonAndCalls_printContent(self):
-        cmd = PrintCommand()
-        cmd.set_dir_path(self.DIR_PATH)
-
-        # with patch.object(PrintCommand, "_print_content") as mock_print:
-        cmd.execute(self.word)
-        # mock_print.assert_called_once_with(TestCommandPrint.word_exp_json)
-
     @unittest.skip("SKIP ---- not yet")
     def test_print_frequency(self):
         cmd = PrintCommand()
 
         text = cmd.execute(self.word)
-
 
         self.assertEqual(text, "[Extremely Common]\n\n")
 
