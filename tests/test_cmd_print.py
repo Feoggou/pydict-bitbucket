@@ -79,36 +79,6 @@ class TestCommandPrint(unittest.TestCase):
                             mock_syns.assert_called_once_with(mock.ANY)
                             mock_ex.assert_called_once_with(mock.ANY)
 
-    @unittest.skip("SKIP ---- not yet impl")
-    def test_jsonToText_returnsAll(self):
-        cmd = PrintCommand()
-
-        text = cmd._json_to_text(TestCommandPrint.word_exp_json)
-
-        self.assertEqual(text, TestCommandPrint.word_exp_print)
-
-    def test_toText_frequency(self):
-        cmd = PrintCommand()
-
-        text = cmd._frequency_to_text(TestCommandPrint.word_exp_json)
-
-        self.assertEqual(text, "[Extremely Common]\n\n")
-
-    def test_toText_Definitions(self):
-        cmd = PrintCommand()
-
-        with patch.object(JsonReader, "_read_gram_groups") as mock_ggroups:
-            mock_ggroups.side_effect = ["group1\n", "group2\n", "group3\n", "group4\n", "group5\n"]
-
-            text = cmd._definitions_to_text(TestCommandPrint.word_exp_json)
-
-        self.assertEqual(text, "DEFINTIONS\n"
-                               "group1\n"
-                               "group2\n"
-                               "group3\n"
-                               "group4\n"
-                               "group5\n\n")
-
 
 if __name__ == "__main__":
     unittest.main()
