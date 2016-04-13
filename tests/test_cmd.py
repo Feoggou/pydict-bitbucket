@@ -31,7 +31,7 @@ class TestCommandQuit(unittest.TestCase):
         input_str = "quit(exit)"
 
         with self.assertRaises(ValueError):
-            cmd = commands.match_command(input_str)
+            commands.match_command(input_str)
 
     def test_default_command_finds_default(self):
         input_str = "do"
