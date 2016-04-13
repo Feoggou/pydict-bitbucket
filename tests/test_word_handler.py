@@ -18,7 +18,7 @@ class TestWordHandler(unittest.TestCase):
         mock_out.reset_mock()
 
     # -------------------- TESTS --------------------
-    @patch("src.word_handler.output_msg", mock_out)
+    @patch.object(WordHandler, '_print_word', mock_out)
     def test_when_do_isRequested_contentIsSavedAndPrinted(self):
         word_handler = WordHandler(self.DIR_PATH)
 
@@ -73,7 +73,7 @@ class TestWordHandler(unittest.TestCase):
 
         mock_out.assert_called_once_with("The word 'commoditization' was not found!")
 
-    @patch("src.word_handler.output_msg", mock_out)
+    @patch.object(WordHandler, '_print_word', mock_out)
     def test_when_fazed_isNotFound_askUserForRedirection_Yes_retrieve_faze(self):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
@@ -98,7 +98,7 @@ class TestWordHandler(unittest.TestCase):
             mock_obj.set_argument_value.assert_has_calls(calls)
         mock_out.assert_called_once_with("faze_content_json")
 
-    @patch("src.word_handler.output_msg", mock_out)
+    @patch.object(WordHandler, '_print_word', mock_out)
     def test_when_creat_isNotFound_askUserForRedirection_Yes_retrieve_create(self):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value

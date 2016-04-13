@@ -20,7 +20,7 @@ class WordHandler:
         exists = os.path.exists(file_path)
         return exists
 
-    def _print_word(self, word: str):
+    def _print_word(self, word: dict):
         raise NotImplementedError()
 
     # not tested: too simple
@@ -41,8 +41,7 @@ class WordHandler:
         while answer.lower() == "yes":
             try:
                 value = cmd.execute()
-                # TODO: must use _print_word
-                output_msg(value)
+                self._print_word(value)
             except WordInvalidError as e:
                 output_msg(str(e))
                 return None
