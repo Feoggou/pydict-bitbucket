@@ -1,12 +1,7 @@
 from src.word_handler import *
-from src import cmd_getword
 from src.cmd_getword import GetWordCommand
 
 import unittest
-import sys
-import io
-import os
-import json
 
 from unittest.mock import patch
 from unittest.mock import call
