@@ -33,6 +33,6 @@ while True:
         word_handler = WordHandler(DIR_PATH)
         word_handler.get(input_str)
     else:
-        print(cmd.execute())
+        print(cmd.execute(input_str))
 
 

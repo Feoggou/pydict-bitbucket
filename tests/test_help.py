@@ -83,7 +83,8 @@ class TestCommandHelp(unittest.TestCase):
         self.assertEqual(result,
             "Available commands:\n\n"
             "help()        show help for commands\n"
-            "quit()        exit the script -- also exit()\n")
+            "quit()        exit the script -- also exit()\n"
+            "print()       print all info from json in textual format\n")
 
             # "defs(word)\tsearch all .json files, and print all definitions\n"
             #     "\t\tthat contain the word <word>"

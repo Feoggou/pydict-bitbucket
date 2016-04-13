@@ -1,0 +1,83 @@
+import unittest
+import os
+import json
+import shutil
+
+from unittest import mock
+from unittest.mock import patch
+
+from src.cmd_print import PrintCommand
+
+
+class TestCommandPrint(unittest.TestCase):
+    word_exp_print = None
+    word_exp_json = None
+    dir_path = "./test-data"
+
+    @classmethod
+    def setUpClass(cls):
+        TestCommandPrint.expected_json = None
+        TestCommandPrint.expected_print = None
+
+        os.chdir("./do")
+        exp_json = "expected_do.json"
+        exp_print = "expected_do.txt"
+
+        with open(exp_json, "r") as f:
+            TestCommandPrint.word_exp_json = json.load(f)
+
+        with open(exp_print, "r") as f:
+            TestCommandPrint.word_exp_print = f.read()
+
+        os.makedirs(TestCommandPrint.dir_path, exist_ok=True)
+        shutil.copy(exp_json, os.path.join(TestCommandPrint.dir_path, "do.json"))
+
+    @classmethod
+    def tearDownClass(cls):
+        # shutil.rmtree(TestCommandPrint.dir_path)
+        pass
+
+    def setUp(self):
+        self.word = "do"
+        self.DIR_PATH = TestCommandPrint.dir_path
+
+    @unittest.skip("SKIP ---- Have a lot to implement")
+    def test_print_all(self):
+        cmd = PrintCommand()
+
+        text = cmd.execute(self.word)
+
+        self.assertEqual(text, TestCommandPrint.word_exp_print)
+
+    def test_print_opensCorrectFile(self):
+        cmd = PrintCommand()
+        cmd.set_dir_path(self.DIR_PATH)
+
+        with patch.object(PrintCommand, "_print_content") as mock_print:
+            with patch("json.load") as mock_load:
+                mock_load.return_value = TestCommandPrint.word_exp_json
+
+                cmd.execute(self.word)
+
+                mock_print.assert_called_once_with(TestCommandPrint.word_exp_json)
+
+    def test_printReadsJsonAndCalls_printContent(self):
+        cmd = PrintCommand()
+        cmd.set_dir_path(self.DIR_PATH)
+
+        # with patch.object(PrintCommand, "_print_content") as mock_print:
+        cmd.execute(self.word)
+        # mock_print.assert_called_once_with(TestCommandPrint.word_exp_json)
+
+    @unittest.skip("SKIP ---- not yet")
+    def test_print_frequency(self):
+        cmd = PrintCommand()
+
+        text = cmd.execute(self.word)
+
+
+        self.assertEqual(text, "[Extremely Common]\n\n")
+
+
+if __name__ == "__main__":
+    unittest.main()

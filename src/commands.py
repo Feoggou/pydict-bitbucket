@@ -5,6 +5,7 @@ from .dict_cmd import *
 from .cmd_getword import GetWordCommand
 from . import cmd_help
 from . import cmd_quit
+from . import cmd_print
 
 
 def get_command(in_str: str) -> Command:
