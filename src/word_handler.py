@@ -26,10 +26,10 @@ class WordHandler:
     # not tested: too simple
     def _save_json(self, word: dict, content: str):
         file_path = os.path.join(self.dir_path, word)
-        # file_path += ".json"
+        file_path += ".json"
 
         with open(file_path, "w") as f:
-            # json.dump(content, f)
+            # json.dump(content, f, indent=4, sort_keys=True)
             f.write(content)
 
     def _get_word_definition(self, word):

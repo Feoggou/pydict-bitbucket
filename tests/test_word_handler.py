@@ -164,6 +164,21 @@ class TestWordHandler(unittest.TestCase):
                     mock_exec.assert_not_called()
         mock_out.assert_called_once_with("printed_content")
 
+    def test_whenWordIsRetrievedTwice_2ndTimeDoesntDownload(self):
+        word_handler = WordHandler(self.DIR_PATH)
+        os.makedirs(self.DIR_PATH, exist_ok=True)
+
+        for x in os.listdir(self.DIR_PATH):
+            os.remove(os.path.join(self.DIR_PATH, x))
+
+        with patch.object(GetWordCommand, '_fetch_content') as mock_fetch:
+            mock_fetch.return_value = "json_content"
+            with patch.object(WordHandler, '_print_word'):
+                word_handler.get("do")
+                word_handler.get("do")
+
+                mock_fetch.assert_called_once_with()
+
 
 if __name__ == "__main__":
     unittest.main()
