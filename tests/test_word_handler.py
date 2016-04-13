@@ -18,31 +18,9 @@ mock_out = mock.Mock()
 
 # TODO: Find a better name!
 class TestWordHandler(unittest.TestCase):
-    word_exp_print = None
-    word_exp_json = None
-
-    @classmethod
-    def setUpClass(cls):
-        # TODO: expected_json, expected_print -- we can use dummy values.
-        TestWordHandler.expected_json = None
-        TestWordHandler.expected_print = None
-
-        os.chdir("./do")
-        exp_json = "expected_do.json"
-        exp_print = "expected_do.txt"
-
-        with open(exp_json, "r") as f:
-            TestWordHandler.word_exp_json = json.load(f)
-
-        with open(exp_print, "r") as f:
-            TestWordHandler.word_exp_print = f.read()
-
     def setUp(self):
         self.DIR_PATH = "./test-data"
         mock_out.reset_mock()
-
-    def tearDown(self):
-        pass
 
     # -------------------- TESTS --------------------
     @patch("src.word_handler.output_msg", mock_out)
@@ -53,13 +31,13 @@ class TestWordHandler(unittest.TestCase):
             mock_exists.return_value = False
 
             with patch.object(WordHandler, '_save_json') as mock_save:
-                with patch.object(GetWordCommand, '_fetch_content') as mock:
-                    mock.return_value = TestWordHandler.word_exp_json
+                with patch.object(GetWordCommand, '_fetch_content') as mock_fetch:
+                    mock_fetch.return_value = "json_content"
 
                     word_handler.get("do")
 
-                mock_save.assert_called_once_with("do", TestWordHandler.word_exp_json)
-        mock_out.assert_called_once_with(TestWordHandler.word_exp_json)
+                mock_save.assert_called_once_with("do", "json_content")
+        mock_out.assert_called_once_with("json_content")
 
     @patch("src.word_handler.output_msg", mock_out)
     def test_whenWordIsIllFormed_failAndOutputError(self):
@@ -180,13 +158,13 @@ class TestWordHandler(unittest.TestCase):
         with patch.object(WordHandler, '_already_exists') as mock_exists:
             mock_exists.return_value = True
             with patch.object(WordHandler, '_print_word') as mock_print:
-                mock_print.side_effect = mock_out(TestWordHandler.word_exp_print)
+                mock_print.side_effect = mock_out("printed_content")
 
                 with patch.object(GetWordCommand, 'execute') as mock_exec:
                     word_handler.get("do")
 
                     mock_exec.assert_not_called()
-        mock_out.assert_called_once_with(TestWordHandler.word_exp_print)
+        mock_out.assert_called_once_with("printed_content")
 
 
 if __name__ == "__main__":
