@@ -1,6 +1,7 @@
 o) after downloading, must:
 - call _print_word, not output_msg
 - save file.
+o) WordHandler: drop set_argument_value
 
 NEXT:
 print(word)
