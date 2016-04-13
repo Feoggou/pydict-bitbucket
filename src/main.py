@@ -3,6 +3,8 @@
 import sys
 import os
 from src import commands
+from src.cmd_getword import GetWordCommand
+from src.word_handler import WordHandler
 from src.colors import *
 
 DIR_PATH = ""
@@ -21,11 +23,16 @@ elif len(sys.argv) > 2:
     print("UNEXPECTED ARGUMENTS!")
     exit(-1)
 
+os.makedirs(DIR_PATH, exist_ok=True)
 
 while True:
     input_str = input(BOLDBLACK + "Dict> " + RESET)
 
     cmd = commands.match_command(input_str)
-    print(cmd.execute())
+    if isinstance(cmd, GetWordCommand):
+        word_handler = WordHandler(DIR_PATH)
+        word_handler.get(input_str)
+    else:
+        print(cmd.execute())
 
 
