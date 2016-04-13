@@ -22,11 +22,8 @@ class WordHandler:
     def _print_word(self, word: str):
         raise NotImplementedError()
 
-    def get(self, word: str):
-        if self._already_exists(word):
-            self._print_word(word)
-            return
-
+    @staticmethod
+    def _get_word_definition(word):
         cmd = cmd_getword.GetWordCommand()
         cmd.set_argument_value(word)
 
@@ -38,11 +35,11 @@ class WordHandler:
                 output_msg(value)
             except WordInvalidError as e:
                 output_msg(str(e))
-                return
+                return None
             except RedirectError as e:
                 if re.match("american\?q=.*", e.value):
                     output_msg("The word '{}' was not found!".format(word))
-                    return
+                    return None
 
                 answer = input("Word '{}' not found. Would you like to get word '{}' instead?".format(word, e.value))
                 if answer.lower() == "yes":
@@ -50,4 +47,13 @@ class WordHandler:
 
                 cmd.set_argument_value(word)
             else:
-                return
+                return value
+
+    def get(self, word: str):
+        if self._already_exists(word):
+            self._print_word(word)
+            return
+
+        definition = WordHandler._get_word_definition(word)
+        return definition
+
