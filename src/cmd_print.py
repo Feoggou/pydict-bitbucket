@@ -3,6 +3,7 @@ import json
 
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
+from .json_reader import JsonReader
 
 
 class PrintCommand(Command):
@@ -40,18 +41,21 @@ class PrintCommand(Command):
         return None
 
     def _json_to_text(self, content: dict) -> str:
-        self._frequency_to_text(content)
-        self._definitions_to_text(content)
+        reader = JsonReader(content)
+        text = reader.read_by_key("frequency")
+        text += reader.read_by_key("def_groups")
+
+        # self._frequency_to_text(content)
+        # self._definitions_to_text(content)
         self._translations_to_text(content)
         self._synonyms_to_text(content)
         self._examples_to_text(content)
 
     @staticmethod
     def _frequency_to_text(content: dict) -> str:
-        # TODO: could be nicer with a dictionary { key : function }
-        if len(content["frequency"]) == 0:
-            return ""
-        return "[{}]\n\n".format(content["frequency"])
+        reader = JsonReader(content)
+        text = reader.read_by_key("frequency")
+        return text
 
     @staticmethod
     def _read_gram_groups(obj: dict):
@@ -59,12 +63,8 @@ class PrintCommand(Command):
 
     @staticmethod
     def _definitions_to_text(content: dict) -> str:
-        text = "DEFINTIONS\n"
-        for gram_groups in content["def_groups"]:
-            text += PrintCommand._read_gram_groups(gram_groups)
-
-        text += "\n"
-
+        reader = JsonReader(content)
+        text = reader.read_by_key("def_groups")
         return text
 
     def _translations_to_text(self, content: dict) -> str:

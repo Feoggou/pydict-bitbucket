@@ -7,6 +7,7 @@ from unittest import mock
 from unittest.mock import patch
 
 from src.cmd_print import PrintCommand
+from src.json_reader import JsonReader
 
 
 class TestCommandPrint(unittest.TestCase):
@@ -64,16 +65,16 @@ class TestCommandPrint(unittest.TestCase):
     def test_printContent_callsAllToTextMethods(self):
         cmd = PrintCommand()
 
-        with patch.object(PrintCommand, "_frequency_to_text") as mock_freq:
-            with patch.object(PrintCommand, "_definitions_to_text") as mock_defs:
+        with patch.object(JsonReader, "frequency") as mock_freq:
+            with patch.object(JsonReader, "definitions") as mock_defs:
                 with patch.object(PrintCommand, "_translations_to_text") as mock_trans:
                     with patch.object(PrintCommand, "_synonyms_to_text") as mock_syns:
                         with patch.object(PrintCommand, "_examples_to_text") as mock_ex:
 
                             cmd._json_to_text(TestCommandPrint.word_exp_json)
 
-                            mock_freq.assert_called_once_with(mock.ANY)
-                            mock_defs.assert_called_once_with(mock.ANY)
+                            mock_freq.assert_called_once_with()
+                            mock_defs.assert_called_once_with()
                             mock_trans.assert_called_once_with(mock.ANY)
                             mock_syns.assert_called_once_with(mock.ANY)
                             mock_ex.assert_called_once_with(mock.ANY)
@@ -96,7 +97,7 @@ class TestCommandPrint(unittest.TestCase):
     def test_toText_Definitions(self):
         cmd = PrintCommand()
 
-        with patch.object(PrintCommand, "_read_gram_groups") as mock_ggroups:
+        with patch.object(JsonReader, "_read_gram_groups") as mock_ggroups:
             mock_ggroups.side_effect = ["group1\n", "group2\n", "group3\n", "group4\n", "group5\n"]
 
             text = cmd._definitions_to_text(TestCommandPrint.word_exp_json)
