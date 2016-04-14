@@ -37,9 +37,9 @@ class PrintCommand(Command):
         with open(file_name, "r") as json_file:
             content = json.load(json_file)
 
-        return self._json_to_text(content)
+        return self.read_content(content)
 
-    def _json_to_text(self, content: dict) -> str:
+    def read_content(self, content: dict) -> str:
         reader = JsonReader(content)
         return reader.read_content()
 

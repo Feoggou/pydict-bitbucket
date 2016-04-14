@@ -1,6 +1,7 @@
 from .cmd_getword import WordInvalidError
 from . import cmd_getword
 from .word import RedirectError
+from .cmd_print import PrintCommand
 
 import os
 import re
@@ -21,10 +22,14 @@ class WordHandler:
         return exists
 
     def _print_word(self, word: str):
-        raise NotImplementedError()
+        cmd = PrintCommand()
+        cmd.set_dir_path(self.dir_path)
+        print(cmd.execute(word))
 
     def _print_json_content(self, content: dict):
-        raise NotImplementedError()
+        cmd = PrintCommand()
+        cmd.set_dir_path(self.dir_path)
+        print(cmd.read_content(content))
 
     # not tested: too simple
     def _save_json(self, word: str, content: dict):

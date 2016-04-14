@@ -54,7 +54,7 @@ class TestCommandPrint(unittest.TestCase):
         cmd = PrintCommand()
         cmd.set_dir_path(self.DIR_PATH)
 
-        with patch.object(PrintCommand, "_json_to_text") as mock_totext:
+        with patch.object(PrintCommand, "read_content") as mock_totext:
             with patch("json.load") as mock_load:
                 mock_load.return_value = TestCommandPrint.word_exp_json
 
