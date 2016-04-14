@@ -4,7 +4,7 @@ import unittest
 from unittest import mock
 from unittest.mock import patch
 
-from src.json_reader import JsonReader, DefGroupReader, GramGroupReader, DefinitionReader
+from src.json_reader import *
 
 
 class TestJsonReader(unittest.TestCase):
@@ -156,6 +156,49 @@ class TestJsonReader(unittest.TestCase):
                          "         e.g. that restaurant does ribs really well\n"
                          "     to eat\n"
                          "         e.g. let's do Mexican tonight\n"
+                         )
+
+    def test_toText_Synonyms(self):
+        cmd = JsonReader(TestJsonReader.content_json)
+
+        with patch.object(SynGroupReader, "read_syn_group") as mock_ggroups:
+            mock_ggroups.side_effect = ["group1\n"]
+
+            text = cmd.synonyms()
+
+        self.assertEqual(text, "SYNONYMS\n"
+                               "group1\n\n"
+                         )
+
+    def test_toText_1stSynDefGroup(self):
+        obj = TestJsonReader.content_json["synonyms"]
+        reader = SynGroupReader(obj)
+
+        with patch.object(SynGramGroupReader, "read_gram_group") as mock_ggroup:
+            mock_ggroup.side_effect = ["ggroup1\n", "ggroup2\n"]
+            text = reader.read_syn_group(obj[0])
+
+        self.assertEqual(text,
+                         "do\n"
+                         "ggroup1\n"
+                         "ggroup2\n"
+                         )
+
+    def test_toText_1stSynGramGroup(self):
+        obj = TestJsonReader.content_json["synonyms"][0]["gram_groups"][0]["gram_group"]
+        reader = SynGramGroupReader(obj)
+
+        with patch.object(SynLineReader, "read_definition") as mock_def:
+            mock_def.side_effect = ["line1\n", "line2\n", "line3\n", "line4\n", "line5\n"]
+            text = reader.read_gram_group(obj)
+
+        self.assertEqual(text,
+                         "verb\n"
+                         "line1\n"
+                         "line2\n"
+                         "line3\n"
+                         "line4\n"
+                         "line5\n\n"
                          )
 
 if __name__ == "__main__":

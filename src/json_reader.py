@@ -124,6 +124,78 @@ class DefGroupReader:
         return text
 
 
+class SynLineReader:
+    def __init__(self, lines: list):
+        self.lines = lines
+
+    def read_definition(self, item: dict):
+        pass
+
+    def __call__(self) -> str:
+        text = ""
+
+        for item in self.lines:
+           text += self.read_definition(item)
+
+        return text
+
+
+class SynGramGroupReader:
+    def __init__(self, obj: dict):
+        self.gram_groups = obj
+
+    @staticmethod
+    def _read_gram_value(obj: dict):
+        text = ""
+
+        if "value" in obj.keys():
+            text += obj["value"] + "\n"
+
+        return text
+
+    def read_gram_group(self, gram_group: dict):
+        text = ""
+        text += self._read_gram_value(gram_group)
+
+        syn_reader = SynLineReader(gram_group["synonyms"])
+        text += syn_reader()
+        text += "\n"
+        return text
+
+    def __call__(self) -> str:
+        text = ""
+
+        for item in self.gram_groups:
+            text += self.read_gram_group(item["gram_group"])
+
+        return text
+
+
+class SynGroupReader:
+    def __init__(self, obj: dict):
+        self.def_groups = obj
+
+    @staticmethod
+    def _read_word(obj: dict):
+        return obj["word"] + "\n"
+
+    def read_syn_group(self, def_group: dict):
+        text = self._read_word(def_group)
+
+        g_reader = SynGramGroupReader(def_group["gram_groups"])
+        text += g_reader()
+
+        return text
+
+    def __call__(self) -> str:
+        text = ""
+
+        for item in self.def_groups:
+            text += self.read_syn_group(item)
+
+        return text
+
+
 class JsonReader:
     def __init__(self, content: dict):
         self.content = content
@@ -131,6 +203,7 @@ class JsonReader:
             "frequency": self.frequency,
             "def_groups": self.definitions,
             "translations": self.translations,
+            "synonyms": self.synonyms,
         }
 
     def frequency(self) -> str:
@@ -140,6 +213,16 @@ class JsonReader:
         text = "DEFINTIONS\n"
 
         reader = DefGroupReader(self.content["def_groups"])
+        text += reader()
+
+        text += "\n"
+
+        return text
+
+    def synonyms(self):
+        text = "SYNONYMS\n"
+
+        reader = SynGroupReader(self.content["synonyms"])
         text += reader()
 
         text += "\n"
