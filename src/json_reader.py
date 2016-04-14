@@ -7,34 +7,48 @@ class DefinitionReader:
         self.defs = defs
 
     @staticmethod
-    def _read_def_subgroup(subgroup: dict, indent: int = 0):
-        text = ""
-        if "category" in subgroup.keys():
-            text += "({}) ".format(subgroup["category"])
+    def _read_category(obj: dict):
+        if "category" in obj.keys():
+            return "({}) ".format(obj["category"])
+        return ""
 
-        text = "{}o) {}\n".format(DefinitionReader.tab * indent, text)
+    @staticmethod
+    def _read_example(obj: dict):
+        if "example" in obj.keys():
+            return "{}e.g. {}\n".format(DefinitionReader.tab, obj["example"])
+
+    @staticmethod
+    def _read_subdefinition(subdef: dict):
+        items = DefinitionReader._read_def_item(subdef)
+        return "".join([" " * 5 + line for line in items])
+
+    @staticmethod
+    def _read_def_subgroup(subgroup: dict):
+        text = "o) "
+        text += DefinitionReader._read_category(subgroup) + "\n"
+
         for subdef in subgroup["def_subgroup"]:
-            text += DefinitionReader._read_def_item(subdef, indent + 1)
+            text += DefinitionReader._read_subdefinition(subdef)
         return text
 
     @staticmethod
-    def _read_def_item(definition: dict, indent: int = 0):
-        text = definition["def"]
-        if "example" in definition.keys():
-            text += "\n{}e.g. {}".format(DefinitionReader.tab * (indent + 1), definition["example"])
-        if "category" in definition.keys():
-            text = "({}) {}".format(definition["category"], text)
+    def _read_def_item(definition: dict) -> list:
+        items = list()
 
-        text = (DefinitionReader.tab * indent) + ("o) " if indent == 0 else " ") + text
-        text += "\n"
-        return text
+        items.append(DefinitionReader._read_category(definition))
+        items.append(definition["def"] + "\n")
+        items.append(DefinitionReader._read_example(definition))
+        if '' in items:
+            items.remove('')
+
+        return items
 
     @staticmethod
     def read_definition(obj: dict):
         if "def_subgroup" in obj.keys():
             return DefinitionReader._read_def_subgroup(obj)
         else:
-            return DefinitionReader._read_def_item(obj)
+            return "o) " + "".join(DefinitionReader._read_def_item(obj))
 
     def __call__(self) -> str:
         text = ""

@@ -110,7 +110,7 @@ class TestJsonReader(unittest.TestCase):
                          "def7\n\n"
                          )
 
-    def test_toText_2ndDefinition(self):
+    def test_toText_definitionWithExample(self):
         obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
         reader = DefinitionReader(obj)
 
@@ -119,6 +119,63 @@ class TestJsonReader(unittest.TestCase):
         self.assertEqual(text,
                          "o) to bring to completion; finish\n"
                          "    e.g. dinner has been done for an hour\n"
+                         )
+
+    def test_toText_definitionWithCateg(self):
+        obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
+        reader = DefinitionReader(obj)
+
+        text = reader.read_definition(obj[2])
+
+        self.assertEqual(text,
+                         "o) (informal) to bring about; cause; produce\n"
+                         "    e.g. it does no harm; who did this to you?\n"
+                         )
+
+    def test_toText_defSubgroup(self):
+        obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
+        reader = DefinitionReader(obj)
+
+        with patch.object(DefinitionReader, "_read_def_item") as mock_def:
+            mock_def.side_effect = [["subdef1\n"], ["subdef2\n"], ["subdef3\n"]]
+            text = reader.read_definition(obj[0])
+
+        print(text)
+
+        self.assertEqual(text,
+                         "o) \n"
+                         "     subdef1\n"
+                         "     subdef2\n"
+                         )
+
+    def test_toText_defSubgroupWithCateg(self):
+        obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
+        reader = DefinitionReader(obj)
+
+        with patch.object(DefinitionReader, "_read_def_item") as mock_def:
+            mock_def.side_effect = [["subdef1\n"], ["subdef2\n"], ["subdef3\n"]]
+            text = reader.read_definition(obj[6])
+
+        print(text)
+
+        self.assertEqual(text,
+                         "o) (informal) \n"
+                         "     subdef1\n"
+                         "     subdef2\n"
+                         )
+
+    def test_toText_defSubgroupWithCateg_full(self):
+        obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
+        reader = DefinitionReader(obj)
+
+        text = reader.read_definition(obj[6])
+
+        self.assertEqual(text,
+                         "o) (informal) \n"
+                         "     to prepare; cook\n"
+                         "         e.g. that restaurant does ribs really well\n"
+                         "     to eat\n"
+                         "         e.g. let's do Mexican tonight\n"
                          )
 
 if __name__ == "__main__":
