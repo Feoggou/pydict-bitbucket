@@ -63,7 +63,6 @@ class TestJsonReader(unittest.TestCase):
             mock_ggroups.side_effect = ["group1\n", "group2\n", "group3\n", "group4\n", "group5\n"]
 
             text = cmd.definitions()
-            print(text)
 
         self.assertEqual(text, "DEFINTIONS\n"
                                "group1\n"
@@ -136,32 +135,14 @@ class TestJsonReader(unittest.TestCase):
         obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
         reader = DefinitionReader(obj)
 
-        with patch.object(DefinitionReader, "_read_def_item") as mock_def:
-            mock_def.side_effect = [["subdef1\n"], ["subdef2\n"], ["subdef3\n"]]
-            text = reader.read_definition(obj[0])
-
-        print(text)
+        text = reader.read_definition(obj[0])
 
         self.assertEqual(text,
                          "o) \n"
-                         "     subdef1\n"
-                         "     subdef2\n"
-                         )
-
-    def test_toText_defSubgroupWithCateg(self):
-        obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
-        reader = DefinitionReader(obj)
-
-        with patch.object(DefinitionReader, "_read_def_item") as mock_def:
-            mock_def.side_effect = [["subdef1\n"], ["subdef2\n"], ["subdef3\n"]]
-            text = reader.read_definition(obj[6])
-
-        print(text)
-
-        self.assertEqual(text,
-                         "o) (informal) \n"
-                         "     subdef1\n"
-                         "     subdef2\n"
+                         "     to execute; effect; perform (an act, action, etc.)\n"
+                         "         e.g. do great deeds\n"
+                         "     to carry out; fulfill\n"
+                         "         e.g. do what I tell you\n"
                          )
 
     def test_toText_defSubgroupWithCateg_full(self):
