@@ -8,6 +8,7 @@ from . import cmd_quit
 from . import cmd_print
 from . import cmd_nearby
 from . import cmd_related
+from . import cmd_show
 
 
 def get_command(cmd_name: str, cmd_arg: str=None) -> Command:
