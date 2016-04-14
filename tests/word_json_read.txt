@@ -5,29 +5,29 @@ do
 transitive verb
 o) 
      to execute; effect; perform (an act, action, etc.)
-        e.g. do great deeds
+         e.g. do great deeds
      to carry out; fulfill
-        e.g. do what I tell you
+         e.g. do what I tell you
 o) to bring to completion; finish
     e.g. dinner has been done for an hour
 o) (informal) to bring about; cause; produce
     e.g. it does no harm; who did this to you?
 o) 
      to play the role of
-        e.g. I did Polonius
+         e.g. I did Polonius
      (informal) to imitate, or behave characteristically as
-        e.g. to do a Houdini
+         e.g. to do a Houdini
 o) to write or publish (a book), compose (a musical score), etc.
 o) 
      to cover (distance)
-        e.g. to do a mile in four minutes
+         e.g. to do a mile in four minutes
      to move along at a speed of
-        e.g. to do 60 miles an hour
+         e.g. to do 60 miles an hour
 o) (informal) 
      to prepare; cook
-        e.g. that restaurant does ribs really well
+         e.g. that restaurant does ribs really well
      to eat
-        e.g. let's do Mexican tonight
+         e.g. let's do Mexican tonight
 
 intransitive verb
 o) to act in a specified way; behave
@@ -56,27 +56,30 @@ o) used to serve as a substitute verb
 o) used to form inverted constructions after some adverbs
     e.g. little did he realize
 
-
-SEMANTICS
-
-<semantics_content_here>
-
 noun
 o) (mainly British, informal) a hoax; swindle
 o) (mainly British, informal) a party or social event
 o) (slang) excrement; feces
     e.g. dog do
 
+
+SEMANTICS
+<semantics_content_here>
+
+
 do
 noun
 o) (music) a syllable representing the first or last tone of the diatonic scale see also solfeggio (def. 1)
+
 
 do
 noun
 o) (slang) hairdo (def. 1)
 
+
 Do or do
 o) ditto
+
 
 DO or D.O.
 o) Doctor of Osteopathy

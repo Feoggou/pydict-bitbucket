@@ -1,7 +1,6 @@
 import json
 import os
 import unittest
-from unittest import mock
 from unittest.mock import patch
 
 from src.json_reader import *
@@ -31,14 +30,6 @@ class TestJsonReader(unittest.TestCase):
     def setUp(self):
         self.word = "do"
 
-    @unittest.skip("SKIP ---- not yet impl")
-    def test_jsonToText_returnsAll(self):
-        cmd = JsonReader(TestJsonReader.content_json)
-
-        text = cmd.read_content(TestJsonReader.content_json)
-
-        self.assertEqual(text, TestJsonReader.content_text)
-
     def test_toText_frequency(self):
         cmd = JsonReader(TestJsonReader.content_json)
 
@@ -63,7 +54,7 @@ class TestJsonReader(unittest.TestCase):
 
         self.assertEqual(text, "TRANSLATIONS\n"
                                "When you do something, you take some action or perform an activity or task."
-                               "I was trying to do some work. done\n\n")
+                               "I was trying to do some work. done\n\n\n")
 
     def test_toText_Definitions(self):
         cmd = JsonReader(TestJsonReader.content_json)
@@ -78,7 +69,7 @@ class TestJsonReader(unittest.TestCase):
                                "group2\n"
                                "group3\n"
                                "group4\n"
-                               "group5\n\n"
+                               "group5\n"
                          )
 
     def test_toText_1stDefGroup(self):
@@ -96,7 +87,8 @@ class TestJsonReader(unittest.TestCase):
                          "ggroup3\n"
                          "ggroup4\n\n"
                          "SEMANTICS\n"
-                         "<semantics_content_here>\n"
+                         "<semantics_content_here>\n\n"
+                         "\n"
                          )
 
     def test_toText_1stGramGroup(self):
@@ -168,6 +160,20 @@ class TestJsonReader(unittest.TestCase):
                          "         e.g. let's do Mexican tonight\n"
                          )
 
+    def test_toText_defSubgroup_subdefWithCated(self):
+        obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
+        reader = DefinitionReader(obj)
+
+        text = reader.read_definition(obj[3])
+
+        self.assertEqual(text,
+                         "o) \n"
+                         "     to play the role of\n"
+                         "         e.g. I did Polonius\n"
+                         "     (informal) to imitate, or behave characteristically as\n"
+                         "         e.g. to do a Houdini\n"
+                         )
+
     def test_toText_Synonyms(self):
         cmd = JsonReader(TestJsonReader.content_json)
 
@@ -208,6 +214,13 @@ class TestJsonReader(unittest.TestCase):
                          "o) solve, decipher, decode, figure out, puzzle out, resolve, work out\n"
                          "o) cause, bring about, create, effect, produce\n\n"
                          )
+
+    def test_jsonToText_readAll(self):
+        cmd = JsonReader(TestJsonReader.content_json)
+
+        text = cmd.read_content()
+
+        self.assertEqual(text, TestJsonReader.content_text)
 
 if __name__ == "__main__":
     unittest.main()

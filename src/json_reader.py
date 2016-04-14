@@ -16,6 +16,7 @@ class DefinitionReader:
     def _read_example(obj: dict):
         if "example" in obj.keys():
             return "{}e.g. {}\n".format(DefinitionReader.tab, obj["example"])
+        return ""
 
     @staticmethod
     def _read_subdefinition(subdef: dict):
@@ -35,8 +36,7 @@ class DefinitionReader:
     def _read_def_item(definition: dict) -> list:
         items = list()
 
-        items.append(DefinitionReader._read_category(definition))
-        items.append(definition["def"] + "\n")
+        items.append(DefinitionReader._read_category(definition) + definition["def"] + "\n")
         items.append(DefinitionReader._read_example(definition))
         if '' in items:
             items.remove('')
@@ -100,8 +100,11 @@ class DefGroupReader:
 
     @staticmethod
     def _read_semantics(def_group):
+        if "semantics" not in def_group:
+            return ""
+
         text = "\nSEMANTICS\n"
-        text += def_group["semantics"] + "\n"
+        text += def_group["semantics"] + "\n\n"
 
         return text
 
@@ -111,7 +114,7 @@ class DefGroupReader:
         g_reader = GramGroupReader(def_group["gram_groups"])
         text += g_reader()
 
-        text += self._read_semantics(def_group)
+        text += self._read_semantics(def_group) + "\n"
 
         return text
 
@@ -226,8 +229,6 @@ class JsonReader:
         reader = DefGroupReader(self.content["def_groups"])
         text += reader()
 
-        text += "\n"
-
         return text
 
     def synonyms(self):
@@ -244,7 +245,7 @@ class JsonReader:
         text = "TRANSLATIONS\n"
 
         text += "\n".join([x for x in self.content["translations"]])
-        text += "\n\n"
+        text += "\n\n\n"
 
         return text
 
@@ -259,3 +260,13 @@ class JsonReader:
         if key in self.content and len(self.content[key]):
             return self.keys[key]()
         return ""
+
+    def read_content(self):
+        text = self.read_by_key("frequency")
+        text += self.read_by_key("def_groups")
+        text += self.read_by_key("translations")
+        text += self.read_by_key("synonyms")
+        text += self.read_by_key("examples")
+        text += "\n"
+
+        return text
