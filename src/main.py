@@ -28,11 +28,11 @@ os.makedirs(DIR_PATH, exist_ok=True)
 while True:
     input_str = input(BOLDBLACK + "Dict> " + RESET)
 
-    cmd = commands.match_command(input_str)
+    cmd = commands.match_command(input_str, DIR_PATH)
     if isinstance(cmd, GetWordCommand):
         word_handler = WordHandler(DIR_PATH)
         word_handler.get(input_str)
     else:
-        print(cmd.execute(input_str))
+        print(cmd.execute())
 
 
