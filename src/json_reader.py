@@ -217,7 +217,8 @@ class JsonReader:
             "def_groups": self.definitions,
             "translations": self.translations,
             "synonyms": self.synonyms,
-            "examples": self.examples
+            "examples": self.examples,
+            "nearby_words": self.nearby,
         }
 
     def frequency(self) -> str:
@@ -255,6 +256,9 @@ class JsonReader:
 
         text += "\n"
         return text
+
+    def nearby(self) -> str:
+        return "\n".join(self.content["nearby_words"])
 
     def read_by_key(self, key: str) -> str:
         if key in self.content and len(self.content[key]):

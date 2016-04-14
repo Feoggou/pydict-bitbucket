@@ -6,6 +6,7 @@ from .cmd_getword import GetWordCommand
 from . import cmd_help
 from . import cmd_quit
 from . import cmd_print
+from . import cmd_nearby
 
 
 def get_command(cmd_name: str, cmd_arg: str=None) -> Command:
