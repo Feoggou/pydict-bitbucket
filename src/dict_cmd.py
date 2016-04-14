@@ -9,7 +9,7 @@ class Parameter:
 
 class Command:
     def __init__(self):
-        pass
+        self.dir_path = ""
 
     @staticmethod
     def get_name() -> str:
@@ -23,15 +23,16 @@ class Command:
     def get_description(cmd_name: str = "") -> str:
         raise NotImplementedError()
 
+    # TODO: get_argument_info is used only in help. I don't think it's very useful.
     @staticmethod
     def get_argument_info() -> Parameter:
         raise NotImplementedError()
 
-    def set_argument_value(self, v: str):
-        raise NotImplementedError()
-
     def get_argument_value(self) -> str:
         raise NotImplementedError()
+
+    def set_dir_path(self, dir_path: str):
+        self.dir_path = dir_path
 
     def execute(self) -> str:
         raise NotImplementedError()

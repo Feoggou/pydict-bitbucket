@@ -25,9 +25,6 @@ class QuitCommand(Command):
     def get_argument_info() -> Parameter:
         return None
 
-    def set_argument_value(self, v: str):
-        raise ValueError("Command doesn't take arguments!")
-
     def get_argument_value(self) -> str:
         return None
 

@@ -22,9 +22,6 @@ class HelpCommand(Command):
     def get_argument_info() -> Parameter:
         return Parameter("cmd", required=False)
 
-    def set_argument_value(self, v: str):
-        self._argument = v
-
     def get_argument_value(self) -> str:
         return self._argument
 
