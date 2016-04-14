@@ -11,6 +11,7 @@ from . import cmd_related
 from . import cmd_show
 from . import cmd_list
 from . import cmd_addex
+from . import cmd_where
 
 
 def get_command(cmd_name: str, cmd_arg: str=None) -> Command:
