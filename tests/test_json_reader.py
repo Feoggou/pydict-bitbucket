@@ -188,26 +188,16 @@ class TestJsonReader(unittest.TestCase):
         obj = TestJsonReader.content_json["synonyms"][0]["gram_groups"][0]["gram_group"]
         reader = SynGramGroupReader(obj)
 
-        with patch.object(SynLineReader, "read_line") as mock_def:
-            mock_def.side_effect = ["line1\n", "line2\n", "line3\n", "line4\n", "line5\n"]
-            text = reader.read_gram_group(obj)
+        text = reader.read_gram_group(obj)
 
         self.assertEqual(text,
                          "verb\n"
-                         "line1\n"
-                         "line2\n"
-                         "line3\n"
-                         "line4\n"
-                         "line5\n\n"
+                         "o) perform, accomplish, achieve, carry out, complete, execute\n"
+                         "o) be adequate, be sufficient, cut the mustard, pass muster, satisfy, suffice\n"
+                         "o) get ready, arrange, fix, look after, prepare, see to\n"
+                         "o) solve, decipher, decode, figure out, puzzle out, resolve, work out\n"
+                         "o) cause, bring about, create, effect, produce\n\n"
                          )
-
-    def test_toText_synonymLine(self):
-        obj = TestJsonReader.content_json["synonyms"][0]["gram_groups"][0]["gram_group"]["synonyms"]
-        reader = SynLineReader(obj)
-
-        text = reader.read_line(obj[0])
-
-        self.assertEqual(text, "o) perform, accomplish, achieve, carry out, complete, execute\n")
 
 if __name__ == "__main__":
     unittest.main()
