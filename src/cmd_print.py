@@ -35,6 +35,10 @@ class PrintCommand(Command):
     def execute(self):
         file_name = os.path.join(self.dir_path, self.word + ".json")
 
+        if not os.path.exists(file_name):
+            print("Word '{}' does not exist!".format(self.word))
+            return ""
+
         with open(file_name, "r") as json_file:
             content = json.load(json_file)
 
