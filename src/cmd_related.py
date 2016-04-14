@@ -1,0 +1,46 @@
+import os
+import json
+
+from . import dict_cmd
+from .dict_cmd import Command, Parameter
+from .json_reader import JsonReader
+
+
+class PrintRelatedCommand(Command):
+    def __init__(self, word_name: str):
+        Command.__init__(self)
+        self.dir_path = ""
+        self.word = word_name
+
+    @staticmethod
+    def get_name() -> str:
+        return "related"
+
+    @staticmethod
+    def get_alias() -> str:
+        return ""
+
+    @staticmethod
+    def get_description(cmd_name: str = "") -> str:
+        assert cmd_name is None or len(cmd_name) == 0
+        return "print all related words from .json"
+
+    @staticmethod
+    def get_argument_info() -> Parameter:
+        return None
+
+    def set_dir_path(self, dir_path):
+        self.dir_path = dir_path
+
+    def execute(self):
+        file_name = os.path.join(self.dir_path, self.word + ".json")
+
+        with open(file_name, "r") as json_file:
+            content = json.load(json_file)
+
+        reader = JsonReader(content)
+        return reader.read_all_related(self.word)
+
+
+dict_cmd.CMD_CLASSES.append(PrintRelatedCommand)
+

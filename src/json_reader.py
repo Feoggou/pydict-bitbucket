@@ -1,3 +1,4 @@
+import re
 
 
 class DefinitionReader:
@@ -118,6 +119,15 @@ class DefGroupReader:
 
         return text
 
+    def get_all_related(self) -> list:
+        in_rel_list = []
+
+        for item in self.def_groups:
+            if "related" in item.keys():
+                in_rel_list += item["related"]
+
+        return in_rel_list
+
     def __call__(self) -> str:
         text = ""
 
@@ -219,6 +229,7 @@ class JsonReader:
             "synonyms": self.synonyms,
             "examples": self.examples,
             "nearby_words": self.nearby,
+            "related_words": self.related,
         }
 
     def frequency(self) -> str:
@@ -260,6 +271,9 @@ class JsonReader:
     def nearby(self) -> str:
         return "\n".join(self.content["nearby_words"])
 
+    def related(self) -> str:
+        return "\n".join(self.content["related_words"])
+
     def read_by_key(self, key: str) -> str:
         if key in self.content and len(self.content[key]):
             return self.keys[key]()
@@ -272,5 +286,27 @@ class JsonReader:
         text += self.read_by_key("synonyms")
         text += self.read_by_key("examples")
         text += "\n"
+
+        return text
+
+    # NOTE: has no test.
+    def read_all_related(self, word: str):
+        rel_list = self.read_by_key("related_words").split("\n")
+        nby_list = self.read_by_key("nearby_words").split("\n")
+
+        pattern = re.compile(r'\b{}\b'.format(word))
+        nby_list = [x for x in nby_list if re.search(pattern, x)]
+
+        def_groups = DefGroupReader(self.content["def_groups"])
+        in_rel_list = def_groups.get_all_related()
+
+        all_items = set()
+        all_items.update(rel_list)
+        all_items.update(in_rel_list)
+        all_items.update(nby_list)
+
+        text = "\n".join(all_items)
+        text += "\n\n{} related\n{} in def groups\n{} nearby\n{} total".format(
+            len(rel_list), len(in_rel_list), len(nby_list), len(all_items))
 
         return text
