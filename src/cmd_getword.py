@@ -26,8 +26,8 @@ class GetWordCommand(Command):
     def get_alias() -> str:
         return ""
 
-    def _fetch_content(self, word: str):
-        word_data = word.WordData(word)
+    def _fetch_content(self, word_name: str):
+        word_data = word.WordData(word_name)
         word_data.fetch()
 
         content = word_data.build_content()
