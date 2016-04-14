@@ -37,44 +37,11 @@ class PrintCommand(Command):
         with open(file_name, "r") as json_file:
             content = json.load(json_file)
 
-        self._json_to_text(content)
-        return None
+        return self._json_to_text(content)
 
     def _json_to_text(self, content: dict) -> str:
         reader = JsonReader(content)
-        text = reader.read_by_key("frequency")
-        text += reader.read_by_key("def_groups")
-
-        # self._frequency_to_text(content)
-        # self._definitions_to_text(content)
-        self._translations_to_text(content)
-        self._synonyms_to_text(content)
-        self._examples_to_text(content)
-
-    @staticmethod
-    def _frequency_to_text(content: dict) -> str:
-        reader = JsonReader(content)
-        text = reader.read_by_key("frequency")
-        return text
-
-    @staticmethod
-    def _read_gram_groups(obj: dict):
-        raise NotImplementedError()
-
-    @staticmethod
-    def _definitions_to_text(content: dict) -> str:
-        reader = JsonReader(content)
-        text = reader.read_by_key("def_groups")
-        return text
-
-    def _translations_to_text(self, content: dict) -> str:
-        raise NotImplementedError
-
-    def _synonyms_to_text(self, content: dict) -> str:
-        raise NotImplementedError
-
-    def _examples_to_text(self, content: dict) -> str:
-        raise NotImplementedError
+        return reader.read_content()
 
 
 dict_cmd.CMD_CLASSES.append(PrintCommand)

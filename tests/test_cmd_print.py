@@ -22,7 +22,7 @@ class TestCommandPrint(unittest.TestCase):
 
         os.chdir("./do")
         exp_json = "expected_do.json"
-        exp_print = "expected_do.txt"
+        exp_print = "expected_do2.txt"
 
         with open(exp_json, "r") as f:
             TestCommandPrint.word_exp_json = json.load(f)
@@ -35,16 +35,16 @@ class TestCommandPrint(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # shutil.rmtree(TestCommandPrint.dir_path)
+        shutil.rmtree(TestCommandPrint.dir_path)
         pass
 
     def setUp(self):
         self.word = "do"
         self.DIR_PATH = TestCommandPrint.dir_path
 
-    @unittest.skip("SKIP ---- Have a lot to implement")
     def test_print_all(self):
         cmd = PrintCommand()
+        cmd.set_dir_path(self.DIR_PATH)
 
         text = cmd.execute(self.word)
 
@@ -61,23 +61,6 @@ class TestCommandPrint(unittest.TestCase):
                 cmd.execute(self.word)
 
                 mock_totext.assert_called_once_with(TestCommandPrint.word_exp_json)
-
-    def test_printContent_callsAllToTextMethods(self):
-        cmd = PrintCommand()
-
-        with patch.object(JsonReader, "frequency") as mock_freq:
-            with patch.object(JsonReader, "definitions") as mock_defs:
-                with patch.object(PrintCommand, "_translations_to_text") as mock_trans:
-                    with patch.object(PrintCommand, "_synonyms_to_text") as mock_syns:
-                        with patch.object(PrintCommand, "_examples_to_text") as mock_ex:
-
-                            cmd._json_to_text(TestCommandPrint.word_exp_json)
-
-                            mock_freq.assert_called_once_with()
-                            mock_defs.assert_called_once_with()
-                            mock_trans.assert_called_once_with(mock.ANY)
-                            mock_syns.assert_called_once_with(mock.ANY)
-                            mock_ex.assert_called_once_with(mock.ANY)
 
 
 if __name__ == "__main__":
