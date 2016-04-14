@@ -130,6 +130,7 @@ class JsonReader:
         self.keys = {
             "frequency": self.frequency,
             "def_groups": self.definitions,
+            "translations": self.translations,
         }
 
     def frequency(self) -> str:
@@ -142,6 +143,14 @@ class JsonReader:
         text += reader()
 
         text += "\n"
+
+        return text
+
+    def translations(self) -> str:
+        text = "TRANSLATIONS\n"
+
+        text += "\n".join([x for x in self.content["translations"]])
+        text += "\n\n"
 
         return text
 

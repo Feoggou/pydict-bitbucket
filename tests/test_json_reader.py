@@ -46,15 +46,14 @@ class TestJsonReader(unittest.TestCase):
 
         self.assertEqual(text, "[Extremely Common]\n\n")
 
-    @unittest.skip("confused semantics with translations")
     def test_toText_translations(self):
         cmd = JsonReader(TestJsonReader.content_json)
 
-        text = cmd.semantics()
+        text = cmd.translations()
 
         self.assertEqual(text, "TRANSLATIONS\n"
                                "When you do something, you take some action or perform an activity or task."
-                               "I was trying to do some work. done")
+                               "I was trying to do some work. done\n\n")
 
     def test_toText_Definitions(self):
         cmd = JsonReader(TestJsonReader.content_json)
