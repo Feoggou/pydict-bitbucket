@@ -60,7 +60,8 @@ class HelpCommand(Command):
         """show help for the command"""
         command = commands.get_command(cmd_name)
         if command is None:
-            raise ValueError("command is None!")
+            print("No help found for command '{}'.".format(cmd_name))
+            return ""
 
         param = command.get_argument_info()
 
