@@ -125,17 +125,26 @@ class DefGroupReader:
 
 
 class SynLineReader:
-    def __init__(self, lines: list):
-        self.lines = lines
+    def __init__(self, synonyms: list):
+        self.synonyms = synonyms
 
-    def read_definition(self, item: dict):
-        pass
+    @staticmethod
+    def read_line(item: dict):
+        text = "o) "
+        # TODO
+        if "category" in item.keys():
+            text += "({}) ".format(item["category"])
+
+        text += ", ".join(item["line"])
+        text += "\n"
+
+        return text
 
     def __call__(self) -> str:
         text = ""
 
-        for item in self.lines:
-           text += self.read_definition(item)
+        for item in self.synonyms:
+           text += self.read_line(item)
 
         return text
 
@@ -160,6 +169,7 @@ class SynGramGroupReader:
         syn_reader = SynLineReader(gram_group["synonyms"])
         text += syn_reader()
         text += "\n"
+
         return text
 
     def __call__(self) -> str:
