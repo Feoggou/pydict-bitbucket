@@ -46,6 +46,16 @@ class TestJsonReader(unittest.TestCase):
 
         self.assertEqual(text, "[Extremely Common]\n\n")
 
+    def test_toText_examples(self):
+        cmd = JsonReader(TestJsonReader.content_json)
+
+        text = cmd.examples()
+
+        self.assertEqual(text,
+                         "EXAMPLES\n"
+                         "o) You should write the general principles down somewhere, "
+                         "Dad, like they do with the United States Code.\n")
+
     def test_toText_translations(self):
         cmd = JsonReader(TestJsonReader.content_json)
 

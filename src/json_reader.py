@@ -214,6 +214,7 @@ class JsonReader:
             "def_groups": self.definitions,
             "translations": self.translations,
             "synonyms": self.synonyms,
+            "examples": self.examples
         }
 
     def frequency(self) -> str:
@@ -245,6 +246,13 @@ class JsonReader:
         text += "\n".join([x for x in self.content["translations"]])
         text += "\n\n"
 
+        return text
+
+    def examples(self) -> str:
+        text = "EXAMPLES\n"
+        text += "\n".join("o) " + example["example"] for example in self.content["examples"])
+
+        text += "\n"
         return text
 
     def read_by_key(self, key: str) -> str:
