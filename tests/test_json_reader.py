@@ -4,7 +4,7 @@ import unittest
 from unittest import mock
 from unittest.mock import patch
 
-from src.json_reader import JsonReader, DefGroupReader
+from src.json_reader import JsonReader, DefGroupReader, GramGroupReader, DefinitionReader
 
 
 class TestJsonReader(unittest.TestCase):
@@ -17,9 +17,8 @@ class TestJsonReader(unittest.TestCase):
         TestJsonReader.expected_json = None
         TestJsonReader.expected_print = None
 
-        os.chdir("./do")
-        exp_json = "expected_do.json"
-        exp_print = "expected_do.txt"
+        exp_json = "word_json_read.json"
+        exp_print = "word_json_read.txt"
 
         with open(exp_json, "r") as f:
             TestJsonReader.content_json = json.load(f)
@@ -47,6 +46,16 @@ class TestJsonReader(unittest.TestCase):
 
         self.assertEqual(text, "[Extremely Common]\n\n")
 
+    @unittest.skip("confused semantics with translations")
+    def test_toText_translations(self):
+        cmd = JsonReader(TestJsonReader.content_json)
+
+        text = cmd.semantics()
+
+        self.assertEqual(text, "TRANSLATIONS\n"
+                               "When you do something, you take some action or perform an activity or task."
+                               "I was trying to do some work. done")
+
     def test_toText_Definitions(self):
         cmd = JsonReader(TestJsonReader.content_json)
 
@@ -54,13 +63,63 @@ class TestJsonReader(unittest.TestCase):
             mock_ggroups.side_effect = ["group1\n", "group2\n", "group3\n", "group4\n", "group5\n"]
 
             text = cmd.definitions()
+            print(text)
 
         self.assertEqual(text, "DEFINTIONS\n"
                                "group1\n"
                                "group2\n"
                                "group3\n"
                                "group4\n"
-                               "group5\n\n")
+                               "group5\n\n"
+                         )
+
+    def test_toText_1stDefGroup(self):
+        obj = TestJsonReader.content_json["def_groups"]
+        reader = DefGroupReader(obj)
+
+        with patch.object(GramGroupReader, "read_gram_group") as mock_ggroup:
+            mock_ggroup.side_effect = ["ggroup1\n", "ggroup2\n", "ggroup3\n", "ggroup4\n"]
+            text = reader.read_def_group(obj[0])
+
+        self.assertEqual(text,
+                         "do\n"
+                         "ggroup1\n"
+                         "ggroup2\n"
+                         "ggroup3\n"
+                         "ggroup4\n\n"
+                         "SEMANTICS\n"
+                         "<semantics_content_here>\n"
+                         )
+
+    def test_toText_1stGramGroup(self):
+        obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"]
+        reader = GramGroupReader(obj)
+
+        with patch.object(DefinitionReader, "read_definition") as mock_def:
+            mock_def.side_effect = ["def1\n", "def2\n", "def3\n", "def4\n", "def5\n", "def6\n", "def7\n"]
+            text = reader.read_gram_group(obj[0])
+
+        self.assertEqual(text,
+                         "transitive verb\n"
+                         "def1\n"
+                         "def2\n"
+                         "def3\n"
+                         "def4\n"
+                         "def5\n"
+                         "def6\n"
+                         "def7\n\n"
+                         )
+
+    def test_toText_2ndDefinition(self):
+        obj = TestJsonReader.content_json["def_groups"][0]["gram_groups"][0]["defs"]
+        reader = DefinitionReader(obj)
+
+        text = reader.read_definition(obj[1])
+
+        self.assertEqual(text,
+                         "o) to bring to completion; finish\n"
+                         "    e.g. dinner has been done for an hour\n"
+                         )
 
 if __name__ == "__main__":
     unittest.main()

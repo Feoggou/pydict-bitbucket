@@ -1,0 +1,397 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def_subgroup": [
+                                {
+                                    "def": "to execute; effect; perform (an act, action, etc.)",
+                                    "example": "do great deeds"
+                                },
+                                {
+                                    "def": "to carry out; fulfill",
+                                    "example": "do what I tell you"
+                                }
+                            ]
+                        },
+                        {
+                            "def": "to bring to completion; finish",
+                            "example": "dinner has been done for an hour"
+                        },
+                        {
+                            "def": "to bring about; cause; produce",
+                            "example": "it does no harm; who did this to you?"
+                        },
+                        {
+                            "def_subgroup": [
+                                {
+                                    "def": "to play the role of",
+                                    "example": "I did Polonius"
+                                },
+                                {
+                                    "category": "informal",
+                                    "def": "to imitate, or behave characteristically as",
+                                    "example": "to do a Houdini"
+                                }
+                            ]
+                        },
+                        {
+                            "def": "to write or publish (a book), compose (a musical score), etc."
+                        },
+                        {
+                            "def_subgroup": [
+                                {
+                                    "def": "to cover (distance)",
+                                    "example": "to do a mile in four minutes"
+                                },
+                                {
+                                    "def": "to move along at a speed of",
+                                    "example": "to do 60 miles an hour"
+                                }
+                            ]
+                        },
+                        {
+                            "category": "informal",
+                            "def_subgroup": [
+                                {
+                                    "def": "to prepare; cook",
+                                    "example": "that restaurant does ribs really well"
+                                },
+                                {
+                                    "def": "to eat",
+                                    "example": "let's do Mexican tonight"
+                                }
+                            ]
+                        }
+                    ],
+                    "value": "transitive verb",
+                    "word_forms": [
+                        "did",
+                        "done",
+                        "doing"
+                    ]
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "to act in a specified way; behave",
+                            "example": "he does well when treated well"
+                        },
+                        {
+                            "def": "to be active; work",
+                            "example": "do; don't merely talk"
+                        },
+                        {
+                            "def": "to finish (used in the perfect tense [have done with dreaming ])"
+                        },
+                        {
+                            "def": "to get along; fare",
+                            "example": "mother and child are doing well"
+                        },
+                        {
+                            "def": "to be adequate or suitable; serve the purpose",
+                            "example": "the black dress will do"
+                        },
+                        {
+                            "def": "to take place; go on",
+                            "example": "anything doing tonight?"
+                        },
+                        {
+                            "category": "mainly British, informal",
+                            "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
+                            "example": "I haven't seen the film, but she may have done"
+                        }
+                    ],
+                    "value": "intransitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "used to give emphasis, or as a legal convention",
+                            "example": "do stay a while, do hereby enjoin"
+                        },
+                        {
+                            "def": "used to ask a question",
+                            "example": "did you write?"
+                        },
+                        {
+                            "def": "used to serve as part of a negative command or statement",
+                            "example": "do not go, they do not like it"
+                        },
+                        {
+                            "def": "used to serve as a substitute verb",
+                            "example": "love me as I do (love) you"
+                        },
+                        {
+                            "def": "used to form inverted constructions after some adverbs",
+                            "example": "little did he realize"
+                        }
+                    ],
+                    "value": "auxiliary verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "category": "mainly British, informal",
+                            "def": "a hoax; swindle"
+                        },
+                        {
+                            "category": "mainly British, informal",
+                            "def": "a party or social event"
+                        },
+                        {
+                            "category": "slang",
+                            "def": "excrement; feces",
+                            "example": "dog do"
+                        }
+                    ],
+                    "value": "noun",
+                    "word_forms": [
+                        "do's",
+                        "dos"
+                    ]
+                }
+            ],
+            "related": [
+                "do a deal",
+                "do by",
+                "do down",
+                "do in",
+                "do it",
+                "do over",
+                "do's and don'ts",
+                "do up",
+                "do up right",
+                "do oneself well",
+                "do with",
+                "do without",
+                "have to do with"
+            ],
+            "semantics": "<semantics_content_here>",
+            "word": "do"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "category": "music",
+                            "def": "a syllable representing the first or last tone of the diatonic scale see also solfeggio (def. 1)"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "do"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "category": "slang",
+                            "def": "hairdo (def. 1)"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "do"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "ditto"
+                        }
+                    ]
+                }
+            ],
+            "word": "Do or do"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "Doctor of Osteopathy"
+                        }
+                    ]
+                }
+            ],
+            "word": "DO or D.O."
+        }
+    ],
+    "examples": [
+        {
+            "example": "You should write the general principles down somewhere, Dad, like they do with the United States Code."
+        }
+    ],
+    "frequency": "Extremely Common",
+    "nearby_words": [
+        "Dn",
+        "DNA",
+        "DNA fingerprinting",
+        "DNB",
+        "Dnepr",
+        "Dneprodzerzhinsk",
+        "Dnepropetrovsk",
+        "Dnestr",
+        "Dnieper",
+        "Dniester",
+        "do a deal",
+        "do a number on",
+        "do away with",
+        "do business with",
+        "do by",
+        "do credit to",
+        "do down",
+        "do duty for",
+        "do gree",
+        "do honor to"
+    ],
+    "related_words": [
+        "do by",
+        "do up",
+        "do down",
+        "do time",
+        "make do",
+        "do-gooder",
+        "do penance",
+        "do-or-die",
+        "do honor to",
+        "do up right",
+        "whoop-de-do",
+        "do credit to",
+        "do the honors",
+        "do oneself well",
+        "do-it-yourself",
+        "do one's (or its) business",
+        "have to do with",
+        "Mato Grosso do Sul",
+        "do in",
+        "to-do",
+        "do gree",
+        "do with",
+        "do-si-do",
+        "derring-do",
+        "do without",
+        "how-do-you-do",
+        "do to death",
+        "tae kwon do",
+        "How do you do?",
+        "do justice to",
+        "do the trick",
+        "do someone dirt",
+        "do a number on",
+        "do oneself justice",
+        "do one's damnedest (or damndest)",
+        "Rio Grande do Norte",
+        "do it",
+        "can-do",
+        "do over",
+        "do-rag",
+        "do tell!",
+        "do a deal",
+        "do-nothing",
+        "do duty for",
+        "do up brown",
+        "well-to-do",
+        "do away with",
+        "do one's bit",
+        "ne'er-do-well",
+        "do wonders for",
+        "do business with",
+        "do oneself proud",
+        "do the bidding of",
+        "Rio Grande do Sul"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    "perform",
+                                    "accomplish",
+                                    "achieve",
+                                    "carry out",
+                                    "complete",
+                                    "execute"
+                                ]
+                            },
+                            {
+                                "line": [
+                                    "be adequate",
+                                    "be sufficient",
+                                    "cut the mustard",
+                                    "pass muster",
+                                    "satisfy",
+                                    "suffice"
+                                ]
+                            },
+                            {
+                                "line": [
+                                    "get ready",
+                                    "arrange",
+                                    "fix",
+                                    "look after",
+                                    "prepare",
+                                    "see to"
+                                ]
+                            },
+                            {
+                                "line": [
+                                    "solve",
+                                    "decipher",
+                                    "decode",
+                                    "figure out",
+                                    "puzzle out",
+                                    "resolve",
+                                    "work out"
+                                ]
+                            },
+                            {
+                                "line": [
+                                    "cause",
+                                    "bring about",
+                                    "create",
+                                    "effect",
+                                    "produce"
+                                ]
+                            }
+                        ],
+                        "value": "verb"
+                    }
+                },
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "category": "informal mainly British New Zealand",
+                                "line": [
+                                    "event",
+                                    "affair",
+                                    "function",
+                                    "gathering",
+                                    "occasion",
+                                    "party"
+                                ]
+                            }
+                        ],
+                        "value": "noun"
+                    }
+                }
+            ],
+            "word": "do"
+        }
+    ],
+    "translations": [
+        "When you do something, you take some action or perform an activity or task.I was trying to do some work. done"
+    ]
+}
