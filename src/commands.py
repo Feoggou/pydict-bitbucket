@@ -13,6 +13,7 @@ from . import cmd_list
 from . import cmd_addex
 from . import cmd_where
 from . import cmd_update
+from . import cmd_defs
 
 
 def get_command(cmd_name: str, cmd_arg: str=None) -> Command:
