@@ -43,22 +43,22 @@ class TestCommandPrint(unittest.TestCase):
         self.DIR_PATH = TestCommandPrint.dir_path
 
     def test_print_all(self):
-        cmd = PrintCommand()
+        cmd = PrintCommand(self.word)
         cmd.set_dir_path(self.DIR_PATH)
 
-        text = cmd.execute(self.word)
+        text = cmd.execute()
 
         self.assertEqual(text, TestCommandPrint.word_exp_print)
 
     def test_print_opensCorrectFile(self):
-        cmd = PrintCommand()
+        cmd = PrintCommand(self.word)
         cmd.set_dir_path(self.DIR_PATH)
 
         with patch.object(PrintCommand, "read_content") as mock_totext:
             with patch("json.load") as mock_load:
                 mock_load.return_value = TestCommandPrint.word_exp_json
 
-                cmd.execute(self.word)
+                cmd.execute()
 
                 mock_totext.assert_called_once_with(TestCommandPrint.word_exp_json)
 

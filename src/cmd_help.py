@@ -3,9 +3,12 @@ from .dict_cmd import Command, Parameter
 
 
 class HelpCommand(Command):
-    def __init__(self):
+    def __init__(self, arg: str = None):
         Command.__init__(self)
-        self._argument = None
+
+        self._argument = arg
+        if arg == "":
+            raise ValueError("Help command: Unexpected argument: ''")
 
     @staticmethod
     def get_name() -> str:
@@ -79,10 +82,7 @@ class HelpCommand(Command):
         return help_str
 
     def execute(self) -> str:
-        if self._argument is not None:
-            if len(self._argument) == 0:
-                raise ValueError("Argument cannot be empty string!")
-
+        if self._argument is not None and len(self._argument):
             return HelpCommand._help_command(self._argument)
         else:
             return HelpCommand._help_generic()

@@ -22,12 +22,12 @@ class WordHandler:
         return exists
 
     def _print_word(self, word: str):
-        cmd = PrintCommand()
+        cmd = PrintCommand(word)
         cmd.set_dir_path(self.dir_path)
-        print(cmd.execute(word))
+        print(cmd.execute())
 
     def _print_json_content(self, content: dict):
-        cmd = PrintCommand()
+        cmd = PrintCommand("")
         cmd.set_dir_path(self.dir_path)
         print(cmd.read_content(content))
 

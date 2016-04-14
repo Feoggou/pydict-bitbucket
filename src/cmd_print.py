@@ -7,9 +7,10 @@ from .json_reader import JsonReader
 
 
 class PrintCommand(Command):
-    def __init__(self):
+    def __init__(self, word_name: str):
         Command.__init__(self)
         self.dir_path = ""
+        self.word = word_name
 
     @staticmethod
     def get_name() -> str:
@@ -31,8 +32,8 @@ class PrintCommand(Command):
     def set_dir_path(self, dir_path):
         self.dir_path = dir_path
 
-    def execute(self, word: str):
-        file_name = os.path.join(self.dir_path, word + ".json")
+    def execute(self):
+        file_name = os.path.join(self.dir_path, self.word + ".json")
 
         with open(file_name, "r") as json_file:
             content = json.load(json_file)

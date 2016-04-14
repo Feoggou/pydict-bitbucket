@@ -3,9 +3,10 @@ from .dict_cmd import Command, Parameter
 
 
 class QuitCommand(Command):
-    def __init__(self):
+    def __init__(self, arg: str = None):
         Command.__init__(self)
-        pass
+        if arg is not None:
+            raise ValueError("Command 'quit' takes no argument!")
 
     @staticmethod
     def get_name() -> str:
