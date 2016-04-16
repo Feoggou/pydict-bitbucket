@@ -27,7 +27,7 @@ class TestDefsCommand(unittest.TestCase):
 
     def setUp(self):
         # self.word = "do"
-        self.dir_path = "./test-data"
+        self.dir_path = "./search-tests-data"
 
     def test_command_defs_returns_DefsCmd_class(self):
         input_str = "defs(do)"
@@ -46,22 +46,14 @@ class TestDefsCommand(unittest.TestCase):
         #       5. process content: sorted, unique
         #       6. output process: an object that can be __str__-ed.
 
-        with patch.object(DefsCommand, "_search_files") as mock_files:
-            mock_files.return_value = ["a.json", "do.json", "b.json", "perform.json", "c.json"]
-
-            with patch.object(DefsCommand, "_search_content") as mock_content:
-                do_list = ["to produce or appear in (a play, etc.)", "to play the role of"]
-                perform_list = ["to carry out or execute an action or process; esp., to take part in a musical "
-                                "program, act in a play, dance, etc. before an audience"]
-
-                mock_content.side_effect = [{}, {"do.json": do_list}, {}, {"perform.json": perform_list}, {}]
-
-                with patch.object(DefsCommand, "_process_contents") as mock_processed:
-                    mock_processed.return_value = [{"do.json": do_list}, {"perform.json": perform_list}]
-
-                    results = cmd.execute()  # .value
+        results = cmd.execute()  # .value
 
         self.assertEqual(results, [
+            {
+                'create.json': [
+                    'to be the first to portray (a particular role in a play)'
+                ]
+            },
             {
                 "do.json": [
                     "to produce or appear in (a play, etc.)",
@@ -82,11 +74,9 @@ class TestDefsCommand(unittest.TestCase):
         # json.load info from it.
         # call json_search("play)
         # return: the list of defs.
-        with patch.object(DefsCommand, "_search_json") as mock_search:
-            mock_search.return_value = ["to produce or appear in (a play, etc.)", "to play the role of"]
-            results = cmd._search_content("do.json", "play")
+        results = cmd._search_content("do.json", "play")
 
-        self.assertEqual(results, ["to produce or appear in (a play, etc.)", "to play the role of"])
+        self.assertEqual(results, {"do.json": ["to produce or appear in (a play, etc.)", "to play the role of"]})
 
     def test_searchJsonFindsItems(self):
         cmd = DefsCommand("")

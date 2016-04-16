@@ -110,12 +110,14 @@ class DefsCommand(Command):
         with open(file_name, "r") as json_file:
             obj = json.load(json_file)
 
-        results = self._search_json(obj)
-        return results
+        items = self._search_json(obj, what)
+        return {file: items} if len(items) else {}
 
     @staticmethod
     def _process_contents(contents: list) -> list:
-        return [x for x in contents if x != {}]
+        contents = [x for x in contents if x != {}]
+        contents.sort(key=lambda x: list(x.keys())[0])
+        return contents
 
     """def _output_contents(self, contents: list):
         raise NotImplementedError()"""
