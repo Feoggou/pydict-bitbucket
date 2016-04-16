@@ -1,7 +1,5 @@
 import unittest
-import json
 from unittest.mock import patch
-import os
 
 from src import commands
 from src.cmd_defs import DefsCommand
@@ -27,7 +25,6 @@ class TestDefsCommand(unittest.TestCase):
             TestDefsCommand.word_exp_content = json.load(f)
 
     def setUp(self):
-        # self.word = "do"
         self.dir_path = "./search-tests-data"
 
     def test_command_defs_returns_DefsCmd_class(self):
@@ -66,52 +63,6 @@ class TestDefsCommand(unittest.TestCase):
                 "act in a play, dance, etc. before an audience"
             ]}
         ])
-
-    def test_searchContent_opensFileAndCallsToSearchContent(self):
-        seeker = JsonSearch(self.dir_path, "play")
-
-        # must: open file "do.json"
-        # json.load info from it.
-        # call json_search("play)
-        # return: the list of defs.
-        results = seeker._search_content("do.json", "play")
-
-        self.assertEqual(results, {"do.json": ["to produce or appear in (a play, etc.)", "to play the role of"]})
-
-    def test_searchJsonFindsItems(self):
-        seeker = JsonSearch(self.dir_path, "play")
-
-        # A. must search in:
-        # 1. def_groups[i] / semantics
-        # 2. def_groups[i] / gram_groups[j] // defs[k]
-        # 3. translations[i]
-        # B. must sort & unique them
-        # C. must find the items in A that contain word "play"
-
-        result = seeker._search_json(TestDefsCommand.do_exp_content, "play")
-
-        self.assertEqual(result, ["to produce or appear in (a play, etc.)", "to play the role of"])
-
-    def test_getSemantics_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play")
-
-        semantics = seeker._get_semantics(TestDefsCommand.word_exp_content)
-
-        self.assertEqual(semantics, ["<semantics_content_here>"])
-
-    def test_getDefs_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play")
-
-        defs = seeker._get_defs(TestDefsCommand.word_exp_content)
-
-        self.assertEqual(len(defs), 30)
-
-    def test_getTranslations_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play")
-
-        transls = seeker._get_translations(TestDefsCommand.word_exp_content)
-
-        self.assertEqual(transls, ["[transl.] When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
 
     def test_searchResultText_fromJsonObject(self):
         cmd = DefsCommand("play")
