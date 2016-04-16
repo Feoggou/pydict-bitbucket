@@ -8,22 +8,6 @@ from src.json_seeker import *
 
 
 class TestDefsCommand(unittest.TestCase):
-    do_exp_content = None
-    word_exp_content = None
-
-    @classmethod
-    def setUpClass(cls):
-        TestDefsCommand.do_exp_content = None
-
-        exp_do = "./do/expected_do.json"
-        exp_word = "word_json_read.json"
-
-        with open(exp_do, "r") as f:
-            TestDefsCommand.do_exp_content = json.load(f)
-
-        with open(exp_word, "r") as f:
-            TestDefsCommand.word_exp_content = json.load(f)
-
     def setUp(self):
         self.dir_path = "./search-tests-data"
 
