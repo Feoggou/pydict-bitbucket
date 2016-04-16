@@ -36,9 +36,7 @@ class JsonSearch:
 
     @staticmethod
     def _get_semantics(obj: dict):
-        items = [x["semantics"] for x in obj["def_groups"] if "semantics" in x.keys()]
-
-        return items
+        return [x["semantics"] for x in obj["def_groups"] if "semantics" in x.keys()]
 
     @staticmethod
     def _get_all_defs(group):
@@ -76,9 +74,8 @@ class JsonSearch:
         items = sorted(list(set(items)), reverse=True)
         return items
 
-    @staticmethod
-    def _search_files(dir_path: str) -> list:
-        all_files = [x for x in os.listdir(dir_path) if x.endswith(".json")]
+    def search_files(self) -> list:
+        all_files = [x for x in os.listdir(self.dir_path) if x.endswith(".json")]
         return all_files
 
     @staticmethod
@@ -99,30 +96,29 @@ class JsonSearch:
         results = JsonSearch._find_content_in_list(word_name, sorted_items)
         return results
 
-    def _search_content(self, file: str, what: str) -> dict:
-        # TODO: file should have already contained the path.
+    def search_content(self, file: str) -> dict:
         file_name = os.path.join(self.dir_path, file)
 
         with open(file_name, "r") as json_file:
             obj = json.load(json_file)
 
-        items = self._search_json(obj, what)
+        items = self._search_json(obj, self.what)
         return {file: items} if len(items) else {}
 
     @staticmethod
-    def _process_contents(contents: list) -> list:
+    def process_contents(contents: list) -> list:
         contents = [x for x in contents if x != {}]
         contents.sort(key=lambda x: list(x.keys())[0])
         return contents
 
     def __call__(self, *args, **kwargs):
-        all_files = self._search_files(self.dir_path)
+        all_files = self.search_files()
 
         contents = []
         for file in all_files:
-            content = self._search_content(file, self.what)
+            content = self.search_content(file)
             contents.append(content)
 
-        contents = self._process_contents(contents)
+        contents = self.process_contents(contents)
 
         return contents

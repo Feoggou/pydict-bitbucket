@@ -30,7 +30,7 @@ class TestSeeker(unittest.TestCase):
         # json.load info from it.
         # call json_search("play)
         # return: the list of defs.
-        results = seeker._search_content("do.json", "play")
+        results = seeker.search_content("do.json")
 
         self.assertEqual(results, {"do.json": ["to produce or appear in (a play, etc.)", "to play the role of"]})
 
