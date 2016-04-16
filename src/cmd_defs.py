@@ -1,5 +1,6 @@
 import os
 import json
+import re
 
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
@@ -38,8 +39,64 @@ class DefsCommand(Command):
         self.dir_path = dir_path
 
     @staticmethod
-    def _search_json(obj: dict):
-        raise NotImplementedError()
+    def _get_semantics(obj: dict):
+        items = [x["semantics"] for x in obj["def_groups"] if "semantics" in x.keys()]
+
+        return items
+
+    @staticmethod
+    def _get_all_defs(group):
+        items = []
+
+        for definition in group:
+            if "def" in definition.keys():
+                items.append(definition["def"])
+
+            elif "def_subgroup" in definition.keys():
+                items += DefsCommand._get_all_defs(definition["def_subgroup"])
+
+        return items
+
+    @staticmethod
+    def _get_defs(obj: dict):
+        items = []
+
+        for x in obj["def_groups"]:
+            for ggroup in x["gram_groups"]:
+                items += DefsCommand._get_all_defs(ggroup["defs"])
+
+        return items
+
+    @staticmethod
+    def _get_translations(obj: dict):
+        items = []
+        if "translations" in obj.keys():
+            trans_list = ["[transl.] " + x for x in obj["translations"]]
+            items += trans_list
+        return items
+
+    @staticmethod
+    def _sort_unique_items(items: list):
+        items = sorted(list(set(items)), reverse=True)
+        return items
+
+    @staticmethod
+    def _find_content_in_list(word, items):
+        # i.e. matters lowercase, and must be whole word (without " " or "-")
+        pattern = re.compile(r'\b{}\b'.format(word))
+        results = [x for x in items if re.search(pattern, x)]
+
+        return results
+
+    @staticmethod
+    def _search_json(obj: dict, word_name: str):
+        semantics = DefsCommand._get_semantics(obj)
+        defs = DefsCommand._get_defs(obj)
+        transls = DefsCommand._get_translations(obj)
+
+        sorted_items = DefsCommand._sort_unique_items(semantics + defs + transls)
+        results = DefsCommand._find_content_in_list(word_name, sorted_items)
+        return results
 
     @staticmethod
     def _search_files(dir_path: str) -> list:
@@ -56,8 +113,9 @@ class DefsCommand(Command):
         results = self._search_json(obj)
         return results
 
-    def _process_contents(self, contents: list) -> list:
-        raise NotImplementedError()
+    @staticmethod
+    def _process_contents(contents: list) -> list:
+        return [x for x in contents if x != {}]
 
     """def _output_contents(self, contents: list):
         raise NotImplementedError()"""

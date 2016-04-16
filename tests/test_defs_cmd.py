@@ -8,17 +8,22 @@ from src.cmd_defs import DefsCommand
 
 
 class TestDefsCommand(unittest.TestCase):
-    # word_exp_content = None
+    do_exp_content = None
+    word_exp_content = None
 
     @classmethod
     def setUpClass(cls):
-        TestDefsCommand.word_exp_content = None
+        TestDefsCommand.do_exp_content = None
 
         # os.chdir("./do")
-        # exp_do = "expected_do.json"
+        exp_do = "./do/expected_do.json"
+        exp_word = "word_json_read.json"
 
-        # with open(exp_do, "r") as f:
-        #     TestDefsCommand.word_exp_content = json.load(f)
+        with open(exp_do, "r") as f:
+            TestDefsCommand.do_exp_content = json.load(f)
+
+        with open(exp_word, "r") as f:
+            TestDefsCommand.word_exp_content = json.load(f)
 
     def setUp(self):
         # self.word = "do"
@@ -82,6 +87,41 @@ class TestDefsCommand(unittest.TestCase):
             results = cmd._search_content("do.json", "play")
 
         self.assertEqual(results, ["to produce or appear in (a play, etc.)", "to play the role of"])
+
+    def test_searchJsonFindsItems(self):
+        cmd = DefsCommand("")
+
+        # A. must search in:
+        # 1. def_groups[i] / semantics
+        # 2. def_groups[i] / gram_groups[j] // defs[k]
+        # 3. translations[i]
+        # B. must sort & unique them
+        # C. must find the items in A that contain word "play"
+
+        result = cmd._search_json(TestDefsCommand.do_exp_content, "play")
+
+        self.assertEqual(result, ["to produce or appear in (a play, etc.)", "to play the role of"])
+
+    def test_getSemantics_retrievesAll(self):
+        cmd = DefsCommand("")
+
+        semantics = cmd._get_semantics(TestDefsCommand.word_exp_content)
+
+        self.assertEqual(semantics, ["<semantics_content_here>"])
+
+    def test_getDefs_retrievesAll(self):
+        cmd = DefsCommand("")
+
+        defs = cmd._get_defs(TestDefsCommand.word_exp_content)
+
+        self.assertEqual(len(defs), 30)
+
+    def test_getTranslations_retrievesAll(self):
+        cmd = DefsCommand("")
+
+        transls = cmd._get_translations(TestDefsCommand.word_exp_content)
+
+        self.assertEqual(transls, ["[transl.] When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
 
 
 if __name__ == '__main__':
