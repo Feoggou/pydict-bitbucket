@@ -5,6 +5,7 @@ import os
 
 from src import commands
 from src.cmd_defs import DefsCommand
+from src.colors import *
 
 
 class TestDefsCommand(unittest.TestCase):
@@ -46,7 +47,7 @@ class TestDefsCommand(unittest.TestCase):
         #       5. process content: sorted, unique
         #       6. output process: an object that can be __str__-ed.
 
-        results = cmd.execute()  # .value
+        results = cmd.execute().items
 
         self.assertEqual(results, [
             {
@@ -112,6 +113,31 @@ class TestDefsCommand(unittest.TestCase):
         transls = cmd._get_translations(TestDefsCommand.word_exp_content)
 
         self.assertEqual(transls, ["[transl.] When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
+
+    def test_searchResultText_fromJsonObject(self):
+        cmd = DefsCommand("play")
+        cmd.set_dir_path(self.dir_path)
+
+        with patch.object(DefsCommand, "_search") as mock_search:
+            mock_search.return_value = [
+                {'create.json': ['to be the first to portray (a particular role in a play)']},
+                {"do.json": ["to produce or appear in (a play, etc.)", "to play the role of"]},
+            ]
+
+            str_result = str(cmd.execute())
+
+            str_result = str_result.replace(BOLDBLACK, "")
+            str_result = str_result.replace(BOLDRED, "")
+            str_result = str_result.replace(RESET, "")
+
+            self.assertEqual(
+                "[create.json]\n"
+                "o) to be the first to portray (a particular role in a play)\n\n"
+                "[do.json]\n"
+                "o) to produce or appear in (a play, etc.)\n"
+                "o) to play the role of\n\n\n"
+                , str_result
+            )
 
 
 if __name__ == '__main__':

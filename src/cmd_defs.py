@@ -4,6 +4,31 @@ import re
 
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
+from . import colors
+
+
+class SearchResult:
+    def __init__(self, word: str, items: list):
+        self.items = items
+        self.word = word
+
+    def file_item_to_text(self, item: dict):
+        file_name = list(item)[0]
+        text = "{}[{}]{}\n".format(colors.BOLDBLACK, file_name, colors.RESET)
+
+        for line in item[file_name]:
+            line_text = "o) " + line + "\n"
+            line_text = line_text.replace(self.word, colors.BOLDRED + self.word + colors.RESET)
+            text += line_text
+
+        return text
+
+    def __str__(self):
+        text = ""
+        for file_item in self.items:
+            text += self.file_item_to_text(file_item) + "\n"
+
+        return text + "\n"
 
 
 class DefsCommand(Command):
@@ -119,10 +144,7 @@ class DefsCommand(Command):
         contents.sort(key=lambda x: list(x.keys())[0])
         return contents
 
-    """def _output_contents(self, contents: list):
-        raise NotImplementedError()"""
-
-    def execute(self):
+    def _search(self):
         all_files = self._search_files(self.dir_path)
 
         contents = []
@@ -133,7 +155,17 @@ class DefsCommand(Command):
         contents = self._process_contents(contents)
 
         return contents
-        # return self._output_contents(contents)
+
+    @staticmethod
+    def _json_search_to_text(word: str, contents: list):
+        result = SearchResult(word, contents)
+        return result
+
+    def execute(self):
+        json_obj = self._search()
+
+        text_obj = self._json_search_to_text(self.what, json_obj)
+        return text_obj
 
 
 dict_cmd.CMD_CLASSES.append(DefsCommand)
