@@ -1,0 +1,94 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "to have reality or actual being; be"
+                        },
+                        {
+                            "def": "to occur or be present",
+                            "example": "the qualities that exist in a person"
+                        },
+                        {
+                            "def": "to continue being; live",
+                            "example": "the refugees barely exist"
+                        }
+                    ],
+                    "value": "intransitive verb"
+                }
+            ],
+            "word": "exist"
+        }
+    ],
+    "examples": [
+        {
+            "example": "The number listed didn't even exist in Maryland, nor had it ever, given the prefix."
+        }
+    ],
+    "frequency": "Very Common",
+    "nearby_words": [
+        "exhortation",
+        "exhortatory",
+        "exhume",
+        "exigency",
+        "exigent",
+        "exigible",
+        "exiguous",
+        "exile",
+        "exilic",
+        "Eximbank",
+        "existence",
+        "existent",
+        "existential",
+        "existentialism",
+        "exit",
+        "exit poll",
+        "Exmoor",
+        "exo-",
+        "exobiology",
+        "exocarp"
+    ],
+    "related_words": [
+        "preexist"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    "be",
+                                    "be present",
+                                    "endure",
+                                    "live",
+                                    "occur",
+                                    "survive"
+                                ]
+                            },
+                            {
+                                "line": [
+                                    "survive",
+                                    "eke out a living",
+                                    "get along",
+                                    "get by",
+                                    "keep one's head above water",
+                                    "stay alive",
+                                    "subsist"
+                                ]
+                            }
+                        ],
+                        "value": "verb"
+                    }
+                }
+            ],
+            "word": "exist"
+        }
+    ],
+    "translations": [
+        "If something exists, it is present in the world as a real thing.He thought that if he couldn't see something, it didn't exist. exists, existing, existed"
+    ]
+}

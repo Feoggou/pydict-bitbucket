@@ -1,0 +1,85 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "in an exact manner; accurately; correctly; precisely (also used as an affirmative reply, equivalent to \u201cI agree,\u201d \u201cquite true\u201d)"
+                        }
+                    ],
+                    "value": "adverb"
+                }
+            ],
+            "word": "exactly"
+        }
+    ],
+    "examples": [
+        {
+            "example": "Didn't exactly blend into the stucco that fronted the New Center building."
+        }
+    ],
+    "frequency": "Very Common",
+    "nearby_words": [
+        "ex-directory",
+        "ex-dividend",
+        "ex-voto",
+        "exa-",
+        "exacerbate",
+        "exact",
+        "exacta",
+        "exacting",
+        "exaction",
+        "exactitude",
+        "exaggerate",
+        "exalt",
+        "exaltation",
+        "exam",
+        "examen",
+        "examination",
+        "examinatorial",
+        "examine",
+        "examinee",
+        "examiner"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    "precisely",
+                                    "accurately",
+                                    "correctly",
+                                    "explicitly",
+                                    "faithfully",
+                                    "scrupulously",
+                                    "truthfully",
+                                    "unerringly"
+                                ]
+                            },
+                            {
+                                "line": [
+                                    "in every respect",
+                                    "absolutely",
+                                    "indeed",
+                                    "precisely",
+                                    "quite",
+                                    "specifically",
+                                    "to the letter"
+                                ]
+                            }
+                        ],
+                        "value": "adverb"
+                    }
+                }
+            ],
+            "word": "exactly"
+        }
+    ],
+    "translations": [
+        "Exactly means in an exact manner, accurately or precisely.Both drugs will be exactly the same."
+    ]
+}

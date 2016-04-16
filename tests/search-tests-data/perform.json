@@ -1,0 +1,113 @@
+{
+    "def_groups": [
+        {
+            "derived_forms": {
+                "adjective": "performable",
+                "noun": "performer"
+            },
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "to act on so as to accomplish or bring to completion; execute; carry out (a task, process, etc.)"
+                        },
+                        {
+                            "def": "to carry out; meet the requirements of; fulfill (a promise, command, etc.)"
+                        },
+                        {
+                            "def": "to give a performance of; render or enact (a piece of music, a dramatic role, etc.)"
+                        }
+                    ],
+                    "value": "transitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "to carry out or execute an action or process; esp., to take part in a musical program, act in a play, dance, etc. before an audience"
+                        }
+                    ],
+                    "value": "intransitive verb"
+                }
+            ],
+            "semantics": "perform, often a mere formal equivalent for do, is usually used of a more or less involved process rather than a single act [to perform an experiment ]; execute implies a putting into effect or completing that which has been planned or ordered [to execute a law ]; accomplish suggests effort and perseverance in carrying out a plan or purpose [to accomplish a mission ]; achieve implies the overcoming of obstacles in accomplishing something of worth or importance [to achieve a lasting peace ]; effect also suggests the conquering of difficulties but emphasizes what has been done to bring about the result [his cure was effected by the use of certain drugs ]; fulfill, in strict discrimination, implies the full realization of what is expected or demanded [to fulfill a promise ]",
+            "word": "perform"
+        }
+    ],
+    "examples": [
+        {
+            "example": "I believe she would have been able to perform the operation."
+        }
+    ],
+    "frequency": "Very Common",
+    "nearby_words": [
+        "perfecto",
+        "perfervid",
+        "perfidious",
+        "perfidy",
+        "perfoliate",
+        "perforate",
+        "perforated",
+        "perforation",
+        "perforative",
+        "perforce",
+        "performance",
+        "performance art",
+        "performative",
+        "performing arts",
+        "perfume",
+        "perfumer",
+        "perfumery",
+        "perfunctory",
+        "perfuse",
+        "perfusionist"
+    ],
+    "related_words": [
+        "form",
+        "effect",
+        "do",
+        "accomplish"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    "carry out",
+                                    "accomplish",
+                                    "achieve",
+                                    "complete",
+                                    "discharge",
+                                    "do",
+                                    "execute",
+                                    "fulfill",
+                                    "pull off",
+                                    "work"
+                                ]
+                            },
+                            {
+                                "line": [
+                                    "present",
+                                    "act",
+                                    "enact",
+                                    "play",
+                                    "produce",
+                                    "put on",
+                                    "represent",
+                                    "stage"
+                                ]
+                            }
+                        ],
+                        "value": "verb"
+                    }
+                }
+            ],
+            "word": "perform"
+        }
+    ],
+    "translations": [
+        "When you perform a task or action, you do it....people who have performed outstanding acts of bravery. performs, performing, performed"
+    ]
+}

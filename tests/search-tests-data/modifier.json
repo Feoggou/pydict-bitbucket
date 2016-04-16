@@ -1,0 +1,43 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "a person or thing that modifies; esp., a word, phrase, or clause that limits the meaning of another word or phrase",
+                            "example": "adjectives and adverbs are modifiers"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "modifier"
+        }
+    ],
+    "examples": [],
+    "frequency": "Used Occasionally",
+    "nearby_words": [
+        "modernistic",
+        "modernity",
+        "modernize",
+        "modest",
+        "Modesto",
+        "modesty",
+        "ModGr",
+        "ModHeb",
+        "modicum",
+        "modification",
+        "modify",
+        "Modigliani",
+        "modillion",
+        "modiolus",
+        "modish",
+        "modiste",
+        "ModL",
+        "Modoc",
+        "Modred",
+        "modular"
+    ],
+    "translations": []
+}
