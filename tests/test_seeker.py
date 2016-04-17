@@ -54,23 +54,23 @@ class TestSeeker(unittest.TestCase):
         self.assertEqual(result, ["to produce or appear in (a play, etc.)", "to play the role of"])
 
     def test_getSemantics_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play", SearchIn.definitions)
+        gatherer = ItemGatherer()
 
-        semantics = seeker._get_semantics(TestSeeker.word_exp_content)
+        semantics = gatherer._get_semantics(TestSeeker.word_exp_content)
 
         self.assertEqual(semantics, ["<semantics_content_here>"])
 
     def test_getDefs_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play", SearchIn.definitions)
+        gatherer = ItemGatherer()
 
-        defs = seeker._get_defs(TestSeeker.word_exp_content)
+        defs = gatherer._get_defs(TestSeeker.word_exp_content)
 
         self.assertEqual(len(defs), 30)
 
     def test_getTranslations_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play", SearchIn.definitions)
+        gatherer = ItemGatherer()
 
-        transls = seeker._get_translations(TestSeeker.word_exp_content)
+        transls = gatherer._get_translations(TestSeeker.word_exp_content)
 
         self.assertEqual(transls, ["[transl.] When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
 
