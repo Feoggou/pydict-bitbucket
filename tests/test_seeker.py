@@ -74,7 +74,6 @@ class TestSeeker(unittest.TestCase):
 
         self.assertEqual(transls, ["[transl.] When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
 
-    @unittest.skip("not yet ready!")
     def test_ex_searchContent_opensFileAndCallsToSearchContent(self):
         seeker = JsonSearch(self.dir_path, "create")
 
@@ -82,9 +81,12 @@ class TestSeeker(unittest.TestCase):
         # json.load info from it.
         # call json_search("play)
         # return: the list of defs.
-        results = seeker.search_content("create.json")
+        results = seeker.search_content_ex("create.json")
 
-        self.assertEqual(results, {"do.json": ["to produce or appear in (a play, etc.)", "to play the role of"]})
+        self.assertEqual(results, {"create.json": [
+            "new industries create new jobs",
+            "[transl.] To create something means to cause it to happen or exist.It is really great for a radio "
+            "producer to create a show like this. creates, creating, created"]})
 
     def test_ex_searchJsonFindsItems(self):
         seeker = JsonSearch(self.dir_path, "create")

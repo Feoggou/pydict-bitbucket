@@ -137,6 +137,15 @@ class JsonSearch:
         items = self._search_json(obj, self.what)
         return {file: items} if len(items) else {}
 
+    def search_content_ex(self, file: str) -> dict:
+        file_name = os.path.join(self.dir_path, file)
+
+        with open(file_name, "r") as json_file:
+            obj = json.load(json_file)
+
+        items = self._search_json_ex(obj, self.what)
+        return {file: items} if len(items) else {}
+
     @staticmethod
     def process_contents(contents: list) -> list:
         contents = [x for x in contents if x != {}]
