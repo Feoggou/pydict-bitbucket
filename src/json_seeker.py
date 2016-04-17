@@ -48,9 +48,15 @@ class JsonSearch:
 
     @staticmethod
     def _find_content_in_list(word, items):
-        # i.e. matters lowercase, and must be whole word (without " " or "-")
-        pattern = re.compile(r'\b{}\b'.format(word))
-        results = [x for x in items if re.search(pattern, x)]
+        # case insensitive, whole word if "word" is one word
+        # otherwise - if word contains "-", " ", "'", simply search in.
+        lower_word = word.lower()
+
+        if re.search('[\- \.\']', lower_word):
+            results = [x for x in items if lower_word in (x.replace(" ", "-").lower())]
+        else:
+            pattern = re.compile(r'\b%s\b' % lower_word)
+            results = [x for x in items if re.search(pattern, x.lower())]
 
         return results
 
