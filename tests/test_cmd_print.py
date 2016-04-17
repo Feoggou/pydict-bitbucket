@@ -9,6 +9,8 @@ from unittest.mock import patch
 from src.cmd_print import PrintCommand
 from src.json_reader import JsonReader
 
+from src import colors
+
 
 class TestCommandPrint(unittest.TestCase):
     word_exp_print = None
@@ -47,6 +49,10 @@ class TestCommandPrint(unittest.TestCase):
         cmd.set_dir_path(self.DIR_PATH)
 
         text = cmd.execute()
+        text = text.replace(colors.RESET, "")
+        text = text.replace(colors.RED, "")
+        text = text.replace(colors.BOLDBLACK, "")
+        text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text, TestCommandPrint.word_exp_print)
 

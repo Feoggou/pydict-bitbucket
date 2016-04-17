@@ -1,5 +1,7 @@
 import re
 
+from . import colors
+
 
 class DefinitionReader:
     tab = "    "
@@ -69,7 +71,7 @@ class GramGroupReader:
         text = ""
 
         if "value" in obj.keys():
-            text += obj["value"] + "\n"
+            text += colors.RED + obj["value"] + colors.RESET + "\n"
 
         return text
 
@@ -97,14 +99,14 @@ class DefGroupReader:
 
     @staticmethod
     def _read_word(obj: dict):
-        return obj["word"] + "\n"
+        return colors.BOLDBLACK + obj["word"] + colors.RESET + "\n"
 
     @staticmethod
     def _read_semantics(def_group):
         if "semantics" not in def_group:
             return ""
 
-        text = "\nSEMANTICS\n"
+        text = colors.BLUE + "\nSEMANTICS\n" + colors.RESET
         text += def_group["semantics"] + "\n\n"
 
         return text
@@ -171,7 +173,7 @@ class SynGramGroupReader:
         text = ""
 
         if "value" in obj.keys():
-            text += obj["value"] + "\n"
+            text += colors.RED + obj["value"] + "\n" + colors.RESET
 
         return text
 
@@ -200,7 +202,7 @@ class SynGroupReader:
 
     @staticmethod
     def _read_word(obj: dict):
-        return obj["word"] + "\n"
+        return colors.BOLDBLACK + obj["word"] + "\n" + colors.RESET
 
     def read_syn_group(self, def_group: dict):
         text = self._read_word(def_group)
@@ -234,10 +236,10 @@ class JsonReader:
         }
 
     def frequency(self) -> str:
-        return "[{}]\n\n".format(self.content["frequency"])
+        return  colors.RED + "[{}]\n\n".format(self.content["frequency"]) + colors.RESET
 
     def definitions(self) -> str:
-        text = "DEFINTIONS\n"
+        text = colors.BLUE + "DEFINTIONS\n" + colors.RESET
 
         reader = DefGroupReader(self.content["def_groups"])
         text += reader()
@@ -245,7 +247,7 @@ class JsonReader:
         return text
 
     def synonyms(self):
-        text = "SYNONYMS\n"
+        text = colors.BLUE + "SYNONYMS\n" + colors.RESET
 
         reader = SynGroupReader(self.content["synonyms"])
         text += reader()
@@ -255,7 +257,7 @@ class JsonReader:
         return text
 
     def translations(self) -> str:
-        text = "TRANSLATIONS\n"
+        text = colors.BLUE + "TRANSLATIONS\n" + colors.RESET
 
         text += "\n".join([x for x in self.content["translations"]])
         text += "\n\n\n"
@@ -263,14 +265,14 @@ class JsonReader:
         return text
 
     def examples(self) -> str:
-        text = "EXAMPLES\n"
+        text = colors.BLUE + "EXAMPLES\n" + colors.RESET
         text += "\n".join("o) " + example["example"] for example in self.content["examples"])
 
         text += "\n\n"
         return text
 
     def my_examples(self) -> str:
-        text = "MY EXAMPLES\n"
+        text = colors.BLUE + "MY EXAMPLES\n" + colors.RESET
         text += "\n".join("o) " + example["example"] for example in self.content["my_examples"])
 
         text += "\n\n"

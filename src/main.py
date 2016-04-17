@@ -2,6 +2,9 @@
 
 import sys
 import os
+
+sys.path.append("/home/zenith/PycharmProjects/EDictionary")
+
 from src import commands
 from src.cmd_getword import GetWordCommand
 from src.word_handler import WordHandler
