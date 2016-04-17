@@ -52,12 +52,35 @@ class JsonSearch:
         return items
 
     @staticmethod
+    def _get_all_examples(group):
+        items = []
+
+        for definition in group:
+            if "example" in definition.keys():
+                items.append(definition["example"])
+
+            elif "def_subgroup" in definition.keys():
+                items += JsonSearch._get_all_examples(definition["def_subgroup"])
+
+        return items
+
+    @staticmethod
     def _get_defs(obj: dict):
         items = []
 
         for x in obj["def_groups"]:
             for ggroup in x["gram_groups"]:
                 items += JsonSearch._get_all_defs(ggroup["defs"])
+
+        return items
+
+    @staticmethod
+    def _get_ex(obj: dict):
+        items = []
+
+        for x in obj["def_groups"]:
+            for ggroup in x["gram_groups"]:
+                items += JsonSearch._get_all_examples(ggroup["defs"])
 
         return items
 
@@ -96,6 +119,15 @@ class JsonSearch:
         results = JsonSearch._find_content_in_list(word_name, sorted_items)
         return results
 
+    @staticmethod
+    def _search_json_ex(obj: dict, word_name: str):
+        examples = JsonSearch._get_ex(obj)
+        transls = JsonSearch._get_translations(obj)
+
+        sorted_items = JsonSearch._sort_unique_items(examples + transls)
+        results = JsonSearch._find_content_in_list(word_name, sorted_items)
+        return results
+
     def search_content(self, file: str) -> dict:
         file_name = os.path.join(self.dir_path, file)
 
@@ -122,3 +154,6 @@ class JsonSearch:
         contents = self.process_contents(contents)
 
         return contents
+
+    def search_examples(self):
+        pass

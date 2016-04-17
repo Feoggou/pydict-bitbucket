@@ -14,6 +14,7 @@ from . import cmd_addex
 from . import cmd_where
 from . import cmd_update
 from . import cmd_defs
+from . import cmd_ex
 
 
 def get_command(cmd_name: str, cmd_arg: str=None) -> Command:
