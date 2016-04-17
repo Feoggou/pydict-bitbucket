@@ -34,10 +34,10 @@ class SearchCommand(Command):
         self.dir_path = dir_path
 
     def execute(self):
-        seeker = json_seeker.JsonSearch(self.dir_path, self.what, json_seeker.SearchIn.all)
-        json_obj = seeker()
+        seeker = json_seeker.JsonSearch(self.dir_path, self.what, json_seeker.SearchIn.invalid)
+        json_obj = seeker.search_all()
 
-        text_obj = json_seeker.SearchResult(self.what, json_obj)
+        text_obj = json_seeker.SearchAllResult(self.what, json_obj)
         return text_obj
 
 
