@@ -228,6 +228,7 @@ class JsonReader:
             "translations": self.translations,
             "synonyms": self.synonyms,
             "examples": self.examples,
+            "my_examples": self.my_examples,
             "nearby_words": self.nearby,
             "related_words": self.related,
         }
@@ -265,7 +266,14 @@ class JsonReader:
         text = "EXAMPLES\n"
         text += "\n".join("o) " + example["example"] for example in self.content["examples"])
 
-        text += "\n"
+        text += "\n\n"
+        return text
+
+    def my_examples(self) -> str:
+        text = "MY EXAMPLES\n"
+        text += "\n".join("o) " + example["example"] for example in self.content["my_examples"])
+
+        text += "\n\n"
         return text
 
     def nearby(self) -> str:
@@ -285,6 +293,7 @@ class JsonReader:
         text += self.read_by_key("translations")
         text += self.read_by_key("synonyms")
         text += self.read_by_key("examples")
+        text += self.read_by_key("my_examples")
         text += "\n"
 
         return text

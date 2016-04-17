@@ -180,6 +180,13 @@ class ItemGatherer:
     def _get_ex(obj: dict):
         items = []
 
+        for x in obj["examples"]:
+            items.append(x["example"])
+
+        if "my_examples" in obj:
+            for x in obj["my_examples"]:
+                items.append(x["example"])
+
         for x in obj["def_groups"]:
             for ggroup in x["gram_groups"]:
                 items += ItemGatherer._get_all_examples(ggroup["defs"])

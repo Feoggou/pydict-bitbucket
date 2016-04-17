@@ -45,7 +45,10 @@ class AddExCommand(Command):
             obj = json.load(json_file)
 
         example_value = input("example: ")
-        obj["examples"].append({"example": example_value})
+        if "my_examples" not in obj:
+            obj["my_examples"] = []
+
+        obj["my_examples"].append({"example": example_value})
 
         with open(json_file_name, "w") as json_file:
             json.dump(obj, json_file, indent=4, sort_keys=True)

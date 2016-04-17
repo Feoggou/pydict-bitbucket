@@ -3,6 +3,7 @@ import re
 
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
+from .word_updater import WordUpdater
 
 
 class ListCommand(Command):
@@ -42,9 +43,11 @@ class ListCommand(Command):
         else:
             words = all_words
 
-        raise NotImplementedError()
+        for word in words:
+            updater = WordUpdater(self.dir_path)
+            updater(word)
 
-        return text
+        return ""
 
 
 dict_cmd.CMD_CLASSES.append(ListCommand)
