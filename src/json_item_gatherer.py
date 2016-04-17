@@ -9,15 +9,15 @@ class SearchIn(Enum):
 
 class ItemGatherer:
     def __init__(self):
-        self._get_items = {SearchIn.definitions: ItemGatherer._def_gatherer,
-                           SearchIn.examples: ItemGatherer._ex_gatherer}
+        self._get_items = {SearchIn.definitions: ItemGatherer.gather_definitions,
+                           SearchIn.examples: ItemGatherer.gather_examples}
 
     @staticmethod
-    def _def_gatherer(obj):
+    def gather_definitions(obj):
         return ItemGatherer._get_semantics(obj) + ItemGatherer._get_defs(obj) + ItemGatherer._get_translations(obj)
 
     @staticmethod
-    def _ex_gatherer(obj):
+    def gather_examples(obj):
         return ItemGatherer._get_ex(obj) + ItemGatherer._get_translations(obj)
 
     @staticmethod
