@@ -37,7 +37,7 @@ class ExCommand(Command):
 
     def execute(self):
         seeker = json_seeker.JsonSearch(self.dir_path, self.what, json_seeker.SearchIn.examples)
-        json_obj = seeker.search_examples()
+        json_obj = seeker()
 
         text_obj = json_seeker.SearchResult(self.what, json_obj)
         return text_obj

@@ -62,7 +62,7 @@ class JsonSearch:
 
     def _search_json(self, obj: dict, word_name: str):
         gatherer = ItemGatherer()
-        items = gatherer._get_items[self._in](obj)
+        items = gatherer.get_items[self._in](obj)
 
         sorted_items = JsonSearch._sort_unique_items(items)
         results = JsonSearch._find_content_in_list(word_name, sorted_items)
@@ -84,18 +84,6 @@ class JsonSearch:
         return contents
 
     def __call__(self, *args, **kwargs):
-        all_files = self.search_files()
-
-        contents = []
-        for file in all_files:
-            content = self.search_content(file)
-            contents.append(content)
-
-        contents = self.process_contents(contents)
-
-        return contents
-
-    def search_examples(self):
         all_files = self.search_files()
 
         contents = []
