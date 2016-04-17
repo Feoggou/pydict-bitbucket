@@ -4,13 +4,17 @@ from enum import Enum
 class SearchIn(Enum):
     invalid = 0,
     definitions = 1
-    examples = 2
+    examples = 2,
+    all = 3
 
 
 class ItemGatherer:
     def __init__(self):
-        self._get_items = {SearchIn.definitions: ItemGatherer.gather_definitions,
-                           SearchIn.examples: ItemGatherer.gather_examples}
+        self.get_items = {
+            SearchIn.definitions: ItemGatherer.gather_definitions,
+            SearchIn.examples: ItemGatherer.gather_examples,
+            SearchIn.all: ItemGatherer.gather_all
+        }
 
     @staticmethod
     def gather_definitions(obj):
@@ -19,6 +23,11 @@ class ItemGatherer:
     @staticmethod
     def gather_examples(obj):
         return ItemGatherer._get_ex(obj) + ItemGatherer._get_translations(obj)
+
+    @staticmethod
+    def gather_all(obj):
+        # return ItemGatherer._get_ex(obj) + ItemGatherer._get_translations(obj)
+        raise NotImplementedError()
 
     @staticmethod
     def _get_semantics(obj: dict):
