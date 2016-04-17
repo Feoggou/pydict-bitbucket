@@ -32,20 +32,37 @@ class TestExCommand(unittest.TestCase):
 
         self.assertEqual(results, [
             {
-                'create.json': [
-                    'to be the first to portray (a particular role in a play)'
+                'do.json': [
+                    'what does he do for a living?',
+                    'to do honor to the dead',
+                    'to do a mile in four minutes',
+                    'to do a Houdini',
+                    'to do Horace into English',
+                    'to do 60 miles an hour',
+                    'this will do me very well',
+                    'the black dress will do',
+                    'love me as I do (love) you',
+                    "let's do lunch",
+                    "let's do Mexican tonight",
+                    'dog do',
+                    "do; don't merely talk",
+                    'do your best',
+                    'do what I tell you',
+                    "do the ironing, do one's nails or hair",
+                    'do stay a while, do hereby enjoin',
+                    'do not go, they do not like it',
+                    'do great deeds',
+                    'do a problem',
+                    '[transl.] When you do something, you take some action or perform an activity or task.I was trying '
+                    'to do some work. done'
                 ]
             },
             {
-                "do.json": [
-                    "to produce or appear in (a play, etc.)",
-                    "to play the role of"
+                'perform.json': [
+                    '[transl.] When you perform a task or action, you do it....people who have performed outstanding '
+                    'acts of bravery. performs, performing, performed'
                 ]
-            },
-            {"perform.json": [
-                "to carry out or execute an action or process; esp., to take part in a musical program, "
-                "act in a play, dance, etc. before an audience"
-            ]}
+            }
         ])
 
 

@@ -40,7 +40,7 @@ class DefsCommand(Command):
         self.dir_path = dir_path
 
     def execute(self):
-        seeker = json_seeker.JsonSearch(self.dir_path, self.what)
+        seeker = json_seeker.JsonSearch(self.dir_path, self.what, json_seeker.SearchIn.definitions)
         json_obj = seeker()
 
         text_obj = json_seeker.SearchResult(self.what, json_obj)

@@ -2,7 +2,15 @@ import os
 import json
 import re
 
+from enum import Enum
+
 from . import colors
+
+
+class SearchIn(Enum):
+    invalid = 0,
+    definitions = 1
+    examples = 2
 
 
 class SearchResult:
@@ -30,9 +38,21 @@ class SearchResult:
 
 
 class JsonSearch:
-    def __init__(self, dir_path: str, what: str):
+    def __init__(self, dir_path: str, what: str, search_in: SearchIn):
         self.dir_path = dir_path
         self.what = what
+        self._in = search_in
+
+        self._get_items = {SearchIn.definitions: JsonSearch._def_gatherer,
+                           SearchIn.examples: JsonSearch._ex_gatherer}
+
+    @staticmethod
+    def _def_gatherer(obj):
+        return JsonSearch._get_semantics(obj) + JsonSearch._get_defs(obj) + JsonSearch._get_translations(obj)
+
+    @staticmethod
+    def _ex_gatherer(obj):
+        return JsonSearch._get_ex(obj) + JsonSearch._get_translations(obj)
 
     @staticmethod
     def _get_semantics(obj: dict):
@@ -109,22 +129,10 @@ class JsonSearch:
 
         return results
 
-    @staticmethod
-    def _search_json(obj: dict, word_name: str):
-        semantics = JsonSearch._get_semantics(obj)
-        defs = JsonSearch._get_defs(obj)
-        transls = JsonSearch._get_translations(obj)
+    def _search_json(self, obj: dict, word_name: str):
+        items = self._get_items[self._in](obj)
 
-        sorted_items = JsonSearch._sort_unique_items(semantics + defs + transls)
-        results = JsonSearch._find_content_in_list(word_name, sorted_items)
-        return results
-
-    @staticmethod
-    def _search_json_ex(obj: dict, word_name: str):
-        examples = JsonSearch._get_ex(obj)
-        transls = JsonSearch._get_translations(obj)
-
-        sorted_items = JsonSearch._sort_unique_items(examples + transls)
+        sorted_items = JsonSearch._sort_unique_items(items)
         results = JsonSearch._find_content_in_list(word_name, sorted_items)
         return results
 
@@ -135,15 +143,6 @@ class JsonSearch:
             obj = json.load(json_file)
 
         items = self._search_json(obj, self.what)
-        return {file: items} if len(items) else {}
-
-    def search_content_ex(self, file: str) -> dict:
-        file_name = os.path.join(self.dir_path, file)
-
-        with open(file_name, "r") as json_file:
-            obj = json.load(json_file)
-
-        items = self._search_json_ex(obj, self.what)
         return {file: items} if len(items) else {}
 
     @staticmethod
@@ -169,7 +168,7 @@ class JsonSearch:
 
         contents = []
         for file in all_files:
-            content = self.search_content_ex(file)
+            content = self.search_content(file)
             contents.append(content)
 
         contents = self.process_contents(contents)

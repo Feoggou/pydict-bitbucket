@@ -29,7 +29,7 @@ class TestSeeker(unittest.TestCase):
         self.dir_path = "./search-tests-data"
 
     def test_defs_searchContent_opensFileAndCallsToSearchContent(self):
-        seeker = JsonSearch(self.dir_path, "play")
+        seeker = JsonSearch(self.dir_path, "play", SearchIn.definitions)
 
         # must: open file "do.json"
         # json.load info from it.
@@ -40,7 +40,7 @@ class TestSeeker(unittest.TestCase):
         self.assertEqual(results, {"do.json": ["to produce or appear in (a play, etc.)", "to play the role of"]})
 
     def test_defs_searchJsonFindsItems(self):
-        seeker = JsonSearch(self.dir_path, "play")
+        seeker = JsonSearch(self.dir_path, "play", SearchIn.definitions)
 
         # A. must search in:
         # 1. def_groups[i] / semantics
@@ -54,34 +54,34 @@ class TestSeeker(unittest.TestCase):
         self.assertEqual(result, ["to produce or appear in (a play, etc.)", "to play the role of"])
 
     def test_getSemantics_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play")
+        seeker = JsonSearch(self.dir_path, "play", SearchIn.definitions)
 
         semantics = seeker._get_semantics(TestSeeker.word_exp_content)
 
         self.assertEqual(semantics, ["<semantics_content_here>"])
 
     def test_getDefs_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play")
+        seeker = JsonSearch(self.dir_path, "play", SearchIn.definitions)
 
         defs = seeker._get_defs(TestSeeker.word_exp_content)
 
         self.assertEqual(len(defs), 30)
 
     def test_getTranslations_retrievesAll(self):
-        seeker = JsonSearch(self.dir_path, "play")
+        seeker = JsonSearch(self.dir_path, "play", SearchIn.definitions)
 
         transls = seeker._get_translations(TestSeeker.word_exp_content)
 
         self.assertEqual(transls, ["[transl.] When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
 
     def test_ex_searchContent_opensFileAndCallsToSearchContent(self):
-        seeker = JsonSearch(self.dir_path, "create")
+        seeker = JsonSearch(self.dir_path, "create", SearchIn.examples)
 
         # must: open file "create.json"
         # json.load info from it.
         # call json_search("play)
         # return: the list of defs.
-        results = seeker.search_content_ex("create.json")
+        results = seeker.search_content("create.json")
 
         self.assertEqual(results, {"create.json": [
             "new industries create new jobs",
@@ -89,7 +89,7 @@ class TestSeeker(unittest.TestCase):
             "producer to create a show like this. creates, creating, created"]})
 
     def test_ex_searchJsonFindsItems(self):
-        seeker = JsonSearch(self.dir_path, "create")
+        seeker = JsonSearch(self.dir_path, "create", SearchIn.examples)
 
         # A. must search in:
         # 1. def_groups[i] / gram_groups[j] // examples[k]
@@ -97,7 +97,7 @@ class TestSeeker(unittest.TestCase):
         # B. must sort & unique them
         # C. must find the items in A that contain word "play"
 
-        result = seeker._search_json_ex(TestSeeker.create_content, "create")
+        result = seeker._search_json(TestSeeker.create_content, "create")
 
         self.assertEqual(result, [
             "new industries create new jobs",
