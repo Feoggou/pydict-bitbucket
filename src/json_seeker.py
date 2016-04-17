@@ -165,4 +165,13 @@ class JsonSearch:
         return contents
 
     def search_examples(self):
-        pass
+        all_files = self.search_files()
+
+        contents = []
+        for file in all_files:
+            content = self.search_content_ex(file)
+            contents.append(content)
+
+        contents = self.process_contents(contents)
+
+        return contents
