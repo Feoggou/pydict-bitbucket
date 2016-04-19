@@ -1,6 +1,14 @@
-o) related words --- they are actually more important than I first thought. e.g. "fall behind"
-I should probably take them all and put them in the same file, if possible. But MUST print them.
-o) urandom
+crashes for "have to do with"
+takes each individually -- should be so, perhaps.
+
+the related terms -- actual related terms -- appear to all have examples.
+"have to do with" --- if it is found like this, it tries to download "have to do with" instead of "have-to-do-with"
+
+related words:
+-------------
+must update tests in "do", etc.
+must update search(), defs(), examples()
+must update the printer
 
 o) synonyms -- category for each synonym
 o) refactor word definition in parser
