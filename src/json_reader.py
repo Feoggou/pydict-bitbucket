@@ -302,6 +302,15 @@ class JsonReader:
 
     # NOTE: has no test.
     def read_all_related(self, word: str):
+        all_items, in_rel_list, nby_list, rel_list = self.get_all_related(word)
+
+        text = "\n".join(all_items)
+        text += "\n\n{} related\n{} in def groups\n{} nearby\n{} total".format(
+            len(rel_list), len(in_rel_list), len(nby_list), len(all_items))
+
+        return text
+
+    def get_all_related(self, word):
         rel_list = self.read_by_key("related_words").split("\n")
         nby_list = self.read_by_key("nearby_words").split("\n")
 
@@ -316,8 +325,4 @@ class JsonReader:
         all_items.update(in_rel_list)
         all_items.update(nby_list)
 
-        text = "\n".join(all_items)
-        text += "\n\n{} related\n{} in def groups\n{} nearby\n{} total".format(
-            len(rel_list), len(in_rel_list), len(nby_list), len(all_items))
-
-        return text
+        return all_items, in_rel_list, nby_list, rel_list
