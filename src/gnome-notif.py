@@ -16,6 +16,13 @@ random.seed()
 Notify.init("EDictionary")
 
 
+def get_rand_range(maximum):
+    value = int().from_bytes(os.urandom(4), byteorder="little")
+    value = abs(value)
+    value %= maximum
+    return value
+
+
 def get_random_word(dir_path: str) -> dict:
     items = os.listdir(dir_path)
     items = [x for x in items if os.path.isfile(os.path.join(dir_path, x))]
@@ -24,7 +31,7 @@ def get_random_word(dir_path: str) -> dict:
     if len(items) == 0:
         return None
 
-    index = random.randrange(0, len(items))
+    index = get_rand_range(len(items))
     word = items[index]
     file_name = os.path.join(dir_path, word)
 
@@ -63,16 +70,16 @@ def read_definition(definition, indent: int = 0) -> str:
 
 def get_random_definition(dict_obj: dict) -> (str, str):
     def_groups = dict_obj["def_groups"]
-    index = random.randrange(0, len(def_groups))
+    index = get_rand_range(len(def_groups))
 
     def_group = def_groups[index]
     word = def_group["word"]
     word = "{} ({})".format(word, dict_obj["frequency"])
     ggroups = def_group["gram_groups"]
-    index = random.randrange(0, len(ggroups))
+    index = get_rand_range(len(ggroups))
     ggroup = ggroups[index]
     defs = ggroup["defs"]
-    index = random.randrange(0, len(defs))
+    index = get_rand_range(len(defs))
     definition = read_definition(defs[index])
 
     return word, definition
