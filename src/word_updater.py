@@ -9,6 +9,9 @@ from . import cmd_getword
 from .word import RedirectError
 
 from .word_handler import WordHandler
+from .json_reader import JsonReader
+from . import colors
+
 
 def output_msg(args):
     print(args)
@@ -59,13 +62,30 @@ class WordUpdater:
             else:
                 return json_content
 
+    @staticmethod
+    def print_differences(word, old_content: dict, new_content: dict):
+        reader = JsonReader(old_content)
+        old_text = reader.read_content(word)
+
+        reader = JsonReader(new_content)
+        new_text = reader.read_content(word)
+
+        result = difflib.unified_diff(old_text.splitlines(), new_text.splitlines())
+        for line in result:
+            if line[0] == "+":
+                line = colors.GREEN + line + colors.RESET
+            elif line[0] == "-":
+                line = colors.RED + line + colors.RESET
+            elif line.startswith("@@"):
+                line = colors.YELLOW + line + colors.RESET
+            print(line)
+
     def __call__(self, word: str):
         if not self._exists(word):
             print("cannot update word '{}' - it does not exist locally!".format(word))
             return
 
         new_content = self._get_word_definition(word)
-        # difflib.ndiff()
 
         file_path = os.path.join(self.dir_path, word + ".json")
         with open(file_path, "r") as f:
@@ -73,6 +93,8 @@ class WordUpdater:
 
         self.update_new_with_old_my(old_content, new_content)
         self._overwrite_json(word, new_content)
+
+        self.print_differences(word, old_content, new_content)
 
         return ""
 

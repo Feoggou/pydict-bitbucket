@@ -1,10 +1,4 @@
-o) doing - do + word forms (doing, done, did -- asking for either, should we automatically get all? should we redirect automatically?)
---- perhaps it's best if the user decides.
-
 crashes for "have to do with"
 
 o) synonyms -- category for each synonym
 o) refactor word definition in parser
-
-COMMANDS
-o) update(word) -- show diff
