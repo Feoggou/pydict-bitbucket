@@ -62,7 +62,7 @@ class WordHandler:
 
     @staticmethod
     def get_subword(subword: str) -> bool:
-        answer = input("We found a definition for {} inside. Do you want to get that also? (Yes/No)\n".format(subword))
+        answer = input("We found a definition for '{}' inside. Do you want to get that also? (Yes/No)\n".format(subword))
         if answer.lower() == "yes" or answer == "":
             return True
         return False
