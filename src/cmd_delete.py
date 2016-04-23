@@ -3,10 +3,9 @@ import re
 
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
-from .word_updater import WordUpdater
 
 
-class UpdateCommand(Command):
+class DeleteCommand(Command):
     def __init__(self, what: str):
         Command.__init__(self)
         self.dir_path = ""
@@ -16,16 +15,16 @@ class UpdateCommand(Command):
 
     @staticmethod
     def get_name() -> str:
-        return "update"
+        return "delete"
 
     @staticmethod
     def get_alias() -> str:
-        return ""
+        return "remove"
 
     @staticmethod
     def get_description(cmd_name: str = "") -> str:
         assert cmd_name is None or len(cmd_name) == 0
-        return "update word definitions, given a search pattern"
+        return "deletes all the .json in the dir matching pattern."
 
     @staticmethod
     def get_argument_info() -> Parameter:
@@ -44,11 +43,14 @@ class UpdateCommand(Command):
             words = all_words
 
         for word in words:
-            updater = WordUpdater(self.dir_path)
-            updater(word)
+            os.remove(os.path.join(self.dir_path, word + ".json"))
 
-        return ""
+        text = "Removed files:\n"
+        text += "\n".join(words) + "\n\n"
+        text += "total: " + str(len(words))
+
+        return text
 
 
-dict_cmd.CMD_CLASSES.append(UpdateCommand)
+dict_cmd.CMD_CLASSES.append(DeleteCommand)
 
