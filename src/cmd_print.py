@@ -44,7 +44,7 @@ class PrintCommand(Command):
 
         return self.read_content(self.word, content)
 
-    def read_content(self, word:str, content: dict) -> str:
+    def read_content(self, word: str, content: dict) -> str:
         reader = JsonReader(content)
         return reader.read_content(word)
 

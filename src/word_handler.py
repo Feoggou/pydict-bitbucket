@@ -26,10 +26,10 @@ class WordHandler:
         cmd.set_dir_path(self.dir_path)
         print(cmd.execute())
 
-    def _print_json_content(self, content: dict):
+    def _print_json_content(self, word:str, content: dict):
         cmd = PrintCommand("")
         cmd.set_dir_path(self.dir_path)
-        print(cmd.read_content(content))
+        print(cmd.read_content(word, content))
 
     # not tested: too simple
     def _save_json(self, word: str, content: dict):
@@ -47,6 +47,7 @@ class WordHandler:
         while answer.lower() == "yes":
             try:
                 json_content = cmd.execute(word)
+                return json_content
             except WordInvalidError as e:
                 output_msg(str(e))
                 return None
@@ -58,10 +59,18 @@ class WordHandler:
                 answer = input("Word '{}' not found. Would you like to get word '{}' instead?".format(word, e.value))
                 if answer.lower() == "yes":
                     word = e.value
-            else:
-                self._save_json(word, json_content)
-                self._print_json_content(json_content)
-                return json_content
+
+    @staticmethod
+    def get_subword(subword: str) -> bool:
+        answer = input("We found a definition for {} inside. Do you want to get that also? (Yes/No)\n".format(subword))
+        if answer.lower() == "yes" or answer == "":
+            return True
+        return False
+
+    def _remove_subword(self, content: dict, word: str):
+        for x in content["def_groups"]:
+            if x["word"] == word:
+                content["def_groups"].remove(x)
 
     def get(self, word: str):
         if self._already_exists(word):
@@ -69,5 +78,17 @@ class WordHandler:
             return
 
         definition = self._get_word_definition(word)
+        self._handle_subwords(word, definition)
+
+        self._save_json(word, definition)
+        self._print_json_content(word, definition)
+
         return definition
+
+    def _handle_subwords(self, word: str, definition: dict):
+        subwords = [x["word"] for x in definition["def_groups"]]
+        subwords = list(set(subwords))
+        for subword in subwords:
+            if subword != word and not self.get_subword(subword):
+                self._remove_subword(definition, subword)
 

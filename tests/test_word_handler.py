@@ -1,23 +1,37 @@
-from src.word_handler import *
-from src.cmd_getword import GetWordCommand
-
 import unittest
 
 from unittest.mock import patch
 from unittest.mock import call
 from unittest import mock
+import copy
 
+from src.word_handler import *
+from src.cmd_getword import GetWordCommand
 
 mock_out = mock.Mock()
+
+
+class DeepCopyMock(mock.MagicMock):
+    def _mock_call(self, *args, **kwargs):
+        return super(DeepCopyMock, self)._mock_call(*copy.deepcopy(args), **copy.deepcopy(kwargs))
 
 
 # TODO: Find a better name!
 class TestWordHandler(unittest.TestCase):
     def setUp(self):
         self.DIR_PATH = "./test-data"
+
+        with open("doing.json") as f:
+            self.doing_stripped_content = json.load(f)
+
+        with open("doing_with_do.json") as f:
+            self.doing_full_content = json.load(f)
+
+        with open("do/expected_do.json") as f:
+            self.do_content = json.load(f)
+
         mock_out.reset_mock()
 
-    # -------------------- TESTS --------------------
     @patch.object(WordHandler, '_print_json_content', mock_out)
     def test_when_do_isRequested_contentIsSavedAndPrinted(self):
         word_handler = WordHandler(self.DIR_PATH)
@@ -181,6 +195,43 @@ class TestWordHandler(unittest.TestCase):
 
             mock_fetch.assert_called_once_with("do")
 
+    @patch.object(WordHandler, "_save_json")
+    @patch.object(WordHandler, "_print_json_content")
+    @patch("unittest.mock.MagicMock", new=DeepCopyMock)
+    def test_when_doing_isRequested_removeSubword(self, mock_save, mock_print):
+        word_handler = WordHandler(self.DIR_PATH)
+
+        with patch.object(WordHandler, "_already_exists") as mock_exists:
+            mock_exists.return_value = False
+            with patch.object(GetWordCommand, '_fetch_content') as mock_content:
+                mock_content.return_value = self.doing_full_content
+                with patch.object(WordHandler, "get_subword") as mock_get_subword:
+                    mock_get_subword.side_effect = [False]
+
+                    result = word_handler.get("doing")
+
+        mock_get_subword.assert_called_once_with("do")
+        self.assertEqual(self.doing_stripped_content, result)
+        mock_save.assert_called_once_with("doing", self.doing_stripped_content)
+        mock_print.assert_called_once_with("doing", self.doing_stripped_content)
+
+    @patch.object(WordHandler, "_save_json")
+    @patch.object(WordHandler, "_print_json_content")
+    @patch("unittest.mock.MagicMock", new=DeepCopyMock)
+    def test_when_do_isRequested_ask_removeSubword_No(self, mock_save, mock_print):
+        word_handler = WordHandler(self.DIR_PATH)
+
+        with patch.object(WordHandler, "_already_exists") as mock_exists:
+            mock_exists.return_value = False
+            with patch.object(WordHandler, '_get_word_definition') as mock_content:
+                mock_content.return_value = self.do_content
+                with patch.object(WordHandler, "get_subword") as mock_get_subword:
+                    mock_get_subword.side_effect = [True, True, True]
+
+                    result = word_handler.get("do")
+
+        mock_get_subword.assert_has_calls([call('Do or do'), call('DO or D.O.')])
+        self.assertEqual(self.do_content, result)
 
 if __name__ == "__main__":
     unittest.main()
