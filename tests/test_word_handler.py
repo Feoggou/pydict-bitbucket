@@ -226,12 +226,30 @@ class TestWordHandler(unittest.TestCase):
             with patch.object(WordHandler, '_get_word_definition') as mock_content:
                 mock_content.return_value = self.do_content
                 with patch.object(WordHandler, "get_subword") as mock_get_subword:
-                    mock_get_subword.side_effect = [True, True, True]
+                    mock_get_subword.side_effect = [True, True]
 
                     result = word_handler.get("do")
 
-        mock_get_subword.assert_has_calls([call('Do or do'), call('DO or D.O.')])
+        calls = [call('DO or D.O.'), call('Do or do')]
+        mock_get_subword.assert_has_calls(calls)
         self.assertEqual(self.do_content, result)
+
+    @patch.object(WordHandler, "_save_json")
+    @patch.object(WordHandler, "_print_json_content")
+    @patch("unittest.mock.MagicMock", new=DeepCopyMock)
+    def test_whenSubwordsAreRetrieved_tagIsWrittenInContents(self, mock_save, mock_print):
+        word_handler = WordHandler(self.DIR_PATH)
+
+        with patch.object(WordHandler, "_already_exists") as mock_exists:
+            mock_exists.return_value = False
+            with patch.object(WordHandler, '_get_word_definition') as mock_content:
+                mock_content.return_value = self.do_content
+                with patch.object(WordHandler, "get_subword") as mock_get_subword:
+                    mock_get_subword.side_effect = [True, False]
+
+                    result = word_handler.get("do")
+
+        self.assertEqual({'DO or D.O.': True, 'Do or do': False}, result["subwords"])
 
 if __name__ == "__main__":
     unittest.main()

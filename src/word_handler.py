@@ -87,8 +87,15 @@ class WordHandler:
 
     def _handle_subwords(self, word: str, definition: dict):
         subwords = [x["word"] for x in definition["def_groups"]]
-        subwords = list(set(subwords))
+        subwords = sorted(list(set(subwords)))
+        subwords.remove(word)
+
+        definition["subwords"] = {}
+
         for subword in subwords:
-            if subword != word and not self.get_subword(subword):
+            if self.get_subword(subword):
+                definition["subwords"][subword] = True
+            else:
                 self._remove_subword(definition, subword)
+                definition["subwords"][subword] = False
 
