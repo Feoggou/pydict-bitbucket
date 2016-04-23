@@ -67,7 +67,8 @@ class WordHandler:
             return True
         return False
 
-    def _remove_subword(self, content: dict, word: str):
+    @staticmethod
+    def remove_subword(content: dict, word: str):
         for x in content["def_groups"]:
             if x["word"] == word:
                 content["def_groups"].remove(x)
@@ -96,6 +97,6 @@ class WordHandler:
             if self.get_subword(subword):
                 definition["subwords"][subword] = True
             else:
-                self._remove_subword(definition, subword)
+                self.remove_subword(definition, subword)
                 definition["subwords"][subword] = False
 

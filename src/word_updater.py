@@ -8,6 +8,7 @@ from .cmd_getword import WordInvalidError
 from . import cmd_getword
 from .word import RedirectError
 
+from .word_handler import WordHandler
 
 def output_msg(args):
     print(args)
@@ -26,6 +27,13 @@ class WordUpdater:
     def update_new_with_old_my(old_content: dict, new_content: dict) -> bool:
         if "my_examples" in old_content.keys():
             new_content["my_examples"] = old_content["my_examples"]
+
+        if "subwords" in old_content.keys():
+            new_content["subwords"] = old_content["subwords"]
+
+            for subword in new_content["subwords"]:
+                if not new_content["subwords"][subword]:
+                    WordHandler.remove_subword(new_content, subword)
 
     def _overwrite_json(self, word: str, content: dict):
         file_path = os.path.join(self.dir_path, word)
