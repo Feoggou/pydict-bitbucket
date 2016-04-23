@@ -54,7 +54,8 @@ class TestExCommand(unittest.TestCase):
                     'do great deeds',
                     'do a problem',
                     '[transl.] When you do something, you take some action or perform an activity or task.I was trying '
-                    'to do some work. done'
+                    'to do some work. done',
+                    'You should write the general principles down somewhere, Dad, like they do with the United States Code.'
                 ]
             },
             {

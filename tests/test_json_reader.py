@@ -220,6 +220,11 @@ class TestJsonReader(unittest.TestCase):
 
         text = cmd.read_content()
 
+        text = text.replace(colors.RESET, "")
+        text = text.replace(colors.RED, "")
+        text = text.replace(colors.BOLDBLACK, "")
+        text = text.replace(colors.BLUE, "")
+
         self.assertEqual(text, TestJsonReader.content_text)
 
 if __name__ == "__main__":

@@ -87,7 +87,9 @@ class TestSeeker(unittest.TestCase):
         self.assertEqual(results, {"create.json": [
             "new industries create new jobs",
             "[transl.] To create something means to cause it to happen or exist.It is really great for a radio "
-            "producer to create a show like this. creates, creating, created"]})
+            "producer to create a show like this. creates, creating, created",
+            'Two armchairs had been placed on top of it to create more floor-space.'
+        ]})
 
     def test_ex_searchJsonFindsItems(self):
         seeker = JsonSearch(self.dir_path, "create", SearchIn.examples)
@@ -103,10 +105,11 @@ class TestSeeker(unittest.TestCase):
         self.assertEqual(result, [
             "new industries create new jobs",
             "[transl.] To create something means to cause it to happen or exist.It is really great for a radio "
-            "producer to create a show like this. creates, creating, created"])
+            "producer to create a show like this. creates, creating, created",
+            'Two armchairs had been placed on top of it to create more floor-space.'])
 
     def test_searchAll_searchFiles(self):
-        seeker = JsonSearch(self.dir_path, "do", SearchIn.all)
+        seeker = JsonSearch(self.dir_path, "do", SearchIn.invalid)
 
         with patch.object(JsonSearch, "list_json_files") as mock_list:
             mock_list.return_value = ["a.json", "do.json", "doing.json", "b.json", "do-by.json"]

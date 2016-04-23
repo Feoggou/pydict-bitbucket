@@ -28,7 +28,7 @@ class TestSearchCommand(unittest.TestCase):
         #       5. process content: sorted, unique
         #       6. output process: an object that can be __str__-ed.
 
-        results = cmd.execute().items
+        results = dict(cmd.execute().items)
 
         self.assertEqual(results, {
             "synonyms": [
@@ -39,6 +39,11 @@ class TestSearchCommand(unittest.TestCase):
                 },
             ],
             "definitions": [
+                {
+                    "create.json": [
+                        "to be the first to portray (a particular role in a play)"
+                    ]
+                },
                 {
                     "do.json": [
                         "to produce or appear in (a play, etc.)",
@@ -51,11 +56,6 @@ class TestSearchCommand(unittest.TestCase):
                         "act in a play, dance, etc. before an audience"
                     ]
                 },
-                {
-                    "create.json": [
-                        "to be the first to portray (a particular role in a play)"
-                    ]
-                }
             ]
         })
 
