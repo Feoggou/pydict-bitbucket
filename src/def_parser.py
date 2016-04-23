@@ -377,6 +377,9 @@ class DefParser:
     @staticmethod
     def get_definition(sense_list_item):
         results = sense_list_item.xpath('./*[@class="def"]')   # 13 KEYS or 15 KEYS
+        if len(results) > 1:
+            print(results)
+
         elem = results[0]
         assert isinstance(elem, etree._Element)
 
