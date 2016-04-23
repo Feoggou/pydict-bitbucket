@@ -29,7 +29,7 @@ elif len(sys.argv) > 2:
 os.makedirs(DIR_PATH, exist_ok=True)
 
 while True:
-    input_str = input(BOLDBLACK + "Dict> " + RESET)
+    input_str = input(BOLDMAGENTA + "Dict> " + RESET)
 
     cmd = commands.match_command(input_str, DIR_PATH)
     if isinstance(cmd, GetWordCommand):
