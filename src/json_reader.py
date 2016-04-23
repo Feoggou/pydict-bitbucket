@@ -289,24 +289,30 @@ class JsonReader:
             return self.keys[key]()
         return ""
 
-    def read_content(self):
+    def read_content(self, word) -> str:
         text = self.read_by_key("frequency")
         text += self.read_by_key("def_groups")
         text += self.read_by_key("translations")
         text += self.read_by_key("synonyms")
         text += self.read_by_key("examples")
+        text += self.read_all_related(word, simple=True)
         text += self.read_by_key("my_examples")
         text += "\n"
 
         return text
 
     # NOTE: has no test.
-    def read_all_related(self, word: str):
+    def read_all_related(self, word: str, simple: bool = False):
         all_items, in_rel_list, nby_list, rel_list = self.get_all_related(word)
 
-        text = "\n".join(all_items)
-        text += "\n\n{} related\n{} in def groups\n{} nearby\n{} total".format(
-            len(rel_list), len(in_rel_list), len(nby_list), len(all_items))
+        if simple:
+            text = ""
+            if len(all_items):
+                text = colors.BLUE + "RELATED\n" + colors.RESET + ", ".join(all_items)
+        else:
+            text = "\n".join(all_items)
+            text += "\n\n{} related\n{} in def groups\n{} nearby\n{} total".format(
+                len(rel_list), len(in_rel_list), len(nby_list), len(all_items))
 
         return text
 
@@ -319,6 +325,13 @@ class JsonReader:
 
         def_groups = DefGroupReader(self.content["def_groups"])
         in_rel_list = def_groups.get_all_related()
+
+        if "" in rel_list:
+            rel_list.remove("")
+        if "" in nby_list:
+            nby_list.remove("")
+        if "" in in_rel_list:
+            in_rel_list.remove("")
 
         all_items = set()
         all_items.update(rel_list)

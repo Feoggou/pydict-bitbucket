@@ -42,11 +42,11 @@ class PrintCommand(Command):
         with open(file_name, "r") as json_file:
             content = json.load(json_file)
 
-        return self.read_content(content)
+        return self.read_content(self.word, content)
 
-    def read_content(self, content: dict) -> str:
+    def read_content(self, word:str, content: dict) -> str:
         reader = JsonReader(content)
-        return reader.read_content()
+        return reader.read_content(word)
 
 
 dict_cmd.CMD_CLASSES.append(PrintCommand)
