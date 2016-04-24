@@ -22,9 +22,8 @@ class TestCommandPrint(unittest.TestCase):
         TestCommandPrint.expected_json = None
         TestCommandPrint.expected_print = None
 
-        os.chdir("./do")
-        exp_json = "expected_do.json"
-        exp_print = "expected_do2.txt"
+        exp_json = "./do/expected_do.json"
+        exp_print = "./do/expected_do2.txt"
 
         with open(exp_json, "r") as f:
             TestCommandPrint.word_exp_json = json.load(f)

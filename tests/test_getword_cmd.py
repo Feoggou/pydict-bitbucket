@@ -15,8 +15,7 @@ class TestGetWordCommand(unittest.TestCase):
     def setUpClass(cls):
         TestGetWordCommand.word_exp_content = None
 
-        os.chdir("./do")
-        exp_do = "expected_do.json"
+        exp_do = "./do/expected_do.json"
 
         with open(exp_do, "r") as f:
             TestGetWordCommand.word_exp_content = json.load(f)
