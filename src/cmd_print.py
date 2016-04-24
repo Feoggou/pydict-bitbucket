@@ -7,10 +7,11 @@ from .json_reader import JsonReader
 
 
 class PrintCommand(Command):
-    def __init__(self, word_name: str):
+    def __init__(self, word_name: str, use_colors: bool = True):
         Command.__init__(self)
         self.dir_path = ""
         self.word = word_name
+        self.use_colors = use_colors
 
     @staticmethod
     def get_name() -> str:
@@ -45,7 +46,7 @@ class PrintCommand(Command):
         return self.read_content(self.word, content)
 
     def read_content(self, word: str, content: dict) -> str:
-        reader = JsonReader(content)
+        reader = JsonReader(content, self.use_colors)
         return reader.read_content(word)
 
 

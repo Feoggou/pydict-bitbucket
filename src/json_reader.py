@@ -3,6 +3,38 @@ import re
 from . import colors
 
 
+class ColoredText:
+    reset_color = ""
+    title_color = ""
+    h1_color = ""
+    word_color = ""
+    gram_color = ""
+
+    @staticmethod
+    def init_values():
+        ColoredText.reset_color = colors.RESET
+        ColoredText.title_color = colors.RED
+        ColoredText.h1_color = colors.BLUE
+        ColoredText.word_color = colors.BOLDBLACK
+        ColoredText.gram_color = colors.RED
+
+    @staticmethod
+    def colored_title(s: str):
+        return ColoredText.title_color + s + ColoredText.reset_color
+
+    @staticmethod
+    def colored_h1(s: str):
+        return ColoredText.h1_color + s + ColoredText.reset_color
+
+    @staticmethod
+    def colored_word(s: str):
+        return ColoredText.word_color + s + ColoredText.reset_color
+
+    @staticmethod
+    def colored_gram(s: str):
+        return ColoredText.gram_color + s + ColoredText.reset_color
+
+
 class DefinitionReader:
     tab = "    "
 
@@ -71,7 +103,7 @@ class GramGroupReader:
         text = ""
 
         if "value" in obj.keys():
-            text += colors.RED + obj["value"] + colors.RESET + "\n"
+            text += ColoredText.colored_gram(obj["value"]) + "\n"
 
         return text
 
@@ -99,14 +131,14 @@ class DefGroupReader:
 
     @staticmethod
     def _read_word(obj: dict):
-        return colors.BOLDBLACK + obj["word"] + colors.RESET + "\n"
+        return ColoredText.colored_word(obj["word"]) + "\n"
 
     @staticmethod
     def _read_semantics(def_group):
         if "semantics" not in def_group:
             return ""
 
-        text = colors.BLUE + "\nSEMANTICS\n" + colors.RESET
+        text = ColoredText.colored_h1("\nSEMANTICS\n")
         text += def_group["semantics"] + "\n\n"
 
         return text
@@ -173,7 +205,7 @@ class SynGramGroupReader:
         text = ""
 
         if "value" in obj.keys():
-            text += colors.RED + obj["value"] + "\n" + colors.RESET
+            text += ColoredText.colored_gram(obj["value"] + "\n")
 
         return text
 
@@ -202,7 +234,7 @@ class SynGroupReader:
 
     @staticmethod
     def _read_word(obj: dict):
-        return colors.BOLDBLACK + obj["word"] + "\n" + colors.RESET
+        return ColoredText.colored_word(obj["word"] + "\n")
 
     def read_syn_group(self, def_group: dict):
         text = self._read_word(def_group)
@@ -222,7 +254,7 @@ class SynGroupReader:
 
 
 class JsonReader:
-    def __init__(self, content: dict):
+    def __init__(self, content: dict, use_colors: bool = True):
         self.content = content
         self.keys = {
             "frequency": self.frequency,
@@ -235,11 +267,14 @@ class JsonReader:
             "related_words": self.related,
         }
 
+        if use_colors:
+            ColoredText.init_values()
+
     def frequency(self) -> str:
-        return  colors.RED + "[{}]\n\n".format(self.content["frequency"]) + colors.RESET
+        return ColoredText.colored_title("[{}]\n\n".format(self.content["frequency"]))
 
     def definitions(self) -> str:
-        text = colors.BLUE + "DEFINTIONS\n" + colors.RESET
+        text = ColoredText.colored_h1("DEFINTIONS\n")
 
         reader = DefGroupReader(self.content["def_groups"])
         text += reader()
@@ -247,7 +282,7 @@ class JsonReader:
         return text
 
     def synonyms(self):
-        text = colors.BLUE + "SYNONYMS\n" + colors.RESET
+        text = ColoredText.colored_h1("SYNONYMS\n")
 
         reader = SynGroupReader(self.content["synonyms"])
         text += reader()
@@ -257,7 +292,7 @@ class JsonReader:
         return text
 
     def translations(self) -> str:
-        text = colors.BLUE + "TRANSLATIONS\n" + colors.RESET
+        text = ColoredText.colored_h1("TRANSLATIONS\n")
 
         text += "\n".join([x for x in self.content["translations"]])
         text += "\n\n\n"
@@ -265,14 +300,14 @@ class JsonReader:
         return text
 
     def examples(self) -> str:
-        text = colors.BLUE + "EXAMPLES\n" + colors.RESET
+        text = ColoredText.colored_h1("EXAMPLES\n")
         text += "\n".join("o) " + example["example"] for example in self.content["examples"])
 
         text += "\n\n"
         return text
 
     def my_examples(self) -> str:
-        text = colors.BLUE + "MY EXAMPLES\n" + colors.RESET
+        text = ColoredText.colored_h1("MY EXAMPLES\n")
         text += "\n".join("o) " + example["example"] for example in self.content["my_examples"])
 
         text += "\n\n"
@@ -308,7 +343,7 @@ class JsonReader:
         if simple:
             text = ""
             if len(all_items):
-                text = colors.BLUE + "RELATED\n" + colors.RESET + ", ".join(sorted(all_items))
+                text = ColoredText.colored_h1("RELATED\n") + ", ".join(sorted(all_items))
         else:
             text = "\n".join(all_items)
             text += "\n\n{} related\n{} in def groups\n{} nearby\n{} total".format(
