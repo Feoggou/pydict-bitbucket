@@ -1,0 +1,67 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "something done"
+                        },
+                        {
+                            "category": "[pl.]",
+                            "def_subgroup": [
+                                {
+                                    "def": "actions, events, etc."
+                                },
+                                {
+                                    "category": "dialect",
+                                    "def": "social activities or a social event"
+                                }
+                            ]
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "doing"
+        }
+    ],
+    "examples": [
+        {
+            "example": "There's no hesitation around the incision, so like I said, he knew what he was doing when he started."
+        }
+    ],
+    "frequency": "Extremely Common",
+    "nearby_words": [
+        "dogsbody",
+        "dogtooth",
+        "dogtooth violet",
+        "dogtrot",
+        "dogwatch",
+        "dogwood",
+        "dogy",
+        "Doha",
+        "Dohn\u00e1nyi",
+        "doily",
+        "doit",
+        "dojo",
+        "dolabriform",
+        "Dolby",
+        "dolce",
+        "dolce far niente",
+        "dolce vita",
+        "doldrums",
+        "dole",
+        "doleful"
+    ],
+    "related_words": [
+        "do",
+        "do-si-do",
+        "nothing doing",
+        "up and doing"
+    ],
+    "subwords": {
+        "do": false
+    },
+    "translations": []
+}
