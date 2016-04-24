@@ -45,7 +45,7 @@ def match_default_command(in_str: str) -> Command:
 
 def match_command(in_str: str, dir_path: str="") -> Command:
     if in_str is None or len(in_str) == 0:
-        raise ValueError("in_str should not be empty / None!")
+        raise ValueError("input cannot be empty!")
 
     match = re.match(r'([a-z]+)\((.*)\)', in_str)
 
