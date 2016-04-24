@@ -1,11 +1,9 @@
 import unittest
 import json
 from unittest.mock import patch
-import os
 
-from src import commands
-from src.cmd_getword import GetWordCommand, WordInvalidError
-from src.word import RedirectError
+from src.cmds import commands
+from src.cmds.cmd_getword import GetWordCommand, WordInvalidError
 
 
 class TestGetWordCommand(unittest.TestCase):

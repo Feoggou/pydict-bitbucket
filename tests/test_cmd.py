@@ -1,5 +1,5 @@
 import unittest
-from src import commands
+from src.cmds import commands
 
 
 class TestCommandQuit(unittest.TestCase):

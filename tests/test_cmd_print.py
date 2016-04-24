@@ -3,13 +3,9 @@ import os
 import json
 import shutil
 
-from unittest import mock
 from unittest.mock import patch
 
-from src.cmd_print import PrintCommand
-from src.json_reader import JsonReader
-
-from src import colors
+from src.cmds.cmd_print import PrintCommand
 
 
 class TestCommandPrint(unittest.TestCase):

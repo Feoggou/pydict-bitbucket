@@ -1,7 +1,7 @@
 import unittest
 
-from src import commands
-from src.cmd_help import HelpCommand
+from src.cmds import commands
+from src.cmds.cmd_help import HelpCommand
 
 
 class TestCommandHelp(unittest.TestCase):

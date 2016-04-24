@@ -1,6 +1,3 @@
-import os
-import re
-
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
 

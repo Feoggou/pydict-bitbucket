@@ -1,5 +1,5 @@
 import unittest
-from src.rel_groups import *
+from src.html_parser.rel_groups import *
 
 
 # {"related_words": []},

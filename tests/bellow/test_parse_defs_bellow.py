@@ -1,8 +1,8 @@
 import unittest
 
-from src.def_parser import DefParser
+from src.html_parser.def_parser import DefParser
 from lxml import etree
-from src.etree_printer import *
+from src.html_parser.etree_printer import *
 
 
 class TestParser(unittest.TestCase):

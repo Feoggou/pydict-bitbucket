@@ -1,5 +1,5 @@
 import unittest
-from src.syn_parser import SynParser
+from src.html_parser.syn_parser import SynParser
 from lxml import etree
 
 

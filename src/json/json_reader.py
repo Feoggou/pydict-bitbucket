@@ -1,6 +1,6 @@
 import re
 
-from . import colors
+from .. import colors
 
 
 class ColoredText:

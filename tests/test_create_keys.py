@@ -2,7 +2,7 @@
 
 import http.client
 from lxml import etree
-from src.etree_printer import *
+from src.html_parser.etree_printer import *
 import sys
 
 

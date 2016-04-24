@@ -3,7 +3,7 @@ import os
 import unittest
 from unittest.mock import patch
 
-from src.json_reader import *
+from src.json.json_reader import *
 
 
 class TestJsonReader(unittest.TestCase):

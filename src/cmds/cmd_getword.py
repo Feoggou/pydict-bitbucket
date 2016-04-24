@@ -1,7 +1,7 @@
 import re
 
 from .dict_cmd import Command
-from . import word
+from .. import word
 
 
 class WordInvalidError(RuntimeError):

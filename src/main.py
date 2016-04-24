@@ -5,9 +5,9 @@ import os
 
 sys.path.append("/home/zenith/PycharmProjects/EDictionary")
 
-from src import commands
-from src.cmd_getword import GetWordCommand
-from src.word_handler import WordHandler
+from src.cmds import commands
+from src.cmds.cmd_getword import GetWordCommand
+from src.cmds.word_handler import WordHandler
 from src.colors import *
 
 DIR_PATH = ""

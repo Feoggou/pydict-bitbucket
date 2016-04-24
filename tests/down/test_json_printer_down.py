@@ -1,7 +1,7 @@
 import unittest
 import filecmp
 import os
-from src.cmd_print import PrintCommand
+from src.cmds.cmd_print import PrintCommand
 
 
 class JsonPrinterTest(unittest.TestCase):

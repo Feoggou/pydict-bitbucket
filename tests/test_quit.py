@@ -1,7 +1,7 @@
 import unittest
 
-from src import commands
-from src.cmd_quit import QuitCommand
+from src.cmds import commands
+from src.cmds.cmd_quit import QuitCommand
 
 
 class TestCommandQuit(unittest.TestCase):

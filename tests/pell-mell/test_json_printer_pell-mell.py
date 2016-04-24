@@ -1,8 +1,8 @@
 import unittest
 import filecmp
 import os
-from src.cmd_print import PrintCommand
-from src.cmd_nearby import PrintNearbyCommand
+from src.cmds.cmd_print import PrintCommand
+from src.cmds.cmd_nearby import PrintNearbyCommand
 
 
 class JsonPrinterTest(unittest.TestCase):

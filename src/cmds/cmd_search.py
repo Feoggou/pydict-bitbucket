@@ -1,13 +1,9 @@
-import os
-import json
-import re
-
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
-from .json_reader import JsonReader
+from ..json import json_seeker
 
 
-class ListCommand(Command):
+class SearchCommand(Command):
     def __init__(self, what: str):
         Command.__init__(self)
         self.dir_path = ""
@@ -17,7 +13,7 @@ class ListCommand(Command):
 
     @staticmethod
     def get_name() -> str:
-        return "list"
+        return "search"
 
     @staticmethod
     def get_alias() -> str:
@@ -26,7 +22,9 @@ class ListCommand(Command):
     @staticmethod
     def get_description(cmd_name: str = "") -> str:
         assert cmd_name is None or len(cmd_name) == 0
-        return "lists all the words in the def. dir matching pattern."
+        text = "search all .json files for the word (searches contents)"
+
+        return text
 
     @staticmethod
     def get_argument_info() -> Parameter:
@@ -36,19 +34,12 @@ class ListCommand(Command):
         self.dir_path = dir_path
 
     def execute(self):
-        all_words = [x.replace(".json", "") for x in os.listdir(self.dir_path) if x.endswith(".json")]
+        seeker = json_seeker.JsonSearch(self.dir_path, self.what, json_seeker.SearchIn.invalid)
+        json_obj = seeker.search_all()
 
-        if self.what is not None:
-            pattern = re.compile(r'{}'.format(self.what))
-            words = [x for x in all_words if re.search(pattern, x)]
-        else:
-            words = all_words
-
-        text = "\n".join(words) + "\n\n"
-        text += "total: " + str(len(words))
-
-        return text
+        text_obj = json_seeker.SearchAllResult(self.what, json_obj)
+        return text_obj
 
 
-dict_cmd.CMD_CLASSES.append(ListCommand)
+dict_cmd.CMD_CLASSES.append(SearchCommand)
 

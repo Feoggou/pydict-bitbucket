@@ -1,10 +1,7 @@
 import unittest
-from unittest.mock import patch
 
-from src import commands
-from src.cmd_search import SearchCommand
-from src.colors import *
-from src.json_seeker import *
+from src.cmds import commands
+from src.cmds.cmd_search import SearchCommand
 
 
 class TestSearchCommand(unittest.TestCase):

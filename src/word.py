@@ -1,9 +1,9 @@
 import http.client
 import os
 
-from .def_groups import  *
-from .syn_groups import  *
-from .rel_groups import  *
+from .html_parser.def_groups import  *
+from .html_parser.syn_groups import  *
+from .html_parser.rel_groups import  *
 
 
 class RedirectError(Exception):

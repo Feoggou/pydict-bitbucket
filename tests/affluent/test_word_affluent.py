@@ -1,16 +1,9 @@
 import unittest
 from unittest.mock import patch
 import os
-# import shutil
 from src import word
 import json
 import filecmp
-
-# given "word_name" and "dir_path", must:
-# * check that path exists
-# * download & parse content
-# * create file
-# * write to file as json
 
 
 class WordTest(unittest.TestCase):

@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
-from src.def_groups import *
-from src.def_parser import DefParser
+from src.html_parser.def_groups import *
+from src.html_parser.def_parser import DefParser
 from lxml import etree
 
 
@@ -29,7 +29,7 @@ class HtmlToJsonTest(unittest.TestCase):
         dict_parser = DefParser(root, self.word_name)
         etree_group = dict_parser.get_all_def_groups()[0]
 
-        with patch('src.def_groups.DefGroup.build') as mock:
+        with patch.object(DefGroup, 'build') as mock:
             mock.return_value = None
             group = DefGroup(dict_parser, etree_group)
             group.build()
@@ -41,7 +41,7 @@ class HtmlToJsonTest(unittest.TestCase):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
 
-        with patch('src.def_groups.DefGroup.build'):
+        with patch.object(DefGroup, 'build'):
             group = DefGroups(dict_parser)
             group.build()
             result = group.translate()
@@ -54,8 +54,8 @@ class HtmlToJsonTest(unittest.TestCase):
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
 
-        with patch('src.def_groups.GramGroup.build'):
-            with patch('src.def_groups.RelatedGroup.build'):
+        with patch.object(GramGroup, 'build'):
+            with patch.object(RelatedGroup, 'build'):
                 group = DefGroup(dict_parser, def_group)
                 group.build()
                 result = group.translate()
@@ -80,7 +80,7 @@ class HtmlToJsonTest(unittest.TestCase):
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 
-        with patch('src.def_groups.SenseListGroup.build'):
+        with patch.object(SenseListGroup, 'build'):
             group = GramGroup(dict_parser, gram_group)
             group.build()
             result = group.translate()
@@ -94,7 +94,7 @@ class HtmlToJsonTest(unittest.TestCase):
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 
-        with patch('src.def_groups.WordDefinition.build'):
+        with patch.object(WordDefinition, 'build'):
             group = SenseListGroup(dict_parser, gram_group)
             group.build()
             result = group.translate()

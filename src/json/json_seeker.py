@@ -5,7 +5,7 @@ import re
 from collections import OrderedDict
 
 
-from . import colors
+from .. import colors
 from .json_item_gatherer import SearchIn, ItemGatherer
 
 

@@ -1,16 +1,14 @@
 import os
-import re
 import json
 
 import difflib
 
 from .cmd_getword import WordInvalidError
 from . import cmd_getword
-from .word import RedirectError
 
 from .word_handler import WordHandler
-from .json_reader import JsonReader
-from . import colors
+from ..json.json_reader import JsonReader
+from .. import colors
 
 
 def output_msg(args):

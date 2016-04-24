@@ -3,7 +3,7 @@ import json
 
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
-from .json_reader import JsonReader
+from ..json.json_reader import JsonReader
 
 
 class PrintCommand(Command):

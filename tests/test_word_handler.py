@@ -5,8 +5,8 @@ from unittest.mock import call
 from unittest import mock
 import copy
 
-from src.word_handler import *
-from src.cmd_getword import GetWordCommand
+from src.cmds.word_handler import *
+from src.cmds.cmd_getword import GetWordCommand
 
 mock_out = mock.Mock()
 
@@ -48,7 +48,7 @@ class TestWordHandler(unittest.TestCase):
                 mock_save.assert_called_once_with("do", "json_content")
         mock_out.assert_called_once_with("do", "json_content")
 
-    @patch("src.word_handler.output_msg", mock_out)
+    @patch("src.cmds.word_handler.output_msg", mock_out)
     def test_whenWordIsIllFormed_failAndOutputError(self):
         word_handler = WordHandler(self.DIR_PATH)
 
@@ -60,7 +60,7 @@ class TestWordHandler(unittest.TestCase):
 
         mock_out.assert_called_once_with("Invalid word: a;&%&i")
 
-    @patch("src.word_handler.output_msg", mock_out)
+    @patch("src.cmds.word_handler.output_msg", mock_out)
     def test_whenWord_worddoesnotexist_isNotFound_and_foundNoRelated_outputError(self):
         word_handler = WordHandler(self.DIR_PATH)
 
@@ -74,7 +74,7 @@ class TestWordHandler(unittest.TestCase):
 
         mock_out.assert_called_once_with("The word 'worddoesnotexist' was not found!")
 
-    @patch("src.word_handler.output_msg", mock_out)
+    @patch("src.cmds.word_handler.output_msg", mock_out)
     def test_when_commoditization_isNotFound_and_foundNoRelated_outputError(self):
         word_handler = WordHandler(self.DIR_PATH)
 
@@ -91,7 +91,7 @@ class TestWordHandler(unittest.TestCase):
     @patch.object(WordHandler, '_print_json_content', mock_out)
     @patch.object(WordHandler, "_handle_subwords")
     def test_when_fazed_isNotFound_askUserForRedirection_Yes_retrieve_faze(self, mock_subw):
-        with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
+        with patch('src.cmds.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
             mock_obj.execute.side_effect = [RedirectError("faze"), "faze_content_json"]
 
@@ -118,7 +118,7 @@ class TestWordHandler(unittest.TestCase):
     @patch.object(WordHandler, "_save_json")
     @patch.object(WordHandler, '_print_json_content', mock_out)
     def test_when_creat_isNotFound_askUserForRedirection_Yes_retrieve_create(self, mock_subw, mock_save):
-        with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
+        with patch('src.cmds.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
             mock_obj.execute.side_effect = [RedirectError("create"), "create_content_json"]
             with patch.object(WordHandler, '_already_exists') as mock_exists:
@@ -134,7 +134,7 @@ class TestWordHandler(unittest.TestCase):
             mock_obj.execute.assert_has_calls(calls)
         mock_out.assert_called_once_with("create", "create_content_json")
 
-    @patch("src.word_handler.output_msg", mock_out)
+    @patch("src.cmds.word_handler.output_msg", mock_out)
     @patch.object(WordHandler, "_handle_subwords")
     @patch.object(WordHandler, "_save_json")
     @patch.object(WordHandler, "_print_json_content")
@@ -158,7 +158,7 @@ class TestWordHandler(unittest.TestCase):
     @patch.object(WordHandler, "_handle_subwords")
     @patch.object(WordHandler, "_print_json_content")
     def test_when_unintended_isNotFoundAnd_askUserForRedirection_No_cancel(self, mock_subw, mock_print):
-        with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
+        with patch('src.cmds.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
             mock_obj.execute.side_effect = RedirectError("un-")
 

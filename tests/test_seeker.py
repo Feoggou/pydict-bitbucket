@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from src.json_seeker import *
+from src.json.json_seeker import *
 
 
 class TestSeeker(unittest.TestCase):

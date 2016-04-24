@@ -3,10 +3,10 @@ import json
 
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
-from .json_reader import JsonReader
+from ..json.json_reader import JsonReader
 
 
-class PrintRelatedCommand(Command):
+class PrintNearbyCommand(Command):
     def __init__(self, word_name: str):
         Command.__init__(self)
         self.dir_path = ""
@@ -14,7 +14,7 @@ class PrintRelatedCommand(Command):
 
     @staticmethod
     def get_name() -> str:
-        return "related"
+        return "nearby"
 
     @staticmethod
     def get_alias() -> str:
@@ -23,7 +23,7 @@ class PrintRelatedCommand(Command):
     @staticmethod
     def get_description(cmd_name: str = "") -> str:
         assert cmd_name is None or len(cmd_name) == 0
-        return "print all related words from .json"
+        return "print the nearby words from .json"
 
     @staticmethod
     def get_argument_info() -> Parameter:
@@ -39,8 +39,8 @@ class PrintRelatedCommand(Command):
             content = json.load(json_file)
 
         reader = JsonReader(content)
-        return reader.read_all_related(self.word)
+        return reader.read_by_key("nearby_words")
 
 
-dict_cmd.CMD_CLASSES.append(PrintRelatedCommand)
+dict_cmd.CMD_CLASSES.append(PrintNearbyCommand)
 

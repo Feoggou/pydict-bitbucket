@@ -1,6 +1,6 @@
 from .cmd_getword import WordInvalidError
 from . import cmd_getword
-from .word import RedirectError
+from ..word import RedirectError
 from .cmd_print import PrintCommand
 
 import os

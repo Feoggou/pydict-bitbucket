@@ -1,13 +1,9 @@
-import os
-import json
-import re
-
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
-from . import json_seeker
+from ..json import json_seeker
 
 
-class DefsCommand(Command):
+class ExCommand(Command):
     def __init__(self, what: str):
         Command.__init__(self)
         self.dir_path = ""
@@ -17,7 +13,7 @@ class DefsCommand(Command):
 
     @staticmethod
     def get_name() -> str:
-        return "defs"
+        return "ex"
 
     @staticmethod
     def get_alias() -> str:
@@ -26,10 +22,8 @@ class DefsCommand(Command):
     @staticmethod
     def get_description(cmd_name: str = "") -> str:
         assert cmd_name is None or len(cmd_name) == 0
-        # TODO
-        text = "search all .json files, and print all definitions\n"
-        text += " " * 14
-        text += "that contain the word <word>"
+        text = "search all .json files, and print all examples that\n"
+        text += " " * 14 + "contain the word <word>"
 
         return text
 
@@ -41,12 +35,12 @@ class DefsCommand(Command):
         self.dir_path = dir_path
 
     def execute(self):
-        seeker = json_seeker.JsonSearch(self.dir_path, self.what, json_seeker.SearchIn.definitions)
+        seeker = json_seeker.JsonSearch(self.dir_path, self.what, json_seeker.SearchIn.examples)
         json_obj = seeker()
 
         text_obj = json_seeker.SearchResult(self.what, json_obj)
         return text_obj
 
 
-dict_cmd.CMD_CLASSES.append(DefsCommand)
+dict_cmd.CMD_CLASSES.append(ExCommand)
 

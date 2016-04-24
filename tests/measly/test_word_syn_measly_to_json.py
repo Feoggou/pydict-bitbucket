@@ -1,7 +1,5 @@
 import unittest
-from src.syn_groups import *
-from src.syn_parser import SynParser
-from lxml import etree
+from src.html_parser.syn_groups import *
 
 
 class HtmlToJsonSynTest(unittest.TestCase):

@@ -1,10 +1,10 @@
 import unittest
 from unittest.mock import patch
 
-from src import commands
-from src.cmd_defs import DefsCommand
+from src.cmds import commands
+from src.cmds.cmd_defs import DefsCommand
 from src.colors import *
-from src.json_seeker import *
+from src.json.json_seeker import *
 
 
 class TestDefsCommand(unittest.TestCase):

@@ -1,5 +1,5 @@
 import unittest
-from src.rel_parser import RelatedParser
+from src.html_parser.rel_parser import RelatedParser
 from lxml import etree
 
 
