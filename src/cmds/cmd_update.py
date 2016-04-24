@@ -43,7 +43,7 @@ class UpdateCommand(Command):
         else:
             words = all_words
 
-        for word in words:
+        for word in sorted(words):
             updater = WordUpdater(self.dir_path)
             updater(word)
 

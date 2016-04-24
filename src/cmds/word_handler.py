@@ -39,16 +39,19 @@ class WordHandler:
         with open(file_path, "w") as f:
             json.dump(content, f, indent=4, sort_keys=True)
 
-    @staticmethod
-    def _get_word_definition(word):
+    def _get_word_definition(self, word):
         cmd = cmd_getword.GetWordCommand()
 
         answer = "yes"
 
         while answer.lower() == "yes":
             try:
-                json_content = cmd.execute(word)
-                return word, json_content
+                if self._already_exists(word):
+                    self._print_word(word)
+                    return None, None
+                else:
+                    json_content = cmd.execute(word)
+                    return word, json_content
             except WordInvalidError as e:
                 output_msg(str(e))
                 return None, None
@@ -57,8 +60,9 @@ class WordHandler:
                     output_msg("The word '{}' was not found!".format(word))
                     return None, None
 
-                answer = input("Word '{}' not found. Would you like to get word '{}' instead?".format(word, e.value))
-                if answer.lower() == "yes":
+                answer = input("Word '{}' not found. Would you like to get word '{}' instead? ".format(word, e.value))
+                if answer.lower() == "yes" or len(answer) == 0:
+                    answer = "yes"
                     word = e.value
 
         return None, None

@@ -42,7 +42,7 @@ class ListCommand(Command):
         else:
             words = all_words
 
-        text = "\n".join(words) + "\n\n"
+        text = "\n".join(sorted(words)) + "\n\n"
         text += "total: " + str(len(words))
 
         return text
