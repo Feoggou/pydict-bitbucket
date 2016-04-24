@@ -1,7 +1,7 @@
 import unittest
 import filecmp
 import os
-from src.json_printer import JsonPrinter
+from src.cmd_print import PrintCommand
 
 
 class JsonPrinterTest(unittest.TestCase):
@@ -15,12 +15,14 @@ class JsonPrinterTest(unittest.TestCase):
             os.mkdir(self.dir_path)
 
     def test_json_to_text(self):
-        json_printer = JsonPrinter()
-        text = json_printer.to_text("expected_down.json")
+        cmd = PrintCommand("expected_down", use_colors=False)
+        cmd.set_dir_path(".")
+
+        actual_text = cmd.execute()
 
         file_name = self.dir_path + "/down.txt"
         with open(file_name, "w") as f:
-            f.write(text)
+            f.write(actual_text)
 
         files_same = filecmp.cmp(file_name, self.expected_file, shallow=False)
         self.assertTrue(files_same)

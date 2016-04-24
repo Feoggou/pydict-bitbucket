@@ -1,7 +1,8 @@
 import unittest
 import filecmp
 import os
-from src.json_printer import JsonPrinter
+from src.cmd_print import PrintCommand
+from src.cmd_nearby import PrintNearbyCommand
 
 
 class JsonPrinterTest(unittest.TestCase):
@@ -15,12 +16,14 @@ class JsonPrinterTest(unittest.TestCase):
             os.mkdir(self.dir_path)
 
     def test_defs_to_text(self):
-        json_printer = JsonPrinter()
-        text = json_printer.to_text("./expected_pell-mell.json")
+        cmd = PrintCommand("expected_pell-mell", use_colors=False)
+        cmd.set_dir_path(".")
+
+        actual_text = cmd.execute()
 
         file_name = self.dir_path + "/pell-mell.txt"
         with open(file_name, "w") as f:
-            f.write(text)
+            f.write(actual_text)
 
         files_same = filecmp.cmp(file_name, self.expected_file, shallow=False)
         self.assertTrue(files_same)
@@ -28,15 +31,16 @@ class JsonPrinterTest(unittest.TestCase):
         os.remove(file_name)
 
     def test_nearby_to_text(self):
-        json_printer = JsonPrinter()
-        text = json_printer.nearby_to_text("./expected_pell-mell.json")
-        expected_file = "expected_pell-mell_nby.txt"
+        cmd = PrintNearbyCommand("expected_pell-mell")
+        cmd.set_dir_path(".")
+
+        actual_text = cmd.execute()
 
         file_name = self.dir_path + "/pell-mell_nby.txt"
         with open(file_name, "w") as f:
-            f.write(text)
+            f.write(actual_text)
 
-        files_same = filecmp.cmp(file_name, expected_file, shallow=False)
+        files_same = filecmp.cmp(file_name, "expected_pell-mell_nby.txt", shallow=False)
         self.assertTrue(files_same)
 
         os.remove(file_name)
