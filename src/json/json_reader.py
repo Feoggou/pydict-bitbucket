@@ -182,9 +182,13 @@ class SynLineReader:
         if "category" in item.keys():
             text += "({}) = ".format(item["category"])
 
-        syns = [("({}) ".format(syn["category"]) if "category" in syn.keys() else "") + syn["syn"] for syn in item["line"]]
+        if isinstance(item["line"][0], str):
+            # older version:
+            text += ", ".join(item["line"])
+        else:
+            syns = [("({}) ".format(syn["category"]) if "category" in syn.keys() else "") + syn["syn"] for syn in item["line"]]
+            text += ", ".join(syns)
 
-        text += ", ".join(syns)
         text += "\n"
 
         return text
