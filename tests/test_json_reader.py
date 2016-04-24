@@ -31,26 +31,16 @@ class TestJsonReader(unittest.TestCase):
         self.word = "do"
 
     def test_toText_frequency(self):
-        cmd = JsonReader(TestJsonReader.content_json)
+        cmd = JsonReader(TestJsonReader.content_json, use_colors=False)
 
         text = cmd.frequency()
-
-        text = text.replace(colors.RESET, "")
-        text = text.replace(colors.RED, "")
-        text = text.replace(colors.BOLDBLACK, "")
-        text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text, "[Extremely Common]\n\n")
 
     def test_toText_examples(self):
-        cmd = JsonReader(TestJsonReader.content_json)
+        cmd = JsonReader(TestJsonReader.content_json, use_colors=False)
 
         text = cmd.examples()
-
-        text = text.replace(colors.RESET, "")
-        text = text.replace(colors.RED, "")
-        text = text.replace(colors.BOLDBLACK, "")
-        text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text,
                          "EXAMPLES\n"
@@ -58,31 +48,21 @@ class TestJsonReader(unittest.TestCase):
                          "Dad, like they do with the United States Code.\n\n")
 
     def test_toText_translations(self):
-        cmd = JsonReader(TestJsonReader.content_json)
+        cmd = JsonReader(TestJsonReader.content_json, use_colors=False)
 
         text = cmd.translations()
-
-        text = text.replace(colors.RESET, "")
-        text = text.replace(colors.RED, "")
-        text = text.replace(colors.BOLDBLACK, "")
-        text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text, "TRANSLATIONS\n"
                                "When you do something, you take some action or perform an activity or task."
                                "I was trying to do some work. done\n\n\n")
 
     def test_toText_Definitions(self):
-        cmd = JsonReader(TestJsonReader.content_json)
+        cmd = JsonReader(TestJsonReader.content_json, use_colors=False)
 
         with patch.object(DefGroupReader, "read_def_group") as mock_ggroups:
             mock_ggroups.side_effect = ["group1\n", "group2\n", "group3\n", "group4\n", "group5\n"]
 
             text = cmd.definitions()
-
-            text = text.replace(colors.RESET, "")
-            text = text.replace(colors.RED, "")
-            text = text.replace(colors.BOLDBLACK, "")
-            text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text, "DEFINTIONS\n"
                                "group1\n"
@@ -100,11 +80,6 @@ class TestJsonReader(unittest.TestCase):
             mock_ggroup.side_effect = ["ggroup1\n", "ggroup2\n", "ggroup3\n", "ggroup4\n"]
 
             text = reader.read_def_group(obj[0])
-
-            text = text.replace(colors.RESET, "")
-            text = text.replace(colors.RED, "")
-            text = text.replace(colors.BOLDBLACK, "")
-            text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text,
                          "do\n"
@@ -125,11 +100,6 @@ class TestJsonReader(unittest.TestCase):
             mock_def.side_effect = ["def1\n", "def2\n", "def3\n", "def4\n", "def5\n", "def6\n", "def7\n"]
 
             text = reader.read_gram_group(obj[0])
-
-            text = text.replace(colors.RESET, "")
-            text = text.replace(colors.RED, "")
-            text = text.replace(colors.BOLDBLACK, "")
-            text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text,
                          "transitive verb\n"
@@ -198,11 +168,6 @@ class TestJsonReader(unittest.TestCase):
 
         text = reader.read_definition(obj[3])
 
-        text = text.replace(colors.RESET, "")
-        text = text.replace(colors.RED, "")
-        text = text.replace(colors.BOLDBLACK, "")
-        text = text.replace(colors.BLUE, "")
-
         self.assertEqual(text,
                          "o) \n"
                          "     to play the role of\n"
@@ -212,17 +177,12 @@ class TestJsonReader(unittest.TestCase):
                          )
 
     def test_toText_Synonyms(self):
-        cmd = JsonReader(TestJsonReader.content_json)
+        cmd = JsonReader(TestJsonReader.content_json, use_colors=False)
 
         with patch.object(SynGroupReader, "read_syn_group") as mock_ggroups:
             mock_ggroups.side_effect = ["group1\n"]
 
             text = cmd.synonyms()
-
-            text = text.replace(colors.RESET, "")
-            text = text.replace(colors.RED, "")
-            text = text.replace(colors.BOLDBLACK, "")
-            text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text, "SYNONYMS\n"
                                "group1\n\n"
@@ -237,11 +197,6 @@ class TestJsonReader(unittest.TestCase):
 
             text = reader.read_syn_group(obj[0])
 
-            text = text.replace(colors.RESET, "")
-            text = text.replace(colors.RED, "")
-            text = text.replace(colors.BOLDBLACK, "")
-            text = text.replace(colors.BLUE, "")
-
         self.assertEqual(text,
                          "do\n"
                          "ggroup1\n"
@@ -254,11 +209,6 @@ class TestJsonReader(unittest.TestCase):
 
         text = reader.read_gram_group(obj)
 
-        text = text.replace(colors.RESET, "")
-        text = text.replace(colors.RED, "")
-        text = text.replace(colors.BOLDBLACK, "")
-        text = text.replace(colors.BLUE, "")
-
         self.assertEqual(text,
                          "verb\n"
                          "o) perform, accomplish, achieve, carry out, complete, execute\n"
@@ -269,14 +219,9 @@ class TestJsonReader(unittest.TestCase):
                          )
 
     def test_jsonToText_readAll(self):
-        cmd = JsonReader(TestJsonReader.content_json)
+        cmd = JsonReader(TestJsonReader.content_json, use_colors=False)
 
         text = cmd.read_content("do")
-
-        text = text.replace(colors.RESET, "")
-        text = text.replace(colors.RED, "")
-        text = text.replace(colors.BOLDBLACK, "")
-        text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text, TestJsonReader.content_text)
 

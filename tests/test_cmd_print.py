@@ -44,14 +44,10 @@ class TestCommandPrint(unittest.TestCase):
         self.DIR_PATH = TestCommandPrint.dir_path
 
     def test_print_all(self):
-        cmd = PrintCommand(self.word)
+        cmd = PrintCommand(self.word, use_colors=False)
         cmd.set_dir_path(self.DIR_PATH)
 
         text = cmd.execute()
-        text = text.replace(colors.RESET, "")
-        text = text.replace(colors.RED, "")
-        text = text.replace(colors.BOLDBLACK, "")
-        text = text.replace(colors.BLUE, "")
 
         self.assertEqual(text, TestCommandPrint.word_exp_print)
 
