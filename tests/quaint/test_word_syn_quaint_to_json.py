@@ -1,5 +1,5 @@
 import unittest
-import json
+# import json
 
 from src.html_parser.syn_groups import *
 
@@ -29,7 +29,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
                         {"line": [{"syn": "unusual"}, {"syn": "bizarre"}, {"syn": "curious"}, {"syn": "droll"},
                                   {"syn": "eccentric"}, {"syn": "fanciful"}, {"syn": "odd"}, {"syn": "old-fashioned"},
                                   {"syn": "peculiar"}, {"syn": "queer"}, {"syn": "rum", "category": "British, slang"},
-                                  {"syn": "fanciful"}, {"syn": "strange"}]},
+                                  {"syn": "singular"}, {"syn": "strange"}]},
                         {"line": [{"syn": "old-fashioned"}, {"syn": "antiquated"}, {"syn": "old-world"},
                                   {"syn": "picturesque"}]},
                     ]

@@ -125,27 +125,41 @@ class SynParser:
 
     @staticmethod
     def get_syn_category(item: etree._Element):
-        if item is None:
-            return ""
+        categs = []
+        last_is_tail = False
 
-        if "class" not in item.keys():
-            return ""
+        while item is not None and "class" in item.keys() and re.match("lbl .+", item.get("class")):
+            last_is_tail = False
+            """if item is None:
+                return ""
 
-        if not re.match("lbl .+", item.get("class")):
-            return ""
+            if "class" not in item.keys():
+                return ""
 
-        text_r = item.xpath('./*[@class="hi"]')
-        # TODO: is it possible to have @class="hi"?
-        text = item.text
-        for y in text_r:
-            if y.text is not None:
-                text += y.text
-            if y.tail is not None:
-                text += y.tail
+            if not re.match("lbl .+", item.get("class")):
+                return "" """
 
-        text = text.replace("  ", " ")
+            text_r = item.xpath('./*[@class="hi"]')
+            # TODO: is it possible to have @class="hi"?
+            text = item.text
+            for y in text_r:
+                if y.text is not None:
+                    text += y.text
+                if y.tail is not None:
+                    text += y.tail
 
-        return text
+            text = text.replace("  ", " ")
+            categs.append(text)
+            if item.tail is not None:
+                categs.append(item.tail)
+                last_is_tail = True
+
+            item = item.getnext()
+
+        if last_is_tail:
+            categs.pop()
+
+        return "".join(categs)
 
     @staticmethod
     def get_synonyms(sense_list_item):
