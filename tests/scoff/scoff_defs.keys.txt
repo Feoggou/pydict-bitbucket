@@ -1,0 +1,4127 @@
+ 0 TAG: "<built-in function Comment>"
+ 0 TEXT: "<![endif]"
+ 0 TAIL: "((space))"
+
+
+ 0 TAG: "head"
+ 0 TEXT: "((space))"
+ 0 TAIL: "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     charset="utf-8"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     name="viewport"; content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     http-equiv="X-UA-Compatible"; content="IE=edge"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "title"
+ 1 TEXT:     "Definition of “scoff” | Collins American English Dictionary"
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     name="description"; content="Definition of “scoff” | The official Collins American Dictionary online.  Comprehensive and authoritative, rely on Collins for up-to-date English with insights into language trends and usage."; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     property="fb:admins"; content="1307503415"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     name="google"; content="notranslate"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "link"
+ 1 KEYS:     rel="canonical"; href="http://www.collinsdictionary.com/dictionary/american/scoff"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "link"
+ 1 KEYS:     rel="shortcut icon"; type="image/x-icon"; href="/static/graphics/favicon.ico"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "link"
+ 1 KEYS:     rel="stylesheet"; href="/static-min/2623/main.css"; type="text/css"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "script"
+ 1 TEXT:     "
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    var dfpSlots = {};
+    (function() {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') +'//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+    })();
+    googletag.cmd.push(function() {
+                                                                             var mapping_btmslot_a = googletag.sizeMapping()
+                     .addSize([1323, 0], [[300, 250], [250, 250], [250, 360], [300, 100], [336, 280], [580, 400]])                                          .addSize([745, 0], [[300, 250], [250, 250], [250, 360], [300, 100], [336, 280]])                                         .addSize([0, 0], [[300, 250], [250, 250], [250, 360], [300, 100]]) .build();
+
+                    dfpSlots["btmslot_a"] = googletag.defineSlot('/20182162/btmslot', [[300, 250], [250, 250], [250, 360], [300, 100], [336, 280]], 'ad_btmslot_a').defineSizeMapping(mapping_btmslot_a)
+                     .setTargeting('hcd_vp', 'btm')  .setTargeting('hcd_hp', 'center')                     .addService(googletag.pubads());
+                                                                                                         var mapping_btmslot_b = googletag.sizeMapping()
+                                                             .addSize([745, 0], [])                      .addSize([0, 733], [[320, 50], [320, 100]])                     .addSize([0, 0], [320, 50]) .build();
+
+                    dfpSlots["btmslot_b"] = googletag.defineSlot('/20182162/btmslot', [], 'ad_btmslot_b').defineSizeMapping(mapping_btmslot_b)
+                     .setTargeting('hcd_vp', 'btm')  .setTargeting('hcd_hp', 'center')                     .addService(googletag.pubads());
+                     dfpSlots["btmslot_b"].renderCallback = function(e) { stickyBtmBannerRendering(e) };                                                                                      var mapping_leftslot_a = googletag.sizeMapping()
+                     .addSize([1323, 0], [])                                          .addSize([745, 0], [160, 600])                                         .addSize([0, 0], []) .build();
+
+                    dfpSlots["leftslot_a"] = googletag.defineSlot('/20182162/leftslot', [160, 600], 'ad_leftslot_a').defineSizeMapping(mapping_leftslot_a)
+                     .setTargeting('hcd_vp', 'mid')  .setTargeting('hcd_hp', 'left')                     .addService(googletag.pubads());
+                                                                                                         var mapping_leftslot_b = googletag.sizeMapping()
+                     .addSize([1323, 0], [[120, 600], [160, 600]])                                                                                 .addSize([0, 0], []) .build();
+
+                    dfpSlots["leftslot_b"] = googletag.defineSlot('/20182162/leftslot', [], 'ad_leftslot_b').defineSizeMapping(mapping_leftslot_b)
+                     .setTargeting('hcd_vp', 'mid')  .setTargeting('hcd_hp', 'left')                     .addService(googletag.pubads());
+                                                                                                         var mapping_topslot = googletag.sizeMapping()
+                     .addSize([1323, 0], [[728, 90], [750, 100], [750, 200], [930, 180], [970, 90], [980, 90], [980, 120]])                      .addSize([993, 0], [[728, 90], [750, 100], [970, 90], [980, 90]])                      .addSize([745, 0], [[728, 90], [750, 100]])                                         .addSize([0, 0], []) .build();
+
+                    dfpSlots["topslot"] = googletag.defineSlot('/20182162/topslot', [[728, 90], [750, 100], [970, 90], [980, 90]], 'ad_topslot').defineSizeMapping(mapping_topslot)
+                     .setTargeting('hcd_vp', 'top')  .setTargeting('hcd_hp', 'center')                     .addService(googletag.pubads());
+                                                                                                         var mapping_rightslot = googletag.sizeMapping()
+                     .addSize([1323, 0], [[300, 250], [240, 400], [250, 250], [250, 360], [300, 100], [336, 280]])                      .addSize([993, 0], [[300, 250], [240, 400], [250, 250], [250, 360], [300, 100]])                                                             .addSize([0, 0], []) .build();
+
+                    dfpSlots["rightslot"] = googletag.defineSlot('/20182162/rightslot', [[300, 250], [240, 400], [250, 250], [250, 360], [300, 100]], 'ad_rightslot').defineSizeMapping(mapping_rightslot)
+                     .setTargeting('hcd_vp', 'top')  .setTargeting('hcd_hp', 'right')                     .addService(googletag.pubads());
+                                                            googletag.pubads().addEventListener('slotRenderEnded', function(event) { if (!event.isEmpty && event.slot.renderCallback) { event.slot.renderCallback(event); } });
+                                             googletag.pubads().setTargeting("hcd_pc", "dictionary");                              googletag.pubads().setTargeting("hcd_pt", "entry");                              googletag.pubads().setTargeting("hcd_dc", "american");                              googletag.pubads().setTargeting("hcd_ei", "scoff");                     
+        
+                                googletag.pubads().collapseEmptyDivs(false);
+        googletag.enableServices();
+    });
+"
+ 1 KEYS:     type="text/javascript"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "script"
+ 1 TEXT:     "
+			//google tracking
+			
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1927569-11']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        "
+ 1 KEYS:     type="text/javascript"; 
+ 1 TAIL:     "((space))"
+
+
+ 0 TAG: "body"
+
+
+ 1 TAG:     "div"
+ 1 TEXT:     "((space))"
+ 1 KEYS:     class="content english"; 
+ 1 TAIL:     "((space))"
+
+
+ 2 TAG:         "div"
+ 2 KEYS:         id="fb-root"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         id="cookie_policy"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "
+                This site uses cookies to improve your browsing experience. For more information see our "
+ 3 KEYS:             class="message"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "privacy policy"
+ 4 KEYS:                 href="/terms-and-conditions#privacy"; 
+ 4 TAIL:                 ".
+            "
+
+
+ 3 TAG:             "a"
+ 3 TEXT:             "Close message"
+ 3 KEYS:             href="#"; class="close"; 
+ 3 TAIL:             "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         id="wrapper"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             id="header"; class="clear"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 KEYS:                 class="responsive_phone menu_phone icon-navicon_definition"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 class="logo_link"; href="/"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "img"
+ 5 KEYS:                     class="logo"; src="/static/graphics/Logo.png"; alt="Collins Dictionary homepage link"; 
+ 5 TAIL:                     "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 class="menu-nav"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     id="userstatus"; class="userstatus"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "ul"
+ 6 TEXT:                         "((space))"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "Join our newsletter / Submit a word "
+ 8 KEYS:                                 rel="nofollow"; href="https://www.collinsdictionary.com/register"; target="_top"; 
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     class="icon-angle-right"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "Sign In "
+ 8 KEYS:                                 rel="nofollow"; href="https://www.collinsdictionary.com/login?returnTo=/dictionary/american/scoff"; target="_top"; 
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     class="icon-angle-right"; 
+
+
+ 5 TAG:                     "ul"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     class="nav"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Dictionaries"
+ 7 KEYS:                             class=" selected "; href="/"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Thesaurus"
+ 7 KEYS:                             class=""; href="/english-thesaurus"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Translator"
+ 7 KEYS:                             class=""; href="/translator"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Scrabble"
+ 7 KEYS:                             href="/scrabble/"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Word Lovers' blog"
+ 7 KEYS:                             href="/word-lovers-blog/"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "New"
+ 7 KEYS:                             href="/word-lovers-blog/new/"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="responsive_phone"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Browse the      "
+ 7 KEYS:                             href="/browse/american/words-starting-with-a"; 
+
+
+ 8 TAG:                                 "span"
+ 8 TEXT:                                 "American Dictionary"
+ 8 KEYS:                                 class="titleise"; 
+ 8 TAIL:                                 " (A-Z)"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             class="dictionary"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 class="dictionary_header_wrapper"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     class="dictionary_header clear english"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="search side_bar"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="form_elements clear"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="search_form_wrapper  "; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "form"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         method="POST"; action="/search"; id="search-american-form"; class="search_form"; onsubmit="if (q.value == '') { return false; }"; accept-charset="UTF-8"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "div"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="search_bar clear"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "div"
+12 TEXT:                                                 "((space))"
+12 KEYS:                                                 class="form_input_dict responsive_phone"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "select"
+13 TEXT:                                                     "((space))"
+13 KEYS:                                                     class="selectorDict"; 
+13 TAIL:                                                     "((space))"
+
+
+14 TAG:                                                         "optgroup"
+14 TEXT:                                                         "((space))"
+14 KEYS:                                                         label="-----"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "English Dictionary"
+15 KEYS:                                                             id="english-to"; class="search_radio"; type="radio"; name="dataset"; value="english"; data-dataset="ENGLISH_DICTIONARY"; data-url="/dictionary/english"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "American English Dictionary"
+15 KEYS:                                                             id="to-english"; class="search_radio"; type="radio"; name="dataset"; value="american"; selected="true"; data-dataset="AMERICAN_DICTIONARY"; data-url="/dictionary/american"; 
+15 TAIL:                                                             "((space))"
+
+
+14 TAG:                                                         "optgroup"
+14 TEXT:                                                         "((space))"
+14 KEYS:                                                         label="-----"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "English for Learners"
+15 KEYS:                                                             id="english-to"; class="search_radio"; type="radio"; name="dataset"; value="english-cobuild-learners"; data-dataset="ENGLISH_LEARNER_DICTIONARY"; data-url="/dictionary/english-cobuild-learners"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "American English for Learners"
+15 KEYS:                                                             id="to-english"; class="search_radio"; type="radio"; name="dataset"; value="american-cobuild-learners"; data-dataset="AMERICAN_LEARNER_DICTIONARY"; data-url="/dictionary/american-cobuild-learners"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "American-French Dictionary"
+15 KEYS:                                                             id="english-to"; class="search_radio"; type="radio"; name="dataset"; value="american-french"; data-dataset="AMERICAN_FRENCH_DICTIONARY"; data-url="/dictionary/american-french"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "French-American Dictionary"
+15 KEYS:                                                             id="to-english"; class="search_radio"; type="radio"; name="dataset"; value="french-american"; data-dataset="FRENCH_AMERICAN_DICTIONARY"; data-url="/dictionary/french-american"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "American-German Dictionary"
+15 KEYS:                                                             id="english-to"; class="search_radio"; type="radio"; name="dataset"; value="american-german"; data-dataset="AMERICAN_GERMAN_DICTIONARY"; data-url="/dictionary/american-german"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "German-American Dictionary"
+15 KEYS:                                                             id="to-english"; class="search_radio"; type="radio"; name="dataset"; value="german-american"; data-dataset="GERMAN_AMERICAN_DICTIONARY"; data-url="/dictionary/german-american"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "American-Spanish Dictionary"
+15 KEYS:                                                             id="english-to"; class="search_radio"; type="radio"; name="dataset"; value="american-spanish"; data-dataset="AMERICAN_SPANISH_DICTIONARY"; data-url="/dictionary/american-spanish"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "Spanish-American Dictionary"
+15 KEYS:                                                             id="to-english"; class="search_radio"; type="radio"; name="dataset"; value="spanish-american"; data-dataset="SPANISH_AMERICAN_DICTIONARY"; data-url="/dictionary/spanish-american"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "American-Italian Dictionary"
+15 KEYS:                                                             id="english-to"; class="search_radio"; type="radio"; name="dataset"; value="american-italian"; data-dataset="AMERICAN_ITALIAN_DICTIONARY"; data-url="/dictionary/american-italian"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "Italian-American Dictionary"
+15 KEYS:                                                             id="to-english"; class="search_radio"; type="radio"; name="dataset"; value="italian-american"; data-dataset="ITALIAN_AMERICAN_DICTIONARY"; data-url="/dictionary/italian-american"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "American-Chinese Dictionary"
+15 KEYS:                                                             id="english-to"; class="search_radio"; type="radio"; name="dataset"; value="american-chinese"; data-dataset="AMERICAN_CHINESE_DICTIONARY"; data-url="/dictionary/american-chinese"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "option"
+15 TEXT:                                                             "Chinese-American Dictionary"
+15 KEYS:                                                             id="to-english"; class="search_radio"; type="radio"; name="dataset"; value="chinese-american"; data-dataset="CHINESE_AMERICAN_DICTIONARY"; data-url="/dictionary/chinese-american"; 
+15 TAIL:                                                             "((space))"
+
+
+13 TAG:                                                     "i"
+13 KEYS:                                                     class="icon-books"; 
+13 TAIL:                                                     "((space))"
+
+
+13 TAG:                                                     "i"
+13 KEYS:                                                     class="icon-caret-down"; 
+13 TAIL:                                                     "((space))"
+
+
+12 TAG:                                                 "div"
+12 TEXT:                                                 "((space))"
+12 KEYS:                                                 class="form_input_text form-item"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "input"
+13 KEYS:                                                     type="text"; name="q"; id="search-american"; class="search-input max-chars bad-chars"; placeholder="American English Dictionary"; autocomplete="off"; autocorrect="off"; autocapitalize="off"; spellcheck="false"; 
+13 TAIL:                                                     "((space))"
+
+
+12 TAG:                                                 "div"
+12 TEXT:                                                 "((space))"
+12 KEYS:                                                 class="form_input_submit"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "button"
+13 KEYS:                                                     type="submit"; value="Search"; class="submit"; 
+13 TAIL:                                                     "((space))"
+
+
+14 TAG:                                                         "i"
+14 KEYS:                                                         class="icon-search"; 
+
+
+11 TAG:                                             "div"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="responsive_tab_desktop lang_selection wotd"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "input"
+12 KEYS:                                                 id="english-to"; class="search_radio"; type="radio"; name="dataset"; value="english"; data-dataset="ENGLISH_DICTIONARY"; 
+12 TAIL:                                                 "((space))"
+
+
+12 TAG:                                                 "label"
+12 TEXT:                                                 "British English"
+12 KEYS:                                                 for="english-to"; 
+12 TAIL:                                                 "((space))"
+
+
+12 TAG:                                                 "input"
+12 KEYS:                                                 id="to-english"; class="search_radio"; type="radio"; name="dataset"; value="american"; checked="checked"; data-dataset="AMERICAN_DICTIONARY"; 
+12 TAIL:                                                 "((space))"
+
+
+12 TAG:                                                 "label"
+12 TEXT:                                                 "American English"
+12 KEYS:                                                 for="to-english"; 
+12 TAIL:                                                 "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="browse_dictionary clear"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "Browse the      "
+10 KEYS:                                         class="browse-dictionary responsive_desktop"; href="#"; onclick="return false;"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "American Dictionary"
+11 KEYS:                                             class="titleise"; 
+11 TAIL:                                             " (A-Z)"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "Browse the      "
+10 KEYS:                                         class="browse-dictionary responsive_tab"; href="/browse/american/words-starting-with-a"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "American Dictionary"
+11 KEYS:                                             class="titleise"; 
+11 TAIL:                                             " (A-Z)"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="title"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "p"
+ 8 TEXT:                                 "American English Dictionary"
+ 8 KEYS:                                 class="title_header"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "p"
+ 8 TEXT:                                 "Pioneers in dictionary publishing since 1819"
+ 8 KEYS:                                 class="tagline"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="title responsive_phone"; id="title_scroll"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "p"
+ 8 TEXT:                                 "American English Dictionary"
+ 8 KEYS:                                 class="title_header"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "p"
+ 8 TEXT:                                 "Pioneers in dictionary publishing since 1819"
+ 8 KEYS:                                 class="tagline"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         class="alphabet_wrapper alphabets"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "ul"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="alphabet has-digits"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "#"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-digit"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "A"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-a"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "B"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-b"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "C"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-c"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "D"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-d"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "E"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-e"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "F"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-f"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "G"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-g"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "H"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-h"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "I"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-i"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "J"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-j"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "K"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-k"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "L"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-l"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "M"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-m"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "N"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-n"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "O"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-o"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "P"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-p"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "Q"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-q"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "R"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-r"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "S"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-s"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "T"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-t"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "U"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-u"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "V"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-v"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "W"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-w"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "X"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-x"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "Y"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-y"; 
+
+
+ 8 TAG:                                 "li"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "Z"
+ 9 KEYS:                                     href="/browse/american/words-starting-with-z"; 
+
+
+ 5 TAG:                     "ul"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     class="clear language-links responsive_tab_desktop"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="english-tab selected"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "English"
+ 7 KEYS:                             href="/dictionary/american/scoff"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="english-for-learners-tab"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "English for Learners"
+ 7 KEYS:                             href="/dictionary/american-cobuild-learners/scoff"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="french-tab"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "French"
+ 7 KEYS:                             href="/dictionary/american-french/scoff"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="german-tab"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "German"
+ 7 KEYS:                             href="/dictionary/american-german/scoff"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="spanish-tab"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Spanish"
+ 7 KEYS:                             href="/dictionary/american-spanish/scoff"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="italian-tab"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Italian"
+ 7 KEYS:                             href="/dictionary/american-italian/scoff"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="chinese-tab"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Chinese"
+ 7 KEYS:                             href="/dictionary/american-chinese/scoff"; 
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 id="ad_topslot"; class="am-default "; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "script"
+ 5 TEXT:                     "googletag.cmd.push(function() { googletag.display('ad_topslot'); });"
+ 5 KEYS:                     type="text/javascript"; 
+ 5 TAIL:                     "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 class="definition_wrapper english"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     class="ac_leftslot_a sticky"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         id="ad_leftslot_a"; class="am-default "; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "script"
+ 7 TEXT:                             "googletag.cmd.push(function() { googletag.display('ad_leftslot_a'); });"
+ 7 KEYS:                             type="text/javascript"; 
+ 7 TAIL:                             "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     class="ac_leftslot_b sticky"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         id="ad_leftslot_b"; class="am-default "; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "script"
+ 7 TEXT:                             "googletag.cmd.push(function() { googletag.display('ad_leftslot_b'); });"
+ 7 KEYS:                             type="text/javascript"; 
+ 7 TAIL:                             "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     class="definition_main"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         class="definition_content col main_bar"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="breadcrumb clear"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "ul"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="nav clear"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "Home"
+10 KEYS:                                         href="/"; 
+10 TAIL:                                         "  >  "
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "American English Dictionary"
+10 KEYS:                                         href="/dictionary/american"; 
+10 TAIL:                                         "  >  "
+
+
+ 9 TAG:                                     "li"
+ 9 TEXT:                                     "scoff"
+ 9 TAIL:                                     "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="breadcrumb"; id="search_found"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "span"
+ 8 TEXT:                                 "Your search found:"
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "ul"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="definition_breadcrumbs search-found"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "li"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="seperated"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         class="hom highlight"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "sup"
+11 TEXT:                                             "1"
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scoff"
+11 KEYS:                                             href="#scoff_1"; 
+11 TAIL:                                             "((space))"
+
+
+ 9 TAG:                                     "li"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="seperated"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         class="hom highlight"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "sup"
+11 TEXT:                                             "2"
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scoff"
+11 KEYS:                                             href="#scoff_2"; 
+11 TAIL:                                             "((space))"
+
+
+ 9 TAG:                                     "li"
+ 9 KEYS:                                     class="seperated"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "Usage examples"
+10 KEYS:                                         href="#examples_box"; 
+
+
+ 9 TAG:                                     "li"
+ 9 KEYS:                                     class="seperated"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "Trends"
+10 KEYS:                                         href="#trends_box"; 
+
+
+ 7 TAG:                             "h1"
+ 7 TEXT:                             "Definitions of scoff"
+ 7 KEYS:                             class="definition_of"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             id="scoff_1"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="homograph-entry"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     id="scoff_1"; 
+
+
+ 9 TAG:                                     "h2"
+ 9 TEXT:                                     "scoff"
+ 9 KEYS:                                     class="orth h1_entry"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         " (skɑf"
+10 KEYS:                                         class="pron"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="hwd_sound"; 
+11 TAIL:                                             "; "
+
+
+12 TAG:                                                 "a"
+12 KEYS:                                                 class="hwd_sound sound audio_play_button"; title="Pronunciation for "; data-src-mp3="/sounds/e/en_/en_us/en_us_scoff.mp3"; 
+12 TAIL:                                                 "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         " skɔf"
+10 KEYS:                                         class="pron"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="hwd_sound"; 
+11 TAIL:                                             ")"
+
+
+12 TAG:                                                 "a"
+12 KEYS:                                                 class="hwd_sound sound audio_play_button"; title="Pronunciation for "; data-src-mp3="/sounds/e/en_/en_us/en_us_scoff_1.mp3"; 
+12 TAIL:                                                 "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="definitions hom-subsec"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "h3"
+10 TEXT:                                         "Definitions"
+10 KEYS:                                         class="h2_entry"; 
+10 TAIL:                                         "((space))"
+
+
+10 TAG:                                         "div"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         id="scoff_1.1"; class="hom"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "h4"
+11 KEYS:                                             class="gramGrp h3_entry"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "noun"
+12 KEYS:                                                 class="pos"; 
+12 TAIL:                                                 "((space))"
+
+
+11 TAG:                                             "ol"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="sense_list level_1"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "li"
+12 KEYS:                                                 class="sense_list_item level_1"; value="1"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "an expression of mocking contempt, scorn, or derision; jeer"
+13 KEYS:                                                     class="def"; 
+
+
+12 TAG:                                                 "li"
+12 KEYS:                                                 class="sense_list_item level_1"; value="2"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "an object of mocking contempt, scorn, etc."
+13 KEYS:                                                     class="def"; 
+
+
+10 TAG:                                         "div"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         id="scoff_1.2"; class="hom"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "h4"
+11 KEYS:                                             class="gramGrp h3_entry"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "transitive verb"
+12 KEYS:                                                 class="pos"; 
+12 TAIL:                                                 "((space))"
+
+
+11 TAG:                                             "ol"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="sense_list level_1"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "li"
+12 KEYS:                                                 class="sense_list_item level_1"; value="3"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "to mock at or deride"
+13 KEYS:                                                     class="def"; 
+
+
+10 TAG:                                         "div"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         id="scoff_1.3"; class="hom"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "h4"
+11 KEYS:                                             class="gramGrp h3_entry"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "intransitive verb"
+12 KEYS:                                                 class="pos"; 
+12 TAIL:                                                 "((space))"
+
+
+11 TAG:                                             "ol"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="sense_list level_1"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "li"
+12 KEYS:                                                 class="sense_list_item level_1"; value="4"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "to show mocking contempt, scorn, or derision, esp. by language; jeer"
+13 KEYS:                                                     class="def"; 
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="re hom-subsec"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "h4"
+10 TEXT:                                         "Derived Forms"
+10 KEYS:                                         class="h3_entry"; 
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "ˈscoffer"
+10 KEYS:                                         class="drv"; 
+10 TAIL:                                         "((space))"
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         class="gramGrp"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "noun"
+11 KEYS:                                             class="pos"; 
+
+
+ 9 TAG:                                     "div"
+ 9 KEYS:                                     class="re hom-subsec"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "ˈscoffingly"
+10 KEYS:                                         class="drv"; 
+10 TAIL:                                         "((space))"
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         class="gramGrp"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "adverb"
+11 KEYS:                                             class="pos"; 
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="etym hom-subsec"; 
+
+
+10 TAG:                                         "h3"
+10 TEXT:                                         "Word Origin "
+10 KEYS:                                         class="sc h2_entry"; 
+10 TAIL:                                         "ME "
+
+
+10 TAG:                                         "em"
+10 TEXT:                                         "scof"
+10 KEYS:                                         class="hi"; 
+10 TAIL:                                         ", prob. < Scand: akin to OE  "
+
+
+10 TAG:                                         "em"
+10 TEXT:                                         "scop"
+10 KEYS:                                         class="hi"; 
+10 TAIL:                                         ", singer, OHG  "
+
+
+10 TAG:                                         "em"
+10 TEXT:                                         "skof"
+10 KEYS:                                         class="hi"; 
+10 TAIL:                                         ", poem, ridicule: for IE base see  "
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         class="xr_ref"; 
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "shove"
+11 KEYS:                                             class="xr_ref_link"; href="shove#shove_1"; 
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 id="synonyms_box"; class="context_box context_box_AMERICAN_DICTIONARY hom-subsec"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "h3"
+ 9 TEXT:                                     "Synonyms"
+ 9 KEYS:                                     class="h2_entry"; 
+ 9 TAIL:                                     "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "View thesaurus entry"
+ 9 KEYS:                                     class="link-right"; href="/dictionary/american-thesaurus/scoff"; 
+ 9 TAIL:                                     "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     id="synonyms_content"; class="lang_en-us"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "div"
+10 TEXT:                                         " = "
+10 KEYS:                                         class="thesaurus_synonyms"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "scorn"
+12 KEYS:                                                 href="scorn"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "belittle"
+12 KEYS:                                                 href="belittle"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "deride"
+12 KEYS:                                                 href="deride"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "despise"
+12 KEYS:                                                 href="despise"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "jeer"
+12 KEYS:                                                 href="jeer"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "knock"
+12 KEYS:                                                 href="knock"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             " (informal)"
+11 KEYS:                                             class="lbl"; 
+11 TAIL:                                             ", "
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "laugh at"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "mock"
+12 KEYS:                                                 href="mock"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "pooh-pooh"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "ridicule"
+12 KEYS:                                                 href="ridicule"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "sneer"
+12 KEYS:                                                 href="sneer"; 
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="usage_trends block"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="block clear"; id="trends_box"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "h2"
+ 9 TEXT:                                     "Word usage trends for “scoff”"
+ 9 KEYS:                                     class="sc h2_entry"; 
+ 9 TAIL:                                     "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="block-content clear"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "p"
+10 TEXT:                                         "View usage over:"
+10 KEYS:                                         class="dropdown-label"; 
+10 TAIL:                                         "((space))"
+
+
+10 TAG:                                         "ul"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         class="expandable-list"; id="graph_years"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "li"
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "Last 10 years"
+12 KEYS:                                                 href="#"; data-period="10"; 
+
+
+11 TAG:                                             "li"
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "Last 50 years"
+12 KEYS:                                                 href="#"; data-period="50"; 
+
+
+11 TAG:                                             "li"
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "Last 100 years"
+12 KEYS:                                                 href="#"; data-period="100"; 
+
+
+11 TAG:                                             "li"
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "Last 300 years"
+12 KEYS:                                                 href="#"; data-period="300"; 
+
+
+10 TAG:                                         "div"
+10 KEYS:                                         id="visualization"; 
+10 TAIL:                                         "((space))"
+
+
+ 7 TAG:                             "script"
+ 7 KEYS:                             type="text/javascript"; src="https://www.google.com/jsapi"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "script"
+ 7 TEXT:                             "
+        function getFrequencyData(period) { switch (period) {  case 10:  return [["1998",0.24],["1999",0.27],["2000",0.25],["2001",0.26],["2002",0.25],["2003",0.26],["2004",0.27],["2005",0.24],["2006",0.25],["2007",0.27],["2008",0.25]]; break; case 50:  return [["1958",0.33],["1959",0.32],["1960",0.34],["1961",0.35],["1962",0.36],["1963",0.34],["1964",0.31],["1965",0.33],["1966",0.35],["1967",0.35],["1968",0.35],["1969",0.33],["1970",0.34],["1971",0.33],["1972",0.29],["1973",0.28],["1974",0.25],["1975",0.31],["1976",0.23],["1977",0.24],["1978",0.26],["1979",0.22],["1980",0.24],["1981",0.24],["1982",0.24],["1983",0.25],["1984",0.22],["1985",0.22],["1986",0.23],["1987",0.21],["1988",0.22],["1989",0.22],["1990",0.25],["1991",0.25],["1992",0.23],["1993",0.21],["1994",0.24],["1995",0.24],["1996",0.25],["1997",0.24],["1998",0.24],["1999",0.27],["2000",0.25],["2001",0.26],["2002",0.25],["2003",0.26],["2004",0.27],["2005",0.24],["2006",0.25],["2007",0.27],["2008",0.25]]; break; case 100:  return [["1908",0.49],["1909",0.58],["1910",0.51],["1911",0.52],["1912",0.47],["1913",0.54],["1914",0.47],["1915",0.42],["1916",0.51],["1917",0.48],["1918",0.41],["1919",0.46],["1920",0.54],["1921",0.46],["1922",0.4],["1923",0.46],["1924",0.47],["1925",0.57],["1926",0.46],["1927",0.52],["1928",0.46],["1929",0.55],["1930",0.49],["1931",0.51],["1932",0.44],["1933",0.42],["1934",0.38],["1935",0.46],["1936",0.51],["1937",0.44],["1938",0.42],["1939",0.43],["1940",0.36],["1941",0.4],["1942",0.39],["1943",0.39],["1944",0.35],["1945",0.4],["1946",0.45],["1947",0.41],["1948",0.44],["1949",0.38],["1950",0.44],["1951",0.37],["1952",0.36],["1953",0.39],["1954",0.33],["1955",0.38],["1956",0.35],["1957",0.36],["1958",0.33],["1959",0.32],["1960",0.34],["1961",0.35],["1962",0.36],["1963",0.34],["1964",0.31],["1965",0.33],["1966",0.35],["1967",0.35],["1968",0.35],["1969",0.33],["1970",0.34],["1971",0.33],["1972",0.29],["1973",0.28],["1974",0.25],["1975",0.31],["1976",0.23],["1977",0.24],["1978",0.26],["1979",0.22],["1980",0.24],["1981",0.24],["1982",0.24],["1983",0.25],["1984",0.22],["1985",0.22],["1986",0.23],["1987",0.21],["1988",0.22],["1989",0.22],["1990",0.25],["1991",0.25],["1992",0.23],["1993",0.21],["1994",0.24],["1995",0.24],["1996",0.25],["1997",0.24],["1998",0.24],["1999",0.27],["2000",0.25],["2001",0.26],["2002",0.25],["2003",0.26],["2004",0.27],["2005",0.24],["2006",0.25],["2007",0.27],["2008",0.25]]; break; case 300:  return [["1708",null],["1709",null],["1710",null],["1711",null],["1712",null],["1713",null],["1714",null],["1715",null],["1716",null],["1717",4.6],["1718",null],["1719",null],["1720",null],["1721",null],["1722",null],["1723",null],["1724",null],["1725",null],["1726",null],["1727",null],["1728",null],["1729",null],["1730",null],["1731",3.51],["1732",null],["1733",null],["1734",null],["1735",null],["1736",null],["1737",null],["1738",null],["1739",null],["1740",null],["1741",null],["1742",null],["1743",null],["1744",null],["1745",null],["1746",null],["1747",null],["1748",null],["1749",null],["1750",null],["1751",null],["1752",null],["1753",null],["1754",null],["1755",null],["1756",null],["1757",null],["1758",null],["1759",null],["1760",null],["1761",null],["1762",null],["1763",null],["1764",null],["1765",1.62],["1766",null],["1767",null],["1768",null],["1769",null],["1770",null],["1771",null],["1772",null],["1773",null],["1774",null],["1775",null],["1776",null],["1777",null],["1778",null],["1779",null],["1780",null],["1781",null],["1782",null],["1783",null],["1784",null],["1785",null],["1786",null],["1787",1.08],["1788",null],["1789",null],["1790",null],["1791",null],["1792",0.52],["1793",null],["1794",null],["1795",0.43],["1796",null],["1797",null],["1798",null],["1799",null],["1800",0.41],["1801",0.26],["1802",0.28],["1803",0.22],["1804",0.17],["1805",0.54],["1806",0.44],["1807",0.6],["1808",0.52],["1809",0.76],["1810",0.6],["1811",0.83],["1812",0.56],["1813",0.8],["1814",0.74],["1815",0.54],["1816",0.57],["1817",0.75],["1818",0.59],["1819",0.88],["1820",1.16],["1821",0.91],["1822",0.62],["1823",0.69],["1824",0.42],["1825",0.61],["1826",0.62],["1827",0.61],["1828",0.76],["1829",0.9],["1830",0.7],["1831",0.82],["1832",0.81],["1833",0.64],["1834",0.61],["1835",0.76],["1836",0.71],["1837",0.8],["1838",0.87],["1839",0.94],["1840",0.63],["1841",0.85],["1842",0.94],["1843",0.8],["1844",0.87],["1845",0.77],["1846",0.84],["1847",0.89],["1848",0.71],["1849",0.86],["1850",0.77],["1851",0.81],["1852",0.78],["1853",0.94],["1854",0.72],["1855",0.82],["1856",0.84],["1857",0.82],["1858",0.77],["1859",0.71],["1860",0.73],["1861",0.78],["1862",0.9],["1863",0.85],["1864",0.92],["1865",0.74],["1866",0.79],["1867",0.69],["1868",0.75],["1869",0.67],["1870",0.74],["1871",0.94],["1872",0.75],["1873",0.68],["1874",0.56],["1875",0.72],["1876",0.58],["1877",0.61],["1878",0.69],["1879",0.59],["1880",0.62],["1881",0.65],["1882",0.75],["1883",0.63],["1884",0.63],["1885",0.64],["1886",0.57],["1887",0.61],["1888",0.53],["1889",0.6],["1890",0.62],["1891",0.62],["1892",0.8],["1893",0.58],["1894",0.63],["1895",0.59],["1896",0.56],["1897",0.62],["1898",0.6],["1899",0.7],["1900",0.55],["1901",0.5],["1902",0.56],["1903",0.57],["1904",0.56],["1905",0.49],["1906",0.57],["1907",0.53],["1908",0.49],["1909",0.58],["1910",0.51],["1911",0.52],["1912",0.47],["1913",0.54],["1914",0.47],["1915",0.42],["1916",0.51],["1917",0.48],["1918",0.41],["1919",0.46],["1920",0.54],["1921",0.46],["1922",0.4],["1923",0.46],["1924",0.47],["1925",0.57],["1926",0.46],["1927",0.52],["1928",0.46],["1929",0.55],["1930",0.49],["1931",0.51],["1932",0.44],["1933",0.42],["1934",0.38],["1935",0.46],["1936",0.51],["1937",0.44],["1938",0.42],["1939",0.43],["1940",0.36],["1941",0.4],["1942",0.39],["1943",0.39],["1944",0.35],["1945",0.4],["1946",0.45],["1947",0.41],["1948",0.44],["1949",0.38],["1950",0.44],["1951",0.37],["1952",0.36],["1953",0.39],["1954",0.33],["1955",0.38],["1956",0.35],["1957",0.36],["1958",0.33],["1959",0.32],["1960",0.34],["1961",0.35],["1962",0.36],["1963",0.34],["1964",0.31],["1965",0.33],["1966",0.35],["1967",0.35],["1968",0.35],["1969",0.33],["1970",0.34],["1971",0.33],["1972",0.29],["1973",0.28],["1974",0.25],["1975",0.31],["1976",0.23],["1977",0.24],["1978",0.26],["1979",0.22],["1980",0.24],["1981",0.24],["1982",0.24],["1983",0.25],["1984",0.22],["1985",0.22],["1986",0.23],["1987",0.21],["1988",0.22],["1989",0.22],["1990",0.25],["1991",0.25],["1992",0.23],["1993",0.21],["1994",0.24],["1995",0.24],["1996",0.25],["1997",0.24],["1998",0.24],["1999",0.27],["2000",0.25],["2001",0.26],["2002",0.25],["2003",0.26],["2004",0.27],["2005",0.24],["2006",0.25],["2007",0.27],["2008",0.25]]; break; } }
+    "
+ 7 KEYS:                             type="text/javascript"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             id="scoff_2"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="homograph-entry"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     id="scoff_2"; 
+
+
+ 9 TAG:                                     "h2"
+ 9 TEXT:                                     "scoff"
+ 9 KEYS:                                     class="orth h1_entry"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         " (skɑf"
+10 KEYS:                                         class="pron"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="hwd_sound"; 
+11 TAIL:                                             "; "
+
+
+12 TAG:                                                 "a"
+12 KEYS:                                                 class="hwd_sound sound audio_play_button"; title="Pronunciation for "; data-src-mp3="/sounds/e/en_/en_us/en_us_scoff.mp3"; 
+12 TAIL:                                                 "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         " skɔf"
+10 KEYS:                                         class="pron"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="hwd_sound"; 
+11 TAIL:                                             ")"
+
+
+12 TAG:                                                 "a"
+12 KEYS:                                                 class="hwd_sound sound audio_play_button"; title="Pronunciation for "; data-src-mp3="/sounds/e/en_/en_us/en_us_scoff_1.mp3"; 
+12 TAIL:                                                 "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="definitions hom-subsec"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "h3"
+10 TEXT:                                         "Definitions"
+10 KEYS:                                         class="h2_entry"; 
+10 TAIL:                                         "((space))"
+
+
+10 TAG:                                         "div"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         id="scoff_2.1"; class="hom"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "h4"
+11 KEYS:                                             class="gramGrp h3_entry"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "noun"
+12 KEYS:                                                 class="pos"; 
+12 TAIL:                                                 "((space))"
+
+
+11 TAG:                                             "ol"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="sense_list level_1"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "li"
+12 TEXT:                                                 " ("
+12 KEYS:                                                 class="sense_list_item level_1"; value="1"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "mainly British"
+13 KEYS:                                                     class="lbl geo"; 
+13 TAIL:                                                     ", "
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "slang"
+13 KEYS:                                                     class="lbl register"; 
+13 TAIL:                                                     ")"
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     " food or rations"
+13 KEYS:                                                     class="def"; 
+
+
+10 TAG:                                         "div"
+10 TEXT:                                         "((space))"
+10 KEYS:                                         id="scoff_2.2"; class="hom"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "h4"
+11 KEYS:                                             class="gramGrp h3_entry"; 
+11 TAIL:                                             " ("
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "transitive verb"
+12 KEYS:                                                 class="pos"; 
+12 TAIL:                                                 ", "
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "intransitive verb"
+12 KEYS:                                                 class="pos"; 
+12 TAIL:                                                 "((space))"
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "slang"
+11 KEYS:                                             class="lbl register"; 
+11 TAIL:                                             ")
+      "
+
+
+11 TAG:                                             "ol"
+11 TEXT:                                             "((space))"
+11 KEYS:                                             class="sense_list level_1"; 
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "li"
+12 KEYS:                                                 class="sense_list_item level_1"; value="2"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "to eat or devour"
+13 KEYS:                                                     class="def"; 
+
+
+12 TAG:                                                 "li"
+12 KEYS:                                                 class="sense_list_item level_1"; value="3"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "to plunder or seize"
+13 KEYS:                                                     class="def"; 
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="etym hom-subsec"; 
+
+
+10 TAG:                                         "h3"
+10 TEXT:                                         "Word Origin "
+10 KEYS:                                         class="sc h2_entry"; 
+10 TAIL:                                         "< dial. "
+
+
+10 TAG:                                         "em"
+10 TEXT:                                         "scaff"
+10 KEYS:                                         class="hi"; 
+10 TAIL:                                         " < ?
+"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 id="synonyms_box"; class="context_box context_box_AMERICAN_DICTIONARY hom-subsec"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "h3"
+ 9 TEXT:                                     "Synonyms"
+ 9 KEYS:                                     class="h2_entry"; 
+ 9 TAIL:                                     "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "View thesaurus entry"
+ 9 KEYS:                                     class="link-right"; href="/dictionary/american-thesaurus/scoff"; 
+ 9 TAIL:                                     "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     id="synonyms_content"; class="lang_en-us"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "div"
+10 TEXT:                                         " = "
+10 KEYS:                                         class="thesaurus_synonyms"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "gobble"
+12 KEYS:                                                 href="gobble"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "gobble up"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "bolt"
+12 KEYS:                                                 href="bolt"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "devour"
+12 KEYS:                                                 href="devour"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "gorge oneself on"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "gulp down"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="synonym"; 
+11 TAIL:                                             ", "
+
+
+12 TAG:                                                 "a"
+12 TEXT:                                                 "guzzle"
+12 KEYS:                                                 href="guzzle"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "wolf"
+11 KEYS:                                             class="synonym"; 
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             id="translations_box"; class="context_box context_box_american clear translations term-subsec"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "h2"
+ 8 TEXT:                                 "Translations for 'scoff'"
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 id="translations-content"; class="clear"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "ul"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="translation_list clear"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation"; lang="lang_en-us"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="hom lang_EN-US"; id="w0076620EN-US"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "American English"
+12 KEYS:                                                 class="lang"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 ": "
+12 KEYS:                                                 class="neutral"; 
+
+
+12 TAG:                                                 "span"
+12 KEYS:                                                 class="inline lang_EN-US"; 
+
+
+13 TAG:                                                     "span"
+13 KEYS:                                                     class="orth"; 
+
+
+14 TAG:                                                         "a"
+14 TEXT:                                                         "scoff"
+14 KEYS:                                                         href="
+		
+			/dictionary/american/scoff "; 
+
+
+12 TAG:                                                 "a"
+12 KEYS:                                                 class="sound audio_play_button"; title="Pronunciation for scoff"; data-src-mp3="/sounds/e/en_/en_us/en_us_w0076620.mp3"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "((space))"
+12 KEYS:                                                 class="neutral"; 
+12 TAIL:                                                 "If you "
+
+
+12 TAG:                                                 "em"
+12 TEXT:                                                 "scoff"
+12 KEYS:                                                 class="hi"; 
+12 TAIL:                                                 " at something, you speak about it in a way that shows you think it is ridiculous or inadequate.At first I scoffed at the idea."
+
+
+12 TAG:                                                 "em"
+12 KEYS:                                                 class="hi"; 
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     "((space))"
+13 KEYS:                                                     class="neutral"; 
+13 TAIL:                                                     "scoffs"
+
+
+12 TAG:                                                 "em"
+12 KEYS:                                                 class="hi"; 
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     ", "
+13 KEYS:                                                     class="neutral"; 
+13 TAIL:                                                     "scoffing"
+
+
+12 TAG:                                                 "em"
+12 KEYS:                                                 class="hi"; 
+
+
+13 TAG:                                                     "span"
+13 TEXT:                                                     ", "
+13 KEYS:                                                     class="neutral"; 
+13 TAIL:                                                     "scoffed"
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_AR"; id="w0076620AR"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Arabic"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_AR"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "يَسْخَرُ مِن"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for يَسْخَرُ مِن"; data-src-mp3="/sounds/a/ar_/ar_w0/ar_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_PT-BR"; id="w0076620PT-BR"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Brazilian Portuguese"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_PT-BR"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "zombar"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for zombar"; data-src-mp3="/sounds/p/pt_/pt_br/pt_br_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_ZH-CN"; id="w0076620ZH-CN"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Chinese"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_ZH-CN"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "嘲笑"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for 嘲笑"; data-src-mp3="/sounds/z/zh_/zh_cn/zh_cn_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_HR"; id="w0076620HR"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Croatian"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_HR"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "podrugivati se"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for podrugivati se"; data-src-mp3="/sounds/h/hr_/hr_w0/hr_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_CS"; id="w0076620CS"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Czech"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_CS"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "posmívat se"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for posmívat se"; data-src-mp3="/sounds/c/cs_/cs_w0/cs_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_DA"; id="w0076620DA"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Danish"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_DA"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "spotte"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for spotte"; data-src-mp3="/sounds/d/da_/da_w0/da_w0076620.mp3"; 
+11 TAIL:                                             "håne"
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_NL"; id="w0076620NL"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Dutch"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_NL"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "beschimpen"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for beschimpen"; data-src-mp3="/sounds/n/nl_/nl_w0/nl_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_ES-ES"; id="w0076620ES-ES"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "European Spanish"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_ES-ES"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "burlarse de"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for burlarse de"; data-src-mp3="/sounds/e/es_/es_es/es_es_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_FI"; id="w0076620FI"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Finnish"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_FI"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "pilkata"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for pilkata"; data-src-mp3="/sounds/f/fi_/fi_w0/fi_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_FR"; id="w0076620FR"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "French"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_FR"; 
+
+
+12 TAG:                                                 "span"
+12 KEYS:                                                 class="orth"; 
+
+
+13 TAG:                                                     "a"
+13 TEXT:                                                     "railler"
+13 KEYS:                                                     href="
+		
+			/dictionary/french-english/railler "; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for railler"; data-src-mp3="/sounds/f/fr_/fr_w0/fr_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_DE"; id="w0076620DE"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "German"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_DE"; 
+
+
+12 TAG:                                                 "span"
+12 KEYS:                                                 class="orth"; 
+
+
+13 TAG:                                                     "a"
+13 TEXT:                                                     "spotten"
+13 KEYS:                                                     href="
+		
+			/dictionary/german-english/spotten "; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for spotten"; data-src-mp3="/sounds/d/de_/de_w0/de_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_EL"; id="w0076620EL"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Greek"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_EL"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "χλευάζω"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for χλευάζω"; data-src-mp3="/sounds/e/el_/el_w0/el_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_IT"; id="w0076620IT"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Italian"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_IT"; 
+
+
+12 TAG:                                                 "span"
+12 KEYS:                                                 class="orth"; 
+
+
+13 TAG:                                                     "a"
+13 TEXT:                                                     "schernire"
+13 KEYS:                                                     href="
+		
+			/dictionary/italian-english/schernire "; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for schernire"; data-src-mp3="/sounds/i/it_/it_w0/it_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_JA"; id="w0076620JA"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Japanese"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_JA"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "あざける"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for あざける"; data-src-mp3="/sounds/j/ja_/ja_w0/ja_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_KO"; id="w0076620KO"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Korean"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_KO"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "비웃다"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for 비웃다"; data-src-mp3="/sounds/k/ko_/ko_w0/ko_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_NO"; id="w0076620NO"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Norwegian"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_NO"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "håne"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for håne"; data-src-mp3="/sounds/n/no_/no_w0/no_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_PL"; id="w0076620PL"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Polish"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_PL"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "zadrwić"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for zadrwić"; data-src-mp3="/sounds/p/pl_/pl_w0/pl_w0076620.mp3"; 
+
+
+11 TAG:                                             "em"
+11 KEYS:                                             class="hi"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "((space))"
+12 KEYS:                                                 class="neutral"; 
+12 TAIL:                                                 "drwić"
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_PT-PT"; id="w0076620PT-PT"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Portuguese"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_PT-PT"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "troçar"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for troçar"; data-src-mp3="/sounds/p/pt_/pt_pt/pt_pt_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_RO"; id="w0076620RO"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Romanian"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_RO"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "a lua în râs"
+12 KEYS:                                                 class="orth"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_RU"; id="w0076620RU"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Russian"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_RU"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "высмеивать"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for высмеивать"; data-src-mp3="/sounds/r/ru_/ru_w0/ru_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_ES-419"; id="w0076620ES-419"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Spanish"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_ES-419"; 
+
+
+12 TAG:                                                 "span"
+12 KEYS:                                                 class="orth"; 
+
+
+13 TAG:                                                     "a"
+13 TEXT:                                                     "burlarse"
+13 KEYS:                                                     href="
+		
+			/dictionary/spanish-english/burlarse "; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for burlarse"; data-src-mp3="/sounds/e/es_/es_41/es_419_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_SV"; id="w0076620SV"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Swedish"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_SV"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "glufsa i sig"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for glufsa i sig"; data-src-mp3="/sounds/s/sv_/sv_w0/sv_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_TH"; id="w0076620TH"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Thai"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_TH"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "พูดเยาะเย้ย"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for พูดเยาะเย้ย"; data-src-mp3="/sounds/t/th_/th_w0/th_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_TR"; id="w0076620TR"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Turkish"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_TR"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "alaya almak"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for alaya almak"; data-src-mp3="/sounds/t/tr_/tr_w0/tr_w0076620.mp3"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_UK"; id="w0076620UK"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Ukrainian"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_UK"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "висміювати"
+12 KEYS:                                                 class="orth"; 
+
+
+10 TAG:                                         "li"
+10 KEYS:                                         class="translation lang_VI"; id="w0076620VI"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Vietnamese"
+11 KEYS:                                             class="lang"; 
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             ": "
+11 KEYS:                                             class="neutral"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             class="inline lang_VI"; 
+
+
+12 TAG:                                                 "span"
+12 TEXT:                                                 "chế giễu"
+12 KEYS:                                                 class="orth"; 
+
+
+11 TAG:                                             "a"
+11 KEYS:                                             class="sound audio_play_button"; title="Pronunciation for chế giễu"; data-src-mp3="/sounds/v/vi_/vi_w0/vi_w0076620.mp3"; 
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             id="examples_box"; class="term-subsec"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "h2"
+ 8 TEXT:                                 "Example Sentences Including 'scoff'"
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 id="examples_box"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "blockquote"
+10 TEXT:                                         ""His words were a small Band-Aid over her open wounds, enough for her to curl her lip and scoff."
+10 TAIL:                                         "((space))"
+
+
+10 TAG:                                         "cite"
+10 TEXT:                                         "((space))"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "Susan Elizabeth Phillips"
+11 KEYS:                                             class="author"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "LADY BE GOOD"
+11 KEYS:                                             class="title"; lang="en-gb"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "span"
+11 TEXT:                                             "(1999)"
+11 KEYS:                                             class="year"; 
+11 TAIL:                                             "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             id="ad_btmslot_a"; class="am-default "; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "script"
+ 8 TEXT:                                 "googletag.cmd.push(function() { googletag.display('ad_btmslot_a'); });"
+ 8 KEYS:                                 type="text/javascript"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="submissions_comments responsive_float_phone"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="user_comments"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "h2"
+ 9 TEXT:                                     "Comments "
+ 9 TAIL:                                     "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="have_your_say"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "Log in"
+ 9 KEYS:                                     href="https://www.collinsdictionary.com/login?returnTo=/dictionary/american/scoff"; 
+ 9 TAIL:                                     " to comment on this word.
+            "
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         class="definition_sidebar col side_bar"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="commonness"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "span"
+ 8 TEXT:                                 "Word Frequency"
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 style="width:63px;height:10px;background-position:0 -10px;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAAyCAYAAADrwQMBAAAFCklEQVRo3u2aXWwUVRTHf3NnZ7fs7Ha1sny1FLCFNqXQIqkElTZqiNEEAyExokYTMfEBYky0pi8oymM1QQP4IsYXMNGoRKI+NKJ8FSPBFIEGEASEgrYUabe7bXd2ZnzgEjfrnbapCdDZPckmO+fMmZlz79z/+c3Oatx6KwJ0wAaGxpgzBZgBBIAMcBnoHkPebGApUCG3zwKHgPMAWtaOVUAp0AWcGsOB7wPmyO/ngF9G2X8y8AxwF2ABBnAd2AlcHSHvKaAM6M/yFQOXgM9GyFsOrJDFpqQvLAdjN9CmAZjwrkCbvxRdHMJ2HNwTSXh9hAN/IAfpD7ldLgfuFY/97wbeBn4GrmX5S4D7gbeAvxV5bwJR4AdF7GEgAbyjiNUCa2ThTk5MyAH4VA9Bs4X20CGKqx/HmPwCRfEPSQcNmGpDu+LATXIWjwLD8tMtZ0MDLihynpd3R26Bg0AvUA8cyYnFpf8njwE9L/c5lTWzN+1p4Dcgrchz5TkXCgPRsIvIrAAuAAFcdhGZZSAaPE5aD3Qq/J0yprIKj5lF+isU/vgoywEZjyv8MxUDkm0pYKYgj01YOIdXMnAhI7Uvg8ZKBi5YOIc9cjqAGoW/RsZUdlauey89OKvw98jlNZqI9ij8F6W4eVkYuCiGoTWE29FIf+drpE420t8Zwu0YhlaPxL2y9SwAYvKzQPr2euR8DiyRAkeO4C2RcVXxhhQ2PATP8Ch+D7BIihsKwVsE7Cm0unyFnLwWvHHf9gasjSDqAQZwOizYni+E17aQgP4qoWkAmxn+81cytjyhfwnPRLRUoVftJHxvKSJYigiuxijZj92fhGkW7gHfEp7AXdxKuCzX30q4TOAuLhCeXwnPQTvSTOpSrr+Z1CUH7chEIjzdhvZJsPAT0londu8mhrp13GODsFGVZeEe6MZ59iD29XJE6DKu9QZDF4+RyVi4L3uc7HfgOSl2gwrC26ro+SngEdmFznsIXgb4ThFLSvHtkms8V/AagN2FVpevhBe4DcWbQFC2oaHbKXi38ravNREbdNxoENw0aDZaIomzCTjuZ8KrArZswZzehB7999nYTqwneQVY7zHgE5/wIoj3NxOe25hV+I0FKUILCAT3Ylelcb/0JeFZuPFlOYXftGXoUQs3XiA8PxKegdazHzuhiu3HThhoPb4lvDTuiW+wGucTCM5GhLIFbx3JK2ncFrkOfUt4d2aru8V2Txbk9OYb4Y3HZgB1BoSsG6/HGGPxE5vwihFbp6DNWUEwbqIZSVxrN+mebtxz/TjrfEt4OtrXYTDbiVbmxh4gcSYFSRv3ST8SXt109Md+JFKlGs21hEq+InMtgXsc+MtvhDfvCYzYSOtIxucVCM9nhHf6W6y+kS5exk+Pl/DyWvAKrW4CEF59DuQcxfuPEL4jvPHa3BiiKY1TChBElPXhXOX//g/vTr/tI7AxCQ9+hFlajT4J4CT24Esku0w4OAAbfSl4OqyJob34PcXzAjlPtBk0HqX/dB/uxyIEzcNo9fsornmPcPU+imuG0epD0Kz+3Vm01BIwdhCuaEA3G9DNHYQragkYJqJFPQtiw7acwgGa0KPbMKdHEBsUaXVTEYaqcIB2opVTEQZQp7jGVdsxywP/eZS/AXHbMctNxCpfEl4KJ1aJKPLKq0QUpXBiBcLzG+GFEX1ncDzfBp3BGQoj+vJa8AqtzseEtzyGWJ0FOV19OF8AbQD/AJdTBK85z4wVAAAAAElFTkSuQmCC');"; title="Used Occasionally. scoff is one of the 30000 most commonly used words in the Collins dictionary"; data-word="scoff"; data-band="2"; alt="Word Frequency of scoff"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             id="ad_rightslot"; class="am-default "; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "script"
+ 8 TEXT:                                 "googletag.cmd.push(function() { googletag.display('ad_rightslot'); });"
+ 8 KEYS:                                 type="text/javascript"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="popular_words clear"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "h2"
+ 8 TEXT:                                 "Do you need to know 'kwl' to be 'kwl'?"
+ 8 KEYS:                                 class="promo_box_title"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     style="float:left;"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 KEYS:                                         href="http://www.collinsdictionary.com/word-lovers-blog/new/are-you-kwl-or-cool-lucy-mangan-looks-at-your-word-submissions-from-the-last-fortnight,274,HCB.html"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "img"
+11 KEYS:                                             style="padding-right:5pt;display: block;"; src="http://resources.collins.co.uk/Dictionary/promo%20one.jpg"; height="100"; 
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "strong"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "Do you need to know 'kwl' to be 'kwl'? "
+11 KEYS:                                             href="http://www.collinsdictionary.com/word-lovers-blog/new/are-you-kwl-or-cool-lucy-mangan-looks-at-your-word-submissions-from-the-last-fortnight,274,HCB.html""; 
+11 TAIL:                                             "'"
+
+
+10 TAG:                                         "br"
+
+
+10 TAG:                                         "br"
+10 TAIL:                                         "Lucy Mangan reviews your February word submissions
+
+	"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="popular_words clear"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "h2"
+ 8 TEXT:                                 "Join the Collins community"
+ 8 KEYS:                                 class="promo_box_title"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     style="float:left;"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 KEYS:                                         href="https://www.collinsdictionary.com/register"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "img"
+11 KEYS:                                             style="padding-right:5pt;display: block;"; src="http://resources.collins.co.uk/Dictionary/Collins-dictionary-newsletter-signup-150x100.gif"; height="100"; 
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "strong"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "Join our newsletter"
+11 KEYS:                                             href="https://www.collinsdictionary.com/register"; 
+
+
+10 TAG:                                         "br"
+
+
+10 TAG:                                         "br"
+10 TAIL:                                         "All the latest wordy news, linguistic insights, offers and more.
+	"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="popular_words clear"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "h2"
+ 8 TEXT:                                 "New on the Scrabble blog "
+ 8 KEYS:                                 class="promo_box_title"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     style="float:left;"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 KEYS:                                         href="http://www.collinsdictionary.com/scrabble/scrabble-blog/tips-for-learning-scrabble-words,271,HCB.html"; 
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "img"
+11 KEYS:                                             style="padding-right:5pt;display: block;"; src="http://resources.collins.co.uk/Dictionary/2.png"; height="100"; 
+
+
+ 9 TAG:                                     "div"
+ 9 TEXT:                                     "((space))"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "strong"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             " Train like a Scrabble champion "
+11 KEYS:                                             href="http://www.collinsdictionary.com/scrabble/scrabble-blog/tips-for-learning-scrabble-words,271,HCB.htm""; 
+
+
+10 TAG:                                         "br"
+
+
+10 TAG:                                         "br"
+10 TAIL:                                         "Allan Simmons' 5 tips on learning words.
+
+	"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="popular_words clear"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "h2"
+ 8 TEXT:                                 "Follow us for Word of the Day"
+ 8 KEYS:                                 class="promo_box_title"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 style="padding-left: 10px;padding-top: 10px;padding-right: 10px;"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "table"
+ 9 TEXT:                                     "((space))"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "tr"
+10 TEXT:                                         "((space))"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "td"
+11 TEXT:                                             "((space))"
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "script"
+12 KEYS:                                                 type="text/javascript"; src="https://connect.facebook.net/en_US/all.js?ver=3.3.1#xfbml=1"; 
+12 TAIL:                                                 "((space))"
+
+
+12 TAG:                                                 "div"
+12 KEYS:                                                 class="fb-like"; style="padding-left: 11px;padding-bottom: 10px;"; data-href="http://www.facebook.com/collinsdictionary"; data-send="false"; data-layout="button_count"; data-width="100"; data-show-faces="false"; 
+12 TAIL:                                                 "((space))"
+
+
+10 TAG:                                         "tr"
+10 TEXT:                                         "((space))"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "td"
+11 TEXT:                                             "((space))"
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "div"
+12 TEXT:                                                 "((space))"
+12 KEYS:                                                 style="padding-left: 11px;padding-bottom: 10px;"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "a"
+13 TEXT:                                                     "Follow @collinsdict"
+13 KEYS:                                                     href="https://twitter.com/collinsdict"; class="twitter-follow-button"; data-show-count="true"; 
+13 TAIL:                                                     "((space))"
+
+
+13 TAG:                                                     "script"
+13 TEXT:                                                     "!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");"
+13 TAIL:                                                     "((space))"
+
+
+10 TAG:                                         "tr"
+10 TEXT:                                         "((space))"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "td"
+11 TEXT:                                             "((space))"
+11 TAIL:                                             "((space))"
+
+
+12 TAG:                                                 "div"
+12 TEXT:                                                 "((space))"
+12 KEYS:                                                 style="padding-left: 11px;"; 
+12 TAIL:                                                 "((space))"
+
+
+13 TAG:                                                     "script"
+13 KEYS:                                                     type="text/javascript"; src="https://apis.google.com/js/plusone.js?ver=3.3.1"; 
+13 TAIL:                                                     "((space))"
+
+
+13 TAG:                                                     "plusone"
+13 KEYS:                                                     href="http://www.collinsdictionary.com"; size="medium"; count="true"; 
+13 TAIL:                                                     "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="recently_approved submitted"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "Latest New Word Submissions"
+ 8 KEYS:                                 class="sidebar_title"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "ul"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="recently_approved submitted"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "pedestrian scramble"
+10 KEYS:                                         href="/submission/17328/pedestrian scramble"; title="pedestrian scramble"; 
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "wabi sabi"
+10 KEYS:                                         href="/submission/17327/wabi sabi"; title="wabi sabi"; 
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "Czechia"
+10 KEYS:                                         href="/submission/17326/Czechia"; title="Czechia"; 
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "gastrique"
+10 KEYS:                                         href="/submission/17325/gastrique"; title="gastrique"; 
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "janky"
+10 KEYS:                                         href="/submission/17324/janky"; title="janky"; 
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "Fasika"
+10 KEYS:                                         href="/submission/17323/Fasika"; title="Fasika"; 
+
+
+ 8 TAG:                                 "p"
+ 8 KEYS:                                 class="view_more"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "a"
+ 9 TEXT:                                     "View More"
+ 9 KEYS:                                     href="/submissions/latest"; 
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="related_terms"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "h2"
+ 8 TEXT:                                 "Related Terms"
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "p"
+ 8 TEXT:                                 "1 results"
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "ul"
+ 8 TEXT:                                 "((space))"
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "li"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "i"
+10 KEYS:                                         class="icon-angle-right"; 
+10 TAIL:                                         "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "shove"
+10 KEYS:                                         href="/dictionary/american/shove"; 
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             class="nearby_entries"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "h2"
+ 8 TEXT:                                 "Browse nearby words"
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="browse-container mid-scroll"; data-scroll="0.50"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "ul"
+ 9 TEXT:                                     "((space))"
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scleroma"
+11 KEYS:                                             href="/dictionary/american/scleroma"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "sclerometer"
+11 KEYS:                                             href="/dictionary/american/sclerometer"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scleroprotein"
+11 KEYS:                                             href="/dictionary/american/scleroprotein"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "sclerosed"
+11 KEYS:                                             href="/dictionary/american/sclerosed"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "sclerosis"
+11 KEYS:                                             href="/dictionary/american/sclerosis"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "sclerotic"
+11 KEYS:                                             href="/dictionary/american/sclerotic"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "sclerotium"
+11 KEYS:                                             href="/dictionary/american/sclerotium"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "sclerotomy"
+11 KEYS:                                             href="/dictionary/american/sclerotomy"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "sclerous"
+11 KEYS:                                             href="/dictionary/american/sclerous"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "ScM"
+11 KEYS:                                             href="/dictionary/american/scm"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             " scoff"
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scofflaw"
+11 KEYS:                                             href="/dictionary/american/scofflaw"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scold"
+11 KEYS:                                             href="/dictionary/american/scold"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scolecite"
+11 KEYS:                                             href="/dictionary/american/scolecite"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scolex"
+11 KEYS:                                             href="/dictionary/american/scolex"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scoliosis"
+11 KEYS:                                             href="/dictionary/american/scoliosis"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scollop"
+11 KEYS:                                             href="/dictionary/american/scollop"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scombroid"
+11 KEYS:                                             href="/dictionary/american/scombroid"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "sconce"
+11 KEYS:                                             href="/dictionary/american/sconce"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scone"
+11 KEYS:                                             href="/dictionary/american/scone"; 
+
+
+10 TAG:                                         "li"
+10 TAIL:                                         "((space))"
+
+
+11 TAG:                                             "i"
+11 KEYS:                                             class="icon-angle-right"; 
+11 TAIL:                                             "((space))"
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "scooch"
+11 KEYS:                                             href="/dictionary/american/scooch"; 
+
+
+ 8 TAG:                                 "div"
+ 8 TEXT:                                 "((space))"
+ 8 KEYS:                                 class="words_that_begin_with"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "p"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     class="view_more"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "All American words that begin with 'S'"
+10 KEYS:                                         href="/browse/american/words-starting-with-s"; 
+10 TAIL:                                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 KEYS:                             class="clear"; 
+ 7 TAIL:                             "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         class="nav-footer-wrapper english"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             class="footer_extra"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 class="alphabets responsive_desktop"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "ul"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     class="alphabet browse has-digits"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 TEXT:                         "Browse Dictionary"
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "#"
+ 7 KEYS:                             href="/browse/american/words-starting-with-digit"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "A"
+ 7 KEYS:                             href="/browse/american/words-starting-with-a"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "B"
+ 7 KEYS:                             href="/browse/american/words-starting-with-b"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "C"
+ 7 KEYS:                             href="/browse/american/words-starting-with-c"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "D"
+ 7 KEYS:                             href="/browse/american/words-starting-with-d"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "E"
+ 7 KEYS:                             href="/browse/american/words-starting-with-e"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "F"
+ 7 KEYS:                             href="/browse/american/words-starting-with-f"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "G"
+ 7 KEYS:                             href="/browse/american/words-starting-with-g"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "H"
+ 7 KEYS:                             href="/browse/american/words-starting-with-h"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "I"
+ 7 KEYS:                             href="/browse/american/words-starting-with-i"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "J"
+ 7 KEYS:                             href="/browse/american/words-starting-with-j"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "K"
+ 7 KEYS:                             href="/browse/american/words-starting-with-k"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "L"
+ 7 KEYS:                             href="/browse/american/words-starting-with-l"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "M"
+ 7 KEYS:                             href="/browse/american/words-starting-with-m"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "N"
+ 7 KEYS:                             href="/browse/american/words-starting-with-n"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "O"
+ 7 KEYS:                             href="/browse/american/words-starting-with-o"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "P"
+ 7 KEYS:                             href="/browse/american/words-starting-with-p"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Q"
+ 7 KEYS:                             href="/browse/american/words-starting-with-q"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "R"
+ 7 KEYS:                             href="/browse/american/words-starting-with-r"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "S"
+ 7 KEYS:                             href="/browse/american/words-starting-with-s"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "T"
+ 7 KEYS:                             href="/browse/american/words-starting-with-t"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "U"
+ 7 KEYS:                             href="/browse/american/words-starting-with-u"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "V"
+ 7 KEYS:                             href="/browse/american/words-starting-with-v"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "W"
+ 7 KEYS:                             href="/browse/american/words-starting-with-w"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "X"
+ 7 KEYS:                             href="/browse/american/words-starting-with-x"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Y"
+ 7 KEYS:                             href="/browse/american/words-starting-with-y"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Z"
+ 7 KEYS:                             href="/browse/american/words-starting-with-z"; 
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 class="temp_footer clear"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "ul"
+ 6 TEXT:                         "((space))"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins English Dictionary "
+ 8 KEYS:                                 href="/dictionary/english"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins American English Dictionary "
+ 8 KEYS:                                 href="/dictionary/american"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The Cobuild English for Learners Dictionary "
+ 8 KEYS:                                 href="/dictionary/english-cobuild-learners"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The Cobuild American English for Learners Dictionary "
+ 8 KEYS:                                 href="/dictionary/american-cobuild-learners"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins English-French Dictionary "
+ 8 KEYS:                                 href="/dictionary/english-french"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins French-English Dictionary "
+ 8 KEYS:                                 href="/dictionary/french-english"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins English-German Dictionary "
+ 8 KEYS:                                 href="/dictionary/english-german"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins German-English Dictionary "
+ 8 KEYS:                                 href="/dictionary/german-english"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins English-Spanish Dictionary "
+ 8 KEYS:                                 href="/dictionary/english-spanish"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins Spanish-English Dictionary "
+ 8 KEYS:                                 href="/dictionary/spanish-english"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins English-Italian Dictionary "
+ 8 KEYS:                                 href="/dictionary/english-italian"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins Italian-English Dictionary "
+ 8 KEYS:                                 href="/dictionary/italian-english"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins English-Chinese Dictionary "
+ 8 KEYS:                                 href="/dictionary/english-chinese"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins Chinese-English Dictionary "
+ 8 KEYS:                                 href="/dictionary/chinese-english"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins English Thesaurus "
+ 8 KEYS:                                 href="/english-thesaurus"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "The  Collins American Thesaurus "
+ 8 KEYS:                                 href="/dictionary/american-thesaurus"; 
+
+
+ 7 TAG:                             "li"
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "Latest New Word Suggestions"
+ 8 KEYS:                                 href="/submissions/latest"; 
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             class="clear"; id="nav-footer"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 KEYS:                 class="responsive_phone menu_phone_footer icon-navicon"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "p"
+ 4 TEXT:                 "© Collins 2016"
+ 4 KEYS:                 class="copyright"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 class="block-menu-footer"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "ul"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     class="clear"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         class="first"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Tools & Widgets"
+ 7 KEYS:                             rel="nofollow"; href="/tools-and-widgets"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "API"
+ 7 KEYS:                             rel="nofollow"; href="/api"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Advertising"
+ 7 KEYS:                             rel="nofollow"; href="/advertising"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Word Banks"
+ 7 KEYS:                             rel="nofollow"; href="/wordbanks"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Terms & Conditions"
+ 7 KEYS:                             rel="nofollow"; href="/terms-and-conditions"; 
+
+
+ 6 TAG:                         "li"
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Contact us"
+ 7 KEYS:                             rel="nofollow"; href="/contact-us"; 
+
+
+ 1 TAG:     "div"
+ 1 TEXT:     "((space))"
+ 1 KEYS:     class="btmslot_b-container"; 
+ 1 TAIL:     "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         id="ad_btmslot_b"; class="am-default "; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "script"
+ 3 TEXT:             "googletag.cmd.push(function() { googletag.display('ad_btmslot_b'); });"
+ 3 KEYS:             type="text/javascript"; 
+ 3 TAIL:             "((space))"
+
+
+ 1 TAG:     "script"
+ 1 TEXT:     "
+    var context_path = "";
+    var optin_update_required =  false ;
+"
+ 1 KEYS:     type="text/javascript"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "script"
+ 1 KEYS:     type="text/javascript"; src="/static-min/2623/footer.js"; async=""; 
+ 1 TAIL:     "((space))"
+
+
