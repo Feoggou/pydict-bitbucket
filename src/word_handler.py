@@ -39,7 +39,8 @@ class WordHandler:
         with open(file_path, "w") as f:
             json.dump(content, f, indent=4, sort_keys=True)
 
-    def _get_word_definition(self, word):
+    @staticmethod
+    def _get_word_definition(word):
         cmd = cmd_getword.GetWordCommand()
 
         answer = "yes"
@@ -47,18 +48,20 @@ class WordHandler:
         while answer.lower() == "yes":
             try:
                 json_content = cmd.execute(word)
-                return json_content
+                return word, json_content
             except WordInvalidError as e:
                 output_msg(str(e))
-                return None
+                return None, None
             except RedirectError as e:
                 if re.match("american\?q=.*", e.value):
                     output_msg("The word '{}' was not found!".format(word))
-                    return None
+                    return None, None
 
                 answer = input("Word '{}' not found. Would you like to get word '{}' instead?".format(word, e.value))
                 if answer.lower() == "yes":
                     word = e.value
+
+        return None, None
 
     @staticmethod
     def get_subword(subword: str) -> bool:
@@ -78,7 +81,10 @@ class WordHandler:
             self._print_word(word)
             return
 
-        definition = self._get_word_definition(word)
+        word, definition = self._get_word_definition(word)
+        if definition is None:
+            return
+
         self._handle_subwords(word, definition)
 
         self._save_json(word, definition)

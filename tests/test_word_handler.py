@@ -33,7 +33,8 @@ class TestWordHandler(unittest.TestCase):
         mock_out.reset_mock()
 
     @patch.object(WordHandler, '_print_json_content', mock_out)
-    def test_when_do_isRequested_contentIsSavedAndPrinted(self):
+    @patch.object(WordHandler, "_handle_subwords")
+    def test_when_do_isRequested_contentIsSavedAndPrinted(self, mock_subw):
         word_handler = WordHandler(self.DIR_PATH)
 
         with patch.object(WordHandler, '_already_exists') as mock_exists:
@@ -45,7 +46,7 @@ class TestWordHandler(unittest.TestCase):
                     word_handler.get("do")
 
                 mock_save.assert_called_once_with("do", "json_content")
-        mock_out.assert_called_once_with("json_content")
+        mock_out.assert_called_once_with("do", "json_content")
 
     @patch("src.word_handler.output_msg", mock_out)
     def test_whenWordIsIllFormed_failAndOutputError(self):
@@ -88,7 +89,8 @@ class TestWordHandler(unittest.TestCase):
         mock_out.assert_called_once_with("The word 'commoditization' was not found!")
 
     @patch.object(WordHandler, '_print_json_content', mock_out)
-    def test_when_fazed_isNotFound_askUserForRedirection_Yes_retrieve_faze(self):
+    @patch.object(WordHandler, "_handle_subwords")
+    def test_when_fazed_isNotFound_askUserForRedirection_Yes_retrieve_faze(self, mock_subw):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
             mock_obj.execute.side_effect = [RedirectError("faze"), "faze_content_json"]
@@ -110,10 +112,12 @@ class TestWordHandler(unittest.TestCase):
 
             calls = [call("fazed"), call("faze")]
             mock_obj.execute.assert_has_calls(calls)
-        mock_out.assert_called_once_with("faze_content_json")
+        mock_out.assert_called_once_with("faze", "faze_content_json")
 
+    @patch.object(WordHandler, "_handle_subwords")
+    @patch.object(WordHandler, "_save_json")
     @patch.object(WordHandler, '_print_json_content', mock_out)
-    def test_when_creat_isNotFound_askUserForRedirection_Yes_retrieve_create(self):
+    def test_when_creat_isNotFound_askUserForRedirection_Yes_retrieve_create(self, mock_subw, mock_save):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
             mock_obj.execute.side_effect = [RedirectError("create"), "create_content_json"]
@@ -128,10 +132,13 @@ class TestWordHandler(unittest.TestCase):
 
             calls = [call("creat"), call("create")]
             mock_obj.execute.assert_has_calls(calls)
-        mock_out.assert_called_once_with("create_content_json")
+        mock_out.assert_called_once_with("create", "create_content_json")
 
     @patch("src.word_handler.output_msg", mock_out)
-    def test_onRedirectionError_outputMessageIsCorrect(self):
+    @patch.object(WordHandler, "_handle_subwords")
+    @patch.object(WordHandler, "_save_json")
+    @patch.object(WordHandler, "_print_json_content")
+    def test_onRedirectionError_outputMessageIsCorrect(self, mock_subw, mock_save, mock_print):
         word_orig = "somethin"
         word_redir = "something"
 
@@ -148,7 +155,9 @@ class TestWordHandler(unittest.TestCase):
                     mock_input.assert_called_once_with(
                         "Word '{}' not found. Would you like to get word '{}' instead?".format(word_orig, word_redir))
 
-    def test_when_unintended_isNotFoundAnd_askUserForRedirection_No_cancel(self):
+    @patch.object(WordHandler, "_handle_subwords")
+    @patch.object(WordHandler, "_print_json_content")
+    def test_when_unintended_isNotFoundAnd_askUserForRedirection_No_cancel(self, mock_subw, mock_print):
         with patch('src.cmd_getword.GetWordCommand', autospec=GetWordCommand) as MockGetWordCommand:
             mock_obj = MockGetWordCommand.return_value
             mock_obj.execute.side_effect = RedirectError("un-")
@@ -165,7 +174,8 @@ class TestWordHandler(unittest.TestCase):
                         mock_input.assert_called_once_with("Word 'unintended' not found. Would you like to get word 'un-' instead?")
                     mock_save.assert_not_called()
 
-    def test_do_alreadyExists_dontDownload_callPrintWord(self):
+    @patch.object(WordHandler, "_handle_subwords")
+    def test_do_alreadyExists_dontDownload_callPrintWord(self, mock_subw):
         word_handler = WordHandler(self.DIR_PATH)
 
         with patch.object(WordHandler, '_already_exists') as mock_exists:
@@ -180,7 +190,8 @@ class TestWordHandler(unittest.TestCase):
 
     @patch.object(WordHandler, '_print_word', mock_out)
     @patch.object(WordHandler, '_print_json_content', mock_out)
-    def test_whenWordIsRetrievedTwice_2ndTimeDoesntDownload(self):
+    @patch.object(WordHandler, "_handle_subwords")
+    def test_whenWordIsRetrievedTwice_2ndTimeDoesntDownload(self, mock_subw):
         word_handler = WordHandler(self.DIR_PATH)
         os.makedirs(self.DIR_PATH, exist_ok=True)
 
@@ -224,7 +235,7 @@ class TestWordHandler(unittest.TestCase):
         with patch.object(WordHandler, "_already_exists") as mock_exists:
             mock_exists.return_value = False
             with patch.object(WordHandler, '_get_word_definition') as mock_content:
-                mock_content.return_value = self.do_content
+                mock_content.return_value = "do", self.do_content
                 with patch.object(WordHandler, "get_subword") as mock_get_subword:
                     mock_get_subword.side_effect = [True, True]
 
@@ -243,7 +254,7 @@ class TestWordHandler(unittest.TestCase):
         with patch.object(WordHandler, "_already_exists") as mock_exists:
             mock_exists.return_value = False
             with patch.object(WordHandler, '_get_word_definition') as mock_content:
-                mock_content.return_value = self.do_content
+                mock_content.return_value = "do", self.do_content
                 with patch.object(WordHandler, "get_subword") as mock_get_subword:
                     mock_get_subword.side_effect = [True, False]
 
