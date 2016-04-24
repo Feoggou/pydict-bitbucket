@@ -66,8 +66,6 @@ class TestParser(unittest.TestCase):
         def_group = self.d_parser.get_all_def_groups()[0]
         semantics = self.d_parser.get_semantics(def_group)
 
-        # print(semantics)
-
         self.assertEqual(semantics,
             "perform, often a mere formal equivalent for do, is usually used of a more or less involved process "
             "rather than a single act [to perform an experiment ]; execute implies a putting into effect or completing "

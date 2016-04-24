@@ -303,9 +303,12 @@ class DefParser:
         if len(sems_items) == 0:
             return None
 
+        if len(sems_items) > 1:
+            print("HAVE MANY SEMANTICS: EXPECTED 1!")
+
         sems = sems_items[0]
 
-        text = ""
+        text = sems.text if sems.text is not None and len(sems.text.strip()) > 0 else ""
 
         for item in sems.getchildren():
             if "class" in item.keys() and item.get("class") == "xr":

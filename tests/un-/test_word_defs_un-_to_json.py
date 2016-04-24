@@ -41,8 +41,11 @@ class HtmlToJsonTest(unittest.TestCase):
                 group = DefGroup(dict_parser, def_group)
                 group.build()
                 result = group.translate()
-                print(result)
-                self.assertEqual({"word": "un-", "gram_groups": [{}]}, result)
+                self.assertEqual(
+                    {"word": "un-",
+                     'semantics': 'The following list includes many of the more common compounds formed with un- '
+                                  '(either sense) that do not have special meanings ',
+                     "gram_groups": [{}]}, result)
 
     # word / def_groups / def_group [0] / gram_group[0]
     def test_first_gram_group_returns_content(self):
@@ -138,7 +141,8 @@ class HtmlToJsonTest(unittest.TestCase):
 
         self.assertEqual(
             {"word": "un-",
-             'semantics': 'un- (either sense) that do not have special meanings ',
+             'semantics': 'The following list includes many of the more common compounds formed with un- '
+                          '(either sense) that do not have special meanings ',
              "gram_groups": [
                  {
                      "defs": [
@@ -162,7 +166,8 @@ class HtmlToJsonTest(unittest.TestCase):
         self.assertEqual(
             [
                 {"word": "un-",
-                 'semantics': 'un- (either sense) that do not have special meanings ',
+                 'semantics': 'The following list includes many of the more common compounds formed with un- '
+                              '(either sense) that do not have special meanings ',
                  "gram_groups": [
                      {
                          "defs": [
@@ -210,7 +215,8 @@ class HtmlToJsonTest(unittest.TestCase):
             "frequency": '',
             "def_groups": [
                 {"word": "un-",
-                 'semantics': 'un- (either sense) that do not have special meanings ',
+                 'semantics': 'The following list includes many of the more common compounds formed with un- '
+                              '(either sense) that do not have special meanings ',
                  "gram_groups": [
                      {
                          "defs": [
