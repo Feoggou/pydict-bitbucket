@@ -1,6 +1,3 @@
-o) make tests pass
-o) make tests & all use the new printer / searcher.
-o) remove no longer needed files
 o) synonyms -- category for each synonym
 
 crashes for "have to do with"
