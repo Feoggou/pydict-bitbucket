@@ -48,7 +48,7 @@ class DefParser:
         if len(xr_ref_link.getchildren()):
             for child in xr_ref_link.getchildren():
                 if len(child.keys()):
-                    print("child keys: ", child.keys())
+                    # print("child keys: ", child.keys())
                     assert child.get("class") == "hi"
                     child_text = DefParser._parse_hi(child)
                     text += child_text
