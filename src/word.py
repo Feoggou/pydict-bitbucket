@@ -1,9 +1,10 @@
 import http.client
 import os
+import re
 
-from .html_parser.def_groups import  *
-from .html_parser.syn_groups import  *
-from .html_parser.rel_groups import  *
+from .html_parser.def_groups import *
+from .html_parser.syn_groups import *
+from .html_parser.rel_groups import *
 
 
 class RedirectError(Exception):
@@ -22,7 +23,7 @@ class WordData:
     def _fetch_from_web(suffix):
         hostname = "www.collinsdictionary.com"
         conn = http.client.HTTPConnection(hostname)
-        print("from " + hostname + "/dictionary/" + suffix)
+        # print("from " + hostname + "/dictionary/" + suffix)
         conn.request("GET", "/dictionary/" + suffix)
         reason = conn.getresponse()
 
@@ -44,7 +45,7 @@ class WordData:
         return self._fetch_from_web("american-thesaurus/" + suffix)
 
     def fetch(self):
-        print("fetching...")
+        print(self.word_name + "...")
         self.def_content = self._fetch_from_web_dict(self.word_name)
         if len(self.def_content) == 0:
             return
@@ -52,14 +53,20 @@ class WordData:
         try:
             self.related_content = self._fetch_from_web_dict(self.word_name + "/related")
         except RedirectError as e:
-            print("ignored redirect related: ", e.value)
+            if re.match("american\?q=.*", e.value):
+                print("(no related)")
+            else:
+                print("related: ignored redirect '{}'".format(e.value))
         except:
             raise
 
         try:
             self.synonyms_content = self._fetch_web_thesaurus(self.word_name)
         except RedirectError as e:
-            print("ignored redirect syn: ", e.value)
+            if re.match("american-thesaurus\?q=.*", e.value):
+                print("(no synonyms)")
+            else:
+                print("synonyms: ignored redirect '{}'".format(e.value))
         except:
             raise
 
