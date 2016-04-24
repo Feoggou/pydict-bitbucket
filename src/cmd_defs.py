@@ -27,8 +27,9 @@ class DefsCommand(Command):
     def get_description(cmd_name: str = "") -> str:
         assert cmd_name is None or len(cmd_name) == 0
         # TODO
-        text = "search all .json files, and print all definitions\n" \
-               "that contain the word <word>"
+        text = "search all .json files, and print all definitions\n"
+        text += " " * 14
+        text += "that contain the word <word>"
 
         return text
 

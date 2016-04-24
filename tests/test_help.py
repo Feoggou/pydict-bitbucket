@@ -77,22 +77,28 @@ class TestCommandHelp(unittest.TestCase):
 
         result = command.execute()
 
-        self.assertEqual(result,
+        # TODO: alias names, "word" simple.
+        self.assertEqual(
+            result,
             "Available commands:\n\n"
             "help()        show help for commands\n"
             "quit()        exit the script -- also exit()\n"
-            "print()       print all info from json in textual format\n")
+            "print()       print all info from json in textual format\n"
+            "nearby()      print the nearby words from .json\n"
+            "related()     print all related words from .json\n"
+            "show()        show the json file for the word\n"
+            "list()        lists all the words in the def. dir matching pattern.\n"
+            "addex()       add an example json object into the .json file\n"
+            "where()       displays the path to the words\n"
+            "update()      update word definitions, given a search pattern\n"
+            "defs()        search all .json files, and print all definitions\n"
+            "              that contain the word <word>\n"
+            "ex()          search all .json files, and print all examples that\n"
+            "              contain the word <word>\n"
+            "search()      search all .json files for the word (searches contents)\n"
+            "delete()      deletes all the .json in the dir matching pattern. -- also remove()\n"
+        )
 
-            # "defs(word)\tsearch all .json files, and print all definitions\n"
-            #     "\t\tthat contain the word <word>"
-            # "ex(word)\tsearch all .json files, and print all examples that\n"
-            #     "\t\tcontain the word <word>"
-            # "show(word)\tshow the json file for the word"
-            # "related(word)\tprint all related words from .json"
-            # "nearby(word)\tprint the nearby words from .json"
-            # "search(word)\tsearch all .json files for the word (searches contents)"
-            # "addex(word)\tadd an example json object into the .json file"
-            # "print(word)\tprints a concise .txt representation for the .json file"
             # "word\t\tif the file <word>.json does not exist, downloads the\n"
             #     "\t\tcontent and creates it. Prints the textual representation\n"
             #     "\t\tin either case.\n")

@@ -22,9 +22,8 @@ class ExCommand(Command):
     @staticmethod
     def get_description(cmd_name: str = "") -> str:
         assert cmd_name is None or len(cmd_name) == 0
-        # TODO
-        text = "search all .json files, and print all examples that\n" \
-               "\t\tcontain the word <word>"
+        text = "search all .json files, and print all examples that\n"
+        text += " " * 14 + "contain the word <word>"
 
         return text
 
