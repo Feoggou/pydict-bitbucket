@@ -62,10 +62,10 @@ class WordUpdater:
 
     @staticmethod
     def print_differences(word, old_content: dict, new_content: dict):
-        reader = JsonReader(old_content)
+        reader = JsonReader(old_content, use_colors=False)
         old_text = reader.read_content(word)
 
-        reader = JsonReader(new_content)
+        reader = JsonReader(new_content, use_colors=False)
         new_text = reader.read_content(word)
 
         result = difflib.unified_diff(old_text.splitlines(), new_text.splitlines())
