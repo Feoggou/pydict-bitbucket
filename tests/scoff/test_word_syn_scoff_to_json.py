@@ -21,21 +21,49 @@ class HtmlToJsonSynTest(unittest.TestCase):
         json_obj = obj.translate()
         # print(json.dumps(json_obj, indent=4, sort_keys=True))
 
-        self.assertEqual(json_obj, [
-            {"word": "quaint", "gram_groups": [
-                {"gram_group": {
-                    "value": "adjective",
-                    "synonyms": [
-                        {"line": [{"syn": "unusual"}, {"syn": "bizarre"}, {"syn": "curious"}, {"syn": "droll"},
-                                  {"syn": "eccentric"}, {"syn": "fanciful"}, {"syn": "odd"}, {"syn": "old-fashioned"},
-                                  {"syn": "peculiar"}, {"syn": "queer"}, {"syn": "rum", "category": "British, slang"},
-                                  {"syn": "fanciful"}, {"syn": "strange"}]},
-                        {"line": [{"syn": "old-fashioned"}, {"syn": "antiquated"}, {"syn": "old-world"},
-                                  {"syn": "picturesque"}]},
-                    ]
-                }},
-            ]}
-        ])
+        self.assertEqual(json_obj, [{
+            "gram_groups": [{
+                "gram_group": {
+                    "synonyms": [{
+                        "line": [
+                            {"syn": "scorn"},
+                            {"syn": "belittle"},
+                            {"syn": "deride"},
+                            {"syn": "despise"},
+                            {"syn": "jeer"},
+                            {"category": "informal", "syn": "knock"},
+                            {"syn": "laugh at"},
+                            {"syn": "mock"},
+                            {"syn": "pooh-pooh"},
+                            {"syn": "ridicule"},
+                            {"syn": "sneer"}
+                        ]
+                    }],
+                    "value": "verb"
+                }
+            }],
+            "word": "scoff"
+        }, {
+            "gram_groups": [{
+                "gram_group": {
+                    "synonyms": [{
+                        "line": [
+                            {"syn": "gobble"},
+                            {"syn": "gobble up"},
+                            {"syn": "bolt"},
+                            {"syn": "devour"},
+                            {"syn": "gorge oneself on"},
+                            {"syn": "gulp down"},
+                            {"syn": "guzzle"},
+                            {"syn": "wolf"}
+                        ]
+                    }],
+                    "value": "verb"
+                }
+            }],
+            "word": "scoff"
+        }]
+    )
 
 if __name__ == '__main__':
     unittest.main()

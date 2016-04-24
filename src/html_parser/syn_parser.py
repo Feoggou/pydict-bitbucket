@@ -34,14 +34,12 @@ class SynParser:
                 assert len(elem.getchildren()) == 1
 
                 child = elem.getchildren()[0]
-                assert(child.keys() == ["class"])
-                assert child.get(child.keys()[0]) == "lbl register"
+                if child.keys() == ["class"] and child.get("class") == "lbl register":
+                    child_text = child.text
+                    child_text += child.tail
+                    child_text = child_text.replace("\n", "")
 
-                child_text = child.text
-                child_text += child.tail
-                child_text = child_text.replace("\n", "")
-
-                text += child_text
+                    text += child_text
 
             return text
 
