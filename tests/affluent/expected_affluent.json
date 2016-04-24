@@ -73,17 +73,36 @@
                     "gram_group": {
                         "synonyms": [
                             {
-                                "category": "slang informal",
                                 "line": [
-                                    "wealthy",
-                                    "loaded",
-                                    "moneyed",
-                                    "opulent",
-                                    "prosperous",
-                                    "rich",
-                                    "well-heeled",
-                                    "well-off",
-                                    "well-to-do"
+                                    {
+                                        "syn": "wealthy"
+                                    },
+                                    {
+                                        "category": "slang",
+                                        "syn": "loaded"
+                                    },
+                                    {
+                                        "syn": "moneyed"
+                                    },
+                                    {
+                                        "syn": "opulent"
+                                    },
+                                    {
+                                        "syn": "prosperous"
+                                    },
+                                    {
+                                        "syn": "rich"
+                                    },
+                                    {
+                                        "category": "informal",
+                                        "syn": "well-heeled"
+                                    },
+                                    {
+                                        "syn": "well-off"
+                                    },
+                                    {
+                                        "syn": "well-to-do"
+                                    }
                                 ]
                             }
                         ],

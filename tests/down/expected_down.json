@@ -360,14 +360,30 @@
                         "synonyms": [
                             {
                                 "line": [
-                                    "depressed",
-                                    "dejected",
-                                    "disheartened",
-                                    "downcast",
-                                    "low",
-                                    "miserable",
-                                    "sad",
-                                    "unhappy"
+                                    {
+                                        "syn": "depressed"
+                                    },
+                                    {
+                                        "syn": "dejected"
+                                    },
+                                    {
+                                        "syn": "disheartened"
+                                    },
+                                    {
+                                        "syn": "downcast"
+                                    },
+                                    {
+                                        "syn": "low"
+                                    },
+                                    {
+                                        "syn": "miserable"
+                                    },
+                                    {
+                                        "syn": "sad"
+                                    },
+                                    {
+                                        "syn": "unhappy"
+                                    }
                                 ]
                             }
                         ],
@@ -380,13 +396,27 @@
                             {
                                 "category": "informal",
                                 "line": [
-                                    "swallow",
-                                    "drain",
-                                    "drink",
-                                    "drink down",
-                                    "gulp",
-                                    "put away",
-                                    "toss off"
+                                    {
+                                        "syn": "swallow"
+                                    },
+                                    {
+                                        "syn": "drain"
+                                    },
+                                    {
+                                        "syn": "drink"
+                                    },
+                                    {
+                                        "syn": "drink down"
+                                    },
+                                    {
+                                        "syn": "gulp"
+                                    },
+                                    {
+                                        "syn": "put away"
+                                    },
+                                    {
+                                        "syn": "toss off"
+                                    }
                                 ]
                             }
                         ],
@@ -398,7 +428,9 @@
                         "synonyms": [
                             {
                                 "line": [
-                                    "See have a down on"
+                                    {
+                                        "syn": "See have a down on"
+                                    }
                                 ]
                             }
                         ],

@@ -178,11 +178,13 @@ class SynLineReader:
     @staticmethod
     def read_line(item: dict):
         text = "o) "
-        # TODO
-        if "category" in item.keys():
-            text += "({}) ".format(item["category"])
 
-        text += ", ".join(item["line"])
+        if "category" in item.keys():
+            text += "({}) = ".format(item["category"])
+
+        syns = [("({}) ".format(syn["category"]) if "category" in syn.keys() else "") + syn["syn"] for syn in item["line"]]
+
+        text += ", ".join(syns)
         text += "\n"
 
         return text

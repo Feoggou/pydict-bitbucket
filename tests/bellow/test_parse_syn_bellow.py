@@ -108,7 +108,9 @@ class TestSynParser(unittest.TestCase):
         sslist_item = self.parser.get_all_senselist_items(sslist)[0]
 
         synonyms = self.parser.get_synonyms(sslist_item)
-        self.assertEqual(synonyms, ["shout", "bawl", "clamor", "cry", "howl", "roar", "scream", "shriek", "yell"])
+        self.assertEqual(synonyms, [{"syn": "shout"}, {"syn": "bawl"}, {"syn": "clamor"}, {"syn": "cry"},
+                                    {"syn": "howl"}, {"syn": "roar"}, {"syn": "scream"}, {"syn": "shriek"},
+                                    {"syn": "yell"}])
 
 
 if __name__ == '__main__':

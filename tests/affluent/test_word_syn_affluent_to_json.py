@@ -21,14 +21,19 @@ class HtmlToJsonSynTest(unittest.TestCase):
             {"word": "affluent", "gram_groups": [
                 {"gram_group": {
                     "value": "adjective",
-                    "synonyms": [
-                        {
-                            "category": "slang informal",
-                            "line": [
-                                "wealthy", "loaded", "moneyed", "opulent", "prosperous", "rich",
-                                "well-heeled", "well-off", "well-to-do"
-                        ]},
-                    ]
+                    "synonyms": [{
+                        "line": [
+                            {"syn": "wealthy"},
+                            {"syn": "loaded", "category": "slang"},
+                            {"syn": "moneyed"},
+                            {"syn": "opulent"},
+                            {"syn": "prosperous"},
+                            {"syn": "rich"},
+                            {"syn": "well-heeled", "category": "informal"},
+                            {"syn": "well-off"},
+                            {"syn": "well-to-do"}
+                        ]
+                    }],
                 }},
             ]}
         ])

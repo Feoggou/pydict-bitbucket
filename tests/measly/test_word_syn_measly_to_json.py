@@ -22,7 +22,9 @@ class HtmlToJsonSynTest(unittest.TestCase):
                 {"gram_group": {
                     "value": "adjective",
                     "synonyms": [
-                        {"line": ["meager", "miserable", "paltry", "pathetic", "pitiful", "poor", "puny", "scanty", "skimpy"]}
+                        {"line": [{"syn": "meager"}, {"syn": "miserable"}, {"syn": "paltry"}, {"syn": "pathetic"},
+                                  {"syn": "pitiful"}, {"syn": "poor"}, {"syn": "puny"}, {"syn": "scanty"},
+                                  {"syn": "skimpy"}]}
                     ]
                 }},
             ]}

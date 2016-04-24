@@ -80,15 +80,33 @@
                         "synonyms": [
                             {
                                 "line": [
-                                    "shout",
-                                    "bawl",
-                                    "clamor",
-                                    "cry",
-                                    "howl",
-                                    "roar",
-                                    "scream",
-                                    "shriek",
-                                    "yell"
+                                    {
+                                        "syn": "shout"
+                                    },
+                                    {
+                                        "syn": "bawl"
+                                    },
+                                    {
+                                        "syn": "clamor"
+                                    },
+                                    {
+                                        "syn": "cry"
+                                    },
+                                    {
+                                        "syn": "howl"
+                                    },
+                                    {
+                                        "syn": "roar"
+                                    },
+                                    {
+                                        "syn": "scream"
+                                    },
+                                    {
+                                        "syn": "shriek"
+                                    },
+                                    {
+                                        "syn": "yell"
+                                    }
                                 ]
                             }
                         ],

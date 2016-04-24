@@ -114,7 +114,8 @@ class TestSynParser(unittest.TestCase):
 
         synonyms = self.parser.get_synonyms(sslist_item)
         self.assertEqual(synonyms, [
-            "accurate", "correct", "definite", "faultless", "precise", "right", "specific", "true", "unerring"
+            {"syn": "accurate"}, {"syn": "correct"}, {"syn": "definite"}, {"syn": "faultless"}, {"syn": "precise"},
+            {"syn": "right"}, {"syn": "specific"}, {"syn": "true"}, {"syn": "unerring"}
         ])
 
 

@@ -98,8 +98,10 @@ class TestSynParser(unittest.TestCase):
 
         synonyms = self.parser.get_synonyms(sslist_item)
         self.assertEqual(synonyms, [
-            "wealthy", "loaded (slang)", "moneyed", "opulent", "prosperous", "rich", "well-heeled (informal)",
-            "well-off", "well-to-do"])
+            {"syn": "wealthy"}, {"syn": "loaded", "category": "slang"}, {"syn": "moneyed"}, {"syn": "opulent"},
+            {"syn": "prosperous"}, {"syn": "rich"}, {"syn": "well-heeled", "category": "informal"}, {"syn": "well-off"},
+            {"syn": "well-to-do"}
+        ])
 
 
 if __name__ == '__main__':

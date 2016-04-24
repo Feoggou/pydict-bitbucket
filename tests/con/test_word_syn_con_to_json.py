@@ -24,18 +24,20 @@ class HtmlToJsonSynTest(unittest.TestCase):
                     "value": "noun",
                     "synonyms": [
                         {
-                            "category": "slang informal",
-                            "line": ["swindle", "deception", "fraud", "scam", "sting", "trick"]
+                            "line": [{"syn": "swindle"}, {"syn": "deception"}, {"syn": "fraud"},
+                                     {"syn": "scam", "category": "slang"}, {"syn": "sting", "category": "informal"},
+                                     {"syn": "trick"}]
                         },
                     ]
                 }},
                 {"gram_group": {
                     "value": "verb",
                     "synonyms": [
-                        {"category": "informal slang",
-                         "line": [
-                             "swindle", "cheat", "deceive", "defraud", "double-cross", "dupe", "hoodwink",
-                             "rip off", "trick"]}
+                        {
+                            "line": [
+                                {"syn": "swindle"}, {"syn": "cheat"}, {"syn": "deceive"}, {"syn": "defraud"},
+                                {"syn": "double-cross", "category": "informal"}, {"syn": "dupe"}, {"syn": "hoodwink"},
+                                {"syn": "rip off", "category": "slang"}, {"syn": "trick"}]}
                     ]
                 }}
             ]}

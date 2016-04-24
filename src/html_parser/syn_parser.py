@@ -1,4 +1,5 @@
 from lxml import etree
+import re
 
 
 class SynParser:
@@ -123,6 +124,30 @@ class SynParser:
         return results
 
     @staticmethod
+    def get_syn_category(item: etree._Element):
+        if item is None:
+            return ""
+
+        if "class" not in item.keys():
+            return ""
+
+        if not re.match("lbl .+", item.get("class")):
+            return ""
+
+        text_r = item.xpath('./*[@class="hi"]')
+        # TODO: is it possible to have @class="hi"?
+        text = item.text
+        for y in text_r:
+            if y.text is not None:
+                text += y.text
+            if y.tail is not None:
+                text += y.tail
+
+        text = text.replace("  ", " ")
+
+        return text
+
+    @staticmethod
     def get_synonyms(sense_list_item):
         results = []
 
@@ -136,21 +161,44 @@ class SynParser:
                                            'a/text()')
                 if len(text):
                     text_elems[0] = text + " " + text_elems[0]
-                results = results + text_elems
+                assert len(text_elems) == 1
+                text = text_elems[0]
 
-            else:
-                results.append(text)
+            categ = SynParser.get_syn_category(syn_cls.getnext())
+
+            syn_obj = {"syn": text}
+            if len(categ):
+                syn_obj["category"] = categ
+
+            results.append(syn_obj)
 
         return results
 
     @staticmethod
-    def get_synonyms_category(sense_list_item):
-        results = sense_list_item.xpath('./*[re:match(@class, "lbl .+")]',          # 13 KEYS or 15 KEYS
-                             namespaces={"re": "http://exslt.org/regular-expressions"})
+    def get_synonyms_category(sense_list_item: etree._Element):
+        """results = sense_list_item.xpath('./*[re:match(@class, "lbl .+")]',          # 13 KEYS or 15 KEYS
+                             namespaces={"re": "http://exslt.org/regular-expressions"})"""
+
+        results = []
+        ends_in_tail = False
+        for eitem in sense_list_item.getchildren():
+            if "class" in eitem.keys() and re.match("lbl .+", eitem.get("class")):
+                text = eitem.text
+                results.append(text)
+                ends_in_tail = False
+                if eitem.tail is not None:
+                    results.append(eitem.tail)
+                    ends_in_tail = True
+            else:
+                break
+
         if len(results) == 0:
             return ""
 
-        text_items = []
+        if ends_in_tail:
+            results.pop()
+
+        """text_items = []
         for x in results:
             text_r = x.xpath('./*[@class="hi"]')
             text = x.text
@@ -164,7 +212,8 @@ class SynParser:
                 text_items.append(text)
 
         text = " ".join([x for x in text_items])
-        text = text.replace("  ", " ")
+        text = text.replace("  ", " ")"""
+        text = "".join(results)
 
         return text
 

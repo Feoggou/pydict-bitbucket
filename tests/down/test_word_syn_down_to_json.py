@@ -23,7 +23,9 @@ class HtmlToJsonSynTest(unittest.TestCase):
                 {"gram_group": {
                     "value": "adjective",
                     "synonyms": [
-                        {"line": ["depressed", "dejected", "disheartened", "downcast", "low", "miserable", "sad", "unhappy"]}
+                        {"line": [{"syn": "depressed"}, {"syn": "dejected"}, {"syn": "disheartened"},
+                                  {"syn": "downcast"}, {"syn": "low"}, {"syn": "miserable"}, {"syn": "sad"},
+                                  {"syn": "unhappy"}]}
                     ]
                 }},
                 {"gram_group": {
@@ -31,7 +33,8 @@ class HtmlToJsonSynTest(unittest.TestCase):
                     "synonyms": [
                         {"category": "informal",
                          "line": [
-                             "swallow", "drain", "drink", "drink down", "gulp", "put away", "toss off"]
+                             {"syn": "swallow"}, {"syn": "drain"}, {"syn": "drink"}, {"syn": "drink down"},
+                             {"syn": "gulp"}, {"syn": "put away"}, {"syn": "toss off"}]
                          },
                     ]
                 }},
@@ -39,7 +42,7 @@ class HtmlToJsonSynTest(unittest.TestCase):
                     "value": "noun",
                     "synonyms": [
                         {"line": [
-                             "See have a down on"]
+                             {"syn": "See have a down on"}]
                          },
                     ]
                 }}

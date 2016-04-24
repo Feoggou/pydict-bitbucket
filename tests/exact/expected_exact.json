@@ -84,15 +84,33 @@
                         "synonyms": [
                             {
                                 "line": [
-                                    "accurate",
-                                    "correct",
-                                    "definite",
-                                    "faultless",
-                                    "precise",
-                                    "right",
-                                    "specific",
-                                    "true",
-                                    "unerring"
+                                    {
+                                        "syn": "accurate"
+                                    },
+                                    {
+                                        "syn": "correct"
+                                    },
+                                    {
+                                        "syn": "definite"
+                                    },
+                                    {
+                                        "syn": "faultless"
+                                    },
+                                    {
+                                        "syn": "precise"
+                                    },
+                                    {
+                                        "syn": "right"
+                                    },
+                                    {
+                                        "syn": "specific"
+                                    },
+                                    {
+                                        "syn": "true"
+                                    },
+                                    {
+                                        "syn": "unerring"
+                                    }
                                 ]
                             }
                         ],
@@ -104,13 +122,27 @@
                         "synonyms": [
                             {
                                 "line": [
-                                    "demand",
-                                    "claim",
-                                    "command",
-                                    "compel",
-                                    "extort",
-                                    "extract",
-                                    "force"
+                                    {
+                                        "syn": "demand"
+                                    },
+                                    {
+                                        "syn": "claim"
+                                    },
+                                    {
+                                        "syn": "command"
+                                    },
+                                    {
+                                        "syn": "compel"
+                                    },
+                                    {
+                                        "syn": "extort"
+                                    },
+                                    {
+                                        "syn": "extract"
+                                    },
+                                    {
+                                        "syn": "force"
+                                    }
                                 ]
                             }
                         ],
