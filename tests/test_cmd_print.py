@@ -66,7 +66,7 @@ class TestCommandPrint(unittest.TestCase):
 
                 cmd.execute()
 
-                mock_totext.assert_called_once_with(TestCommandPrint.word_exp_json)
+                mock_totext.assert_called_once_with("do", TestCommandPrint.word_exp_json)
 
 
 if __name__ == "__main__":

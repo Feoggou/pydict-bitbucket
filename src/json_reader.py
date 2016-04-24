@@ -308,7 +308,7 @@ class JsonReader:
         if simple:
             text = ""
             if len(all_items):
-                text = colors.BLUE + "RELATED\n" + colors.RESET + ", ".join(all_items)
+                text = colors.BLUE + "RELATED\n" + colors.RESET + ", ".join(sorted(all_items))
         else:
             text = "\n".join(all_items)
             text += "\n\n{} related\n{} in def groups\n{} nearby\n{} total".format(
