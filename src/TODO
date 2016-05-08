@@ -1,4 +1,18 @@
-o) synonyms -- category for each synonym
-
+words:
+pant, splotch - crashes
+cramped - answer no, takes "cramp" also.
+make a face --- dosen't get pull a face.
 crashes for "have to do with"
+adde(gouge) ---- crash
+beam -- crash
+
+commands:
+edit - use nano
+idioms() -- add idiom for word.
+adddef() -- add a definition, when I got smth clearer.
+see()    -- decide which definitions will be visible, and which not, for a word.
+
+word forms: doing, done -- displayed.
+derived forms: quiet - quietly.
+
 o) refactor word definition in parser
