@@ -336,8 +336,8 @@ class JsonReader:
         text += self.read_by_key("translations")
         text += self.read_by_key("synonyms")
         text += self.read_by_key("examples")
-        text += self.read_all_related(word, simple=True)
         text += self.read_by_key("my_examples")
+        text += self.read_all_related(word, simple=True)
         text += "\n"
 
         return text
