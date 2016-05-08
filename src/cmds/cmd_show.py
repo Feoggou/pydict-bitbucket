@@ -34,10 +34,10 @@ class ShowCommand(Command):
     def execute(self):
         file_name = os.path.join(self.dir_path, self.word + ".json")
 
-        with open(file_name, "r") as json_file:
+        with open(file_name, "r", encoding="utf-8") as json_file:
             content = json.load(json_file)
 
-        return json.dumps(content, indent=2, sort_keys=True)  #  str(content)
+        return json.dumps(content, indent=2, sort_keys=True, ensure_ascii=False)
 
 
 dict_cmd.CMD_CLASSES.append(ShowCommand)

@@ -50,8 +50,8 @@ class AddExCommand(Command):
 
         obj["my_examples"].append({"example": example_value})
 
-        with open(json_file_name, "w") as json_file:
-            json.dump(obj, json_file, indent=4, sort_keys=True)
+        with open(json_file_name, "w", encoding="utf-8") as json_file:
+            json.dump(obj, json_file, indent=4, sort_keys=True, ensure_ascii=False)
 
         return ""
 

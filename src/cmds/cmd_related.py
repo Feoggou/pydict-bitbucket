@@ -4,6 +4,7 @@ import json
 from . import dict_cmd
 from .dict_cmd import Command, Parameter
 from ..json.json_reader import JsonReader
+import unicodedata
 
 
 class PrintRelatedCommand(Command):
@@ -36,7 +37,10 @@ class PrintRelatedCommand(Command):
         file_name = os.path.join(self.dir_path, self.word + ".json")
 
         with open(file_name, "r") as json_file:
-            content = json.load(json_file)
+            # TODO
+            text = json_file.read()
+            text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode("ascii")
+            content = json.loads(text)
 
         reader = JsonReader(content)
         return reader.read_all_related(self.word)

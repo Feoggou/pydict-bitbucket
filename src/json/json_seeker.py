@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import unicodedata
 
 from collections import OrderedDict
 
@@ -95,8 +96,11 @@ class JsonSearch:
     def search_content(self, file: str) -> dict:
         file_name = os.path.join(self.dir_path, file)
 
-        with open(file_name, "r") as json_file:
-            obj = json.load(json_file)
+        with open(file_name, "r", encoding="utf-8") as json_file:
+            # TODO --- utf-8 everywhere where open() is used + tests.
+            text = json_file.read()
+            text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode("ascii")
+            obj = json.loads(text)
 
         items = self._search_json(obj, self.what)
         return {file: items} if len(items) else {}

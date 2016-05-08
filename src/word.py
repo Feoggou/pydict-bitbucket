@@ -21,6 +21,11 @@ class WordData:
 
     @staticmethod
     def _fetch_from_web(suffix):
+        data = suffix.encode("utf-8")
+        txt = data.decode("ascii", errors="backslashreplace")
+        txt = txt.replace("\\x", "%")
+        suffix = txt
+
         hostname = "www.collinsdictionary.com"
         conn = http.client.HTTPConnection(hostname)
         # print("from " + hostname + "/dictionary/" + suffix)

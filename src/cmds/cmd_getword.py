@@ -45,13 +45,13 @@ class GetWordCommand(Command):
         if word is None:
             raise WordInvalidError("No word was provided!")
 
-        match = re.match("^[A-Za-z0-9\- \.\']+$", word)
+        match = re.match("^[\w\- \.\']+$", word)
 
         if match is None:
             raise WordInvalidError(word)
 
-        word = word.replace(" ", "-")
+        word_u8 = word.replace(" ", "-")
 
-        content = self._fetch_content(word)
+        content = self._fetch_content(word_u8)
         return content
 

@@ -6,10 +6,17 @@ from .cmd_print import PrintCommand
 import os
 import re
 import json
+import unicodedata
 
 
 def output_msg(args):
     print(args)
+
+
+def to_utf8(x):
+    text = x.group(0).replace("%", "")
+    bts = bytearray.fromhex(text)
+    return bts.decode("utf-8")
 
 
 class WordHandler:
@@ -36,8 +43,8 @@ class WordHandler:
         file_path = os.path.join(self.dir_path, word)
         file_path += ".json"
 
-        with open(file_path, "w") as f:
-            json.dump(content, f, indent=4, sort_keys=True)
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(content, f, indent=4, sort_keys=True, ensure_ascii=False)
 
     def _get_word_definition(self, word):
         cmd = cmd_getword.GetWordCommand()
@@ -59,6 +66,9 @@ class WordHandler:
                 if re.match("american\?q=.*", e.value):
                     output_msg("The word '{}' was not found!".format(word))
                     return None, None
+
+                # blas%C3%A9
+                e.value = re.sub("(%[A-Z0-9][A-Z0-9])+", to_utf8, e.value)
 
                 answer = input("Word '{}' not found. Would you like to get word '{}' instead? ".format(word, e.value))
                 if answer.lower() == "yes" or len(answer) == 0:
@@ -91,6 +101,8 @@ class WordHandler:
 
         self._handle_subwords(word, definition)
 
+        word = unicodedata.normalize('NFKD', word).encode('ascii', 'ignore').decode("ascii")
+
         self._save_json(word, definition)
         self._print_json_content(word, definition)
 
@@ -99,7 +111,9 @@ class WordHandler:
     def _handle_subwords(self, word: str, definition: dict):
         subwords = [x["word"] for x in definition["def_groups"]]
         subwords = sorted(list(set(subwords)))
-        subwords.remove(word)
+
+        if word in subwords:
+            subwords.remove(word)
 
         definition["subwords"] = {}
 

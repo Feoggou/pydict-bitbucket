@@ -55,8 +55,8 @@ def get_syn_for_word(word):
     return text
 
 
-add_new_word_to_test = False
-word_name = "pundit"
+add_new_word_to_test = True
+word_name = "blas%C3%A9"
 
 if add_new_word_to_test is True:
     text_def = get_html_for_word(word_name)
