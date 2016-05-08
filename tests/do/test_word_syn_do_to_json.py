@@ -1,6 +1,6 @@
 import unittest
-from src.syn_groups import *
-from src.syn_parser import SynParser
+from src.html_parser.syn_groups import *
+from src.html_parser.syn_parser import SynParser
 from lxml import etree
 
 
@@ -24,20 +24,26 @@ class HtmlToJsonSynTest(unittest.TestCase):
                 {"gram_group": {
                     "value": "verb",
                     "synonyms": [
-                        {"line": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
-                        {"line": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
-                        {"line": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
-                        {"line": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
-                        {"line": ["cause", "bring about", "create", "effect", "produce"]}
+                        {"line": [{"syn": "perform"}, {"syn": "accomplish"}, {"syn": "achieve"}, {"syn": "carry out"},
+                                  {"syn": "complete"}, {"syn": "execute"}]},
+                        {"line": [{"syn": "be adequate"}, {"syn": "be sufficient"}, {"syn": "cut the mustard"},
+                                  {"syn": "pass muster"}, {"syn": "satisfy"}, {"syn": "suffice"}]},
+                        {"line": [{"syn": "get ready"}, {"syn": "arrange"}, {"syn": "fix"}, {"syn": "look after"},
+                                  {"syn": "prepare"}, {"syn": "see to"}]},
+                        {"line": [{"syn": "solve"}, {"syn": "decipher"}, {"syn": "decode"}, {"syn": "figure out"},
+                                  {"syn": "puzzle out"}, {"syn": "resolve"}, {"syn": "work out"}]},
+                        {"line": [{"syn": "cause"}, {"syn": "bring about"}, {"syn": "create"}, {"syn": "effect"},
+                                  {"syn": "produce"}]}
                     ]
                 }},
                 {"gram_group": {
                     "value": "noun",
                     "synonyms": [
-                        {"category": "informal mainly British New Zealand",
-                         "line": [
-                             "event", "affair", "function", "gathering", "occasion", "party"]
-                         },
+                        {
+                            "category": "informal mainly British New Zealand",
+                            "line": [
+                                {"syn": "event"}, {"syn": "affair"}, {"syn": "function"}, {"syn": "gathering"},
+                                {"syn": "occasion"}, {"syn": "party"}]},
                     ]
                 }}
             ]}
@@ -51,22 +57,31 @@ class HtmlToJsonSynTest(unittest.TestCase):
         group = SynGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
+
         self.assertEqual({"word": "do", "gram_groups": [
             {"gram_group": {
                 "value": "verb",
                 "synonyms": [
-                    {"line": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
-                    {"line": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
-                    {"line": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
-                    {"line": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
-                    {"line": ["cause", "bring about", "create", "effect", "produce"]}
+                    {"line": [{"syn": "perform"}, {"syn": "accomplish"}, {"syn": "achieve"}, {"syn": "carry out"},
+                              {"syn": "complete"}, {"syn": "execute"}]},
+                    {"line": [{"syn": "be adequate"}, {"syn": "be sufficient"}, {"syn": "cut the mustard"},
+                              {"syn": "pass muster"}, {"syn": "satisfy"}, {"syn": "suffice"}]},
+                    {"line": [{"syn": "get ready"}, {"syn": "arrange"}, {"syn": "fix"}, {"syn": "look after"},
+                              {"syn": "prepare"}, {"syn": "see to"}]},
+                    {"line": [{"syn": "solve"}, {"syn": "decipher"}, {"syn": "decode"}, {"syn": "figure out"},
+                              {"syn": "puzzle out"}, {"syn": "resolve"}, {"syn": "work out"}]},
+                    {"line": [{"syn": "cause"}, {"syn": "bring about"}, {"syn": "create"}, {"syn": "effect"},
+                              {"syn": "produce"}]}
                 ]
             }},
             {"gram_group": {
                 "value": "noun",
                 "synonyms": [
-                    {"category": "informal mainly British New Zealand",
-                     "line": ["event", "affair", "function", "gathering", "occasion", "party"]},
+                    {
+                        "category": "informal mainly British New Zealand",
+                        "line": [
+                            {"syn": "event"}, {"syn": "affair"}, {"syn": "function"}, {"syn": "gathering"},
+                            {"syn": "occasion"}, {"syn": "party"}]},
                 ]
             }}
         ]}, result)
@@ -83,11 +98,16 @@ class HtmlToJsonSynTest(unittest.TestCase):
         self.assertEqual({"gram_group": {
             "value": "verb",
             "synonyms": [
-                {"line": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
-                {"line": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
-                {"line": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
-                {"line": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
-                {"line": ["cause", "bring about", "create", "effect", "produce"]}
+                {"line": [{"syn": "perform"}, {"syn": "accomplish"}, {"syn": "achieve"}, {"syn": "carry out"},
+                          {"syn": "complete"}, {"syn": "execute"}]},
+                {"line": [{"syn": "be adequate"}, {"syn": "be sufficient"}, {"syn": "cut the mustard"},
+                          {"syn": "pass muster"}, {"syn": "satisfy"}, {"syn": "suffice"}]},
+                {"line": [{"syn": "get ready"}, {"syn": "arrange"}, {"syn": "fix"}, {"syn": "look after"},
+                          {"syn": "prepare"}, {"syn": "see to"}]},
+                {"line": [{"syn": "solve"}, {"syn": "decipher"}, {"syn": "decode"}, {"syn": "figure out"},
+                          {"syn": "puzzle out"}, {"syn": "resolve"}, {"syn": "work out"}]},
+                {"line": [{"syn": "cause"}, {"syn": "bring about"}, {"syn": "create"}, {"syn": "effect"},
+                          {"syn": "produce"}]}
             ]
         }}, result)
 
@@ -102,7 +122,8 @@ class HtmlToJsonSynTest(unittest.TestCase):
         group = SynListGroup(dict_parser, sslitem)
         group.build()
         result = group.translate()
-        self.assertEqual({"line": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]}, result)
+        self.assertEqual({"line": [{"syn": "perform"}, {"syn": "accomplish"}, {"syn": "achieve"}, {"syn": "carry out"},
+                                   {"syn": "complete"}, {"syn": "execute"}]}, result)
 
     def test_1st_syn_group_returns_5_filled_lists(self):
         root = etree.HTML(self.html_content)
@@ -114,11 +135,11 @@ class HtmlToJsonSynTest(unittest.TestCase):
         group.build()
         result = group.translate()
         self.assertEqual([
-            {"line": ["perform", "accomplish", "achieve", "carry out", "complete", "execute"]},
-            {"line": ["be adequate", "be sufficient", "cut the mustard", "pass muster", "satisfy", "suffice"]},
-            {"line": ["get ready", "arrange", "fix", "look after", "prepare", "see to"]},
-            {"line": ["solve", "decipher", "decode", "figure out", "puzzle out", "resolve", "work out"]},
-            {"line": ["cause", "bring about", "create", "effect", "produce"]}
+            {"line": [{"syn": "perform"}, {"syn": "accomplish"}, {"syn": "achieve"}, {"syn": "carry out"}, {"syn": "complete"}, {"syn": "execute"}]},
+            {"line": [{"syn": "be adequate"}, {"syn": "be sufficient"}, {"syn": "cut the mustard"}, {"syn": "pass muster"}, {"syn": "satisfy"}, {"syn": "suffice"}]},
+            {"line": [{"syn": "get ready"}, {"syn": "arrange"}, {"syn": "fix"}, {"syn": "look after"}, {"syn": "prepare"}, {"syn": "see to"}]},
+            {"line": [{"syn": "solve"}, {"syn": "decipher"}, {"syn": "decode"}, {"syn": "figure out"}, {"syn": "puzzle out"}, {"syn": "resolve"}, {"syn": "work out"}]},
+            {"line": [{"syn": "cause"}, {"syn": "bring about"}, {"syn": "create"}, {"syn": "effect"}, {"syn": "produce"}]}
         ], result)
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 import unittest
-from src.syn_parser import SynParser
+from src.html_parser.syn_parser import SynParser
 from lxml import etree
 
 
@@ -125,8 +125,9 @@ class TestSynParser(unittest.TestCase):
         sslist = self.parser.get_senselist(ggroup)
         sslist_item = self.parser.get_all_senselist_items(sslist)[0]
 
-        synonyms =  self.parser.get_synonyms(sslist_item)
-        self.assertEqual(synonyms, ["perform", "accomplish", "achieve", "carry out", "complete", "execute"])
+        synonyms = self.parser.get_synonyms(sslist_item)
+        self.assertEqual(synonyms, [{"syn": "perform"}, {"syn": "accomplish"}, {"syn": "achieve"}, {"syn": "carry out"},
+                                    {"syn": "complete"}, {"syn": "execute"}])
 
     def test_get_synonyms_categ_for_noun(self):
         def_group = self.parser.get_all_def_groups()[0]
@@ -136,9 +137,9 @@ class TestSynParser(unittest.TestCase):
         sslist = self.parser.get_senselist(ggroup)
         sslist_item = self.parser.get_all_senselist_items(sslist)[0]
 
-        category =  self.parser.get_synonyms_category(sslist_item)
+        category = self.parser.get_synonyms_category(sslist_item)
         print("category=", category)
-        self.assertEqual(category, "informal mainly British New Zealand")
+        self.assertEqual("informal mainly British New Zealand", category)
 
 
 if __name__ == '__main__':

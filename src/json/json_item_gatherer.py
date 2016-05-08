@@ -70,12 +70,12 @@ class ItemGatherer:
             return []
 
         for x in obj["synonyms"]:
-            items.append(x["word"])
+            # items.append(x["word"])
 
             for ggroup in x["gram_groups"]:
                 syns_obj = ggroup["gram_group"]
                 for line in syns_obj["synonyms"]:
-                    items += line["line"]
+                    items += [x["syn"] for x in line["line"]]
 
         return items
 
@@ -211,16 +211,20 @@ class ItemGatherer:
         for definition in group:
             if "def" in definition.keys():
                 if "category" in definition.keys():
-                    items += definition["category"]
+                    items.append(definition["category"])
 
             elif "def_subgroup" in definition.keys():
                 if "category" in definition.keys():
-                    items += definition["category"]
+                    items.append(definition["category"])
 
                 items += ItemGatherer._get_all_categs(definition["def_subgroup"])
 
             else:
                 if "category" in definition.keys():
-                    items += definition["category"]
+                    items.append(definition["category"])
+
+                for syn in definition["line"]:
+                    if "category" in syn.keys():
+                        items.append(syn["category"])
 
         return items
