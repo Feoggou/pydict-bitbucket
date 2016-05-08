@@ -177,7 +177,7 @@ class DefParser:
 
             gram_value = gram_values[0]
             derived_form = item.xpath('./*[@class="drv"]/text()')[0]
-            derived_form = derived_form.replace("ˈ", "")
+            derived_form = derived_form.replace("ˈ", "").replace("ˌ", "")
 
             if gram_value in der_forms:
                 der_forms[gram_value] += ", " + derived_form
@@ -187,7 +187,7 @@ class DefParser:
             derived_forms = item.xpath('./*[@class="hom"]/*[@class="var"]/*[@class="var"]/text()')
 
             if len(derived_forms):
-                der_forms[gram_value] += " " + derived_forms[0].replace("ˈ", "")
+                der_forms[gram_value] += " " + derived_forms[0].replace("ˈ", "").replace("ˌ", "")
 
         if der_forms == {}:
             return None
@@ -343,7 +343,7 @@ class DefParser:
         result = []
         for e in elems:
             # t = e.text.replace("ˈ", "'")
-            t = e.text.replace("ˈ", "")
+            t = e.text.replace("ˈ", "").replace("ˌ", "")
             text = "".join(x for x in t if re.match("[^\s,]", x))   # ("[A-Za-z']", x))
             if len(text):
                 result.append(text)
