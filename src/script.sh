@@ -7,7 +7,7 @@ dir_path=/home/zenith/dictionary/words
 for x in `ls $dir_path`; do
 #   if ! [ $(expr match "$x" '.*\(\.json\)') ]; then
     # ./py-dict.py $dir_path $x
-    ./py-dict.py $x
+    ./main.py $x
     if [[ $? != 0 ]]; then echo "$x" >> fails_new2.txt; fi
 #   fi
 done
