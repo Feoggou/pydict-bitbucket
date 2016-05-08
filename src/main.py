@@ -14,25 +14,14 @@ DIR_PATH = ""
 
 if "/home/zenith/PycharmProjects/EDictionary/src" == os.getcwd():
     DIR_PATH = "/home/zenith/PycharmProjects/EDictionary/temp-data"
+    # DIR_PATH = "/home/zenith/dictionary/words"
 else:
     DIR_PATH = "/home/zenith/Dropbox/Docs/DICTIONARY"
 
 print("DIR_PATH: ", DIR_PATH)
 
-if len(sys.argv) == 2:
-    print("NOT IMPLEMENTED YET!")
-    exit(0)
-elif len(sys.argv) > 2:
-    print("UNEXPECTED ARGUMENTS!")
-    exit(-1)
 
-os.makedirs(DIR_PATH, exist_ok=True)
-
-while True:
-    input_str = input(BOLDMAGENTA + "Dict> " + RESET)
-    if len(input_str) == 0:
-        continue
-
+def execute_command(input_str):
     try:
         cmd = commands.match_command(input_str, DIR_PATH)
     except ValueError as e:
@@ -42,6 +31,29 @@ while True:
             word_handler = WordHandler(DIR_PATH)
             word_handler.get(input_str)
         else:
-            print(cmd.execute())
+            try:
+                print(cmd.execute())
+            except FileNotFoundError as e:
+                item = os.path.split(e.filename)[-1]
+                print("File not found: ", item)
+
+
+if len(sys.argv) == 2:
+    input_str = sys.argv[1]
+    execute_command(input_str)
+    exit(0)
+elif len(sys.argv) > 2:
+    print("UNEXPECTED ARGUMENTS!")
+    exit(-1)
+
+os.makedirs(DIR_PATH, exist_ok=True)
+
+
+while True:
+    input_str = input(BOLDMAGENTA + "Dict> " + RESET)
+    if len(input_str) == 0:
+        continue
+
+    execute_command(input_str)
 
 
