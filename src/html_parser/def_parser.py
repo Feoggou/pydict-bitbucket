@@ -2,7 +2,177 @@ from lxml import etree
 import re
 
 from . import html_parser
-from .etree_printer import *
+
+
+class HtmlItem:
+    def __init__(self, etree_item: etree._Element):
+        self.item = etree_item
+        # print("def - text: '{}'".format(etree_item.text))
+        # print("def - tail: '{}'".format(etree_item.tail))
+
+        self.text = etree_item.text if etree_item.text is not None else ""
+        self.tail = etree_item.tail if etree_item.tail is not None else ""
+
+    def read(self):
+        text = self.text
+
+        text += self.tail
+
+        return text
+
+
+class XrRefLinkItem(HtmlItem):
+    def __init__(self, etree_item: etree._Element):
+        HtmlItem.__init__(self, etree_item)
+        assert self.item.text is not None
+        assert self.item.tail is None
+
+    def read(self):
+        text = self.item.text
+
+        href = self.item.get("href")
+        word_def = re.match("[\w-]+#[\w-]+_(\d)", href)
+
+        assert len(word_def.groups()) == 1
+        word_def = word_def.groups()[0]
+
+        text += "[{}]".format(word_def)
+
+        text += self.read_children()
+
+        return text
+
+    def read_children(self):
+        text = ""
+        # print("text: {}, tail: {}, children: {}".format(self.text, self.tail, len(self.item.getchildren())))
+        if len(self.item.getchildren()) == 0:
+            return ""
+
+        assert len(self.item.getchildren()) == 1
+
+        e = self.item.getchildren()[0]
+
+        assert e.tag == "em"
+        assert len(e.keys()) == 1
+
+        assert e.get("class") == "hi"
+
+        item = HtmlItem(e)
+        text += item.read()
+        return text
+
+
+class XrRefItem(HtmlItem):
+    def __init__(self, etree_item: etree._Element):
+        HtmlItem.__init__(self, etree_item)
+
+    def read(self):
+        text = self.text
+
+        text += self.read_children()
+
+        text += self.tail
+
+        return text
+
+    def read_children(self):
+        text = ""
+        assert len(self.item.getchildren()) == 1
+
+        e = self.item.getchildren()[0]
+
+        assert e.tag == "a"
+        assert len(e.keys()) == 2
+
+        assert e.get("class") == "xr_ref_link"
+
+        # item = self.classes[key](e)
+        item = XrRefLinkItem(e)
+        text += item.read()
+        return text
+
+
+class XrItem(HtmlItem):
+    def __init__(self, etree_item: etree._Element):
+        HtmlItem.__init__(self, etree_item)
+        self.classes = {"lbl": HtmlItem, "xr_ref": XrRefItem}
+
+        assert self.item.text is None
+        assert self.item.tail is None
+
+    def read(self):
+        text = self.text
+
+        text += self.read_children()
+
+        text += self.tail
+
+        return text
+
+    def read_children(self):
+        text = ""
+        for e in self.item.getchildren():
+            assert e.tag == "span"
+            assert len(e.keys()) == 1
+
+            key = e.keys()[0]
+            assert key == "class"
+
+            item = self.classes[e.get(key)](e)
+            text += item.read()
+        return text
+
+
+class DefItem(HtmlItem):
+    def __init__(self, etree_item: etree._Element):
+        HtmlItem.__init__(self, etree_item)
+        self.subtypes = {"strong": HtmlItem, "em": HtmlItem}
+        self.sibltypes = {"span": DefItem.create_span_item}
+        self.keys = {"class": DefItem.create_class_item}
+
+    @staticmethod
+    def create_class_item(elem):
+        classes = {"xr": XrItem}
+
+        class_name = elem.get("class")
+        print("class: ", class_name)
+
+        if class_name in classes:
+            return classes[class_name](elem)
+
+        return None
+
+    def create_span_item(self, elem):
+        assert len(elem.keys()) == 1
+        key = elem.keys()[0]
+
+        return self.keys[key](elem)
+
+    def read(self):
+        text = self.text
+
+        text += self.read_children()
+        text += self.tail
+
+        text += self.read_siblings()
+
+        return text
+
+    def read_children(self):
+        text = ""
+        for e in self.item.getchildren():
+            item = self.subtypes[e.tag](e)
+            text += item.read()
+        return text
+
+    def read_siblings(self):
+        text = ""
+        for next_elem in self.item.itersiblings():
+            item = self.sibltypes[next_elem.tag](self, next_elem)
+            if item is not None:
+                text += item.read()
+
+        return text
 
 
 class DefParser(html_parser.HtmlParser):
@@ -296,81 +466,6 @@ class DefParser(html_parser.HtmlParser):
         return result
 
     @staticmethod
-    def read_hi_item(hi_item: etree._Element):
-        print("hi_item - text: '{}'".format(hi_item.text))
-        print("hi_item - tail: '{}'".format(hi_item.tail))
-
-        assert hi_item.text is not None
-        # assert hi_item.tail is None
-
-        text = hi_item.text
-        if hi_item.tail is not None:
-            text += hi_item.tail
-
-        return text
-
-    @staticmethod
-    def read_xr_ref_link_item(xr_link: etree._Element):
-        print("xr_ref_link - text: '{}'".format(xr_link.text))
-        print("xr_ref_link - tail: '{}'".format(xr_link.tail))
-
-        assert xr_link.text is not None
-        assert xr_link.tail is None
-
-        text = xr_link.text
-        href = xr_link.get("href")
-        word_def = re.match("[\w-]+#[\w-]+_(\d)", href)
-
-        assert len(word_def.groups()) == 1
-        word_def = word_def.groups()[0]
-
-        text += "[{}]".format(word_def)
-
-        for e in xr_link.getchildren():
-            if e.keys()[0] == "class" and e.get("class") == "hi":
-                text += DefParser.read_hi_item(e)
-
-        return text
-
-    @staticmethod
-    def read_xr_ref_item(xr_ref: etree._Element):
-        print("xr_ref - text: '{}'".format(xr_ref.text))
-        print("xr_ref - tail: '{}'".format(xr_ref.tail))
-
-        assert xr_ref.text is None
-        # assert xr_ref.tail is None
-
-        text = ""
-        print("xr ref=-----------")
-        for e in xr_ref.getchildren():
-            print_keys(e, 0)
-            if e.keys()[0] == "class" and e.get("class") == "xr_ref_link":
-                text += DefParser.read_xr_ref_link_item(e)  # e.text
-
-        if xr_ref.tail is not None:
-            text += xr_ref.tail
-
-        return text
-
-    @staticmethod
-    def read_xr_item(xr_item: etree._Element):
-        assert xr_item.text is None
-        assert xr_item.tail is None
-
-        text = ""
-        for e in xr_item.getchildren():
-            if len(e.keys()) == 1:
-                if e.keys()[0] == "class" and e.get("class") == "lbl":
-                    print("lbl - text: '{}'".format(e.text))
-                    print("lbl - tail: '{}'".format(e.tail))
-                    text += e.text
-                elif e.keys()[0] == "class" and e.get("class") == "xr_ref":
-                    # text += e.text
-                    text += DefParser.read_xr_ref_item(e)
-
-        return text
-
-    @staticmethod
     def get_definition(sense_list_item):
         text = ""
         results = sense_list_item.xpath('./*[@class="def"]')  # 13 KEYS or 15 KEYS
@@ -378,36 +473,11 @@ class DefParser(html_parser.HtmlParser):
             raise RuntimeError("Expected 1 definition as 'class'='def', we got: ", len(results))
 
         elem = results[0]
+        assert elem is not None
         assert isinstance(elem, etree._Element)
 
-        print("def - text: '{}'".format(elem.text))
-        print("def - tail: '{}'".format(elem.tail))
-
-        # assert elem.text is not None
-        # assert elem.tail is None
-
-        if elem.text is not None:
-            text = elem.text
-
-        if elem.tail is not None:
-            text += elem.tail
-
-        for e in elem.getchildren():
-            if e.tag == "strong":
-                text += e.text
-                text += e.tail
-            elif e.keys()[0] == "class" and e.get("class") == "hi":
-                text += DefParser.read_hi_item(e)
-
-        # next_elem = elem.getnext()
-        # while next_elem is not None:
-        for next_elem in elem.itersiblings():
-            assert isinstance(next_elem, etree._Element)
-
-            print("tag: ", next_elem.tag)
-            print_keys(next_elem, 0)
-            if len(next_elem.keys()) == 1 and next_elem.keys()[0] == "class" and next_elem.get("class") == "xr":
-                text += DefParser.read_xr_item(next_elem)
+        item = DefItem(elem)
+        text = item.read()
 
         text = text.replace("  ", " ")
 
