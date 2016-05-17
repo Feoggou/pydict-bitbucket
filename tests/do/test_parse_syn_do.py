@@ -46,7 +46,7 @@ class TestSynParser(unittest.TestCase):
 
     def test_have_home_subsec(self):
         group = self.parser.get_all_def_groups()[0]
-        elems = self.parser._get_all_home_subsecs(group)
+        elems = self.parser.get_all_home_subsecs(group)
 
         self.assertElemKey(("class", "similar-words hom-subsec"), elems[0])
         self.assertEqual(len(elems), 1)

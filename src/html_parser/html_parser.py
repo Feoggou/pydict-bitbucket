@@ -120,7 +120,7 @@ class HtmlParser:
                                  .format(self._get_gramgroup_name()))                               # 12 KEYS
 
         if len(elems):
-            text = " ".join([x.text for x in elems])
+            text = " ".join([x.text for x in elems if len(x.text) > 0])
             return text
 
         return ""
