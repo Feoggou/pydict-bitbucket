@@ -5,7 +5,7 @@
                 {
                     "defs": [
                         {
-                            "def": "in an exact manner; accurately; correctly; precisely (also used as an affirmative reply, equivalent to \u201cI agree,\u201d \u201cquite true\u201d)"
+                            "def": "in an exact manner; accurately; correctly; precisely (also used as an affirmative reply, equivalent to “I agree,” “quite true”)"
                         }
                     ],
                     "value": "adverb"
@@ -42,6 +42,7 @@
         "examinee",
         "examiner"
     ],
+    "subwords": {},
     "synonyms": [
         {
             "gram_groups": [
@@ -50,25 +51,55 @@
                         "synonyms": [
                             {
                                 "line": [
-                                    "precisely",
-                                    "accurately",
-                                    "correctly",
-                                    "explicitly",
-                                    "faithfully",
-                                    "scrupulously",
-                                    "truthfully",
-                                    "unerringly"
+                                    {
+                                        "syn": "precisely"
+                                    },
+                                    {
+                                        "syn": "accurately"
+                                    },
+                                    {
+                                        "syn": "correctly"
+                                    },
+                                    {
+                                        "syn": "explicitly"
+                                    },
+                                    {
+                                        "syn": "faithfully"
+                                    },
+                                    {
+                                        "syn": "scrupulously"
+                                    },
+                                    {
+                                        "syn": "truthfully"
+                                    },
+                                    {
+                                        "syn": "unerringly"
+                                    }
                                 ]
                             },
                             {
                                 "line": [
-                                    "in every respect",
-                                    "absolutely",
-                                    "indeed",
-                                    "precisely",
-                                    "quite",
-                                    "specifically",
-                                    "to the letter"
+                                    {
+                                        "syn": "in every respect"
+                                    },
+                                    {
+                                        "syn": "absolutely"
+                                    },
+                                    {
+                                        "syn": "indeed"
+                                    },
+                                    {
+                                        "syn": "precisely"
+                                    },
+                                    {
+                                        "syn": "quite"
+                                    },
+                                    {
+                                        "syn": "specifically"
+                                    },
+                                    {
+                                        "syn": "to the letter"
+                                    }
                                 ]
                             }
                         ],

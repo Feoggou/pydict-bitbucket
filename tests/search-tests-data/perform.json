@@ -67,6 +67,7 @@
         "do",
         "accomplish"
     ],
+    "subwords": {},
     "synonyms": [
         {
             "gram_groups": [
@@ -75,28 +76,64 @@
                         "synonyms": [
                             {
                                 "line": [
-                                    "carry out",
-                                    "accomplish",
-                                    "achieve",
-                                    "complete",
-                                    "discharge",
-                                    "do",
-                                    "execute",
-                                    "fulfill",
-                                    "pull off",
-                                    "work"
+                                    {
+                                        "syn": "carry out"
+                                    },
+                                    {
+                                        "syn": "accomplish"
+                                    },
+                                    {
+                                        "syn": "achieve"
+                                    },
+                                    {
+                                        "syn": "complete"
+                                    },
+                                    {
+                                        "syn": "discharge"
+                                    },
+                                    {
+                                        "syn": "do"
+                                    },
+                                    {
+                                        "syn": "execute"
+                                    },
+                                    {
+                                        "syn": "fulfill"
+                                    },
+                                    {
+                                        "syn": "pull off"
+                                    },
+                                    {
+                                        "syn": "work"
+                                    }
                                 ]
                             },
                             {
                                 "line": [
-                                    "present",
-                                    "act",
-                                    "enact",
-                                    "play",
-                                    "produce",
-                                    "put on",
-                                    "represent",
-                                    "stage"
+                                    {
+                                        "syn": "present"
+                                    },
+                                    {
+                                        "syn": "act"
+                                    },
+                                    {
+                                        "syn": "enact"
+                                    },
+                                    {
+                                        "syn": "play"
+                                    },
+                                    {
+                                        "syn": "produce"
+                                    },
+                                    {
+                                        "syn": "put on"
+                                    },
+                                    {
+                                        "syn": "represent"
+                                    },
+                                    {
+                                        "syn": "stage"
+                                    }
                                 ]
                             }
                         ],

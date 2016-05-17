@@ -53,6 +53,7 @@
     "related_words": [
         "preexist"
     ],
+    "subwords": {},
     "synonyms": [
         {
             "gram_groups": [
@@ -61,23 +62,49 @@
                         "synonyms": [
                             {
                                 "line": [
-                                    "be",
-                                    "be present",
-                                    "endure",
-                                    "live",
-                                    "occur",
-                                    "survive"
+                                    {
+                                        "syn": "be"
+                                    },
+                                    {
+                                        "syn": "be present"
+                                    },
+                                    {
+                                        "syn": "endure"
+                                    },
+                                    {
+                                        "syn": "live"
+                                    },
+                                    {
+                                        "syn": "occur"
+                                    },
+                                    {
+                                        "syn": "survive"
+                                    }
                                 ]
                             },
                             {
                                 "line": [
-                                    "survive",
-                                    "eke out a living",
-                                    "get along",
-                                    "get by",
-                                    "keep one's head above water",
-                                    "stay alive",
-                                    "subsist"
+                                    {
+                                        "syn": "survive"
+                                    },
+                                    {
+                                        "syn": "eke out a living"
+                                    },
+                                    {
+                                        "syn": "get along"
+                                    },
+                                    {
+                                        "syn": "get by"
+                                    },
+                                    {
+                                        "syn": "keep one's head above water"
+                                    },
+                                    {
+                                        "syn": "stay alive"
+                                    },
+                                    {
+                                        "syn": "subsist"
+                                    }
                                 ]
                             }
                         ],

@@ -1,1 +1,158 @@
-{"examples": [{"example": "Two armchairs had been placed on top of it to create more floor-space."}], "def_groups": [{"gram_groups": [{"value": "transitive verb", "word_forms": ["created", "creating"], "defs": [{"def": "to cause to come into existence; bring into being; make; originate; esp., to make or design (something requiring art, skill, invention, etc.)"}, {"example": "new industries create new jobs", "def": "to bring about; give rise to; cause"}, {"def": "to invest with a new rank, function, etc."}, {"def": "to be the first to portray (a particular role in a play)"}]}, {"value": "adjective", "defs": [{"def": "created", "category": "archaic"}]}], "word": "create"}], "frequency": "Extremely Common", "synonyms": [{"gram_groups": [{"gram_group": {"value": "verb", "synonyms": [{"line": ["make", "compose", "devise", "formulate", "invent", "originate", "produce", "spawn"]}, {"line": ["cause", "bring about", "lead to", "occasion"]}, {"line": ["appoint", "constitute", "establish", "install", "invest", "make", "set up"]}]}}], "word": "create"}], "nearby_words": ["cream puff", "cream sauce", "cream soda", "cream-colored", "creamcups", "creamer", "creamery", "creamware", "creamy", "crease", "creatine", "creatinine", "creation", "creation science", "creationism", "creative", "creativity", "creator", "creature", "creature comfort"], "related_words": ["re-create"], "translations": ["To create something means to cause it to happen or exist.It is really great for a radio producer to create a show like this. creates, creating, created"]}
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "to cause to come into existence; bring into being; make; originate; esp., to make or design (something requiring art, skill, invention, etc.)"
+                        },
+                        {
+                            "def": "to bring about; give rise to; cause",
+                            "example": "new industries create new jobs"
+                        },
+                        {
+                            "def": "to invest with a new rank, function, etc."
+                        },
+                        {
+                            "def": "to be the first to portray (a particular role in a play)"
+                        }
+                    ],
+                    "value": "transitive verb",
+                    "word_forms": [
+                        "created",
+                        "creating"
+                    ]
+                },
+                {
+                    "defs": [
+                        {
+                            "category": "archaic",
+                            "def": "created"
+                        }
+                    ],
+                    "value": "adjective"
+                }
+            ],
+            "word": "create"
+        }
+    ],
+    "examples": [
+        {
+            "example": "Two armchairs had been placed on top of it to create more floor-space."
+        }
+    ],
+    "frequency": "Extremely Common",
+    "nearby_words": [
+        "cream puff",
+        "cream sauce",
+        "cream soda",
+        "cream-colored",
+        "creamcups",
+        "creamer",
+        "creamery",
+        "creamware",
+        "creamy",
+        "crease",
+        "creatine",
+        "creatinine",
+        "creation",
+        "creation science",
+        "creationism",
+        "creative",
+        "creativity",
+        "creator",
+        "creature",
+        "creature comfort"
+    ],
+    "related_words": [
+        "re-create"
+    ],
+    "subwords": {},
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    {
+                                        "syn": "make"
+                                    },
+                                    {
+                                        "syn": "compose"
+                                    },
+                                    {
+                                        "syn": "devise"
+                                    },
+                                    {
+                                        "syn": "formulate"
+                                    },
+                                    {
+                                        "syn": "invent"
+                                    },
+                                    {
+                                        "syn": "originate"
+                                    },
+                                    {
+                                        "syn": "produce"
+                                    },
+                                    {
+                                        "syn": "spawn"
+                                    }
+                                ]
+                            },
+                            {
+                                "line": [
+                                    {
+                                        "syn": "cause"
+                                    },
+                                    {
+                                        "syn": "bring about"
+                                    },
+                                    {
+                                        "syn": "lead to"
+                                    },
+                                    {
+                                        "syn": "occasion"
+                                    }
+                                ]
+                            },
+                            {
+                                "line": [
+                                    {
+                                        "syn": "appoint"
+                                    },
+                                    {
+                                        "syn": "constitute"
+                                    },
+                                    {
+                                        "syn": "establish"
+                                    },
+                                    {
+                                        "syn": "install"
+                                    },
+                                    {
+                                        "syn": "invest"
+                                    },
+                                    {
+                                        "syn": "make"
+                                    },
+                                    {
+                                        "syn": "set up"
+                                    }
+                                ]
+                            }
+                        ],
+                        "value": "verb"
+                    }
+                }
+            ],
+            "word": "create"
+        }
+    ],
+    "translations": [
+        "To create something means to cause it to happen or exist.It is really great for a radio producer to create a show like this. creates, creating, created"
+    ]
+}
