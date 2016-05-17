@@ -430,7 +430,7 @@ class HtmlToJsonTest(unittest.TestCase):
                     "defs": [
                         {"category": "music",
                          "def": "a syllable representing the first or last tone of the diatonic scale "
-                                "see also solfeggio (def. 1)"}
+                                "see also solfeggio[1]"}
                     ]
                 },
             ]}, result)
@@ -448,7 +448,7 @@ class HtmlToJsonTest(unittest.TestCase):
                 {
                     "value": "noun",
                     "defs": [
-                        {"category": "slang", "def": "hairdo (def. 1)"}
+                        {"category": "slang", "def": "hairdo[1]"}
                     ]
                 },
             ]}, result)
@@ -578,13 +578,13 @@ class HtmlToJsonTest(unittest.TestCase):
                         "value": "noun",
                         "defs": [{"category": "music",
                                    "def": "a syllable representing the first or last tone of the diatonic scale "
-                                          "see also solfeggio (def. 1)"}]
+                                          "see also solfeggio[1]"}]
                     },
                 ]},
                 {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
-                        "defs": [{"category": "slang", "def": "hairdo (def. 1)"}]
+                        "defs": [{"category": "slang", "def": "hairdo[1]"}]
                     },
                 ]},
                 {"word": "Do or do", "gram_groups": [
@@ -732,13 +732,13 @@ class HtmlToJsonTest(unittest.TestCase):
                         "value": "noun",
                         "defs": [{"category": "music",
                                   "def": "a syllable representing the first or last tone of the diatonic scale "
-                                         "see also solfeggio (def. 1)"}]
+                                         "see also solfeggio[1]"}]
                     },
                 ]},
                 {"word": "do", "gram_groups": [
                     {
                         "value": "noun",
-                        "defs": [ {"category": "slang", "def": "hairdo (def. 1)"}]
+                        "defs": [ {"category": "slang", "def": "hairdo[1]"}]
                     },
                 ]},
                 {"word": "Do or do", "gram_groups": [

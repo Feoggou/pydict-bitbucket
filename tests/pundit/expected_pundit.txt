@@ -3,7 +3,7 @@
 DEFINTIONS
 pundit
 noun
-o) (var. of) pandit (def. 1)
+o) (var. of) pandit[1]
 o) a person who has or professes to have great learning; actual or self-professed authority
 
 

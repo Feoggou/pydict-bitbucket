@@ -37,7 +37,7 @@ class DefParser(html_parser.HtmlParser):
         assert len(word_def.groups()) == 1
         word_def = word_def.groups()[0]
 
-        text += " (def. {})".format(word_def)
+        text += "[{}]".format(word_def)
 
         if len(xr_ref_link.getchildren()):
             for child in xr_ref_link.getchildren():
@@ -363,7 +363,7 @@ class DefParser(html_parser.HtmlParser):
             assert len(word_def.groups()) == 1
             word_def = word_def.groups()[0]
 
-            text += " (def. {})".format(word_def)
+            text += "[{}]".format(word_def)
         # return text
 
         # print("------ DEFINITION")
