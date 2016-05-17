@@ -62,6 +62,7 @@ class TestParser(unittest.TestCase):
 (OR)9 KEYS: class="re hom-subsec"                           -- related
 (OR)9 KEYS: class="phrase"                                  -- phrases / related
     10 KEYS: id="<word>_<i>.<j>"; class="hom"               -- i = prev do, j = who knows?
+(OR)10 KEYS: class="semantic"                               -- explanations
     11 KEYS: class="sense_list level_<k>"
 (OR)11 KEYS: class="gramGrp h3_entry"                       -- grammar value (intransitive verb, noun, etc.)
 (OR)11 KEYS: class="inflected_forms"                        -- word forms
@@ -254,28 +255,6 @@ class TestParser(unittest.TestCase):
         print("word_def='{}'".format(word_def))
 
         self.assertEqual("it does no harm; who did this to you?", word_def)
-
-    def test_get_related_words(self):
-        # self.fail()
-        pass
-
-    def test_get_synonyms(self):
-        # self.fail()
-        pass
-
-    """def test_DictElem_to_json(self):
-        de = DefinitionElem("text")
-        s = json.dumps(de.__dict__)
-        print("dict=", de.__dict__)"""
-
-
-# key: class="definitions hom-subsec"
-#   key: class="h2_entry"
-#       key: class="pos" --- i.e. grammar value (e.g. noun)
-#       key: class="inflected_forms" --- has word forms
-#       key: class="sense_list level_<n>"; value="n"; ---- 1.a, 1.b, 2.a, etc.
-#          key: class="def"     --- word definition
-#               key: class="hi"     --- word example (in 'class="orth"' --- there may be many)
 
 
 if __name__ == '__main__':
