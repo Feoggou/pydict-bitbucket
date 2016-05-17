@@ -1,0 +1,120 @@
+{
+    "def_groups": [
+        {
+            "derived_forms": {
+                "adverb": "affluently"
+            },
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "flowing freely"
+                        },
+                        {
+                            "def": "plentiful; abundant"
+                        },
+                        {
+                            "def": "wealthy; prosperous; rich",
+                            "example": "the affluent society"
+                        }
+                    ],
+                    "value": "adjective"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "a tributary stream opposed to effluent (def. 1)noun, effluent (sense 2a) (def. 1)"
+                        },
+                        {
+                            "def": "an affluent person"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "affluent"
+        }
+    ],
+    "examples": [
+        {
+            "example": "Adam Berendt who'd lived so frugally in the midst of affluent Salthill."
+        }
+    ],
+    "frequency": "In Common Usage",
+    "nearby_words": [
+        "affirmative",
+        "affirmative action",
+        "affix",
+        "affixation",
+        "affixture",
+        "afflatus",
+        "afflict",
+        "affliction",
+        "afflictive",
+        "affluence",
+        "afflux",
+        "afford",
+        "afforest",
+        "affranchise",
+        "affray",
+        "affricate",
+        "affrication",
+        "affright",
+        "affront",
+        "affusion"
+    ],
+    "related_words": [
+        "effluent"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    {
+                                        "syn": "wealthy"
+                                    },
+                                    {
+                                        "category": "slang",
+                                        "syn": "loaded"
+                                    },
+                                    {
+                                        "syn": "moneyed"
+                                    },
+                                    {
+                                        "syn": "opulent"
+                                    },
+                                    {
+                                        "syn": "prosperous"
+                                    },
+                                    {
+                                        "syn": "rich"
+                                    },
+                                    {
+                                        "category": "informal",
+                                        "syn": "well-heeled"
+                                    },
+                                    {
+                                        "syn": "well-off"
+                                    },
+                                    {
+                                        "syn": "well-to-do"
+                                    }
+                                ]
+                            }
+                        ],
+                        "value": "adjective"
+                    }
+                }
+            ],
+            "word": "affluent"
+        }
+    ],
+    "translations": [
+        "If you are affluent, you have a lot of money.It is one of the most affluent areas in the country.",
+        "The affluent are people who are affluent.The diet of the affluent has not changed much over the decades."
+    ]
+}
