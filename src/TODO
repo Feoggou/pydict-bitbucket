@@ -13,6 +13,8 @@ banking - took bank nonetheless.
 lace - crashes.
 hand - crashes.
 
+exactly - has unicode " "
+
 commands:
 edit - use nano
 idioms() -- add idiom for word.
