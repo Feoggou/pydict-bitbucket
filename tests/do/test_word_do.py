@@ -69,15 +69,6 @@ class WordTest(unittest.TestCase):
 
         os.remove(file_name)
 
-    def test_download_html(self):
-        """word_data = word.WordData(self.word_name)
-        text = word_data.download_definition()
-
-        f = open(self.base_file_name + "_downloaded.htm", "w")
-        f.write(text)"""
-        # TODO: use printer to write etree keys into .keys file, then search the "phrases" and see what changed.
-        pass
-
     def tearDown(self):
         pass
         # os.rmdir(self.dir_path)
