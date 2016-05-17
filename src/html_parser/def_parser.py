@@ -2,10 +2,15 @@ from lxml import etree
 import re
 
 from . import html_parser
+from .etree_printer import *
 
 
 class DefParser(html_parser.HtmlParser):
-    def __init__(self, root, word_name):
+    def __init__(self, root, word_name, fake: bool = False):
+        if fake:
+            self.word_name = word_name
+            return
+
         html_parser.HtmlParser.__init__(self, root, word_name)
         self.sidebar_elem = self.main_elem.xpath('//*[@class="definition_sidebar col side_bar"]')[0]    # 6 KEYS
 
@@ -291,7 +296,107 @@ class DefParser(html_parser.HtmlParser):
         return result
 
     @staticmethod
+    def read_hi_item(hi_item: etree._Element):
+        print("hi_item - text: '{}'".format(hi_item.text))
+        print("hi_item - tail: '{}'".format(hi_item.tail))
+
+        assert hi_item.text is not None
+        assert hi_item.tail is None
+
+        return hi_item.text
+
+    @staticmethod
+    def read_xr_ref_link_item(xr_link: etree._Element):
+        print("xr_ref_link - text: '{}'".format(xr_link.text))
+        print("xr_ref_link - tail: '{}'".format(xr_link.tail))
+
+        assert xr_link.text is not None
+        assert xr_link.tail is None
+
+        text = xr_link.text
+        href = xr_link.get("href")
+        word_def = re.match("[\w-]+#[\w-]+_(\d)", href)
+
+        assert len(word_def.groups()) == 1
+        word_def = word_def.groups()[0]
+
+        text += "[{}]".format(word_def)
+
+        for e in xr_link.getchildren():
+            if e.keys()[0] == "class" and e.get("class") == "hi":
+                text += DefParser.read_hi_item(e)
+
+        return text
+
+    @staticmethod
+    def read_xr_ref_item(xr_ref: etree._Element):
+        print("xr_ref - text: '{}'".format(xr_ref.text))
+        print("xr_ref - tail: '{}'".format(xr_ref.tail))
+
+        assert xr_ref.text is None
+        # assert xr_ref.tail is None
+
+        text = ""
+        print("xr ref=-----------")
+        for e in xr_ref.getchildren():
+            print_keys(e, 0)
+            if e.keys()[0] == "class" and e.get("class") == "xr_ref_link":
+                text += DefParser.read_xr_ref_link_item(e)  # e.text
+
+        if xr_ref.tail is not None:
+            text += xr_ref.tail
+
+        return text
+
+    @staticmethod
+    def read_xr_item(xr_item: etree._Element):
+        assert xr_item.text is None
+        assert xr_item.tail is None
+
+        text = ""
+        for e in xr_item.getchildren():
+            if len(e.keys()) == 1:
+                if e.keys()[0] == "class" and e.get("class") == "lbl":
+                    print("lbl - text: '{}'".format(e.text))
+                    print("lbl - tail: '{}'".format(e.tail))
+                    text += e.text
+                elif e.keys()[0] == "class" and e.get("class") == "xr_ref":
+                    # text += e.text
+                    text += DefParser.read_xr_ref_item(e)
+
+        return text
+
+    @staticmethod
     def get_definition(sense_list_item):
+        results = sense_list_item.xpath('./*[@class="def"]')  # 13 KEYS or 15 KEYS
+        if len(results) != 1:
+            raise RuntimeError("Expected 1 definition as 'class'='def', we got: ", len(results))
+
+        elem = results[0]
+        assert isinstance(elem, etree._Element)
+
+        print("def - text: '{}'".format(elem.text))
+        print("def - tail: '{}'".format(elem.tail))
+
+        assert elem.text is not None
+        # assert elem.tail is None
+
+        text = elem.text
+
+        if elem.tail is not None:
+            text += elem.tail
+
+        # next_elem = elem.getnext()
+        # while next_elem is not None:
+        for next_elem in elem.itersiblings():
+            print_keys(next_elem, 0)
+            if len(next_elem.keys()) == 1 and next_elem.keys()[0] == "class" and next_elem.get("class") == "xr":
+                text += DefParser.read_xr_item(next_elem)
+
+        return text
+
+    @staticmethod
+    def get_definition2(sense_list_item):
         results = sense_list_item.xpath('./*[@class="def"]')   # 13 KEYS or 15 KEYS
         if len(results) > 1:
             print(results)
