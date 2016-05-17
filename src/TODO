@@ -5,14 +5,24 @@ make a face --- dosen't get pull a face.
 crashes for "have to do with"
 adde(gouge) ---- crash
 beam -- crash
+dwarf --- crash
+husk --- crash
+gut --- crash
+predicament -- crash.
+banking - took bank nonetheless.
+lace - crashes.
+hand - crashes.
 
 commands:
 edit - use nano
 idioms() -- add idiom for word.
 adddef() -- add a definition, when I got smth clearer.
 see()    -- decide which definitions will be visible, and which not, for a word.
+defs(with the hand) --- doesn't work, probably because it does substitution (with-the-hand?)
+"we found a definitin for" --- when requesting "have to do with" (translated as "have-to-do-with"), it asks if you want "have to do with" also.
 
 word forms: doing, done -- displayed.
 derived forms: quiet - quietly.
+tags
 
 o) refactor word definition in parser
