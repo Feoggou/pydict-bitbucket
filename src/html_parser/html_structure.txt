@@ -1,0 +1,35 @@
+
+    lang="en"; xmlns:fb="http://ogp.me/ns/fb#"; xmlns:og="http://opengraphprotocol.org/schema/";    /
+    0 KEYS: class="definition   hasCookiePolicy"    /
+    1 KEYS: id="wrapper"    /
+    2 KEYS: class="content english"     /
+    3 KEYS: class="dictionary"  /
+    4 KEYS: class="definition_wrapper english"  /
+    5 KEYS: class="definition_main" /
+    6 KEYS: class="definition_content col main_bar"
+(OR)6 KEYS: class="definition_sidebar col side_bar"         -- word frequency; related terms & nearby words. (href="/dictionary/american/<word>/related")
+    7 KEYS: id="<word>_1", then id="<word>_2", etc.
+
+
+(OR)7 KEYS: id="examples_box"                               -- examples.
+    8 KEYS: class="homograph-entry"
+(OR)8 KEYS: id="synonyms_box"                               -- synonyms here: /dictionary/american-thesaurus/do
+    9 KEYS: class="definitions hom-subsec"
+(OR)9 KEYS: class="re hom-subsec"                           -- related
+(OR)9 KEYS: class="phrase"                                  -- phrases / related
+    10 KEYS: id="<word>_<i>.<j>"; class="hom"               -- i = prev do, j = who knows?
+(OR)10 KEYS: class="semantic"                               -- explanations
+    11 KEYS: class="sense_list level_<k>"
+(OR)11 KEYS: class="gramGrp h3_entry"                       -- grammar value (intransitive verb, noun, etc.)
+(OR)11 KEYS: class="inflected_forms"                        -- word forms
+
+    12 KEYS: class="sense_list_item level_<k>"; value="<m>";    -- definition number <m>
+    possible child: class="lbl {register/geo/etc.}"             -- categ (KEYS: 13 or 15)
+
+    SUBDEFINITIONS
+        13 KEYS: class="sense_list level_<k+1>"                 -- possible, if subdefinition.
+        14 KEYS: class="sense_list_item level_<k+1>"; value="n"     -- subdefinition <n>
+
+    (SUB)DEFINITIONS
+    13 / 15 KEYS: class="def"                               -- definition in TEXT
+    13 / 15 KEYS: class="orth"                              -- example for current def.
