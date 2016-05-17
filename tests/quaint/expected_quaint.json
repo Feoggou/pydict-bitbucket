@@ -2,69 +2,66 @@
     "def_groups": [
         {
             "derived_forms": {
-                "adverb": "affluently"
+                "adverb": "quaintly",
+                "noun": "quaintness"
             },
             "gram_groups": [
                 {
                     "defs": [
                         {
-                            "def": "flowing freely"
+                            "category": "obsolete",
+                            "def": "clever or skilled"
                         },
                         {
-                            "def": "plentiful; abundant"
+                            "category": "rare",
+                            "def": "wrought with skill; ingenious"
                         },
                         {
-                            "def": "wealthy; prosperous; rich",
-                            "example": "the affluent society"
+                            "def": "unusual or old-fashioned in a pleasing way"
+                        },
+                        {
+                            "def": "singular; unusual; curious"
+                        },
+                        {
+                            "def": "fanciful; whimsical"
                         }
                     ],
                     "value": "adjective"
-                },
-                {
-                    "defs": [
-                        {
-                            "def": "a tributary stream opposed to effluent (def. 1)noun, effluent (sense 2a) (def. 1)"
-                        },
-                        {
-                            "def": "an affluent person"
-                        }
-                    ],
-                    "value": "noun"
                 }
             ],
-            "word": "affluent"
+            "word": "quaint"
         }
     ],
     "examples": [
         {
-            "example": "Adam Berendt who'd lived so frugally in the midst of affluent Salthill."
+            "example": "Nancy brightened as they ate at a pleasant tearoom, and later went to look at the window displays of several quaint shops."
         }
     ],
     "frequency": "In Common Usage",
     "nearby_words": [
-        "affirmative",
-        "affirmative action",
-        "affix",
-        "affixation",
-        "affixture",
-        "afflatus",
-        "afflict",
-        "affliction",
-        "afflictive",
-        "affluence",
-        "afflux",
-        "afford",
-        "afforest",
-        "affranchise",
-        "affray",
-        "affricate",
-        "affrication",
-        "affright",
-        "affront",
-        "affusion"
+        "quaestor",
+        "quaff",
+        "quag",
+        "quagga",
+        "quaggy",
+        "quagmire",
+        "quahog",
+        "Quai d'Orsay",
+        "quaich",
+        "quail",
+        "quake",
+        "Quaker",
+        "Quaker gun",
+        "Quaker meeting",
+        "Quaker-ladies",
+        "quaking aspen",
+        "quaking grass",
+        "quaky",
+        "quale",
+        "qualification"
     ],
     "related_words": [
-        "effluent"
+        "cognition"
     ],
     "synonyms": [
         {
@@ -75,33 +72,60 @@
                             {
                                 "line": [
                                     {
-                                        "syn": "wealthy"
+                                        "syn": "unusual"
                                     },
                                     {
-                                        "category": "slang",
-                                        "syn": "loaded"
+                                        "syn": "bizarre"
                                     },
                                     {
-                                        "syn": "moneyed"
+                                        "syn": "curious"
                                     },
                                     {
-                                        "syn": "opulent"
+                                        "syn": "droll"
                                     },
                                     {
-                                        "syn": "prosperous"
+                                        "syn": "eccentric"
                                     },
                                     {
-                                        "syn": "rich"
+                                        "syn": "fanciful"
                                     },
                                     {
-                                        "category": "informal",
-                                        "syn": "well-heeled"
+                                        "syn": "odd"
                                     },
                                     {
-                                        "syn": "well-off"
+                                        "syn": "old-fashioned"
                                     },
                                     {
-                                        "syn": "well-to-do"
+                                        "syn": "peculiar"
+                                    },
+                                    {
+                                        "syn": "queer"
+                                    },
+                                    {
+                                        "category": "British, slang",
+                                        "syn": "rum"
+                                    },
+                                    {
+                                        "syn": "singular"
+                                    },
+                                    {
+                                        "syn": "strange"
+                                    }
+                                ]
+                            },
+                            {
+                                "line": [
+                                    {
+                                        "syn": "old-fashioned"
+                                    },
+                                    {
+                                        "syn": "antiquated"
+                                    },
+                                    {
+                                        "syn": "old-world"
+                                    },
+                                    {
+                                        "syn": "picturesque"
                                     }
                                 ]
                             }
@@ -110,11 +134,10 @@
                     }
                 }
             ],
-            "word": "affluent"
+            "word": "quaint"
         }
     ],
     "translations": [
-        "If you are affluent, you have a lot of money.It is one of the most affluent areas in the country.",
-        "The affluent are people who are affluent.The diet of the affluent has not changed much over the decades."
+        "Something that is quaint is attractive because it is old-fashioned.It's a small, quaint town with narrow streets. quainter, quaintest"
     ]
 }

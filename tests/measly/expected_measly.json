@@ -1,70 +1,57 @@
 {
     "def_groups": [
         {
-            "derived_forms": {
-                "adverb": "affluently"
-            },
             "gram_groups": [
                 {
                     "defs": [
                         {
-                            "def": "flowing freely"
+                            "def": "infected with measles (sense 1) (def. 1) measles (sense 2) (def. 1)"
                         },
                         {
-                            "def": "plentiful; abundant"
-                        },
-                        {
-                            "def": "wealthy; prosperous; rich",
-                            "example": "the affluent society"
+                            "category": "informal",
+                            "def": "contemptibly slight, worthless, or skimpy"
                         }
                     ],
-                    "value": "adjective"
-                },
-                {
-                    "defs": [
-                        {
-                            "def": "a tributary stream opposed to effluent (def. 1)noun, effluent (sense 2a) (def. 1)"
-                        },
-                        {
-                            "def": "an affluent person"
-                        }
-                    ],
-                    "value": "noun"
+                    "value": "adjective",
+                    "word_forms": [
+                        "measlier",
+                        "measliest"
+                    ]
                 }
             ],
-            "word": "affluent"
+            "word": "measly"
         }
     ],
     "examples": [
         {
-            "example": "Adam Berendt who'd lived so frugally in the midst of affluent Salthill."
+            "example": "I know it's filled with silencers and grenades and stuff, but I knew he could fit one measly journal into it."
         }
     ],
-    "frequency": "In Common Usage",
+    "frequency": "Used Occasionally",
     "nearby_words": [
-        "affirmative",
-        "affirmative action",
-        "affix",
-        "affixation",
-        "affixture",
-        "afflatus",
-        "afflict",
-        "affliction",
-        "afflictive",
-        "affluence",
-        "afflux",
-        "afford",
-        "afforest",
-        "affranchise",
-        "affray",
-        "affricate",
-        "affrication",
-        "affright",
-        "affront",
-        "affusion"
+        "means",
+        "means test",
+        "means to an end",
+        "means-test",
+        "meant",
+        "meantime",
+        "Meany",
+        "meas",
+        "measled",
+        "measles",
+        "measurable",
+        "measure",
+        "measure one's length",
+        "measure out",
+        "measure swords",
+        "measure up",
+        "measure up to",
+        "measured",
+        "measureless",
+        "measurement"
     ],
     "related_words": [
-        "effluent"
+        "measles (sense 1)"
     ],
     "synonyms": [
         {
@@ -75,33 +62,31 @@
                             {
                                 "line": [
                                     {
-                                        "syn": "wealthy"
+                                        "syn": "meager"
                                     },
                                     {
-                                        "category": "slang",
-                                        "syn": "loaded"
+                                        "syn": "miserable"
                                     },
                                     {
-                                        "syn": "moneyed"
+                                        "syn": "paltry"
                                     },
                                     {
-                                        "syn": "opulent"
+                                        "syn": "pathetic"
                                     },
                                     {
-                                        "syn": "prosperous"
+                                        "syn": "pitiful"
                                     },
                                     {
-                                        "syn": "rich"
+                                        "syn": "poor"
                                     },
                                     {
-                                        "category": "informal",
-                                        "syn": "well-heeled"
+                                        "syn": "puny"
                                     },
                                     {
-                                        "syn": "well-off"
+                                        "syn": "scanty"
                                     },
                                     {
-                                        "syn": "well-to-do"
+                                        "syn": "skimpy"
                                     }
                                 ]
                             }
@@ -110,11 +95,8 @@
                     }
                 }
             ],
-            "word": "affluent"
+            "word": "measly"
         }
     ],
-    "translations": [
-        "If you are affluent, you have a lot of money.It is one of the most affluent areas in the country.",
-        "The affluent are people who are affluent.The diet of the affluent has not changed much over the decades."
-    ]
+    "translations": []
 }

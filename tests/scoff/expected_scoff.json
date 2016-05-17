@@ -2,69 +2,96 @@
     "def_groups": [
         {
             "derived_forms": {
-                "adverb": "affluently"
+                "adverb": "scoffingly",
+                "noun": "scoffer"
             },
             "gram_groups": [
                 {
                     "defs": [
                         {
-                            "def": "flowing freely"
+                            "def": "an expression of mocking contempt, scorn, or derision; jeer"
                         },
                         {
-                            "def": "plentiful; abundant"
-                        },
-                        {
-                            "def": "wealthy; prosperous; rich",
-                            "example": "the affluent society"
+                            "def": "an object of mocking contempt, scorn, etc."
                         }
                     ],
-                    "value": "adjective"
+                    "value": "noun"
                 },
                 {
                     "defs": [
                         {
-                            "def": "a tributary stream opposed to effluent (def. 1)noun, effluent (sense 2a) (def. 1)"
-                        },
+                            "def": "to mock at or deride"
+                        }
+                    ],
+                    "value": "transitive verb"
+                },
+                {
+                    "defs": [
                         {
-                            "def": "an affluent person"
+                            "def": "to show mocking contempt, scorn, or derision, esp. by language; jeer"
+                        }
+                    ],
+                    "value": "intransitive verb"
+                }
+            ],
+            "word": "scoff"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "category": "mainly British, slang",
+                            "def": "food or rations"
                         }
                     ],
                     "value": "noun"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "to eat or devour"
+                        },
+                        {
+                            "def": "to plunder or seize"
+                        }
+                    ],
+                    "value": "transitive verb intransitive verb"
                 }
             ],
-            "word": "affluent"
+            "word": "scoff"
         }
     ],
     "examples": [
         {
-            "example": "Adam Berendt who'd lived so frugally in the midst of affluent Salthill."
+            "example": "His words were a small Band-Aid over her open wounds, enough for her to curl her lip and scoff."
         }
     ],
-    "frequency": "In Common Usage",
+    "frequency": "Used Occasionally",
     "nearby_words": [
-        "affirmative",
-        "affirmative action",
-        "affix",
-        "affixation",
-        "affixture",
-        "afflatus",
-        "afflict",
-        "affliction",
-        "afflictive",
-        "affluence",
-        "afflux",
-        "afford",
-        "afforest",
-        "affranchise",
-        "affray",
-        "affricate",
-        "affrication",
-        "affright",
-        "affront",
-        "affusion"
+        "scleroma",
+        "sclerometer",
+        "scleroprotein",
+        "sclerosed",
+        "sclerosis",
+        "sclerotic",
+        "sclerotium",
+        "sclerotomy",
+        "sclerous",
+        "ScM",
+        "scofflaw",
+        "scold",
+        "scolecite",
+        "scolex",
+        "scoliosis",
+        "scollop",
+        "scombroid",
+        "sconce",
+        "scone",
+        "scooch"
     ],
     "related_words": [
-        "effluent"
+        "shove"
     ],
     "synonyms": [
         {
@@ -75,46 +102,90 @@
                             {
                                 "line": [
                                     {
-                                        "syn": "wealthy"
+                                        "syn": "scorn"
                                     },
                                     {
-                                        "category": "slang",
-                                        "syn": "loaded"
+                                        "syn": "belittle"
                                     },
                                     {
-                                        "syn": "moneyed"
+                                        "syn": "deride"
                                     },
                                     {
-                                        "syn": "opulent"
+                                        "syn": "despise"
                                     },
                                     {
-                                        "syn": "prosperous"
-                                    },
-                                    {
-                                        "syn": "rich"
+                                        "syn": "jeer"
                                     },
                                     {
                                         "category": "informal",
-                                        "syn": "well-heeled"
+                                        "syn": "knock"
                                     },
                                     {
-                                        "syn": "well-off"
+                                        "syn": "laugh at"
                                     },
                                     {
-                                        "syn": "well-to-do"
+                                        "syn": "mock"
+                                    },
+                                    {
+                                        "syn": "pooh-pooh"
+                                    },
+                                    {
+                                        "syn": "ridicule"
+                                    },
+                                    {
+                                        "syn": "sneer"
                                     }
                                 ]
                             }
                         ],
-                        "value": "adjective"
+                        "value": "verb"
                     }
                 }
             ],
-            "word": "affluent"
+            "word": "scoff"
+        },
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    {
+                                        "syn": "gobble"
+                                    },
+                                    {
+                                        "syn": "gobble up"
+                                    },
+                                    {
+                                        "syn": "bolt"
+                                    },
+                                    {
+                                        "syn": "devour"
+                                    },
+                                    {
+                                        "syn": "gorge oneself on"
+                                    },
+                                    {
+                                        "syn": "gulp down"
+                                    },
+                                    {
+                                        "syn": "guzzle"
+                                    },
+                                    {
+                                        "syn": "wolf"
+                                    }
+                                ]
+                            }
+                        ],
+                        "value": "verb"
+                    }
+                }
+            ],
+            "word": "scoff"
         }
     ],
     "translations": [
-        "If you are affluent, you have a lot of money.It is one of the most affluent areas in the country.",
-        "The affluent are people who are affluent.The diet of the affluent has not changed much over the decades."
+        "If you scoff at something, you speak about it in a way that shows you think it is ridiculous or inadequate.At first I scoffed at the idea. scoffs, scoffing, scoffed"
     ]
 }

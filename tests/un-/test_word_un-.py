@@ -10,11 +10,11 @@ class WordTest(unittest.TestCase):
     count = 0
 
     def setUp(self):
-        self.word_name = "affluent"
+        self.word_name = "un-"
         self.dir_path = "./test-data"
 
         self.base_file_name = self.dir_path + "/" + self.word_name
-        self.expected_file = "expected_affluent.json"
+        self.expected_file = "expected_un-.json"
 
         if not os.path.isdir(self.dir_path):
             os.mkdir(self.dir_path)
@@ -35,7 +35,7 @@ class WordTest(unittest.TestCase):
 
         self.assertGreater(len(word_data.def_content), 0)
         self.assertGreater(len(word_data.related_content), 0)
-        self.assertGreater(len(word_data.synonyms_content), 0)
+        self.assertEqual(len(word_data.synonyms_content), 0)
 
     @patch('src.word.WordData.fetch', word.WordData.fetch_mock)
     def test_json_result(self):

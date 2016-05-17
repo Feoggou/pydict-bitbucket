@@ -1,120 +1,55 @@
 {
     "def_groups": [
         {
-            "derived_forms": {
-                "adverb": "affluently"
-            },
             "gram_groups": [
                 {
                     "defs": [
                         {
-                            "def": "flowing freely"
+                            "def": "not, lack of, the opposite of see also non- (def. 1)",
+                            "example": "unconcern, unreason, unwonted"
                         },
                         {
-                            "def": "plentiful; abundant"
-                        },
-                        {
-                            "def": "wealthy; prosperous; rich",
-                            "example": "the affluent society"
+                            "def": "back; the reverse or removal of (added to verbs to indicate a reversal of the action and to nouns to indicate a removal or release of the thing mentioned or from the condition, place, etc. indicated, and sometimes used merely as an intensive [unbind, unfold; unbonnet, unbosom; unloose])"
                         }
-                    ],
-                    "value": "adjective"
-                },
-                {
-                    "defs": [
-                        {
-                            "def": "a tributary stream opposed to effluent (def. 1)noun, effluent (sense 2a) (def. 1)"
-                        },
-                        {
-                            "def": "an affluent person"
-                        }
-                    ],
-                    "value": "noun"
+                    ]
                 }
             ],
-            "word": "affluent"
+            "semantics": "The following list includes many of the more common compounds formed with un- (either sense) that do not have special meanings ",
+            "word": "un-"
         }
     ],
     "examples": [
         {
-            "example": "Adam Berendt who'd lived so frugally in the midst of affluent Salthill."
+            "example": "The panic slowly subsided to un- easy apprehension while the minutes crawled by as if they were each an hour long."
         }
     ],
-    "frequency": "In Common Usage",
+    "frequency": "",
     "nearby_words": [
-        "affirmative",
-        "affirmative action",
-        "affix",
-        "affixation",
-        "affixture",
-        "afflatus",
-        "afflict",
-        "affliction",
-        "afflictive",
-        "affluence",
-        "afflux",
-        "afford",
-        "afforest",
-        "affranchise",
-        "affray",
-        "affricate",
-        "affrication",
-        "affright",
-        "affront",
-        "affusion"
+        "Umbundu",
+        "umiak",
+        "umlaut",
+        "ump",
+        "umpirage",
+        "umpire",
+        "umpteen",
+        "Umtata",
+        "UMW",
+        "UN",
+        "un-American",
+        "Una",
+        "una corda",
+        "unabashed",
+        "unable",
+        "unabridged",
+        "unaccommodated",
+        "unaccompanied",
+        "unaccomplished",
+        "unaccountable"
     ],
     "related_words": [
-        "effluent"
+        "UN",
+        "un-American",
+        "vingt-et-un"
     ],
-    "synonyms": [
-        {
-            "gram_groups": [
-                {
-                    "gram_group": {
-                        "synonyms": [
-                            {
-                                "line": [
-                                    {
-                                        "syn": "wealthy"
-                                    },
-                                    {
-                                        "category": "slang",
-                                        "syn": "loaded"
-                                    },
-                                    {
-                                        "syn": "moneyed"
-                                    },
-                                    {
-                                        "syn": "opulent"
-                                    },
-                                    {
-                                        "syn": "prosperous"
-                                    },
-                                    {
-                                        "syn": "rich"
-                                    },
-                                    {
-                                        "category": "informal",
-                                        "syn": "well-heeled"
-                                    },
-                                    {
-                                        "syn": "well-off"
-                                    },
-                                    {
-                                        "syn": "well-to-do"
-                                    }
-                                ]
-                            }
-                        ],
-                        "value": "adjective"
-                    }
-                }
-            ],
-            "word": "affluent"
-        }
-    ],
-    "translations": [
-        "If you are affluent, you have a lot of money.It is one of the most affluent areas in the country.",
-        "The affluent are people who are affluent.The diet of the affluent has not changed much over the decades."
-    ]
+    "translations": []
 }

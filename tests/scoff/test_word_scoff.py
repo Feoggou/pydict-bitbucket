@@ -10,11 +10,11 @@ class WordTest(unittest.TestCase):
     count = 0
 
     def setUp(self):
-        self.word_name = "affluent"
+        self.word_name = "scoff"
         self.dir_path = "./test-data"
 
         self.base_file_name = self.dir_path + "/" + self.word_name
-        self.expected_file = "expected_affluent.json"
+        self.expected_file = "expected_scoff.json"
 
         if not os.path.isdir(self.dir_path):
             os.mkdir(self.dir_path)
