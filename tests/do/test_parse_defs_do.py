@@ -169,7 +169,7 @@ class TestParser(unittest.TestCase):
 
     def test_get_wordforms_for_gram_group(self):
         def_group = self.d_parser.get_all_def_groups()[0]
-        ggroup = DefParser.get_all_grammar_groups(def_group)[0]
+        ggroup = self.d_parser.get_all_grammar_groups(def_group)[0]
 
         gram_value = self.d_parser.get_word_forms(ggroup)
         self.assertEqual(['did', 'done', 'doing'], gram_value)

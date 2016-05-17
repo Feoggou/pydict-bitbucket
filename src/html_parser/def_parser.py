@@ -1,20 +1,14 @@
 from lxml import etree
 import re
 
+from . import html_parser
 
-class DefParser:
+
+class DefParser(html_parser.HtmlParser):
     def __init__(self, root, word_name):
-        self.root = root
-        self.word_name = word_name
-        assert isinstance(self.root, etree._Element)
-
-        self.main_elem = self.root.xpath('//*[@class="definition_main"]')[0]    # 5 KEYS
-        assert isinstance(self.main_elem, etree._Element)
-
-        self.mainbar_elem = self.main_elem.xpath('//*[@class="definition_content col main_bar"]')[0]    # 6 KEYS
+        html_parser.HtmlParser.__init__(self, root, word_name)
         self.sidebar_elem = self.main_elem.xpath('//*[@class="definition_sidebar col side_bar"]')[0]    # 6 KEYS
 
-        assert isinstance(self.mainbar_elem, etree._Element)
         assert isinstance(self.sidebar_elem, etree._Element)
 
     @staticmethod
@@ -154,9 +148,6 @@ class DefParser:
 
         return results
 
-    def get_def_main(self):
-        return self.main_elem
-
     def get_all_related_words(self, def_group):
         results = def_group.xpath('./*[@class="homograph-entry"]/'         # 8 KEYS
                                     '*[@class="re hom-subsec"]//'            # 9 KEYS
@@ -250,55 +241,14 @@ class DefParser:
 
         return list_results
 
-    def get_all_def_groups(self):
-        id_name_re = '"{}_\d"'.format(self.word_name)
-        result = self.mainbar_elem.xpath('./*[re:match(@id, ' + id_name_re + ')]',             # 7 KEYS NOTE: okay!
-                                 namespaces={"re": "http://exslt.org/regular-expressions"})
+    def _get_homsubsec_name(self):
+        return "definitions"
 
-        return result
+    def _get_gramgroup_name(self):
+        return "gramGrp h3_entry"
 
-    @staticmethod
-    def get_word_form_for_def_group(def_group):
-        elem = def_group.xpath('./*[@class="homograph-entry"]/'              # 8 KEYS
-                               '*[@class="orth h1_entry"]')[0]               # 9 KEYS
-
-        child_elems = elem.xpath('./*[@class="italics"]')
-        if len(child_elems):
-            text = elem.text + child_elems[0].text + child_elems[0].tail
-            text = text.replace("\n", "")
-            return text
-        else:
-            return elem.text
-
-    @staticmethod
-    def get_all_home_subsecs(def_group):
-        elems = def_group.xpath('./*[@class="homograph-entry"]/'              # 8 KEYS
-                           '*[@class="definitions hom-subsec"]')              # 9 KEYS
-
-        return elems
-
-    @staticmethod
-    def get_all_grammar_groups(def_group):
-        homss = DefParser.get_all_home_subsecs(def_group)[0]
-
-        elems = homss.xpath('./*[@class="hom"]')                                # 10 KEYS
-
-        return elems
-
-    @staticmethod
-    def get_all_grammar_values(def_group):
-        homss = DefParser.get_all_home_subsecs(def_group)[0]
-
-        elems = homss.xpath('./*[@class="hom"]/'                                # 10 KEYS
-                            '*[@class="gramGrp h3_entry"]/'                     # 11 KEYS
-                            '*[@class="pos"]')                                  # 12 KEYS
-
-        result = [elem.text for elem in elems]
-        return result
-
-    @staticmethod
-    def get_semantics(def_group):
-        homss = DefParser.get_all_home_subsecs(def_group)[0]
+    def get_semantics(self, def_group):
+        homss = self.get_all_home_subsecs(def_group)[0]
 
         sems_items = homss.xpath('./*[@class="semantic"]')
         if len(sems_items) == 0:
@@ -326,17 +276,6 @@ class DefParser:
         return text
 
     @staticmethod
-    def get_gram_value(gram_group):
-        elems = gram_group.xpath('./*[@class="gramGrp h3_entry"]/'                   # 11 KEYS
-                                '*[@class="pos"]')                               # 12 KEYS
-
-        if len(elems):
-            text = " ".join([x.text for x in elems])
-            return text
-
-        return ""
-
-    @staticmethod
     def get_word_forms(ggroup):
         elems = ggroup.xpath('./*[@class="inflected_forms"]/'                 # 11 KEYS
                              '*[@class="infl"]')                              # 12 KEYS
@@ -350,33 +289,6 @@ class DefParser:
                 result.append(text)
 
         return result
-
-    @staticmethod
-    def get_senselist(grammar_group_elem):
-        results = grammar_group_elem.xpath('./*[re:match(@class, "sense_list level_\d")]',      # 11 KEYS or 13 KEYS
-                                           namespaces={"re": "http://exslt.org/regular-expressions"})
-        if len(results):
-            elem = results[0]
-        else:
-            elem = None
-
-        return elem
-
-    @staticmethod
-    def get_senselist_item(sslist_etree, value):
-        results = sslist_etree.xpath('./*[re:match(@class, "sense_list_item level_\d") '  # 11 KEYS or 13 KEYS
-                            'and @value="' + value + '"]',
-                             namespaces={"re": "http://exslt.org/regular-expressions"})
-        elem = results[0]
-
-        return elem
-
-    @staticmethod
-    def get_all_senselist_items(sslist_etree):
-        results = sslist_etree.xpath('./*[re:match(@class, "sense_list_item level_\d")]', # 11 KEYS or 13 KEYS
-                             namespaces={"re": "http://exslt.org/regular-expressions"})
-
-        return results
 
     @staticmethod
     def get_definition(sense_list_item):
