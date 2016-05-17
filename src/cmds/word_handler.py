@@ -70,7 +70,7 @@ class WordHandler:
                 # blas%C3%A9
                 e.value = re.sub("(%[A-Z0-9][A-Z0-9])+", to_utf8, e.value)
 
-                answer = input("Word '{}' not found. Would you like to get word '{}' instead? ".format(word, e.value))
+                answer = input("Word '{}' not found. Would you like to get word '{}' instead?".format(word, e.value))
                 if answer.lower() == "yes" or len(answer) == 0:
                     answer = "yes"
                     word = e.value
