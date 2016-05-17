@@ -65,8 +65,7 @@ class TestParser(unittest.TestCase):
     """ ---------------------- ACTUAL TESTS -------------------------"""
 
     def test_frequency_is_correct(self):
-        freq_phrase = self.d_parser.get_word_freq()
-        word_freq = freq_phrase.partition(".")[0]
+        word_freq = self.d_parser.get_word_freq()
 
         self.assertEqual(word_freq, "")
 

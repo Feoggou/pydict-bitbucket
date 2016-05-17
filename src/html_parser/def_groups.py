@@ -16,8 +16,7 @@ class WordFrequencyGroup(JsonGroup):
         self.word_freq = ''
 
     def build(self):
-        freq_phrase = self.dict_parser.get_word_freq()
-        self.word_freq = freq_phrase.partition(".")[0]
+        self.word_freq = self.dict_parser.get_word_freq()
 
     def translate(self) -> dict:
         return self.word_freq

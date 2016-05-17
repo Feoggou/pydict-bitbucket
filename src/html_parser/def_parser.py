@@ -132,10 +132,11 @@ class DefParser:
         elems = self.sidebar_elem.xpath('./*[@class="commonness"]/'                      # 7 KEYS
                                        '*[@title]')                                      # 8 KEYS
 
-        if len(elems):
-            return elems[0].get("title")
+        if len(elems) == 0:
+            return ""
 
-        return ""
+        full_text = elems[0].get("title")
+        return full_text.partition(".")[0]
 
     def get_all_examples(self):
         results = []
