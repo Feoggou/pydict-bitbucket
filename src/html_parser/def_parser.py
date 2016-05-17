@@ -301,9 +301,13 @@ class DefParser(html_parser.HtmlParser):
         print("hi_item - tail: '{}'".format(hi_item.tail))
 
         assert hi_item.text is not None
-        assert hi_item.tail is None
+        # assert hi_item.tail is None
 
-        return hi_item.text
+        text = hi_item.text
+        if hi_item.tail is not None:
+            text += hi_item.tail
+
+        return text
 
     @staticmethod
     def read_xr_ref_link_item(xr_link: etree._Element):
@@ -368,6 +372,7 @@ class DefParser(html_parser.HtmlParser):
 
     @staticmethod
     def get_definition(sense_list_item):
+        text = ""
         results = sense_list_item.xpath('./*[@class="def"]')  # 13 KEYS or 15 KEYS
         if len(results) != 1:
             raise RuntimeError("Expected 1 definition as 'class'='def', we got: ", len(results))
@@ -378,20 +383,33 @@ class DefParser(html_parser.HtmlParser):
         print("def - text: '{}'".format(elem.text))
         print("def - tail: '{}'".format(elem.tail))
 
-        assert elem.text is not None
+        # assert elem.text is not None
         # assert elem.tail is None
 
-        text = elem.text
+        if elem.text is not None:
+            text = elem.text
 
         if elem.tail is not None:
             text += elem.tail
 
+        for e in elem.getchildren():
+            if e.tag == "strong":
+                text += e.text
+                text += e.tail
+            elif e.keys()[0] == "class" and e.get("class") == "hi":
+                text += DefParser.read_hi_item(e)
+
         # next_elem = elem.getnext()
         # while next_elem is not None:
         for next_elem in elem.itersiblings():
+            assert isinstance(next_elem, etree._Element)
+
+            print("tag: ", next_elem.tag)
             print_keys(next_elem, 0)
             if len(next_elem.keys()) == 1 and next_elem.keys()[0] == "class" and next_elem.get("class") == "xr":
                 text += DefParser.read_xr_item(next_elem)
+
+        text = text.replace("  ", " ")
 
         return text
 

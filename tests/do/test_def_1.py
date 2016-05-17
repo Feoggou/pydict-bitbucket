@@ -88,6 +88,13 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual("a tributary stream opposed to effluent[1]noun, effluent (sense 2a)[1]", word_def)
 
+    def test_get_def_style_listtype_SolomonBellows(self):
+        sslist_item = self.d_parser.get_all_senselist_items(self.sslist)[3]
+
+        word_def = self.d_parser.get_definition(sslist_item)
+
+        self.assertEqual("Saul(born Solomon Bellows) 1915-2005; U.S. novelist, born in Canada", word_def)
+
 
 if __name__ == '__main__':
     unittest.main()
