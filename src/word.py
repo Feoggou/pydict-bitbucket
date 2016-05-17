@@ -6,6 +6,7 @@ from .html_parser.def_groups import *
 from .html_parser.syn_groups import *
 from .html_parser.rel_groups import *
 
+HTML_PATH = "/home/zenith/PycharmProjects/EDictionary/html"
 
 class RedirectError(Exception):
     def __init__(self, value: str):
@@ -55,6 +56,9 @@ class WordData:
         if len(self.def_content) == 0:
             return
 
+        with open(os.path.join(HTML_PATH, self.word_name + ".html"), "w") as f:
+            f.write(self.def_content)
+
         try:
             self.related_content = self._fetch_from_web_dict(self.word_name + "/related")
         except RedirectError as e:
@@ -64,6 +68,9 @@ class WordData:
                 print("related: ignored redirect '{}'".format(e.value))
         except:
             raise
+        else:
+            with open(os.path.join(HTML_PATH, self.word_name + "-related.html"), "w") as f:
+                f.write(self.related_content)
 
         try:
             self.synonyms_content = self._fetch_web_thesaurus(self.word_name)
@@ -74,6 +81,9 @@ class WordData:
                 print("synonyms: ignored redirect '{}'".format(e.value))
         except:
             raise
+        else:
+            with open(os.path.join(HTML_PATH, self.word_name + "-syn.html"), "w") as f:
+                f.write(self.synonyms_content)
 
     def fetch_mock(self):
         f = open("{}_defs.html".format(self.word_name))
