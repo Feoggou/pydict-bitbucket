@@ -7,8 +7,8 @@ from . import html_parser
 class HtmlItem:
     def __init__(self, etree_item: etree._Element):
         self.item = etree_item
-        # print("def - text: '{}'".format(etree_item.text))
-        # print("def - tail: '{}'".format(etree_item.tail))
+        # print("text: '{}'".format(etree_item.text))
+        # print("tail: '{}'".format(etree_item.tail))
 
         self.text = etree_item.text if etree_item.text is not None else ""
         self.tail = etree_item.tail if etree_item.tail is not None else ""
@@ -21,194 +21,148 @@ class HtmlItem:
         return text
 
 
-class XrRefLinkItem(HtmlItem):
+class HtmlItemCreator:
+    ALL_TAGS = None
+    ALL_KEYS = None
+    ALL_CLASSES = None
+
+    def __init__(self):
+        HtmlItemCreator.ALL_TAGS = {
+            "strong": HtmlItemCreator.create_default_item,
+            "em": HtmlItemCreator.create_default_item,
+            "span": HtmlItemCreator.create_keys_item,
+            "a": HtmlItemCreator.create_a_href_item,
+            "sup": HtmlItemCreator.create_sup_item,
+        }
+
+        HtmlItemCreator.ALL_KEYS = {"class": HtmlItemCreator.create_class_item}
+
+        HtmlItemCreator.ALL_CLASSES = {
+            "xr": ParentHtmlItem,  # XrItem,
+            "xr_ref": ParentHtmlItem,  # XrRefItem,
+            "xr_ref_link": XrRefLinkItem,
+            "lbl register": ParentHtmlItem,  # LblRegisterItem,
+            "lbl": HtmlItem,
+            "orth": HtmlItemCreator.create_nothing,
+        }
+
+    @staticmethod
+    def create_default_item(elem):
+        return HtmlItem(elem)
+
+    @staticmethod
+    def create_sup_item(elem):
+        return SupItem(elem)
+
+    @staticmethod
+    def create_a_href_item(elem):
+        assert len(elem.keys()) == 2
+        # key = elem.keys()[0]
+
+        return HtmlItemCreator.ALL_KEYS["class"](elem)
+
+    @staticmethod
+    def create_keys_item(elem):
+        assert len(elem.keys()) == 1
+        key = elem.keys()[0]
+
+        return HtmlItemCreator.ALL_KEYS[key](elem)
+
+    @staticmethod
+    def create_nothing(elem):
+        return None
+
+    @staticmethod
+    def create_class_item(elem):
+        class_name = elem.get("class")
+        print("class: ", class_name)
+
+        # if class_name in HtmlItemCreator.ALL_CLASSES:
+        return HtmlItemCreator.ALL_CLASSES[class_name](elem)
+
+        # return None
+
+    @staticmethod
+    def create_tag_item(elem):
+        print("create tag item: tag='{}'; keys='{}'; values='{}'; text='{}'; tail='{}'"
+              .format(elem.tag, elem.keys(), elem.values(), elem.text, elem.tail))
+        return HtmlItemCreator.ALL_TAGS[elem.tag](elem)
+
+
+class ParentHtmlItem(HtmlItem):
     def __init__(self, etree_item: etree._Element):
         HtmlItem.__init__(self, etree_item)
+        self.creator = HtmlItemCreator()
+
+    def read(self):
+        text = self.text
+        text += self.read_children()
+        text += self.tail
+
+        return text
+
+    def read_children(self):
+        text = ""
+        for e in self.item.getchildren():
+            item = self.creator.create_tag_item(e)
+            # item = ALL_TAGS[e.tag](e)
+            text += item.read()
+        return text
+
+
+class XrRefLinkItem(ParentHtmlItem):
+    def __init__(self, etree_item: etree._Element):
+        ParentHtmlItem.__init__(self, etree_item)
         assert self.item.text is not None
         assert self.item.tail is None
 
+        print("xr_ref_link: text='{}'; tail='{}'".format(self.text, self.tail))
+
     def read(self):
-        text = self.item.text
+        text = self.text
 
         href = self.item.get("href")
         word_def = re.match("[\w-]+#[\w-]+_(\d)", href)
 
         assert len(word_def.groups()) == 1
         word_def = word_def.groups()[0]
-
         text += "[{}]".format(word_def)
 
         text += self.read_children()
 
-        return text
-
-    def read_children(self):
-        text = ""
-        # print("text: {}, tail: {}, children: {}".format(self.text, self.tail, len(self.item.getchildren())))
-        if len(self.item.getchildren()) == 0:
-            return ""
-
-        assert len(self.item.getchildren()) == 1
-
-        e = self.item.getchildren()[0]
-
-        assert e.tag == "em"
-        assert len(e.keys()) == 1
-
-        assert e.get("class") == "hi"
-
-        item = HtmlItem(e)
-        text += item.read()
-        return text
-
-
-class XrRefItem(HtmlItem):
-    def __init__(self, etree_item: etree._Element):
-        HtmlItem.__init__(self, etree_item)
-
-    def read(self):
-        text = self.text
-
-        text += self.read_children()
-
         text += self.tail
 
         return text
 
-    def read_children(self):
-        text = ""
-        assert len(self.item.getchildren()) == 1
 
-        e = self.item.getchildren()[0]
-
-        assert e.tag == "a"
-        assert len(e.keys()) == 2
-
-        assert e.get("class") == "xr_ref_link"
-
-        # item = self.classes[key](e)
-        item = XrRefLinkItem(e)
-        text += item.read()
-        return text
-
-
-class XrItem(HtmlItem):
-    def __init__(self, etree_item: etree._Element):
-        HtmlItem.__init__(self, etree_item)
-        self.classes = {"lbl": HtmlItem, "xr_ref": XrRefItem}
-
-        # assert self.item.text is None
-        assert self.item.tail is None
-
-    def read(self):
-        text = self.text
-
-        text += self.read_children()
-
-        text += self.tail
-
-        return text
-
-    def read_children(self):
-        text = self.text
-
-        for e in self.item.getchildren():
-            assert e.tag == "span"
-            assert len(e.keys()) == 1
-
-            key = e.keys()[0]
-            assert key == "class"
-
-            item = self.classes[e.get(key)](e)
-            text += item.read()
-        return text
-
-
-class LblRegisterItem(HtmlItem):
+class SupItem(HtmlItem):
     def __init__(self, etree_item: etree._Element):
         HtmlItem.__init__(self, etree_item)
 
     def read(self):
-        text = self.text
-
-        text += self.read_children()
-
-        text += self.tail
-
-        return text
-
-    def read_children(self):
-        text = ""
-        for e in self.item.getchildren():
-            assert e.tag == "em"
-            assert len(e.keys()) == 1
-
-            key = e.keys()[0]
-            assert key == "class"
-            assert e.get(key) == "hi"
-
-            item = HtmlItem(e)
-
-            text += item.read()
-
-        return text
+        return "({}{})".format(self.text, self.tail)
 
 
-class DefItem(HtmlItem):
+class DefItem(ParentHtmlItem):
     def __init__(self, etree_item: etree._Element):
-        HtmlItem.__init__(self, etree_item)
-        self.subtypes = {"strong": create_default_item, "em": create_default_item, "span": create_span_item}
-        self.sibltypes = {"span": create_span_item}
-        self.keys = {"class": DefItem.create_class_item}
-
-    @staticmethod
-    def create_class_item(elem):
-        classes = {"xr": XrItem, "lbl register": LblRegisterItem}
-
-        class_name = elem.get("class")
-        print("class: ", class_name)
-
-        if class_name in classes:
-            return classes[class_name](elem)
-
-        return None
+        ParentHtmlItem.__init__(self, etree_item)
+        print("def: text='{}'; tail='{}'".format(self.text, self.tail))
 
     def read(self):
-        text = self.text
-
-        text += self.read_children()
-        text += self.tail
-
+        text = ParentHtmlItem.read(self)
         text += self.read_siblings()
 
-        return text
-
-    def read_children(self):
-        text = ""
-        for e in self.item.getchildren():
-            item = self.subtypes[e.tag](self.keys, e)
-            text += item.read()
         return text
 
     def read_siblings(self):
         text = ""
         for next_elem in self.item.itersiblings():
-            item = self.sibltypes[next_elem.tag](self.keys, next_elem)
+            # item = self.sibltypes[next_elem.tag](self.keys, next_elem)
+            item = self.creator.create_class_item(next_elem)
             if item is not None:
                 text += item.read()
 
         return text
-
-
-def create_default_item(keys, elem):
-    return HtmlItem(elem)
-
-
-def create_span_item(keys, elem):
-    assert len(elem.keys()) == 1
-    key = elem.keys()[0]
-
-    return keys[key](elem)
 
 
 class DefParser(html_parser.HtmlParser):
@@ -515,7 +469,8 @@ class DefParser(html_parser.HtmlParser):
         item = DefItem(elem)
         text = item.read()
 
-        text = text.replace("  ", " ")
+        text = re.sub(' +', " ", text)
+        text = text.replace("\n", "")
         text = text.strip()
 
         return text

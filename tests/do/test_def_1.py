@@ -116,6 +116,21 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual("hairdo[1]", word_def)
 
+    def test_get_def_7_word_down_def_downward_movement(self):
+        sslist_item = self.d_parser.get_all_senselist_items(self.sslist)[7]
+
+        word_def = self.d_parser.get_definition(sslist_item)
+
+        self.assertEqual("a downward movement or depressed condition; defeat, misfortune, etc. see also ups and downs[1] at up[1](1)", word_def)
+
+    def test_get_def_8_word_down_def_multiple_spaces(self):
+        sslist_item = self.d_parser.get_all_senselist_items(self.sslist)[8]
+
+        word_def = self.d_parser.get_definition(sslist_item)
+
+        self.assertEqual("soft, fluffy feathers, as the outer covering on young birds or an inner layer of feathers on adult birds",
+            word_def)
+
 
 if __name__ == '__main__':
     unittest.main()
