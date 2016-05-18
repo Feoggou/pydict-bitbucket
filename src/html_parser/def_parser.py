@@ -493,7 +493,8 @@ class DefParser(html_parser.HtmlParser):
         text = ""
         results = sense_list_item.xpath('./*[@class="def"]')  # 13 KEYS or 15 KEYS
         if len(results) != 1:
-            raise RuntimeError("Expected 1 definition as 'class'='def', we got: ", len(results))
+            # raise RuntimeError("Expected 1 definition as 'class'='def', we got: ", len(results))
+            results = sense_list_item.getchildren()
 
         elem = results[0]
         assert elem is not None

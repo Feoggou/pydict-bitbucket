@@ -1,0 +1,84 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "to be related to or connected with"
+                        },
+                        {
+                            "def": "to be associated with; deal with"
+                        }
+                    ]
+                }
+            ],
+            "word": "have to do with"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "see phrase under do[1](1)"
+                        }
+                    ]
+                }
+            ],
+            "word": "have to do with"
+        }
+    ],
+    "examples": [
+        {
+            "example": "What does his father's murder or his problems have to do with you not liking Tony?"
+        }
+    ],
+    "frequency": "",
+    "nearby_words": [
+        "have someone over a barrel",
+        "have someone's blood on one's head",
+        "have something (or nothing) on someone",
+        "have something going for one",
+        "have something on the ball",
+        "have the advantage of",
+        "have the ear of",
+        "have the grace",
+        "have the last laugh",
+        "have to be",
+        "have to do with",
+        "have two left feet",
+        "have two strikes against one",
+        "have words with",
+        "have yet to (do something)",
+        "have-not",
+        "Havel",
+        "havelock",
+        "haven",
+        "haven't",
+        "haver"
+    ],
+    "related_words": [
+        "do a deal",
+        "do in",
+        "do's and don'ts",
+        "do oneself well",
+        "have at",
+        "have it good",
+        "have on",
+        "do by",
+        "do it",
+        "do up",
+        "do with",
+        "have done",
+        "have it off",
+        "have to be",
+        "do down",
+        "do over",
+        "do up right",
+        "do without",
+        "have had it",
+        "have it out",
+        "to have and to hold"
+    ],
+    "translations": []
+}
