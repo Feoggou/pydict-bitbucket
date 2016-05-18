@@ -1,0 +1,60 @@
+{
+    "def_groups": [
+        {
+            "derived_forms": {
+                "adjective": "splotchier, splotchiest"
+            },
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "a spot, splash, or stain, esp. one that is irregular"
+                        }
+                    ],
+                    "value": "noun"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "to mark or soil, or be marked or soiled, with a splotch or splotches"
+                        }
+                    ],
+                    "value": "transitive verb intransitive verb"
+                }
+            ],
+            "word": "splotch"
+        }
+    ],
+    "examples": [
+        {
+            "example": "Pigeon Tony didn't answer, his gaze focused on a splotch of sun outside the oak grove."
+        }
+    ],
+    "frequency": "Used Rarely",
+    "nearby_words": [
+        "split screen",
+        "split second",
+        "split shift",
+        "split the difference",
+        "split ticket",
+        "split-finger fastball",
+        "split-level",
+        "split-up",
+        "splitting",
+        "splodge",
+        "splurge",
+        "splutter",
+        "Spock",
+        "Spode",
+        "spodumene",
+        "spoil",
+        "spoilage",
+        "spoiler",
+        "spoils system",
+        "spoilsman"
+    ],
+    "related_words": [
+        "spot"
+    ],
+    "translations": []
+}

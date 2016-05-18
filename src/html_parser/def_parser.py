@@ -345,8 +345,17 @@ class DefParser(html_parser.HtmlParser):
                 continue
 
             gram_value = gram_values[0]
-            derived_form = item.xpath('./*[@class="drv"]/text()')[0]
+            derived_forms = item.xpath('./*[@class="drv"]/text()')
+            if len(derived_forms) > 0:
+                derived_form = derived_forms[0]
+            else:
+                derived_forms = item.xpath('.//*[@class="infl"]/text()')
+                derived_form = "".join(derived_forms)
+
             derived_form = derived_form.replace("ˈ", "").replace("ˌ", "")
+            derived_form = derived_form.replace("ˌ", "")
+            derived_form = derived_form.replace(" ", " ")
+            derived_form = re.sub(' +', ' ', derived_form)
 
             if gram_value in der_forms:
                 der_forms[gram_value] += ", " + derived_form
