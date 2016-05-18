@@ -97,7 +97,7 @@ class XrItem(HtmlItem):
         HtmlItem.__init__(self, etree_item)
         self.classes = {"lbl": HtmlItem, "xr_ref": XrRefItem}
 
-        assert self.item.text is None
+        # assert self.item.text is None
         assert self.item.tail is None
 
     def read(self):
@@ -110,7 +110,8 @@ class XrItem(HtmlItem):
         return text
 
     def read_children(self):
-        text = ""
+        text = self.text
+
         for e in self.item.getchildren():
             assert e.tag == "span"
             assert len(e.keys()) == 1
@@ -156,8 +157,8 @@ class LblRegisterItem(HtmlItem):
 class DefItem(HtmlItem):
     def __init__(self, etree_item: etree._Element):
         HtmlItem.__init__(self, etree_item)
-        self.subtypes = {"strong": HtmlItem, "em": HtmlItem}
-        self.sibltypes = {"span": DefItem.create_span_item}
+        self.subtypes = {"strong": create_default_item, "em": create_default_item, "span": create_span_item}
+        self.sibltypes = {"span": create_span_item}
         self.keys = {"class": DefItem.create_class_item}
 
     @staticmethod
@@ -172,12 +173,6 @@ class DefItem(HtmlItem):
 
         return None
 
-    def create_span_item(self, elem):
-        assert len(elem.keys()) == 1
-        key = elem.keys()[0]
-
-        return self.keys[key](elem)
-
     def read(self):
         text = self.text
 
@@ -191,18 +186,29 @@ class DefItem(HtmlItem):
     def read_children(self):
         text = ""
         for e in self.item.getchildren():
-            item = self.subtypes[e.tag](e)
+            item = self.subtypes[e.tag](self.keys, e)
             text += item.read()
         return text
 
     def read_siblings(self):
         text = ""
         for next_elem in self.item.itersiblings():
-            item = self.sibltypes[next_elem.tag](self, next_elem)
+            item = self.sibltypes[next_elem.tag](self.keys, next_elem)
             if item is not None:
                 text += item.read()
 
         return text
+
+
+def create_default_item(keys, elem):
+    return HtmlItem(elem)
+
+
+def create_span_item(keys, elem):
+    assert len(elem.keys()) == 1
+    key = elem.keys()[0]
+
+    return keys[key](elem)
 
 
 class DefParser(html_parser.HtmlParser):
