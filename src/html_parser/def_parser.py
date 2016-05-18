@@ -480,6 +480,7 @@ class DefParser(html_parser.HtmlParser):
         text = item.read()
 
         text = text.replace("  ", " ")
+        text = text.strip()
 
         return text
 

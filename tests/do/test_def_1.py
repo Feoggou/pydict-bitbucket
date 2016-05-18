@@ -74,14 +74,14 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual("informal", word_categ)
 
-    def test_get_def_example_from_senselist_item(self):
+    def test_get_def_1_example_from_senselist_item(self):
         sslist_item = self.d_parser.get_senselist_item(self.sslist, "1")
 
         word_def = self.d_parser.get_def_example(sslist_item)
 
         self.assertEqual("dinner has been done for an hour", word_def)
 
-    def test_get_def_2_with_links(self):
+    def test_get_def_3_with_links(self):
         sslist_item = self.d_parser.get_senselist_item(self.sslist, "3")
 
         word_def = self.d_parser.get_definition(sslist_item)
@@ -94,6 +94,13 @@ class TestParser(unittest.TestCase):
         word_def = self.d_parser.get_definition(sslist_item)
 
         self.assertEqual("Saul(born Solomon Bellows) 1915-2005; U.S. novelist, born in Canada", word_def)
+
+    def test_get_def_4_beginsWithSpace(self):
+        sslist_item = self.d_parser.get_senselist_item(self.sslist, "4")
+
+        word_def = self.d_parser.get_definition(sslist_item)
+
+        self.assertEqual("excrement; feces", word_def)
 
 
 if __name__ == '__main__':
