@@ -86,6 +86,13 @@ class SenseListGroup(JsonGroup):
 
     def build(self):
         sslist = self.dict_parser.get_senselist(self.etree_elem)
+
+        if sslist is None:
+            word_def = WordDefinition(self.dict_parser, self.etree_elem)
+            word_def.definition = self.dict_parser.get_alternative_def(self.etree_elem)
+            self.defs.append(word_def)
+            return
+
         sslitems = self.dict_parser.get_all_senselist_items(sslist)
 
         for item in sslitems:

@@ -1,0 +1,132 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "to breathe rapidly and heavily; gasp, as from running fast"
+                        },
+                        {
+                            "def": "to beat rapidly, as the heart; throb; pulsate"
+                        },
+                        {
+                            "def": "to feel strong desire; yearn eagerly (with for or after)"
+                        },
+                        {
+                            "def": "to give off steam, smoke, etc. in loud puffs, as an engine"
+                        }
+                    ],
+                    "value": "intransitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "to utter hurriedly and breathlessly; gasp out"
+                        }
+                    ],
+                    "value": "transitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "any of a series of rapid, heavy breaths, as from exertion; gasp"
+                        },
+                        {
+                            "def": "a throb, as of the heart"
+                        },
+                        {
+                            "def": "a puff, as of an engine"
+                        }
+                    ],
+                    "value": "noun"
+                }
+            ],
+            "word": "pant"
+        },
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def": "see pants[1]"
+                        }
+                    ],
+                    "value": "noun adjective"
+                }
+            ],
+            "word": "pant"
+        }
+    ],
+    "examples": [
+        {
+            "example": "Gwen tugged on the front of her pant legs to help reduce the creases from where she had been sitting in her chair."
+        }
+    ],
+    "frequency": "Used Occasionally",
+    "nearby_words": [
+        "panocha",
+        "panoply",
+        "panoptic",
+        "panorama",
+        "panpipe",
+        "pansexual",
+        "pansophism",
+        "pansophy",
+        "panspermia",
+        "pansy",
+        "Pantagruel",
+        "pantalets",
+        "pantaloon",
+        "pantdress",
+        "pantechnicon",
+        "Pantelleria",
+        "pantheism",
+        "pantheon",
+        "panther",
+        "panties"
+    ],
+    "related_words": [
+        "panto-",
+        "pants"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    {
+                                        "syn": "puff"
+                                    },
+                                    {
+                                        "syn": "blow"
+                                    },
+                                    {
+                                        "syn": "breathe"
+                                    },
+                                    {
+                                        "syn": "gasp"
+                                    },
+                                    {
+                                        "syn": "heave"
+                                    },
+                                    {
+                                        "syn": "wheeze"
+                                    }
+                                ]
+                            }
+                        ],
+                        "value": "verb"
+                    }
+                }
+            ],
+            "word": "pant"
+        }
+    ],
+    "translations": [
+        "If you pant, you breathe quickly and loudly with your mouth open, because you have been doing something energetic. panted, panting, pants --- She climbed rapidly until she was panting with the effort."
+    ]
+}

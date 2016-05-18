@@ -171,6 +171,9 @@ class HtmlParser:
 
     @staticmethod
     def get_all_senselist_items(sslist_etree):
+        if sslist_etree is None:
+            return []
+
         results = sslist_etree.xpath('./*[re:match(@class, "sense_list_item level_\d")]', # 11 KEYS or 13 KEYS
                              namespaces={"re": "http://exslt.org/regular-expressions"})
 

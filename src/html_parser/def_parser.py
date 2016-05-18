@@ -468,6 +468,15 @@ class DefParser(html_parser.HtmlParser):
         return result
 
     @staticmethod
+    def get_alternative_def(ggroup):
+        etree_item = ggroup.xpath('./span')[0]
+
+        item = DefItem(etree_item)
+        text = item.read()
+        print("alternative text: ", text)
+        return text
+
+    @staticmethod
     def get_definition(sense_list_item):
         text = ""
         results = sense_list_item.xpath('./*[@class="def"]')  # 13 KEYS or 15 KEYS
