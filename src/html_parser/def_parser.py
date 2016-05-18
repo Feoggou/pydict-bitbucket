@@ -123,6 +123,36 @@ class XrItem(HtmlItem):
         return text
 
 
+class LblRegisterItem(HtmlItem):
+    def __init__(self, etree_item: etree._Element):
+        HtmlItem.__init__(self, etree_item)
+
+    def read(self):
+        text = self.text
+
+        text += self.read_children()
+
+        text += self.tail
+
+        return text
+
+    def read_children(self):
+        text = ""
+        for e in self.item.getchildren():
+            assert e.tag == "em"
+            assert len(e.keys()) == 1
+
+            key = e.keys()[0]
+            assert key == "class"
+            assert e.get(key) == "hi"
+
+            item = HtmlItem(e)
+
+            text += item.read()
+
+        return text
+
+
 class DefItem(HtmlItem):
     def __init__(self, etree_item: etree._Element):
         HtmlItem.__init__(self, etree_item)
@@ -132,7 +162,7 @@ class DefItem(HtmlItem):
 
     @staticmethod
     def create_class_item(elem):
-        classes = {"xr": XrItem}
+        classes = {"xr": XrItem, "lbl register": LblRegisterItem}
 
         class_name = elem.get("class")
         print("class: ", class_name)

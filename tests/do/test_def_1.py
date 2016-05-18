@@ -102,6 +102,20 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual("excrement; feces", word_def)
 
+    def test_get_def_5_word_do_def_finish(self):
+        sslist_item = self.d_parser.get_senselist_item(self.sslist, "5")
+
+        word_def = self.d_parser.get_definition(sslist_item)
+
+        self.assertEqual("to finish (used in the perfect tense [have done with dreaming ])", word_def)
+
+    def test_get_def_6_word_do_def_hairdo(self):
+        sslist_item = self.d_parser.get_all_senselist_items(self.sslist)[6]
+
+        word_def = self.d_parser.get_definition(sslist_item)
+
+        self.assertEqual("hairdo[1]", word_def)
+
 
 if __name__ == '__main__':
     unittest.main()
