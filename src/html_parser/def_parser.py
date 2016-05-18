@@ -470,7 +470,8 @@ class DefParser(html_parser.HtmlParser):
 
         result = []
         for e in elems:
-            # t = e.text.replace("ˈ", "'")
+            if e.text is None:
+                continue
             t = e.text.replace("ˈ", "").replace("ˌ", "")
             text = "".join(x for x in t if re.match("[^\s,]", x))   # ("[A-Za-z']", x))
             if len(text):
