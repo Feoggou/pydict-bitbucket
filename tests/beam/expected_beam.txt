@@ -1,0 +1,58 @@
+[Very Common]
+
+DEFINTIONS
+beam
+noun
+o) 
+     *) (obsolete) the squared-off trunk of a tree
+     o) 
+          *) a long, thick piece of wood, metal, or stone, used in building
+          *) such a piece used as a horizontal support for a roof, ceiling, etc.
+     *) one of the two large rollers of a loom
+     *) the barlike, horizontal part of a plow, to which the handles, share, etc. are attached
+     *) the crossbar of a balance; also, occasionally, the balance itself
+     *) the main shaft of a deer's antler see also bay antler[1]
+     *) any of the heavy, horizontal crosspieces of a ship
+     *) a ship's breadth at its widest point
+     *) the side of a ship or the direction extending outward on either side at right angles to the fore-and-aft line of a ship, aircraft, etc.
+     *) (slang) the width of the hips
+     *) (gymnastics) balance beam[1]
+     *) (mechanics) a lever that is moved back and forth by a piston rod and transmits its motion to the crank, etc. as in some early steam engines
+o) 
+     *) a shaft or stream of light or other radiation, as of X-rays or nuclear particles (also used figuratively)
+     *) a radiant look, smile, etc.
+     *) a stream of radio or radar signals sent continuously in one direction from a landing field, harbor, etc. as a guide for incoming aircraft or ships
+
+transitive verb
+o) to give out (shafts of light); radiate in a beam or beams
+o) to direct or aim (a radio signal, program, etc.)
+o) to construct (a ceiling) so that the beams are exposed
+
+intransitive verb
+o) to shine brightly; be radiant
+o) to smile warmly
+
+
+TRANSLATIONS
+A beam of light is a line of light that shines from an object such as a lamp. beams
+If you say that someone is beaming, you mean that they have a big smile on their face because they are happy, pleased, or proud about something. beams, beaming, beamed --- She beamed at her friend with undisguised admiration.He approached with outstretched arms, beaming a smile of welcome.
+
+
+SYNONYMS
+beam
+noun
+o) smile, grin
+o) ray, gleam, glimmer, glint, glow, shaft, streak, stream
+o) rafter, girder, joist, plank, spar, support, timber
+
+verb
+o) smile, grin
+o) radiate, glare, gleam, glitter, glow, shine
+o) send out, broadcast, emit, transmit
+
+
+EXAMPLES
+o) The jug skidded across the floor, came to rest against a support beam.
+
+RELATED
+I-beam, balance beam, beam in one's own eye, beam splitter, beam-ends, high beam, low beam, off the beam, on the beam, on the beam-ends, particle beam, radio beam, straining piece, tie beam, warp beam

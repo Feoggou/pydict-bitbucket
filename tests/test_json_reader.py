@@ -142,9 +142,9 @@ class TestJsonReader(unittest.TestCase):
 
         self.assertEqual(text,
                          "o) \n"
-                         "     to execute; effect; perform (an act, action, etc.)\n"
+                         "     *) to execute; effect; perform (an act, action, etc.)\n"
                          "         e.g. do great deeds\n"
-                         "     to carry out; fulfill\n"
+                         "     *) to carry out; fulfill\n"
                          "         e.g. do what I tell you\n"
                          )
 
@@ -156,9 +156,9 @@ class TestJsonReader(unittest.TestCase):
 
         self.assertEqual(text,
                          "o) (informal) \n"
-                         "     to prepare; cook\n"
+                         "     *) to prepare; cook\n"
                          "         e.g. that restaurant does ribs really well\n"
-                         "     to eat\n"
+                         "     *) to eat\n"
                          "         e.g. let's do Mexican tonight\n"
                          )
 
@@ -170,9 +170,9 @@ class TestJsonReader(unittest.TestCase):
 
         self.assertEqual(text,
                          "o) \n"
-                         "     to play the role of\n"
+                         "     *) to play the role of\n"
                          "         e.g. I did Polonius\n"
-                         "     (informal) to imitate, or behave characteristically as\n"
+                         "     *) (informal) to imitate, or behave characteristically as\n"
                          "         e.g. to do a Houdini\n"
                          )
 

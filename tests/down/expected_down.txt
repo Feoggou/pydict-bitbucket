@@ -6,9 +6,9 @@ adverb
 o) from a higher to a lower place; toward the ground
 o) in, on, or to a lower position or level; specif., to a sitting or reclining position
 o) 
-     in or to a place thought of as lower or below; often, specif., southward
+     *) in or to a place thought of as lower or below; often, specif., southward
          e.g. to go down to Florida
-     out of one's hand
+     *) out of one's hand
          e.g. put it down
 o) below the horizon
 o) from an earlier to a later period or person
@@ -21,9 +21,9 @@ o) in or into an inferior position or condition
 o) to a lower amount, value, or bulk
     e.g. to come down in price
 o) 
-     to a less excited or active condition; into a tranquil or quiet state
+     *) to a less excited or active condition; into a tranquil or quiet state
          e.g. to settle down
-     to a lower volume of sound
+     *) to a lower volume of sound
          e.g. turn down the radio
 o) in a serious or earnest manner
     e.g. to get down to work
@@ -39,8 +39,8 @@ o) descending; directed toward a lower position
 o) in a lower place; on the ground
 o) gone, brought, pulled, etc. down
 o) 
-     depressed; dejected
-     (slang) depressing or downbeat
+     *) depressed; dejected
+     *) (slang) depressing or downbeat
          e.g. a down atmosphere
 o) dejected; discouraged
 o) prostrate; ill
@@ -50,12 +50,12 @@ o) inoperative
     e.g. the computer is down
 o) characterized by low or falling prices
 o) (slang) 
-     (a generalized term of approval meaning variously) nice, good, excellent, etc.
-     sophisticated, stylish, etc.; cool; hip
+     *) (a generalized term of approval meaning variously) nice, good, excellent, etc.
+     *) sophisticated, stylish, etc.; cool; hip
 o) (sport) 
-     (US) no longer in play (said of a football)
-     trailing an opponent by a specified number of points, strokes, etc.
-     (US, baseball) put out
+     *) (US) no longer in play (said of a football)
+     *) trailing an opponent by a specified number of points, strokes, etc.
+     *) (US, baseball) put out
 
 preposition
 o) down or downward, along, through, into, or upon
@@ -63,8 +63,8 @@ o) down or downward, along, through, into, or upon
 
 transitive verb
 o) 
-     to put, bring, get, throw, or knock down
-     to defeat, as in a game
+     *) to put, bring, get, throw, or knock down
+     *) to defeat, as in a game
 o) to gulp or eat rapidly
 
 intransitive verb
@@ -73,8 +73,8 @@ o) (rare) to go, come, or get down
 noun
 o) a downward movement or depressed condition; defeat, misfortune, etc. see also ups and downs[1] at up[1](1)
 o) (US, American football) 
-     one of four consecutive plays in which a team, in order to keep possession of the ball, must either score or advance the ball at least ten yards
-     the declaring of the ball as down, or no longer in play
+     *) one of four consecutive plays in which a team, in order to keep possession of the ball, must either score or advance the ball at least ten yards
+     *) the declaring of the ball as down, or no longer in play
 o) (slang) a barbiturate or other depressant drug; downer
 
 

@@ -4,9 +4,9 @@ DEFINTIONS
 do
 transitive verb
 o) 
-     to execute; effect; perform (an act, action, etc.)
+     *) to execute; effect; perform (an act, action, etc.)
          e.g. do great deeds
-     to carry out; fulfill
+     *) to carry out; fulfill
          e.g. do what I tell you
 o) to bring to completion; finish
     e.g. dinner has been done for an hour
@@ -25,15 +25,15 @@ o) to work out; solve
 o) to produce or appear in (a play, etc.)
     e.g. we did Hamlet
 o) 
-     to play the role of
+     *) to play the role of
          e.g. I did Polonius
-     (informal) to imitate, or behave characteristically as
+     *) (informal) to imitate, or behave characteristically as
          e.g. to do a Houdini
 o) to write or publish (a book), compose (a musical score), etc.
 o) 
-     to cover (distance)
+     *) to cover (distance)
          e.g. to do a mile in four minutes
-     to move along at a speed of
+     *) to move along at a speed of
          e.g. to do 60 miles an hour
 o) to visit as a sightseer; tour
     e.g. they did England in two months
@@ -44,9 +44,9 @@ o) to give; render
 o) to suit; be convenient to
     e.g. this will do me very well
 o) (informal) 
-     to prepare; cook
+     *) to prepare; cook
          e.g. that restaurant does ribs really well
-     to eat
+     *) to eat
          e.g. let's do Mexican tonight
 o) (informal) to cheat; swindle
     e.g. you've been done

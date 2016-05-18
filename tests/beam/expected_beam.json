@@ -1,0 +1,289 @@
+{
+    "def_groups": [
+        {
+            "gram_groups": [
+                {
+                    "defs": [
+                        {
+                            "def_subgroup": [
+                                {
+                                    "category": "obsolete",
+                                    "def": "the squared-off trunk of a tree"
+                                },
+                                {
+                                    "def_subgroup": [
+                                        {
+                                            "def": "a long, thick piece of wood, metal, or stone, used in building"
+                                        },
+                                        {
+                                            "def": "such a piece used as a horizontal support for a roof, ceiling, etc."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "def": "one of the two large rollers of a loom"
+                                },
+                                {
+                                    "def": "the barlike, horizontal part of a plow, to which the handles, share, etc. are attached"
+                                },
+                                {
+                                    "def": "the crossbar of a balance; also, occasionally, the balance itself"
+                                },
+                                {
+                                    "def": "the main shaft of a deer's antler see also bay antler[1]"
+                                },
+                                {
+                                    "def": "any of the heavy, horizontal crosspieces of a ship"
+                                },
+                                {
+                                    "def": "a ship's breadth at its widest point"
+                                },
+                                {
+                                    "def": "the side of a ship or the direction extending outward on either side at right angles to the fore-and-aft line of a ship, aircraft, etc."
+                                },
+                                {
+                                    "category": "slang",
+                                    "def": "the width of the hips"
+                                },
+                                {
+                                    "category": "gymnastics",
+                                    "def": "balance beam[1]"
+                                },
+                                {
+                                    "category": "mechanics",
+                                    "def": "a lever that is moved back and forth by a piston rod and transmits its motion to the crank, etc. as in some early steam engines"
+                                }
+                            ]
+                        },
+                        {
+                            "def_subgroup": [
+                                {
+                                    "def": "a shaft or stream of light or other radiation, as of X-rays or nuclear particles (also used figuratively)"
+                                },
+                                {
+                                    "def": "a radiant look, smile, etc."
+                                },
+                                {
+                                    "def": "a stream of radio or radar signals sent continuously in one direction from a landing field, harbor, etc. as a guide for incoming aircraft or ships"
+                                }
+                            ]
+                        }
+                    ],
+                    "value": "noun"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "to give out (shafts of light); radiate in a beam or beams"
+                        },
+                        {
+                            "def": "to direct or aim (a radio signal, program, etc.)"
+                        },
+                        {
+                            "def": "to construct (a ceiling) so that the beams are exposed"
+                        }
+                    ],
+                    "value": "transitive verb"
+                },
+                {
+                    "defs": [
+                        {
+                            "def": "to shine brightly; be radiant"
+                        },
+                        {
+                            "def": "to smile warmly"
+                        }
+                    ],
+                    "value": "intransitive verb"
+                }
+            ],
+            "related": [
+                "beam in one's own eye",
+                "off the beam",
+                "on the beam"
+            ],
+            "word": "beam"
+        }
+    ],
+    "examples": [
+        {
+            "example": "The jug skidded across the floor, came to rest against a support beam."
+        }
+    ],
+    "frequency": "Very Common",
+    "nearby_words": [
+        "beadroll",
+        "beadsman",
+        "beadswoman",
+        "beadwork",
+        "beady",
+        "beagle",
+        "beak",
+        "beaked whale",
+        "beaker",
+        "beaky",
+        "beam in one's own eye",
+        "beam splitter",
+        "beam-ends",
+        "beaming",
+        "beamish",
+        "beamy",
+        "bean",
+        "bean ball",
+        "bean beetle",
+        "bean caper"
+    ],
+    "related_words": [
+        "I-beam",
+        "beam-ends",
+        "radio beam",
+        "on the beam",
+        "on the beam-ends",
+        "low beam",
+        "high beam",
+        "balance beam",
+        "particle beam",
+        "beam in one's own eye",
+        "tie beam",
+        "warp beam",
+        "beam splitter",
+        "off the beam",
+        "straining piece"
+    ],
+    "synonyms": [
+        {
+            "gram_groups": [
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    {
+                                        "syn": "smile"
+                                    },
+                                    {
+                                        "syn": "grin"
+                                    }
+                                ]
+                            },
+                            {
+                                "line": [
+                                    {
+                                        "syn": "ray"
+                                    },
+                                    {
+                                        "syn": "gleam"
+                                    },
+                                    {
+                                        "syn": "glimmer"
+                                    },
+                                    {
+                                        "syn": "glint"
+                                    },
+                                    {
+                                        "syn": "glow"
+                                    },
+                                    {
+                                        "syn": "shaft"
+                                    },
+                                    {
+                                        "syn": "streak"
+                                    },
+                                    {
+                                        "syn": "stream"
+                                    }
+                                ]
+                            },
+                            {
+                                "line": [
+                                    {
+                                        "syn": "rafter"
+                                    },
+                                    {
+                                        "syn": "girder"
+                                    },
+                                    {
+                                        "syn": "joist"
+                                    },
+                                    {
+                                        "syn": "plank"
+                                    },
+                                    {
+                                        "syn": "spar"
+                                    },
+                                    {
+                                        "syn": "support"
+                                    },
+                                    {
+                                        "syn": "timber"
+                                    }
+                                ]
+                            }
+                        ],
+                        "value": "noun"
+                    }
+                },
+                {
+                    "gram_group": {
+                        "synonyms": [
+                            {
+                                "line": [
+                                    {
+                                        "syn": "smile"
+                                    },
+                                    {
+                                        "syn": "grin"
+                                    }
+                                ]
+                            },
+                            {
+                                "line": [
+                                    {
+                                        "syn": "radiate"
+                                    },
+                                    {
+                                        "syn": "glare"
+                                    },
+                                    {
+                                        "syn": "gleam"
+                                    },
+                                    {
+                                        "syn": "glitter"
+                                    },
+                                    {
+                                        "syn": "glow"
+                                    },
+                                    {
+                                        "syn": "shine"
+                                    }
+                                ]
+                            },
+                            {
+                                "line": [
+                                    {
+                                        "syn": "send out"
+                                    },
+                                    {
+                                        "syn": "broadcast"
+                                    },
+                                    {
+                                        "syn": "emit"
+                                    },
+                                    {
+                                        "syn": "transmit"
+                                    }
+                                ]
+                            }
+                        ],
+                        "value": "verb"
+                    }
+                }
+            ],
+            "word": "beam"
+        }
+    ],
+    "translations": [
+        "A beam of light is a line of light that shines from an object such as a lamp. beams",
+        "If you say that someone is beaming, you mean that they have a big smile on their face because they are happy, pleased, or proud about something. beams, beaming, beamed --- She beamed at her friend with undisguised admiration.He approached with outstretched arms, beaming a smile of welcome."
+    ]
+}

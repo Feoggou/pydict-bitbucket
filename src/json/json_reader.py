@@ -54,24 +54,33 @@ class DefinitionReader:
         return ""
 
     @staticmethod
-    def _read_subdefinition(subdef: dict):
-        items = DefinitionReader._read_def_item(subdef)
-        return "".join([" " * 5 + line for line in items])
+    def _read_subdefinition(subdef: dict, level: int):
+        items = DefinitionReader._read_def_item(subdef, level)
+        return "".join([" " * (level * 5) + line for line in items])
 
     @staticmethod
-    def _read_def_subgroup(subgroup: dict):
+    def _read_def_subgroup(subgroup: dict, level: int):
         text = "o) "
         text += DefinitionReader._read_category(subgroup) + "\n"
 
         for subdef in subgroup["def_subgroup"]:
-            text += DefinitionReader._read_subdefinition(subdef)
+            text += DefinitionReader._read_subdefinition(subdef, level)
         return text
 
     @staticmethod
-    def _read_def_item(definition: dict) -> list:
+    def _read_def_item(definition: dict, level: int) -> list:
         items = list()
 
-        items.append(DefinitionReader._read_category(definition) + definition["def"] + "\n")
+        def_text = ""
+
+        if "def" in definition.keys():
+            def_text = ("*) " if level > 0 else "") + DefinitionReader._read_category(definition) + definition["def"] + "\n"
+        elif "def_subgroup" in definition.keys():
+            # sub-subdefinition - beam
+            def_text = DefinitionReader._read_def_subgroup(definition, level + 1)
+
+        items.append(def_text)
+
         items.append(DefinitionReader._read_example(definition))
         if '' in items:
             items.remove('')
@@ -81,9 +90,9 @@ class DefinitionReader:
     @staticmethod
     def read_definition(obj: dict):
         if "def_subgroup" in obj.keys():
-            return DefinitionReader._read_def_subgroup(obj)
+            return DefinitionReader._read_def_subgroup(obj, level=1)
         else:
-            return "o) " + "".join(DefinitionReader._read_def_item(obj))
+            return "o) " + "".join(DefinitionReader._read_def_item(obj, level=0))
 
     def __call__(self) -> str:
         text = ""
