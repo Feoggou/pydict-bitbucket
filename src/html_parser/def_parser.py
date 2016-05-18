@@ -450,7 +450,9 @@ class DefParser(html_parser.HtmlParser):
         for item in sems.getchildren():
             if "class" in item.keys() and item.get("class") == "xr":
                 subelement = item.xpath('./*[@class="xr_ref"]/a/text()')[0]
-                text += subelement + item.tail
+                text += subelement
+                if item.tail is not None:
+                    text += item.tail
             elif "class" in item.keys() and item.get("class") == "hi":
                 if item.text is not None:
                     text += item.text

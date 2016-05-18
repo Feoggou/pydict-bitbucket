@@ -1,9 +1,5 @@
 word crashes:
 "have to do with" ---- raise RuntimeError("Expected 1 definition as 'class'='def', we got: ", len(results))
-dwarf, predicament ------
-        File "/home/zenith/PycharmProjects/EDictionary/src/html_parser/def_parser.py", line 453, in get_semantics
-        text += subelement + item.tail
-        TypeError: Can't convert 'NoneType' object to str implicitly
 
 lace -----
     File "/home/zenith/PycharmProjects/EDictionary/src/html_parser/def_parser.py", line 472, in get_word_forms
