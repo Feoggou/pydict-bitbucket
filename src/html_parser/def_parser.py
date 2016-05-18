@@ -33,6 +33,7 @@ class HtmlItemCreator:
             "span": HtmlItemCreator.create_keys_item,
             "a": HtmlItemCreator.create_a_href_item,
             "sup": HtmlItemCreator.create_sup_item,
+            "br": HtmlItemCreator.create_br_item,
         }
 
         HtmlItemCreator.ALL_KEYS = {"class": HtmlItemCreator.create_class_item}
@@ -53,6 +54,10 @@ class HtmlItemCreator:
     @staticmethod
     def create_sup_item(elem):
         return SupItem(elem)
+
+    @staticmethod
+    def create_br_item(elem):
+        return BrItem(elem)
 
     @staticmethod
     def create_a_href_item(elem):
@@ -143,6 +148,14 @@ class SupItem(HtmlItem):
         return "({}{})".format(self.text, self.tail)
 
 
+class BrItem(HtmlItem):
+    def __init__(self, etree_item: etree._Element):
+        HtmlItem.__init__(self, etree_item)
+
+    def read(self):
+        return "; "
+
+
 class DefItem(ParentHtmlItem):
     def __init__(self, etree_item: etree._Element):
         ParentHtmlItem.__init__(self, etree_item)
@@ -157,8 +170,7 @@ class DefItem(ParentHtmlItem):
     def read_siblings(self):
         text = ""
         for next_elem in self.item.itersiblings():
-            # item = self.sibltypes[next_elem.tag](self.keys, next_elem)
-            item = self.creator.create_class_item(next_elem)
+            item = self.creator.create_tag_item(next_elem)  # create_class_item(next_elem)
             if item is not None:
                 text += item.read()
 

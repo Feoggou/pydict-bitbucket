@@ -131,6 +131,13 @@ class TestParser(unittest.TestCase):
         self.assertEqual("soft, fluffy feathers, as the outer covering on young birds or an inner layer of feathers on adult birds",
             word_def)
 
+    def test_get_def_9_word_un_def_multiple_spaces(self):
+        sslist_item = self.d_parser.get_all_senselist_items(self.sslist)[9]
+
+        word_def = self.d_parser.get_definition(sslist_item)
+
+        self.assertEqual("not, lack of, the opposite of; see also non-[1]", word_def)
+
 
 if __name__ == '__main__':
     unittest.main()
