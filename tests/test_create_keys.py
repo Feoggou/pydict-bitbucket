@@ -11,7 +11,8 @@ def get_html_for_word(word):
     if 1:
         hostname = "www.collinsdictionary.com"
         conn = http.client.HTTPConnection(hostname)
-        conn.request("GET", "/dictionary/american/" + word)
+        conn.request("GET", "/dictionary/english/" + word)
+        # http://www.collinsdictionary.com/dictionary/english/do
         response = conn.getresponse()
         loc = response.getheader('location')
         if loc is not None:
@@ -29,7 +30,7 @@ def get_related_for_word(word):
     text = ""
     hostname = "www.collinsdictionary.com"
     conn = http.client.HTTPConnection(hostname)
-    conn.request("GET", "/dictionary/american/" + word + "/related")
+    conn.request("GET", "/dictionary/english/" + word + "/related")
     response = conn.getresponse()
     loc = response.getheader('location')
     if loc is not None:
@@ -44,7 +45,8 @@ def get_syn_for_word(word):
     text = ""
     hostname = "www.collinsdictionary.com"
     conn = http.client.HTTPConnection(hostname)
-    conn.request("GET", "/dictionary/american-thesaurus/" + word)
+    conn.request("GET", "/dictionary/english-thesaurus/" + word)
+    # http://www.collinsdictionary.com/dictionary/english-thesaurus/do
     response = conn.getresponse()
     loc = response.getheader('location')
     if loc is not None:
@@ -55,17 +57,17 @@ def get_syn_for_word(word):
     return text
 
 
-add_new_word_to_test = False
-word_name = "blas%C3%A9"
+add_new_word_to_test = True
+word_name = "do"
 
 if add_new_word_to_test is True:
     text_def = get_html_for_word(word_name)
     with open(word_name + "_defs.html", "w") as f:
         f.write(text_def)
 
-    text_related = get_related_for_word(word_name)
-    with open(word_name + "_related.html", "w") as f:
-        f.write(text_related)
+    # text_related = get_related_for_word(word_name)
+    # with open(word_name + "_related.html", "w") as f:
+    #     f.write(text_related)
 
     text_syn = get_syn_for_word(word_name)
     with open(word_name + "_syn.html", "w") as f:
@@ -78,10 +80,10 @@ if add_new_word_to_test is True:
     sys.stdout = open(word_name + "_defs.keys.txt", "w")
     print_children(root, padding=0)
 
-    if len(text_related):
+    """if len(text_related):
         root = etree.HTML(text_related)
         sys.stdout = open(word_name + "_related.keys.txt", "w")
-        print_children(root, padding=0)
+        print_children(root, padding=0)"""
 
     if len(text_syn):
         root = etree.HTML(text_syn)
