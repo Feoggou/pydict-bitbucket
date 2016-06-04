@@ -1,0 +1,128 @@
+ 0 KEYS: (body) class="definition context-english"; 
+CHILDREN
+--------
+ 0 KEYS: (header) class="sticky"; 
+ 0 KEYS: (nav) class="menuPanel"; 
+ 0 KEYS: (nav) class="searchPanel"; 
+ 0 KEYS: (div) class="menuOverlay"; 
+ 0 KEYS: (main) 										******
+ 0 KEYS: (footer) 
+ 0 KEYS: (div) class="btmslot_b-container"; 
+ 0 KEYS: (script) type="text/javascript"; src="/common.js?version=3.1.6"; async="";
+
+
+
+
+====================
+
+
+ 0 KEYS: (main) 
+CHILDREN
+--------
+ 0 KEYS: (div) class="ad_trick"; 
+ 0 KEYS: (div) class="dictionary"; 						*******
+ 0 KEYS: (div) class="clear";
+
+
+ ======================
+
+
+  0 KEYS: (div) class="dictionary"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class="res_cell_left res_hos res_hot"; 
+ 0 KEYS: (div) class="res_cell_center"; 				*******
+ 0 KEYS: (div) class="res_cell_right";
+
+
+===============================
+
+
+ 0 KEYS: (div) class="res_cell_center"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class="definition_content res_cell_center_content";			*******
+
+
+================================
+
+ 0 KEYS: (div) class="definition_content res_cell_center_content"; 
+CHILDREN
+--------
+ 0 KEYS: (div) id="do_1"; 													*******
+ 0 KEYS: (div) class="content-box content-box-usage"; 
+ 0 KEYS: (script) type="text/javascript"; 
+ 0 KEYS: (div) class="content-box content-box-translations"; 
+ 0 KEYS: (div) class="content-box content-box-comments"; id="commentsBox";
+
+
+ ============================
+
+ 0 KEYS: (div) id="do_1"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class="homograph-entry"; 
+ 0 KEYS: (div) class="content-box content-box-synonyms";
+
+ ===================================
+
+  0 KEYS: (div) class="homograph-entry"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class=" page"; id="do"; idm_id="000050563";
+
+ ===========================
+
+  0 KEYS: (div) class=" page"; id="do"; idm_id="000050563"; 
+CHILDREN
+--------
+ 0 KEYS: (span) class="metadata metadata"; 
+ 0 KEYS: (div) class="dictionary dictionaries"; **************
+ 0 KEYS: (span) class=" assets";
+
+ =============================
+
+ 0 KEYS: (div) class="dictionary dictionaries"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class="Collins_Eng_Dict dictionary"; 
+ 0 KEYS: (div) class="Cob_Adv_Brit dictionary";
+
+ ================================
+
+  0 KEYS: (div) class="Collins_Eng_Dict dictionary"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class=" dictentry"; type="full"; 		***** (def group)
+ 0 KEYS: (div) class=" dictentry"; type="full"; 		***** (def group)
+ 0 KEYS: (div) class=" dictentry"; type="full"; 		***** (def group)
+ 0 KEYS: (div) class=" dictentry"; type="full"; 		***** (def group)
+ 0 KEYS: (div) class=" dictentry"; type="full"; 		***** (def group)
+ 0 KEYS: (div) class=" dictentry"; type="full";			***** (def group)
+
+ =========================
+
+ 0 KEYS: (div) class=" dictentry"; type="full"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class=" dictlink"; 
+
+ =======================
+
+  0 KEYS: (div) class=" dictlink"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class="ced entry"; lang="en-gb"; 
+
+ ===============
+
+  0 KEYS: (div) class="ced entry"; lang="en-gb"; 
+CHILDREN
+--------
+ 0 KEYS: (div) class="entry_header"; 
+ 0 KEYS: (div) class="content definitions ced"; 
+ 0 KEYS: (div) class="content etyms";
+
+ ================
+
+ 

@@ -1,0 +1,122 @@
+#117:
+ 0 TAG: "body"
+ 0 TEXT: "((space))"
+ 0 KEYS: class="definition context-english"; 
+ 0 TAIL: "((space))"
+
+# 692:
+ 1 TAG:     "main"
+ 1 TEXT:     "((space))"
+ 1 TAIL:     "((space))"
+
+#715:
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         class="dictionary"; 
+ 2 TAIL:         "((space))"
+
+# 763:
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             class="res_cell_center"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 class="definition_content res_cell_center_content"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     id="do_1"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         class="homograph-entry"; 
+ 6 TAIL:                         "((space))"
+
+#787:
+ 7 TAG:                             "div"
+ 7 KEYS:                             class=" page"; id="do"; idm_id="000050563"; 
+ 7 TAIL:                             "((space))"
+
+
+#830:
+ 8 TAG:                                 "div"
+ 8 KEYS:                                 class="dictionary dictionaries"; 			****** def groups
+
+ [******************** EXAMPLES
+
+#8554:
+ 8 TAG:                                 "span"
+ 8 KEYS:                                 class=" assets"; 
+
+
+#8558:
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     class="Corpus_Examples_EN asset"; 
+
+
+#8562:
+10 TAG:                                         "span"
+10 KEYS:                                         class=" assetlink"; target="ucc888ac159e9af03.-17242a22.153cd295fe8.-88a"; 
+
+
+#8566:
+11 TAG:                                             "span"
+11 KEYS:                                             class=" examples"; 
+
+
+#8570:
+12 TAG:                                                 "div"
+12 KEYS:                                                 class="content examples"; 
+
+
+ *************************************]
+
+
+#834:
+ 9 TAG:                                     "div"
+ 9 KEYS:                                     class="Collins_Eng_Dict dictionary"; 
+
+
+#838:
+10 TAG:                                         "div"
+10 KEYS:                                         class=" dictentry"; type="full"; 
+
+#842:
+11 TAG:                                             "div"
+11 KEYS:                                             class=" dictlink"; 
+
+# 846
+12 TAG:                                                 "div"
+12 KEYS:                                                 class="ced entry"; lang="en-gb"; 
+
+#850
+13 TAG:                                                     "div"
+13 TEXT:                                                     "((space))"
+13 KEYS:                                                     class="entry_header"; (frequency)
+
+#998:
+13 TAG:                                                     "div"
+13 TEXT:                                                     "((space))"
+13 KEYS:                                                     class="content definitions ced";  (defs)
+
+
+#1031:
+14 TAG:                                                         "span"
+14 KEYS:                                                         class=" hom"; id="do__2"; 
+
+
+#1088:
+15 TAG:                                                             "span"
+15 KEYS:                                                             class=" sense"; n="1."; id="do__4"; 
+
+#1097:
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "to perform or "
+16 KEYS:                                                                 class=" def"; 
