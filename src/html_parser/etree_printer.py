@@ -1,7 +1,7 @@
 
 
 def print_keys(elem, padding):
-    keys_str = ""
+    keys_str = "({}) ".format(elem.tag)
 
     for k in elem.keys():
         keys_str += '{}="{}"; '.format(k, elem.get(k))
