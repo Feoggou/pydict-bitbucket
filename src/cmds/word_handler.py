@@ -75,6 +75,10 @@ class WordHandler:
                     answer = "yes"
                     word = e.value
 
+            except FileNotFoundError as e:
+                print("File not found!")
+                return None, None
+
         return None, None
 
     @staticmethod

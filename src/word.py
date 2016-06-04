@@ -20,7 +20,7 @@ class WordData:
         self.related_content = ""
         self.synonyms_content = ""
 
-    @staticmethod
+    """@staticmethod
     def _fetch_from_web(suffix):
         data = suffix.encode("utf-8")
         txt = data.decode("ascii", errors="backslashreplace")
@@ -83,7 +83,27 @@ class WordData:
             raise
         else:
             with open(os.path.join(HTML_PATH, self.word_name + "-syn.html"), "w") as f:
-                f.write(self.synonyms_content)
+                f.write(self.synonyms_content)"""
+
+    def fetch(self):
+        print(self.word_name + "...")
+        path = "/home/zenith/PycharmProjects/EDictionary/html/"
+        file_path = os.path.join(path, self.word_name + ".html")
+        if os.path.exists(file_path):
+            with open(file_path, "r") as f:
+                self.def_content = f.read()
+        else:
+            raise FileNotFoundError("")
+
+        file_path = os.path.join(path, self.word_name + "-related.html")
+        if os.path.exists(file_path):
+            with open(file_path, "r") as f:
+                self.related_content = f.read()
+
+        file_path = os.path.join(path, self.word_name + "-syn.html")
+        if os.path.exists(file_path):
+            with open(file_path, "r") as f:
+                self.synonyms_content = f.read()
 
     def fetch_mock(self):
         f = open("{}_defs.html".format(self.word_name))
