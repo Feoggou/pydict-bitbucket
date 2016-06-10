@@ -1,0 +1,21 @@
+update:
+    don't download, except if .html is not found (use a config .py file)
+    ask confirmation from user for each downloaded content.
+
+words:
+exactly - has unicode " "
+lead - have subdefs
+soliloquy
+--- has USAGE
+
+commands:
+edit - use nano
+idioms() -- add idiom for word.
+adddef() -- add a definition, when I got smth clearer.
+know()    (prev, see)  -- decide which definitions will be visible, and which not, for a word.
+defs(with the hand) --- doesn't work, probably because it does substitution (with-the-hand?)
+"we found a definitin for" --- when requesting "have to do with" (translated as "have-to-do-with"), it asks if you want "have to do with" also.
+
+word forms: doing, done -- displayed.
+derived forms: quiet - quietly.
+tags

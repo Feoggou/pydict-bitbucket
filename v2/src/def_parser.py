@@ -43,7 +43,10 @@ class HtmlItemCreator:
             # "br": HtmlItemCreator.create_br_item,
         }
 
-        HtmlItemCreator.ALL_KEYS = {"class": HtmlItemCreator.create_class_item}
+        HtmlItemCreator.ALL_KEYS = {
+            "class": HtmlItemCreator.create_class_item,
+            "href": HtmlItemCreator.create_a_href_item2,
+        }
 
         HtmlItemCreator.ALL_CLASSES = {
             # "xr": ParentHtmlItem,  # XrItem,
@@ -55,6 +58,7 @@ class HtmlItemCreator:
             "ref": ParentHtmlItem,  # don't know if it appears as parent, but it's better to make sure!
             " colloc": ParentHtmlItem,
             " hi": ParentHtmlItem,  # don't know if it appears as parent, but it's better to make sure!
+            " subc": ParentHtmlItem,
         }
 
     @staticmethod
@@ -71,6 +75,10 @@ class HtmlItemCreator:
 
     @staticmethod
     def create_a_href_item(elem):
+        return HtmlItem(elem)
+
+    @staticmethod
+    def create_a_href_item2(elem):
         # assert len(elem.keys()) == 2
         # key = elem.keys()[0]
 
@@ -124,6 +132,8 @@ class ParentHtmlItem(HtmlItem):
         text = self.text
         text += self.read_children()
         text += self.tail
+
+        text = re.sub(r' +', ' ', text)
 
         return text
 
@@ -281,6 +291,10 @@ class DefParser:
     def get_gram_value(gram_group: etree._Element):
         text_items = gram_group.xpath('./*[@class=" gramGrp"]/*[@class=" pos"]/text()')
         text = "".join(text_items)
+        # NOTE: can be --- 'value': 'the internet domain name\n                    for'
+        # so we must remove spaces and '\n' chars
+        text = re.sub(r' +', ' ', text)
+        text = text.replace('\n', '')
         return text
 
     @staticmethod
@@ -301,7 +315,11 @@ class DefParser:
     @staticmethod
     def get_sense_def(sense_item: etree._Element):
         items = sense_item.xpath('./*[@class=" def"]')
-        assert len(items) == 1
+        assert len(items) <= 1
+
+        if len(items) == 0:
+            # we have a subgroup, most likely!
+            return None
 
         def_item = items[0]
 
@@ -309,9 +327,30 @@ class DefParser:
         return text
 
     @staticmethod
+    def get_sense_def_label(sense_item: etree._Element):
+        items = sense_item.xpath('./*[@class=" xr"]')
+        assert len(items) <= 1
+
+        if len(items) == 0:
+            # we have a subgroup, most likely!
+            return ""
+
+        def_item = items[0]
+        """if "type" in def_item.keys() and def_item.get("type") == "register":
+            return None"""
+
+        # might be HtmlItem simple, but we can't promise!
+        text = ParentHtmlItem(def_item).read()
+        # text = "(i) " + text
+        return text
+
+    @staticmethod
     def get_sense_example(sense_item: etree._Element):
         items = sense_item.xpath('./*[@class=" cit" and @type="example"]')
-        assert len(items) == 1
+        assert len(items) <= 1
+
+        if len(items) == 0:
+            return ""
 
         cit_item = items[0]
 
@@ -321,23 +360,68 @@ class DefParser:
     @staticmethod
     def get_sense_usage(sense_item: etree._Element):
         items = sense_item.xpath('./*[@class=" gramGrp"]')
-        assert len(items) == 1
+        assert len(items) <= 1
+
+        if len(items) == 0:
+            return ""
 
         usage_item = items[0]
 
         text = ParentHtmlItem(usage_item).read()
         # found with a trailing space (' '), we must strip it:
         text = text.strip()
+        assert(text[0] == "(")
+        assert(text[-1] == ")")
+
+        text = text[1: -1]
         return text
 
     @staticmethod
     def get_sense_categ(sense_item: etree._Element):
-        items = sense_item.xpath('./*[@class=" lbl"]')
-        assert len(items) == 1
+        items = sense_item.xpath('./*[@class=" lbl" and @type]')
 
-        usage_item = items[0]
+        if len(items) == 0:
+            return ""
 
-        text = ParentHtmlItem(usage_item).read()
-        # found surrounded with spaces (' informal '), we must strip it:
-        text = text.strip()
+        text_list = [ParentHtmlItem(usage_item).read() for usage_item in items]
+        # we may have ' informal ' or the like.
+        text = "".join(text_list).strip()
+
         return text
+
+    def get_all_translations(self):
+        items = self.root.xpath('//*[@class="translation_list clear"]/'
+                                '*[@class="translation"]/'
+                                '*[@class="hom lang_EN-GB"]')
+        assert len(items) <= 1
+        if len(items) == 0:
+            return None
+
+        sequence = items[0]
+
+        word = sequence.xpath('./*[@class="inline"]/'
+                              '*[@class="orth"]')
+        assert len(word) == 1
+
+        word_text = ParentHtmlItem(word[0]).read()
+
+        neutral = sequence.xpath('./*[@class="neutral"]')
+        assert len(neutral) == 3
+        value_text = neutral[1].tail
+        value_text = value_text.lower()
+
+        item = neutral[2]
+
+        def_text = ""
+        assert isinstance(item, etree._Element)
+        while not ("class" in item.keys() and item.get("class") == "example"):
+            def_text += ParentHtmlItem(item).read()
+            item = item.getnext()
+
+        def_text = def_text.strip()
+
+        ex_text = sequence.xpath('./*[@class="example"]/text()')[0]
+
+        return [(word_text, value_text, def_text, ex_text)]
+
+

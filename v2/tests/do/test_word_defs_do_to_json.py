@@ -1,24 +1,27 @@
 import unittest
 from unittest.mock import patch
-from src.html_parser.def_groups import *
-from src.html_parser.def_parser import DefParser
+from src.def_groups import *
+from src.def_parser import DefParser
 from lxml import etree
 
 
 class HtmlToJsonTest(unittest.TestCase):
+    word_name = ""
+    html_content = ""
 
-    def setUp(self):
-        f = open("do_defs.html")
-        self.word_name = "do"
+    @classmethod
+    def setUpClass(cls):
+        with open("do_defs.html") as f:
+            cls.word_name = "do"
+            cls.html_content = f.read()
 
-        self.html_content = f.read()
         # self.maxDiff = None
 
-    def test_create_html_to_json_obj(self):
+    def test_createHtmlToJson_obj(self):
         obj = HtmlToJson(self.word_name, self.html_content)
         self.assertIsNotNone(obj)
 
-    def test_translate_empty_main_to_json_returns_empty_word(self):
+    def test_translateEmptyMain_toJson_returnsEmptyWord(self):
         obj = HtmlToJson(self.word_name, self.html_content)
 
         with patch.object(MainDefGroup, 'build_children') as mock:
@@ -27,28 +30,41 @@ class HtmlToJsonTest(unittest.TestCase):
             MainDefGroup.build_children.assert_called_once_with()
             self.assertEqual(json_obj, {})
 
-    def test_word_freq_group_value_is_extremely_common(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
-
-        group = WordFrequencyGroup(dict_parser)
-        group.build()
-        result = group.translate()
-        self.assertEqual(result, "Extremely Common")
-
     # word / def_groups
-    def test_def_groups_returns_empty_groups(self):
+    def test_defGroups_returns_emptyGroups(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
 
-        with patch.object(DefGroups, 'build') as mock:
+        with patch.object(DefGroups, 'build'):
             group = DefGroups(dict_parser)
             group.build()
             result = group.translate()
             self.assertEqual([], result)
 
     # word / def_groups / def_group [0]
-    def test_first_def_group_returns_no_items(self):
+    def test_defGroup_returnsEmpty(self):
+        root = etree.HTML(self.html_content)
+        dict_parser = DefParser(root, self.word_name)
+        etree_group = dict_parser.get_all_def_groups()[0]
+
+        with patch.object(DefGroup, 'build'):
+            group = DefGroup(dict_parser, etree_group)
+            group.build()
+            result = group.translate()
+            self.assertEqual({'gram_groups': [], 'word': 'do'}, result)
+
+    def test_wordFreq_is_extremelyCommon(self):
+        root = etree.HTML(self.html_content)
+        dict_parser = DefParser(root, self.word_name)
+        etree_group = dict_parser.get_all_def_groups()[0]
+
+        group = WordFrequencyGroup(dict_parser, etree_group)
+        group.build()
+        result = group.translate()
+        self.assertEqual(result, "Extremely Common")
+
+    # word / def_groups / def_group [0]
+    def test_defGroup0_returns_noItems(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         etree_group = dict_parser.get_all_def_groups()[0]
@@ -61,7 +77,7 @@ class HtmlToJsonTest(unittest.TestCase):
             self.assertEqual({"word": "do", "gram_groups": []}, result)
 
     # word / def_groups
-    def test_def_groups_returns_5_def_groups(self):
+    def test_defGroups_returns_5_defGroups(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
 
@@ -70,143 +86,125 @@ class HtmlToJsonTest(unittest.TestCase):
             group.build()
             result = group.translate()
             self.assertEqual([
+                {"word": "do", "gram_groups": []}, {"word": "do or do a", "gram_groups": []},
                 {"word": "do", "gram_groups": []}, {"word": "do", "gram_groups": []},
-                {"word": "do", "gram_groups": []}, {"word": "Do or do", "gram_groups": []},
-                {"word": "DO or D.O.", "gram_groups": []}],
+                {"word": "DO", "gram_groups": []}, {"word": "do.", "gram_groups": []}],
                 result)
 
     # word / def_groups / def_group [0] / gram_groups
-    def test_first_def_group_returns_4_gram_groups(self):
+    def test_defGroup0_returns_2_gramGroups(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
 
         with patch.object(GramGroup, 'build'):
-            with patch.object(RelatedGroup, 'build'):
-                group = DefGroup(dict_parser, def_group)
-                group.build()
-                result = group.translate()
-                self.assertEqual({"word": "do", "gram_groups": [{}, {}, {}, {}]},
-                                 result)
+            group = DefGroup(dict_parser, def_group)
+            group.build()
+            result = group.translate()
+
+            self.assertEqual({"frequency": "Extremely Common", "word": "do", "gram_groups": [{}, {}]},
+                             result)
 
     # word / def_groups / def_group [0] / gram_group[0]
-    def test_first_gram_group_returns_3_children(self):
+    def test_gramGroup0_returns_3_children(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
 
-        with patch.object(SenseListGroup, 'build'):
+        with patch.object(UsageGroups, "build"):
             group = GramGroup(dict_parser, gram_group)
             group.build()
             result = group.translate()
+
             self.assertEqual({
-                "word_forms": ["did", "done", "doing"],
-                "value": "transitive verb",
-                "defs": []}, result)
+                "forms": {"items": ["does", "doing", "did", "done"], "info": ""},
+                "value": "verb",
+                "defs": {}
+            }, result)
 
-    def test_empty_defs_returns_empty(self):
+    def test_def_noSpecifiedUsage(self):
+        root = etree.HTML(self.html_content)
+        dict_parser = DefParser(root, self.word_name)
+        def_group = dict_parser.get_all_def_groups()[0]
+        gram_group = dict_parser.get_all_grammar_groups(def_group)[1]
+        sense = dict_parser.get_all_sense_items(gram_group)[0]
+
+        word = WordDefinition(dict_parser, sense)
+        word.build()
+        result = word.translate()
+
+        self.assertEqual({"category": "slang", "def": "an act or instance of cheating or swindling", "know": False}, result)
+
+    def test_def_withSpecifiedUsage(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
+        sense = dict_parser.get_all_sense_items(gram_group)[1]
 
-        with patch.object(SenseListGroup, 'build'):
-            group = SenseListGroup(dict_parser, gram_group)
-            group.build()
-            result = group.translate()
-            self.assertEqual([], result)
+        word = WordDefinition(dict_parser, sense)
+        word.build()
+        result = word.get_usage()
 
-    def test_defs_group_3_returns_3_empty_items(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
-        def_group = dict_parser.get_all_def_groups()[0]
-        gram_group = dict_parser.get_all_grammar_groups(def_group)[3]
+        self.assertEqual("often intr; foll by for", result)
 
-        with patch.object(WordDefinition, 'build'):
-            group = SenseListGroup(dict_parser, gram_group)
-            group.build()
-            result = group.translate()
-            self.assertEqual([{"def": ""}, {"def": ""}, {"def": ""}], result)
-
-    def test_def_returns_def_json(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
-        def_group = dict_parser.get_all_def_groups()[0]
-        gram_group = dict_parser.get_all_grammar_groups(def_group)[3]
-        sslist = dict_parser.get_senselist(gram_group)
-        sslitem = dict_parser.get_all_senselist_items(sslist)[2]
-
-        group = WordDefinition(dict_parser, sslitem)
-        group.build()
-        result = group.translate()
-        self.assertEqual({"category": "slang", "def": "excrement; feces", "example": "dog do"}, result)
-
-    def test_def_subgroup_returns_full_defs(self):
+    def test_usageGroups(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
         gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
-        sslist = dict_parser.get_senselist(gram_group)
-        sslitem = dict_parser.get_all_senselist_items(sslist)[0]
+        senses = dict_parser.get_all_sense_items(gram_group)
 
-        group = WordDefinition(dict_parser, sslitem)
+        usages = UsageGroups(dict_parser, senses)
+        usages.build()
+        usg_names = usages.names()
+
+        self.assertEqual({
+            "often intr; foll by for",
+            "transitive",
+            "intransitive",
+            "takes an infinitive without to",
+            ""
+        }, usg_names)
+
+    def test_firstUsageGroups(self):
+        root = etree.HTML(self.html_content)
+        dict_parser = DefParser(root, self.word_name)
+        def_group = dict_parser.get_all_def_groups()[0]
+        gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
+        senses = dict_parser.get_all_sense_items(gram_group)
+
+        usages = UsageGroups(dict_parser, senses)
+        usages.build()
+        result = usages.translate()
+
+        self.assertEqual([{
+            "def": "to serve the needs of; be suitable for (a person, situation, etc); suffice",
+            "example": "there isn't much food, but it'll do for the two of us",
+            "know": False,
+        }],
+            result["often intr; foll by for"])
+
+    def test_defSubgroup(self):
+        root = etree.HTML(self.html_content)
+        dict_parser = DefParser(root, self.word_name)
+        def_group = dict_parser.get_all_def_groups()[0]
+        gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
+        sense = dict_parser.get_all_sense_items(gram_group)[27]
+
+        group = WordDefinition(dict_parser, sense)
         group.build()
         result = group.translate()
-        self.assertEqual({"def_subgroup": [
-            {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
-            {"def": "to carry out; fulfill", "example": "do what I tell you"}
+
+        self.assertEqual({
+            "category": "slang",
+            "def_subgroup": [
+                {"def": "to arrest", "know": False},
+                {"def": "to convict of a crime", "know": False}
         ]}, result)
 
-    def test_first_defs_returns_full_content(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
-        def_group = dict_parser.get_all_def_groups()[0]
-        gram_group = dict_parser.get_all_grammar_groups(def_group)[0]
-
-        self.maxDiff = None
-
-        group = SenseListGroup(dict_parser, gram_group)
-        group.build()
-        result = group.translate()
-        self.assertEqual([
-            {"def_subgroup": [
-                {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
-                {"def": "to carry out; fulfill", "example": "do what I tell you"}
-            ]},
-            {"def": "to bring to completion; finish", "example": "dinner has been done for an hour"},
-            {"def": "to bring about; cause; produce", "example": "it does no harm; who did this to you?"},
-            {"def": "to exert (efforts, etc.)", "example": "do your best"},
-            {"def": "to have or take (a meal)", "example": "let\'s do lunch"},
-            {"def": "to deal with as is required; attend to", "example": "do the ironing, do one\'s nails or hair"},
-            {"def": "to have as one\'s work or occupation; work at or on", "example": "what does he do for a living?"},
-            {"def": "to work out; solve", "example": "do a problem"},
-            {"def": "to produce or appear in (a play, etc.)", "example": "we did Hamlet"},
-            {"def_subgroup": [
-                {"def": "to play the role of", "example": "I did Polonius"},
-                {"category": "informal", "def": "to imitate, or behave characteristically as", "example": "to do a Houdini"},
-            ]},
-            {"def": "to write or publish (a book), compose (a musical score), etc."},
-            {"def_subgroup": [
-                {"def": "to cover (distance)", "example": "to do a mile in four minutes"},
-                {"def": "to move along at a speed of", "example": "to do 60 miles an hour"},
-            ]},
-            {"def": "to visit as a sightseer; tour", "example": "they did England in two months"},
-            {"def": "to translate", "example": "to do Horace into English"},
-            {"def": "to give; render", "example": "to do honor to the dead"},
-            {"def": "to suit; be convenient to", "example": "this will do me very well"},
-            {"category": "informal", "def_subgroup": [
-                {"def": "to prepare; cook", "example": "that restaurant does ribs really well"},
-                {"def": "to eat", "example": "let\'s do Mexican tonight"},
-            ]},
-            {"category": "informal", "def": "to cheat; swindle", "example": "you\'ve been done"},
-            {"category": "informal", "def": "to serve (a jail term)"},
-            {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
-            {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
-            {"category": "slang", "def": "to kill"},
-        ], result)
-
-    def test_first_gram_group_returns_full_content(self):
+    def test_gramGroup0_fullContent(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
@@ -216,49 +214,111 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
 
-        self.assertEqual(
-            {
-                "word_forms": ["did", "done", "doing"],
-                "value": "transitive verb",
-                "defs": [
-                    {"def_subgroup": [
-                        {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
-                        {"def": "to carry out; fulfill", "example": "do what I tell you"}
-                    ]},
-                    {"def": "to bring to completion; finish", "example": "dinner has been done for an hour"},
-                    {"def": "to bring about; cause; produce", "example": "it does no harm; who did this to you?"},
-                    {"def": "to exert (efforts, etc.)", "example": "do your best"},
-                    {"def": "to have or take (a meal)", "example": "let\'s do lunch"},
-                    {"def": "to deal with as is required; attend to", "example": "do the ironing, do one\'s nails or hair"},
-                    {"def": "to have as one\'s work or occupation; work at or on", "example": "what does he do for a living?"},
-                    {"def": "to work out; solve", "example": "do a problem"},
-                    {"def": "to produce or appear in (a play, etc.)", "example": "we did Hamlet"},
-                    {"def_subgroup": [
-                        {"def": "to play the role of", "example": "I did Polonius"},
-                        {"category": "informal", "def": "to imitate, or behave characteristically as", "example": "to do a Houdini"},
-                    ]},
-                    {"def": "to write or publish (a book), compose (a musical score), etc."},
-                    {"def_subgroup": [
-                        {"def": "to cover (distance)", "example": "to do a mile in four minutes"},
-                        {"def": "to move along at a speed of", "example": "to do 60 miles an hour"},
-                    ]},
-                    {"def": "to visit as a sightseer; tour", "example": "they did England in two months"},
-                    {"def": "to translate", "example": "to do Horace into English"},
-                    {"def": "to give; render", "example": "to do honor to the dead"},
-                    {"def": "to suit; be convenient to", "example": "this will do me very well"},
-                    {"category": "informal", "def_subgroup": [
-                        {"def": "to prepare; cook", "example": "that restaurant does ribs really well"},
-                        {"def": "to eat", "example": "let\'s do Mexican tonight"},
-                    ]},
-                    {"category": "informal", "def": "to cheat; swindle", "example": "you\'ve been done"},
-                    {"category": "informal", "def": "to serve (a jail term)"},
-                    {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
-                    {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
-                    {"category": "slang", "def": "to kill"},
+        self.assertEqual({
+            "forms": {"items": ["does", "doing", "did", "done"], "info": ""},
+            "value": "verb",
+            "defs": {
+                "": [
+                    {
+                        "def": "to perform or complete (a deed or action)",
+                        "example": "to do a portrait; the work is done",
+                        "know": False
+                    },
+                    {
+                        "def": "used as an auxiliary to replace an earlier verb or verb phrase to avoid repetition",
+                        "example": "he likes you as much as I do",
+                        "know": False
+                    },
+                    {"def": "(i) See do", "know": False},
+                    {"def": "(i) See do or die", "know": False},
+                    {"def": "(i) See how do you do?", "know": False},
+                    {"def": "(i) See make do", "know": False},
+                ],
+                "often intr; foll by for": [
+                    {
+                        "def": "to serve the needs of; be suitable for (a person, situation, etc); suffice",
+                        "example": "there isn't much food, but it'll do for the two of us",
+                        "know": False
+                    },
+                ],
+                "transitive": [
+                    {"def": "to arrange or fix", "example": "you should do the garden now", "know": False},
+                    {"def": "to prepare or provide; serve", "example": "this restaurant doesn't do lunch on Sundays",
+                     "know": False},
+                    {"def": "to make tidy, elegant, ready, etc, as by arranging or adorning",
+                     "example": "to do one's hair", "know": False},
+                    {"def": "to improve (esp in the phrase do something to or for)", "know": False},
+                    {"def": "to find an answer to (a problem or puzzle)", "know": False},
+                    {"def": "to translate or adapt the form or language of", "example": "the book was done into a play",
+                     "know": False},
+                    {"def": "to cause or produce", "example": "complaints do nothing to help", "know": False},
+                    {"def": "to give or render", "example": "your portrait doesn't do you justice; do me a favour",
+                     "know": False},
+                    {"def": "to work at, esp as a course of study or a profession", "example": "he is doing chemistry; "
+                     "what do you do for a living?", "know": False},
+                    {"def": "to perform (a play, etc); act", "example": "they are doing 'Hamlet' next week",
+                     "know": False},
+                    {"def": "to travel at a specified speed, esp as a maximum", "example": "this car will do 120 mph",
+                     "know": False},
+                    {"def": "to travel or traverse (a distance)", "example": "we did 15 miles on our walk",
+                     "know": False},
+                    {
+                        "category": "informal",
+                        "def": "to visit or explore as a sightseer or tourist",
+                        "example": "to do Westminster Abbey",
+                        "know": False
+                    },
+                    {"def": "to wear out; exhaust", "know": False},
+                    {
+                        "category": "slang",
+                        "def": "to serve (a period of time) as a prison sentence",
+                        "example": "he's doing three years for burglary; he's doing time",
+                        "know": False
+                    },
+                    {"category": "informal", "def": "to cheat or swindle", "know": False},
+                    {"category": "slang", "def": "to rob", "example": "they did three shops last night", "know": False},
+                    {
+                        "category": "slang",
+                        "def_subgroup": [
+                            {"def": "to arrest", "know": False},
+                            {"def": "to convict of a crime", "know": False}
+                        ]
+                    },
+                    {"category": "Australian informal", "def": "to lose or spend (money) completely", "know": False},
+                    {"category": "slang, mainly British", "def": "to treat violently; assault", "know": False},
+                    {"category": "slang", "def": "to take or use (a drug)", "know": False},
+                    {"category": "taboo, slang", "def": "(of a male) to have sexual intercourse with", "know": False},
+                    {"def": "to arrange (a meal)", "example": "let's do lunch", "know": False},
+                ],
+                "intransitive": [
+                    {"def": "to conduct oneself", "example": "do as you please", "know": False},
+                    {"def": "to fare or manage", "example": "how are you doing these days?", "know": False},
+                    {"def": "to happen (esp in the phrase nothing doing)", "know": False},
+                ],
+                "takes an infinitive without to": [
+                    {
+                        "def": "used as an auxiliary before the subject of an interrogative sentence as a way of "
+                               "forming a question",
+                        "example": "do you agree?; when did John go out?", "know": False
+                    },
+                    {
+                        "def": "used as an auxiliary to intensify positive statements and commands",
+                        "example": "I do like your new house; do hurry!", "know": False
+                    },
+                    {
+                        "def": "used as an auxiliary before a negative adverb to form negative statements or commands",
+                        "example": "he does not like cheese; do not leave me here alone!", "know": False
+                    },
+                    {
+                        "def": "used as an auxiliary in inverted constructions",
+                        "example": "little did he realize that; only rarely does he come in before ten o'clock",
+                        "know": False
+                    },
                 ]
-            }, result)
+            }
+        }, result)
 
-    def test_second_gram_group_returns_full_content(self):
+    def test_gramGroup1_fullContent(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
@@ -268,65 +328,23 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
 
-        self.assertEqual(
-            {
-                "value": "intransitive verb",
-                "defs": [
-                    {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
-                    {"def": "to be active; work", "example": "do; don\'t merely talk"},
-                    {"def": "to finish (used in the perfect tense [have done with dreaming ])"},
-                    {"def": "to get along; fare", "example": "mother and child are doing well"},
-                    {"def": "to be adequate or suitable; serve the purpose", "example": "the black dress will do"},
-                    {"def": "to take place; go on", "example": "anything doing tonight?"},
-                    {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
-                     "example": "I haven\'t seen the film, but she may have done"},
+        self.assertEqual({
+            "forms": {"items": ["dos", "do's"], "info": "plural"},
+            "value": "noun",
+            "defs": {
+                "": [
+                    {"category": "slang", "def": "an act or instance of cheating or swindling", "know": False},
+                    {
+                        "category": "informal, mainly British and New Zealand",
+                        "def": "a formal or festive gathering; party",
+                        "know": False
+                    },
+                    {"def": "(i) See do's and don'ts", "know": False},
                 ]
-            }, result)
+            }
+        }, result)
 
-    def test_third_gram_group_returns_full_content(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
-        def_group = dict_parser.get_all_def_groups()[0]
-        gram_group = dict_parser.get_all_grammar_groups(def_group)[2]
-
-        group = GramGroup(dict_parser, gram_group)
-        group.build()
-        result = group.translate()
-
-        self.assertEqual(
-            {
-                "value": "auxiliary verb",
-                "defs": [
-                    {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
-                    {"def": "used to ask a question", "example": "did you write?"},
-                    {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
-                    {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
-                    {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                ]
-            }, result)
-
-    def test_fourth_gram_group_returns_full_content(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
-        def_group = dict_parser.get_all_def_groups()[0]
-        gram_group = dict_parser.get_all_grammar_groups(def_group)[3]
-
-        group = GramGroup(dict_parser, gram_group)
-        group.build()
-        result = group.translate()
-
-        self.assertEqual(
-            {
-                "word_forms": ["do's", "dos"],
-                "value": "noun",
-                "defs": [
-                    {"category": "mainly British, informal", "def": "a hoax; swindle"},
-                    {"category": "mainly British, informal", "def": "a party or social event"},
-                    {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                ]
-            }, result)
-
-    def test_first_def_group_returns_full_content(self):
+    def test_defGroup0_fullContent(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[0]
@@ -334,86 +352,140 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
+
         self.assertEqual(
             {"word": "do",
-             "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
-                         "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
+             "frequency": "Extremely Common",
              "gram_groups": [
                  {
-                    "word_forms": ["did", "done", "doing"],
-                    "value": "transitive verb",
-                    "defs": [
-                        {"def_subgroup": [
-                            {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
-                            {"def": "to carry out; fulfill", "example": "do what I tell you"}
-                        ]},
-                        {"def": "to bring to completion; finish", "example": "dinner has been done for an hour"},
-                        {"def": "to bring about; cause; produce", "example": "it does no harm; who did this to you?"},
-                        {"def": "to exert (efforts, etc.)", "example": "do your best"},
-                        {"def": "to have or take (a meal)", "example": "let\'s do lunch"},
-                        {"def": "to deal with as is required; attend to", "example": "do the ironing, do one\'s nails or hair"},
-                        {"def": "to have as one\'s work or occupation; work at or on", "example": "what does he do for a living?"},
-                        {"def": "to work out; solve", "example": "do a problem"},
-                        {"def": "to produce or appear in (a play, etc.)", "example": "we did Hamlet"},
-                        {"def_subgroup": [
-                            {"def": "to play the role of", "example": "I did Polonius"},
-                            {"category": "informal", "def": "to imitate, or behave characteristically as", "example": "to do a Houdini"},
-                        ]},
-                        {"def": "to write or publish (a book), compose (a musical score), etc."},
-                        {"def_subgroup": [
-                            {"def": "to cover (distance)", "example": "to do a mile in four minutes"},
-                            {"def": "to move along at a speed of", "example": "to do 60 miles an hour"},
-                        ]},
-                        {"def": "to visit as a sightseer; tour", "example": "they did England in two months"},
-                        {"def": "to translate", "example": "to do Horace into English"},
-                        {"def": "to give; render", "example": "to do honor to the dead"},
-                        {"def": "to suit; be convenient to", "example": "this will do me very well"},
-                        {"category": "informal", "def_subgroup": [
-                            {"def": "to prepare; cook", "example": "that restaurant does ribs really well"},
-                            {"def": "to eat", "example": "let\'s do Mexican tonight"},
-                        ]},
-                        {"category": "informal", "def": "to cheat; swindle", "example": "you\'ve been done"},
-                        {"category": "informal", "def": "to serve (a jail term)"},
-                        {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
-                        {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
-                        {"category": "slang", "def": "to kill"},
-                    ]
-                },
-                {
-                    "value": "intransitive verb",
-                    "defs": [
-                        {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
-                        {"def": "to be active; work", "example": "do; don\'t merely talk"},
-                        {"def": "to finish (used in the perfect tense [have done with dreaming ])"},
-                        {"def": "to get along; fare", "example": "mother and child are doing well"},
-                        {"def": "to be adequate or suitable; serve the purpose", "example": "the black dress will do"},
-                        {"def": "to take place; go on", "example": "anything doing tonight?"},
-                        {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
-                         "example": "I haven\'t seen the film, but she may have done"},
-                    ]
-                },
-                {
-                    "value": "auxiliary verb",
-                    "defs": [
-                        {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
-                        {"def": "used to ask a question", "example": "did you write?"},
-                        {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
-                        {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
-                        {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                    ]
-                },
-                {
-                    "word_forms": ["do's", "dos"],
-                    "value": "noun",
-                    "defs": [
-                        {"category": "mainly British, informal", "def": "a hoax; swindle"},
-                        {"category": "mainly British, informal", "def": "a party or social event"},
-                        {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                    ]
-                }
-            ]}, result)
+                     "forms": {"items": ["does", "doing", "did", "done"], "info": ""},
+                     "value": "verb",
+                     "defs": {
+                         "": [
+                             {
+                                 "def": "to perform or complete (a deed or action)",
+                                 "example": "to do a portrait; the work is done",
+                                 "know": False
+                             },
+                             {
+                                 "def": "used as an auxiliary to replace an earlier verb or verb phrase to avoid repetition",
+                                 "example": "he likes you as much as I do",
+                                 "know": False
+                             },
+                             {"def": "(i) See do", "know": False},
+                             {"def": "(i) See do or die", "know": False},
+                             {"def": "(i) See how do you do?", "know": False},
+                             {"def": "(i) See make do", "know": False},
+                         ],
+                         "often intr; foll by for": [
+                             {
+                                 "def": "to serve the needs of; be suitable for (a person, situation, etc); suffice",
+                                 "example": "there isn't much food, but it'll do for the two of us",
+                                 "know": False
+                             },
+                         ],
+                         "transitive": [
+                             {"def": "to arrange or fix", "example": "you should do the garden now", "know": False},
+                             {"def": "to prepare or provide; serve",
+                              "example": "this restaurant doesn't do lunch on Sundays",
+                              "know": False},
+                             {"def": "to make tidy, elegant, ready, etc, as by arranging or adorning",
+                              "example": "to do one's hair", "know": False},
+                             {"def": "to improve (esp in the phrase do something to or for)", "know": False},
+                             {"def": "to find an answer to (a problem or puzzle)", "know": False},
+                             {"def": "to translate or adapt the form or language of",
+                              "example": "the book was done into a play",
+                              "know": False},
+                             {"def": "to cause or produce", "example": "complaints do nothing to help", "know": False},
+                             {"def": "to give or render",
+                              "example": "your portrait doesn't do you justice; do me a favour",
+                              "know": False},
+                             {"def": "to work at, esp as a course of study or a profession",
+                              "example": "he is doing chemistry; "
+                                         "what do you do for a living?", "know": False},
+                             {"def": "to perform (a play, etc); act", "example": "they are doing 'Hamlet' next week",
+                              "know": False},
+                             {"def": "to travel at a specified speed, esp as a maximum",
+                              "example": "this car will do 120 mph",
+                              "know": False},
+                             {"def": "to travel or traverse (a distance)", "example": "we did 15 miles on our walk",
+                              "know": False},
+                             {
+                                 "category": "informal",
+                                 "def": "to visit or explore as a sightseer or tourist",
+                                 "example": "to do Westminster Abbey",
+                                 "know": False
+                             },
+                             {"def": "to wear out; exhaust", "know": False},
+                             {
+                                 "category": "slang",
+                                 "def": "to serve (a period of time) as a prison sentence",
+                                 "example": "he's doing three years for burglary; he's doing time",
+                                 "know": False
+                             },
+                             {"category": "informal", "def": "to cheat or swindle", "know": False},
+                             {"category": "slang", "def": "to rob", "example": "they did three shops last night",
+                              "know": False},
+                             {
+                                 "category": "slang",
+                                 "def_subgroup": [
+                                     {"def": "to arrest", "know": False},
+                                     {"def": "to convict of a crime", "know": False}
+                                 ]
+                             },
+                             {"category": "Australian informal", "def": "to lose or spend (money) completely",
+                              "know": False},
+                             {"category": "slang, mainly British", "def": "to treat violently; assault", "know": False},
+                             {"category": "slang", "def": "to take or use (a drug)", "know": False},
+                             {"category": "taboo, slang", "def": "(of a male) to have sexual intercourse with",
+                              "know": False},
+                             {"def": "to arrange (a meal)", "example": "let's do lunch", "know": False},
+                         ],
+                         "intransitive": [
+                             {"def": "to conduct oneself", "example": "do as you please", "know": False},
+                             {"def": "to fare or manage", "example": "how are you doing these days?", "know": False},
+                             {"def": "to happen (esp in the phrase nothing doing)", "know": False},
+                         ],
+                         "takes an infinitive without to": [
+                             {
+                                 "def": "used as an auxiliary before the subject of an interrogative sentence as a way of "
+                                        "forming a question",
+                                 "example": "do you agree?; when did John go out?", "know": False
+                             },
+                             {
+                                 "def": "used as an auxiliary to intensify positive statements and commands",
+                                 "example": "I do like your new house; do hurry!", "know": False
+                             },
+                             {
+                                 "def": "used as an auxiliary before a negative adverb to form negative statements or commands",
+                                 "example": "he does not like cheese; do not leave me here alone!", "know": False
+                             },
+                             {
+                                 "def": "used as an auxiliary in inverted constructions",
+                                 "example": "little did he realize that; only rarely does he come in before ten o'clock",
+                                 "know": False
+                             },
+                         ]
+                     }
+                 },
+                 {
+                     "forms": {"items": ["dos", "do's"], "info": "plural"},
+                     "value": "noun",
+                     "defs": {
+                         "": [
+                             {"category": "slang", "def": "an act or instance of cheating or swindling", "know": False},
+                             {
+                                 "category": "informal, mainly British and New Zealand",
+                                 "def": "a formal or festive gathering; party",
+                                 "know": False
+                             },
+                             {"def": "(i) See do's and don'ts", "know": False},
+                         ]
+                     }
+                 }
+             ]}, result)
 
-    def test_second_def_group_returns_full_content(self):
+    def test_defGroup1_fullContent(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[1]
@@ -421,21 +493,27 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        # print(result)
 
         self.assertEqual(
-            {"word": "do", "gram_groups": [
-                {
-                    "value": "noun",
-                    "defs": [
-                        {"category": "music",
-                         "def": "a syllable representing the first or last tone of the diatonic scale "
-                                "see also solfeggio[1]"}
-                    ]
-                },
-            ]}, result)
+            {"word": "do or do a",
+             "frequency": "",
+             "gram_groups": [
+                 {
+                     "forms": {"items": [], "info": ""},
+                     "defs": {
+                         "": [
+                             {
+                                 "category": "informal",
+                                 "def": "to act like; imitate",
+                                 "example": "he's a good mimic – he can do all his friends well",
+                                 "know": False
+                             },
+                         ],
+                     }
+                 },
+             ]}, result)
 
-    def test_third_def_group_returns_full_content(self):
+    def test_defGroup2_fullContent(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[2]
@@ -443,17 +521,26 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        self.assertEqual(
-            {"word": "do", "gram_groups": [
-                {
-                    "value": "noun",
-                    "defs": [
-                        {"category": "slang", "def": "hairdo[1]"}
-                    ]
-                },
-            ]}, result)
 
-    def test_fourth_def_group_returns_full_content(self):
+        self.assertEqual(
+            {"word": "do",
+             "frequency": "",
+             "gram_groups": [
+                 {
+                     "forms": {"items": ["dos"], "info": "plural"},
+                     "value": "noun",
+                     "defs": {
+                         "": [
+                             {
+                                 "def": "(i) a variant spelling of doh1",
+                                 "know": False
+                             },
+                         ],
+                     }
+                 },
+             ]}, result)
+
+    def test_defGroup3_fullContent(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[3]
@@ -461,16 +548,26 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        self.assertEqual(
-            {"word": "Do or do", "gram_groups": [
-                {
-                    "defs": [
-                        {"def": "ditto"}
-                    ]
-                },
-            ]}, result)
 
-    def test_fifth_def_group_returns_full_content(self):
+        self.assertEqual(
+            {"word": "do",
+             "frequency": "",
+             "gram_groups": [
+                 {
+                     "forms": {"items": [], "info": ""},
+                     "value": "the internet domain name for",
+                     "defs": {
+                         "": [
+                             {
+                                 "def": "Dominican Republic",
+                                 "know": False
+                             },
+                         ],
+                     }
+                 },
+             ]}, result)
+
+    def test_defGroup4_fullContent(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
         def_group = dict_parser.get_all_def_groups()[4]
@@ -478,292 +575,68 @@ class HtmlToJsonTest(unittest.TestCase):
         group = DefGroup(dict_parser, def_group)
         group.build()
         result = group.translate()
-        self.assertEqual(
-            {"word": "DO or D.O.", "gram_groups": [
-                {
-                    "defs": [
-                        {"def": "Doctor of Osteopathy"}
-                    ]
-                }
-            ]}, result)
 
-    def test_translate_def_groups(self):
+        self.assertEqual(
+            {"word": "DO",
+             "frequency": "",
+             "gram_groups": [
+                 {
+                     "forms": {"items": [], "info": ""},
+                     "value": "abbreviation for",
+                     "defs": {
+                         "": [
+                             {"def": "Doctor of Optometry", "know": False},
+                             {"def": "Doctor of Osteopathy", "know": False},
+                         ],
+                     }
+                 },
+             ]}, result)
+
+    def test_defGroup5_fullContent(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
+        def_group = dict_parser.get_all_def_groups()[5]
 
-        groups = DefGroups(dict_parser)
-        groups.build()
-        result = groups.translate()
+        group = DefGroup(dict_parser, def_group)
+        group.build()
+        result = group.translate()
+
         self.assertEqual(
-            [
-                {"word": "do",
-                 "related": ["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
-                             "do up", "do up right", "do oneself well", "do with", "do without", "have to do with"],
-                 "gram_groups": [
-                    {
-                        "word_forms": ["did", "done", "doing"],
-                        "value": "transitive verb",
-                        "defs": [
-                            {"def_subgroup": [
-                                {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
-                                {"def": "to carry out; fulfill", "example": "do what I tell you"}
-                            ]},
-                            {"def": "to bring to completion; finish", "example": "dinner has been done for an hour"},
-                            {"def": "to bring about; cause; produce", "example": "it does no harm; who did this to you?"},
-                            {"def": "to exert (efforts, etc.)", "example": "do your best"},
-                            {"def": "to have or take (a meal)", "example": "let\'s do lunch"},
-                            {"def": "to deal with as is required; attend to", "example": "do the ironing, do one\'s nails or hair"},
-                            {"def": "to have as one\'s work or occupation; work at or on", "example": "what does he do for a living?"},
-                            {"def": "to work out; solve", "example": "do a problem"},
-                            {"def": "to produce or appear in (a play, etc.)", "example": "we did Hamlet"},
-                            {"def_subgroup": [
-                                {"def": "to play the role of", "example": "I did Polonius"},
-                                {"category": "informal", "def": "to imitate, or behave characteristically as", "example": "to do a Houdini"},
-                            ]},
-                            {"def": "to write or publish (a book), compose (a musical score), etc."},
-                            {"def_subgroup": [
-                                {"def": "to cover (distance)", "example": "to do a mile in four minutes"},
-                                {"def": "to move along at a speed of", "example": "to do 60 miles an hour"},
-                            ]},
-                            {"def": "to visit as a sightseer; tour", "example": "they did England in two months"},
-                            {"def": "to translate", "example": "to do Horace into English"},
-                            {"def": "to give; render", "example": "to do honor to the dead"},
-                            {"def": "to suit; be convenient to", "example": "this will do me very well"},
-                            {"category": "informal", "def_subgroup": [
-                                {"def": "to prepare; cook", "example": "that restaurant does ribs really well"},
-                                {"def": "to eat", "example": "let\'s do Mexican tonight"},
-                            ]},
-                            {"category": "informal", "def": "to cheat; swindle", "example": "you\'ve been done"},
-                            {"category": "informal", "def": "to serve (a jail term)"},
-                            {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
-                            {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
-                            {"category": "slang", "def": "to kill"},
-                        ]
-                    },
-                    {
-                        "value": "intransitive verb",
-                        "defs": [
-                            {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
-                            {"def": "to be active; work", "example": "do; don\'t merely talk"},
-                            {"def": "to finish (used in the perfect tense [have done with dreaming ])"},
-                            {"def": "to get along; fare", "example": "mother and child are doing well"},
-                            {"def": "to be adequate or suitable; serve the purpose", "example": "the black dress will do"},
-                            {"def": "to take place; go on", "example": "anything doing tonight?"},
-                            {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
-                             "example": "I haven\'t seen the film, but she may have done"},
-                        ]
-                    },
-                    {
-                        "value": "auxiliary verb",
-                        "defs": [
-                            {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
-                            {"def": "used to ask a question", "example": "did you write?"},
-                            {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
-                            {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
-                            {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                        ]
-                    },
-                    {
-                        "word_forms": ["do's", "dos"],
-                        "value": "noun",
-                        "defs": [
-                            {"category": "mainly British, informal", "def": "a hoax; swindle"},
-                            {"category": "mainly British, informal", "def": "a party or social event"},
-                            {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                        ]
-                    }
-                ]},
-                {"word": "do", "gram_groups": [
-                    {
-                        "value": "noun",
-                        "defs": [{"category": "music",
-                                   "def": "a syllable representing the first or last tone of the diatonic scale "
-                                          "see also solfeggio[1]"}]
-                    },
-                ]},
-                {"word": "do", "gram_groups": [
-                    {
-                        "value": "noun",
-                        "defs": [{"category": "slang", "def": "hairdo[1]"}]
-                    },
-                ]},
-                {"word": "Do or do", "gram_groups": [
-                    {
-                        "defs": [{"def": "ditto"}]
-                    },
-                ]},
-                {"word": "DO or D.O.", "gram_groups": [
-                    {
-                        "defs": [{"def": "Doctor of Osteopathy"}]
-                    }
-                ]}
-            ], result)
+            {"word": "do.",
+             "frequency": "",
+             "gram_groups": [
+                 {
+                     "forms": {"items": [], "info": ""},
+                     "value": "abbreviation for",
+                     "defs": {"": [{"def": "ditto", "know": False}]}
+                 },
+             ]}, result)
 
-    def test_word_returns_examples(self):
+    def test_examples(self):
         root = etree.HTML(self.html_content)
         dict_parser = DefParser(root, self.word_name)
 
         group = ExamplesGroup(dict_parser)
         group.build()
         result = group.translate()
-        self.assertEqual([
-                {"example": "You should write the general principles down somewhere, Dad, like they do with the United States Code."}
-            ], result)
 
-    def test_word_returns_nearby_words(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
+        self.assertEqual({"examples": [
+                "Then again, not to do him down too much, he does have his more positive side.",
+                "I'd shouted: You want her to be French, do n't you, you can't stand the idea of Jessica being English!",
+                "He was accusing me of being complicit in a murder, or being a murderer, I do n't know which.",
+                "\"You should write the general principles down somewhere, Dad, like they do with the United States Code."
+            ]}, result)
 
-        group = NearbyWordsGroup(dict_parser)
-        group.build()
-        result = group.translate()
-        self.assertEqual([
-                'Dn', 'DNA', 'DNA fingerprinting', 'DNB', 'Dnepr','Dneprodzerzhinsk', 'Dnepropetrovsk',
-                'Dnestr', 'Dnieper', 'Dniester', 'do a deal', 'do a number on', 'do away with', 'do business with',
-                'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'], result)
-
-    def test_word_returns_related_defgroup_1(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
-        def_group = dict_parser.get_all_def_groups()[0]
-
-        group = RelatedGroup(dict_parser, def_group)
-        group.build()
-        result = group.translate()
-        self.assertEqual(["do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts",
-                                      "do up", "do up right", "do oneself well", "do with", "do without",
-                                      "have to do with"], result)
-
-    def test_get_translations_to_json(self):
+    def test_translations(self):
         obj = HtmlToJson(self.word_name, self.html_content)
         json_obj = obj.translate()
 
         self.assertEqual(json_obj["translations"],
-            ["When you do something, you take some action or perform an activity or task.I was trying to do some work. done"])
-
-    def test_translate_html_to_json(self):
-        obj = HtmlToJson(self.word_name, self.html_content)
-        json_str = obj.translate()
-
-        self.assertEqual(json_str,
-        {
-            "frequency": "Extremely Common",
-            "def_groups": [
-                {"word": "do", "related": [
-                    "do a deal", "do by", "do down", "do in", "do it", "do over", "do's and don'ts", "do up",
-                    "do up right", "do oneself well", "do with", "do without", "have to do with"
-                ],
-                 "gram_groups": [
-                     {
-                        "word_forms": ["did", "done", "doing"],
-                        "value": "transitive verb",
-                        "defs": [
-                            {"def_subgroup": [
-                                {"def": "to execute; effect; perform (an act, action, etc.)", "example": "do great deeds"},
-                                {"def": "to carry out; fulfill", "example": "do what I tell you"}
-                            ]},
-                            {"def": "to bring to completion; finish", "example": "dinner has been done for an hour"},
-                            {"def": "to bring about; cause; produce", "example": "it does no harm; who did this to you?"},
-                            {"def": "to exert (efforts, etc.)", "example": "do your best"},
-                            {"def": "to have or take (a meal)", "example": "let\'s do lunch"},
-                            {"def": "to deal with as is required; attend to", "example": "do the ironing, do one\'s nails or hair"},
-                            {"def": "to have as one\'s work or occupation; work at or on", "example": "what does he do for a living?"},
-                            {"def": "to work out; solve", "example": "do a problem"},
-                            {"def": "to produce or appear in (a play, etc.)", "example": "we did Hamlet"},
-                            {"def_subgroup": [
-                                {"def": "to play the role of", "example": "I did Polonius"},
-                                {"category": "informal", "def": "to imitate, or behave characteristically as", "example": "to do a Houdini"},
-                            ]},
-                            {"def": "to write or publish (a book), compose (a musical score), etc."},
-                            {"def_subgroup": [
-                                {"def": "to cover (distance)", "example": "to do a mile in four minutes"},
-                                {"def": "to move along at a speed of", "example": "to do 60 miles an hour"},
-                            ]},
-                            {"def": "to visit as a sightseer; tour", "example": "they did England in two months"},
-                            {"def": "to translate", "example": "to do Horace into English"},
-                            {"def": "to give; render", "example": "to do honor to the dead"},
-                            {"def": "to suit; be convenient to", "example": "this will do me very well"},
-                            {"category": "informal", "def_subgroup": [
-                                {"def": "to prepare; cook", "example": "that restaurant does ribs really well"},
-                                {"def": "to eat", "example": "let\'s do Mexican tonight"},
-                            ]},
-                            {"category": "informal", "def": "to cheat; swindle", "example": "you\'ve been done"},
-                            {"category": "informal", "def": "to serve (a jail term)"},
-                            {"category": "slang", "def": "to take; ingest; use", "example": "we\'ve never done drugs"},
-                            {"category": "slang", "def": "to perform a sexual act upon; specif., to have sexual intercourse with"},
-                            {"category": "slang", "def": "to kill"},
-                        ]
-                    },
-                    {
-                        "value": "intransitive verb",
-                        "defs": [
-                            {"def": "to act in a specified way; behave", "example": "he does well when treated well"},
-                            {"def": "to be active; work", "example": "do; don\'t merely talk"},
-                            {"def": "to finish (used in the perfect tense [have done with dreaming ])"},
-                            {"def": "to get along; fare", "example": "mother and child are doing well"},
-                            {"def": "to be adequate or suitable; serve the purpose", "example": "the black dress will do"},
-                            {"def": "to take place; go on", "example": "anything doing tonight?"},
-                            {"category": "mainly British, informal", "def": "used as a substitute verb after a modal auxiliary or a form of have in a perfect tense",
-                             "example": "I haven\'t seen the film, but she may have done"},
-                        ]
-                    },
-                    {
-                        "value": "auxiliary verb",
-                        "defs": [
-                            {"def": "used to give emphasis, or as a legal convention", "example": "do stay a while, do hereby enjoin"},
-                            {"def": "used to ask a question", "example": "did you write?"},
-                            {"def": "used to serve as part of a negative command or statement", "example": "do not go, they do not like it"},
-                            {"def": "used to serve as a substitute verb", "example": "love me as I do (love) you"},
-                            {"def": "used to form inverted constructions after some adverbs", "example": "little did he realize"},
-                        ]
-                    },
-                    {
-                        "word_forms": ["do's", "dos"],
-                        "value": "noun",
-                        "defs": [
-                            {"category": "mainly British, informal", "def": "a hoax; swindle"},
-                            {"category": "mainly British, informal", "def": "a party or social event"},
-                            {"category": "slang", "def":"excrement; feces", "example": "dog do"},
-                        ]
-                    }
-                ]},
-                {"word": "do", "gram_groups": [
-                    {
-                        "value": "noun",
-                        "defs": [{"category": "music",
-                                  "def": "a syllable representing the first or last tone of the diatonic scale "
-                                         "see also solfeggio[1]"}]
-                    },
-                ]},
-                {"word": "do", "gram_groups": [
-                    {
-                        "value": "noun",
-                        "defs": [ {"category": "slang", "def": "hairdo[1]"}]
-                    },
-                ]},
-                {"word": "Do or do", "gram_groups": [
-                    {
-                        "defs": [ {"def": "ditto"} ]
-                    },
-                ]},
-                {"word": "DO or D.O.", "gram_groups": [
-                    {
-                        "defs": [ {"def": "Doctor of Osteopathy"} ]
-                    }
-                ]}
-            ],
-            "examples": [
-                {"example": "You should write the general principles down somewhere, Dad, like they do with the United States Code."}
-            ],
-            "nearby_words": [
-                'Dn', 'DNA', 'DNA fingerprinting', 'DNB', 'Dnepr','Dneprodzerzhinsk', 'Dnepropetrovsk',
-                'Dnestr', 'Dnieper', 'Dniester', 'do a deal', 'do a number on', 'do away with', 'do business with',
-                'do by', 'do credit to', 'do down', 'do duty for', 'do gree', 'do honor to'
-            ],
-            "translations": [
-                "When you do something, you take some action or perform an activity or task.I was trying to do some work. done"
-            ]
-        })
+                         [{"def": "If you do something, you spend some time on it or finish it.",
+                           "example": "I tried to do some work.",
+                           "word": "do",
+                           "value": "verb",
+                           }])
 
 if __name__ == '__main__':
     unittest.main()

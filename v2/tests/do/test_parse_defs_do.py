@@ -10,8 +10,9 @@ class TestParser(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        f = open("do_defs.html")
-        text = f.read()
+        with open("do_defs.html") as f:
+            text = f.read()
+
         TestParser.root = etree.HTML(text)
 
     def setUp(self):
@@ -215,6 +216,36 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual("to perform or complete (a deed or action)", def_text)
 
+    def test_getDef33_fromDefGroup0_gramGroup0(self):
+        def_group = self.parser.get_all_def_groups()[0]
+        ggroup = self.parser.get_all_grammar_groups(def_group)[0]
+        assert isinstance(ggroup, etree._Element)
+
+        sense = self.parser.get_all_sense_items(ggroup)[33]
+        def_text = self.parser.get_sense_def_label(sense)
+
+        self.assertEqual("See do", def_text)
+
+    def test_getDef35_fromDefGroup0_gramGroup0(self):
+        def_group = self.parser.get_all_def_groups()[0]
+        ggroup = self.parser.get_all_grammar_groups(def_group)[0]
+        assert isinstance(ggroup, etree._Element)
+
+        sense = self.parser.get_all_sense_items(ggroup)[35]
+        def_text = self.parser.get_sense_def_label(sense)
+
+        self.assertEqual("See how do you do?", def_text)
+
+    def test_getDef25_fromDefGroup0_gramGroup0(self):
+        def_group = self.parser.get_all_def_groups()[0]
+        ggroup = self.parser.get_all_grammar_groups(def_group)[0]
+        assert isinstance(ggroup, etree._Element)
+
+        sense = self.parser.get_all_sense_items(ggroup)[25]
+        def_text = self.parser.get_sense_def_label(sense)
+
+        self.assertEqual("", def_text)
+
     def test_getEx0_fromDef0_defGroup0_gramGroup0(self):
         def_group = self.parser.get_all_def_groups()[0]
         ggroup = self.parser.get_all_grammar_groups(def_group)[0]
@@ -233,7 +264,7 @@ class TestParser(unittest.TestCase):
         sense = self.parser.get_all_sense_items(ggroup)[1]
         def_text = self.parser.get_sense_usage(sense)
 
-        self.assertEqual("(often intr; foll by for)", def_text)
+        self.assertEqual("often intr; foll by for", def_text)
 
     def test_getCateg_fromDef21_defGroup0_gramGroup0(self):
         def_group = self.parser.get_all_def_groups()[0]
@@ -244,6 +275,26 @@ class TestParser(unittest.TestCase):
         def_text = self.parser.get_sense_categ(sense)
 
         self.assertEqual("informal", def_text)
+
+    def test_getCategMultiple_fromDef28_defGroup0_gramGroup0(self):
+        def_group = self.parser.get_all_def_groups()[0]
+        ggroup = self.parser.get_all_grammar_groups(def_group)[0]
+        assert isinstance(ggroup, etree._Element)
+
+        sense = self.parser.get_all_sense_items(ggroup)[28]
+        def_text = self.parser.get_sense_categ(sense)
+
+        self.assertEqual("Australian informal", def_text)
+
+    def test_getCategMultiple_fromDef29_defGroup0_gramGroup0(self):
+        def_group = self.parser.get_all_def_groups()[0]
+        ggroup = self.parser.get_all_grammar_groups(def_group)[0]
+        assert isinstance(ggroup, etree._Element)
+
+        sense = self.parser.get_all_sense_items(ggroup)[29]
+        def_text = self.parser.get_sense_categ(sense)
+
+        self.assertEqual("slang, mainly British", def_text)
 
 
 if __name__ == '__main__':
