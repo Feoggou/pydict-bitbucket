@@ -4,7 +4,7 @@ from .content_retrieval import ContentRetrieval
 
 
 def process_input(input: str):
-    content_retrieval = ContentRetrieval()
+    content_retrieval = ContentRetrieval(from_web=True)
 
     def_content = content_retrieval.get_def_content()
     syn_content = content_retrieval.get_syn_content()

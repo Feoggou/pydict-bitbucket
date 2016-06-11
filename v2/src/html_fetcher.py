@@ -10,6 +10,20 @@ class WordNotFoundError(RuntimeError):
         return repr(self.value)
 
 
+class LocalHtmlFetcher:
+    def __init__(self, word: str):
+        self.word = word
+
+    """def get_html_path(self):
+        raise NotImplementedError()"""
+
+    def fetch(self):
+        path = self.get_html_path()
+
+        with open(path, "r") as f:
+            return f.read()
+
+
 class WebHtmlFetcher:
     hostname = "www.collinsdictionary.com"
     http_path = "/dictionary/english/"

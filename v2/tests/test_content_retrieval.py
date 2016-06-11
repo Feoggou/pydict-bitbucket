@@ -6,13 +6,14 @@ from unittest import mock
 from unittest.mock import  patch, call
 
 from src.content_retrieval import ContentRetrieval
-from src.html_fetcher import HtmlFetcher
+from src.html_fetcher import WebHtmlFetcher, LocalHtmlFetcher
 from src.html_parser import HtmlParser
 
 
 class ContentRetrievalTest(unittest.TestCase):
     expected_json = None
     html_content = None
+    path_to_html = None
 
     @classmethod
     def setUpClass(cls):
@@ -20,11 +21,12 @@ class ContentRetrievalTest(unittest.TestCase):
             cls.expected_json = json.load(f)
 
         path = os.path.dirname(os.path.abspath(__file__))
+        cls.path_to_html = os.path.join(path, "do", "do_defs.html")
 
-        with open(os.path.join(path, "do", "do_defs.html")) as f:
+        with open(cls.path_to_html) as f:
             cls.html_content = f.read()
 
-    def test_getContentDef_do(self):
+    def test_getContentDef_do_retrievesContent(self):
         """
         input: word to retrieve
         result: content for do.
@@ -32,16 +34,30 @@ class ContentRetrievalTest(unittest.TestCase):
         # must:
         # a. fetch html
         # b. transform to json (parse)
-        with patch.object(HtmlFetcher, 'fetch') as mock_fetch:
+        with patch.object(WebHtmlFetcher, 'fetch') as mock_fetch:
             mock_fetch.return_value = ContentRetrievalTest.html_content
 
             with patch.object(HtmlParser, 'parse') as mock_parser:
                 mock_parser.return_value = ContentRetrievalTest.expected_json
 
-                content_retrieval = ContentRetrieval()
+                content_retrieval = ContentRetrieval(from_web=True)
                 result = content_retrieval.get_def_content()
 
-        mock_fetch.assert_called_once_with("do")
+        mock_fetch.assert_called_once_with()
+        mock_parser.assert_called_once_with(ContentRetrievalTest.html_content)
+        self.assertEqual(ContentRetrievalTest.expected_json, result)
+
+    def test_getDef_do_usingLocal_returnsContent(self):
+        with patch.object(LocalHtmlFetcher, 'fetch') as mock_fetch:
+            mock_fetch.return_value = ContentRetrievalTest.html_content
+
+            with patch.object(HtmlParser, 'parse') as mock_parser:
+                mock_parser.return_value = ContentRetrievalTest.expected_json
+
+                content_retrieval = ContentRetrieval(from_web=False)
+                result = content_retrieval.get_def_content()
+
+        mock_fetch.assert_called_once_with()
         mock_parser.assert_called_once_with(ContentRetrievalTest.html_content)
         self.assertEqual(ContentRetrievalTest.expected_json, result)
 
