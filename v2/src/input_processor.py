@@ -8,11 +8,11 @@ def process_input(input: str):
 
     def_content = content_retrieval.get_def_content()
     # TODO: syn content
-    # syn_content = content_retrieval.get_syn_content()
+    syn_content = content_retrieval.get_syn_content()
 
     saver = JsonSaver()
     saver.save("do.def", def_content)
-    # saver.save("do.syn", syn_content)
+    saver.save("do.syn", syn_content)
 
     printer = JsonPrinter()
     printer.print(def_content)

@@ -2,6 +2,7 @@
     "def_groups": [
         {
             "word": "do",
+            "origin": "Old English dōn; related to Old Frisian duān, Old High German tuon, Latin abdere to put away, Greek tithenai to place; see deed, doom",
             "frequency": "Extremely Common",
             "gram_groups": [
                 {

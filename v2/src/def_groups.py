@@ -179,7 +179,7 @@ class DefGroup(JsonGroup):
         self.frequency = None
         self.derived_forms = None
 
-        # self.word = dict_parser.get_word_form_for_def_group(etree_def_group)"""
+        self.origin = None
         self.word = dict_parser.get_def_group_text(etree)
 
     def build(self):
@@ -188,6 +188,10 @@ class DefGroup(JsonGroup):
             child = GramGroup(self.dict_parser, etree_item)
             child.build()
             self.gram_groups.append(child)
+
+        self.origin = self.dict_parser.get_etymology(self.etree_elem)
+        if len(self.origin) == 0:
+            self.origin = None
 
         """self.semantics = self.dict_parser.get_semantics(self.etree_elem)
         self.derived_forms = self.dict_parser.get_all_derived_forms(self.etree_elem)"""
@@ -217,6 +221,9 @@ class DefGroup(JsonGroup):
 
         if self.frequency is not None:
             json_obj["frequency"] = self.frequency.translate()
+
+        if self.origin is not None:
+            json_obj["origin"] = self.origin
 
         return json_obj
 

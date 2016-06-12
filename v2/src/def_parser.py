@@ -424,4 +424,20 @@ class DefParser:
 
         return [(word_text, value_text, def_text, ex_text)]
 
+    @staticmethod
+    def get_etymology(def_group: etree._Element):
+        items = def_group.xpath('.//div[@class="content etyms"]/*[@class="hom_subsec etym"]')
+        assert len(items) <= 1
 
+        if len(items) == 0:
+            return ""
+
+        # first child is "Word origin", but its tail is, e.g. "Old english" -- i.e. the first text elem in the sentence.
+        etym_text = items[0].getchildren()[0].tail
+
+        # first item is header, so we get from the second
+        for item in items[0].getchildren()[1:]:
+            text = HtmlItem(item).read()
+            etym_text += text
+
+        return etym_text

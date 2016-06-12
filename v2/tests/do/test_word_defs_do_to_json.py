@@ -104,7 +104,10 @@ class HtmlToJsonTest(unittest.TestCase):
             group.build()
             result = group.translate()
 
-            self.assertEqual({"frequency": "Extremely Common", "word": "do", "gram_groups": [{}, {}]},
+            self.assertEqual({"frequency": "Extremely Common", "word": "do", "gram_groups": [{}, {}],
+                              "origin":
+                                  "Old English dōn; related to Old Frisian duān, Old High German tuon, Latin abdere "
+                                  "to put away, Greek tithenai to place; see deed, doom"},
                              result)
 
     # word / def_groups / def_group [0] / gram_group[0]
@@ -357,6 +360,8 @@ class HtmlToJsonTest(unittest.TestCase):
 
         self.assertEqual(
             {"word": "do",
+             "origin": "Old English dōn; related to Old Frisian duān, Old High German tuon, Latin abdere "
+                       "to put away, Greek tithenai to place; see deed, doom",
              "frequency": "Extremely Common",
              "gram_groups": [
                  {

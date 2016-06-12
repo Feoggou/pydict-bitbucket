@@ -296,6 +296,14 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual("slang, mainly British", def_text)
 
+    def test_getOrigin(self):
+        def_group = self.parser.get_all_def_groups()[0]
+
+        result = self.parser.get_etymology(def_group)
+
+        self.assertEqual("Old English dōn; related to Old Frisian duān, Old High German tuon, Latin abdere "
+                         "to put away, Greek tithenai to place; see deed, doom", result)
+
 
 if __name__ == '__main__':
     unittest.main()

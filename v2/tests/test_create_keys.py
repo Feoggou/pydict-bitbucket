@@ -2,7 +2,7 @@
 
 import http.client
 from lxml import etree
-from src.html_parser.etree_printer import *
+from src.etree_printer import *
 import sys
 
 
@@ -60,7 +60,7 @@ def get_syn_for_word(word):
     return text
 
 
-add_new_word_to_test = True
+add_new_word_to_test = False
 word_name = "do"
 
 if add_new_word_to_test is True:

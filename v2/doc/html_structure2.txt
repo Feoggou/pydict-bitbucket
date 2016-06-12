@@ -106,6 +106,10 @@
 13 TEXT:                                                     "((space))"
 13 KEYS:                                                     class="content definitions ced";  (defs)
 
+#3287:
+13 TAG:                                                     "div"
+13 KEYS:                                                     class="content etyms"; 
+
 
 #1031:
 14 TAG:                                                         "span"
