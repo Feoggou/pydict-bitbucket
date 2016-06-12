@@ -7,26 +7,44 @@ from src.html_parser import HtmlParser
 
 
 class HtmlParserTest(unittest.TestCase):
-    expected_json = None
-    html_content = None
+    def_expected_json = None
+    def_html_content = None
+
+    syn_expected_json = None
+    syn_html_content = None
 
     @classmethod
     def setUpClass(cls):
         path = os.path.dirname(os.path.abspath(__file__))
-        json_file_name = os.path.join(path, "expected_do.def")
+        def_json_file_name = os.path.join(path, "expected_do.def")
         html_file_name = os.path.join(path, "do", "do_defs.html")
 
-        with open(json_file_name) as f:
-            cls.expected_json = json.load(f)
+        syn_json_file_name = os.path.join(path, "expected_do.syn")
+        syn_html_file_name = os.path.join(path, "do", "do_syn.html")
+
+        with open(def_json_file_name) as f:
+            cls.def_expected_json = json.load(f)
 
         with open(html_file_name) as f:
-            cls.html_content = f.read()
+            cls.def_html_content = f.read()
+
+        with open(syn_json_file_name) as f:
+            cls.syn_expected_json = json.load(f)
+
+        with open(syn_html_file_name) as f:
+            cls.syn_html_content = f.read()
 
     def test_htmlParse_do(self):
         parser = HtmlParser()
-        result = parser.parse("do", HtmlParserTest.html_content)
+        result = parser.parse("do", HtmlParserTest.def_html_content)
 
-        self.assertEqual(HtmlParserTest.expected_json, result)
+        self.assertEqual(HtmlParserTest.def_expected_json, result)
+
+    def test_htmlParse_syn_do(self):
+        parser = HtmlParser()
+        result = parser.parse_syn("do", HtmlParserTest.syn_html_content)
+
+        self.assertEqual(HtmlParserTest.syn_expected_json, result)
 
 
 if __name__ == '__main__':

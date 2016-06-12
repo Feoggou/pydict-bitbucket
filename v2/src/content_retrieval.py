@@ -15,4 +15,9 @@ class ContentRetrieval:
         return parser.parse("do", html_content)
 
     def get_syn_content(self):
-        raise NotImplementedError()
+        fetcher = self.Fetcher("do")
+        html_content = fetcher.fetch_syn()
+        # TODO: save html
+
+        parser = HtmlParser()
+        return parser.parse_syn("do", html_content)

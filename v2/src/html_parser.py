@@ -1,7 +1,10 @@
 from lxml import etree
 
 from src.def_groups import MainDefGroup
+from src.syn_groups import SynDefGroup
+
 from .def_parser import DefParser
+from .syn_parser import SynParser
 
 
 class HtmlParser:
@@ -16,5 +19,14 @@ class HtmlParser:
 
         main_def = MainDefGroup(dict_parser)
         main_def.build_children()
+        self.translated_obj = main_def.translate()
+        return self.translated_obj
+
+    def parse_syn(self, word_name, html_content: str):
+        root = etree.HTML(html_content)
+        dict_parser = SynParser(root, word_name)
+
+        main_def = SynDefGroup(dict_parser)
+        main_def.build()
         self.translated_obj = main_def.translate()
         return self.translated_obj

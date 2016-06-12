@@ -21,22 +21,34 @@ class LocalHtmlFetcher:
         with open(os.path.join(config.HTML_DIR_PATH, self.word + "_defs.html"), "r") as f:
             return f.read()
 
+    def fetch_syn(self):
+        with open(os.path.join(config.HTML_DIR_PATH, self.word + "_syn.html"), "r") as f:
+            return f.read()
+
 
 class WebHtmlFetcher:
     def __init__(self, word: str):
         self.word = word
 
     def fetch(self):
-        reason, text = self._try_fetch()
+        reason, text = self._try_fetch(config.HTTP_PATH)
 
         if len(text) == 0:
             return self._handle_error(reason)
 
         return text
 
-    def _try_fetch(self):
+    def fetch_syn(self):
+        reason, text = self._try_fetch(config.SYN_HTTP_PATH)
+
+        if len(text) == 0:
+            return self._handle_error(reason)
+
+        return text
+
+    def _try_fetch(self, http_path):
         conn = http.client.HTTPConnection(config.HOSTNAME)
-        conn.request("GET", config.HTTP_PATH+ self.word)
+        conn.request("GET", http_path + self.word)
         reason = conn.getresponse()
 
         data = reason.read()
