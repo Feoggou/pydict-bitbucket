@@ -29,7 +29,7 @@ class ExamplesGroup(JsonGroup):
 
     def build(self):
         examples = self.dict_parser.get_all_examples()
-        self.examples = {"examples": examples}
+        self.examples = examples
 
     def translate(self):
         return self.examples
@@ -247,22 +247,22 @@ class DefGroups(JsonGroup):
 class MainDefGroup:
     def __init__(self, dict_parser: DefParser):
         self.dict_parser = dict_parser
+        self.def_groups = None
+        self.examples = None
         """self.etree_main = self.dict_parser.get_def_main()
 
         self.word_frequency = None
-        self.def_groups = None
-        self.examples = None
+
         self.nearby_words = None"""
         self.translations = None
         pass
 
     def build_children(self):
-        """
         self.def_groups = DefGroups(self.dict_parser)
         self.def_groups.build()
 
         self.examples = ExamplesGroup(self.dict_parser)
-        self.examples.build()"""
+        self.examples.build()
 
         self.translations = []
         for item in self.dict_parser.get_all_translations():
@@ -275,10 +275,10 @@ class MainDefGroup:
 
     def translate(self):
         json_object = {}
-        """if self.def_groups is not None:
+        if self.def_groups is not None:
             json_object["def_groups"] = self.def_groups.translate()
         if self.examples is not None:
-            json_object["examples"] = self.examples.translate()"""
+            json_object["examples"] = self.examples.translate()
         if self.translations is not None:
             json_object["translations"] = self.translations
 

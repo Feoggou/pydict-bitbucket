@@ -9,6 +9,7 @@ class ColoredText:
     h1_color = ""
     word_color = ""
     gram_color = ""
+    usage_color = ""
 
     @staticmethod
     def init_values():
@@ -17,6 +18,7 @@ class ColoredText:
         ColoredText.h1_color = colors.BLUE
         ColoredText.word_color = colors.BOLDBLACK
         ColoredText.gram_color = colors.RED
+        ColoredText.usage_color = colors.GREEN
 
     @staticmethod
     def colored_title(s: str):
@@ -33,6 +35,10 @@ class ColoredText:
     @staticmethod
     def colored_gram(s: str):
         return ColoredText.gram_color + s + ColoredText.reset_color
+
+    @staticmethod
+    def colored_usage(s: str):
+        return ColoredText.usage_color + s + ColoredText.reset_color
 
 
 class DefinitionReader:
@@ -103,6 +109,30 @@ class DefinitionReader:
         return text
 
 
+class DefUsageGroupReader:
+    def __init__(self, obj: dict):
+        self.usage_groups = obj
+
+    def read_usage_group(self, usage_name: str):
+        text = ""
+
+        if len(usage_name) > 0:
+            text += ColoredText.colored_usage(usage_name + ":\n")
+
+        def_reader = DefinitionReader(self.usage_groups[usage_name])
+        text += def_reader()
+        text += "\n"
+        return text
+
+    def __call__(self) -> str:
+        text = ""
+
+        for usage_name in self.usage_groups:
+            text += self.read_usage_group(usage_name)
+
+        return text
+
+
 class GramGroupReader:
     def __init__(self, obj: dict):
         self.gram_groups = obj
@@ -112,16 +142,39 @@ class GramGroupReader:
         text = ""
 
         if "value" in obj.keys():
-            text += ColoredText.colored_gram(obj["value"]) + "\n"
+            text += ColoredText.colored_gram(obj["value"])
+
+        return text
+
+    @staticmethod
+    def _read_word_forms(obj: dict):
+        text = ""
+
+        if "forms" in obj.keys() and len(obj["forms"]["items"]) > 0:
+            forms = "(" + ", ".join(obj["forms"]["items"]) + ")"
+            if "info" in obj["forms"].keys():
+                info = obj["forms"]["info"]
+                if len(info) > 0:
+                    forms += " -- " + info
+
+            text += ColoredText.colored_title(forms)
 
         return text
 
     def read_gram_group(self, gram_group: dict):
         text = ""
-        text += self._read_gram_value(gram_group)
+        value = self._read_gram_value(gram_group)
+        forms = self._read_word_forms(gram_group)
 
-        def_reader = DefinitionReader(gram_group["defs"])
-        text += def_reader()
+        if len(value) and len(forms):
+            text += value + " " + forms + "\n"
+        elif len(value) == len(forms) == 0:
+            pass
+        else:
+            text += value + forms + "\n"
+
+        usage_groups = DefUsageGroupReader(gram_group["defs"])
+        text += usage_groups()
         text += "\n"
         return text
 
@@ -143,33 +196,21 @@ class DefGroupReader:
         return ColoredText.colored_word(obj["word"]) + "\n"
 
     @staticmethod
-    def _read_semantics(def_group):
-        if "semantics" not in def_group:
-            return ""
+    def _read_frequency(obj: dict) -> str:
+        if "frequency" in obj and len(obj["frequency"]) > 0:
+            return ColoredText.colored_title("[{}]\n\n".format(obj["frequency"])) + "\n"
 
-        text = ColoredText.colored_h1("\nSEMANTICS\n")
-        text += def_group["semantics"] + "\n\n"
-
-        return text
+        return ""
 
     def read_def_group(self, def_group: dict):
         text = self._read_word(def_group)
 
+        text += self._read_frequency(def_group)
+
         g_reader = GramGroupReader(def_group["gram_groups"])
         text += g_reader()
 
-        text += self._read_semantics(def_group) + "\n"
-
         return text
-
-    def get_all_related(self) -> list:
-        in_rel_list = []
-
-        for item in self.def_groups:
-            if "related" in item.keys():
-                in_rel_list += item["related"]
-
-        return in_rel_list
 
     def __call__(self) -> str:
         text = ""
@@ -184,7 +225,7 @@ class JsonReader:
     def __init__(self, content: dict, use_colors: bool = True):
         self.content = content
         self.keys = {
-            "frequency": self.frequency,
+            # "frequency": self.frequency,
             "def_groups": self.definitions,
             "translations": self.translations,
             "examples": self.examples,
@@ -194,8 +235,8 @@ class JsonReader:
         if use_colors:
             ColoredText.init_values()
 
-    def frequency(self) -> str:
-        return ColoredText.colored_title("[{}]\n\n".format(self.content["frequency"]))
+    """def frequency(self) -> str:
+        return ColoredText.colored_title("[{}]\n\n".format(self.content["frequency"]))"""
 
     def definitions(self) -> str:
         text = ColoredText.colored_h1("DEFINTIONS\n")
@@ -208,14 +249,19 @@ class JsonReader:
     def translations(self) -> str:
         text = ColoredText.colored_h1("TRANSLATIONS\n")
 
-        text += "\n".join([x for x in self.content["translations"][0]["def"]])
+        for transl in self.content["translations"]:
+            text += ColoredText.colored_word(transl["word"]) + "\n"
+            text += ColoredText.colored_gram(transl["value"]) + "\n"
+            text += transl["def"] + "\n"
+            text += "{}e.g. {}\n".format(DefinitionReader.tab, transl["example"])
+
         text += "\n\n\n"
 
         return text
 
     def examples(self) -> str:
         text = ColoredText.colored_h1("EXAMPLES\n")
-        text += "\n".join("o) " + example["example"] for example in self.content["examples"])
+        text += "\n".join("o) " + example for example in self.content["examples"])
 
         text += "\n\n"
         return text
@@ -233,8 +279,8 @@ class JsonReader:
         return ""
 
     def read_content(self, word) -> str:
-        text = self.read_by_key("frequency")
-        text += self.read_by_key("def_groups")
+        # text = self.read_by_key("frequency")
+        text = self.read_by_key("def_groups")
         text += self.read_by_key("translations")
         text += self.read_by_key("examples")
         # text += self.read_by_key("my_examples")

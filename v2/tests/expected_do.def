@@ -1,5 +1,4 @@
 {
-    "word": "do",
     "def_groups": [
         {
             "word": "do",
@@ -98,7 +97,7 @@
                     "forms": {"items": ["dos"], "info": "plural"},
                     "value": "noun",
                     "defs": {
-                        "": [{"def": "(i) a variant spelling of doh1", "know": false}]
+                        "": [{"def": "(i) a variant spelling of doh", "know": false}]
                     }
                 }
             ]
@@ -151,7 +150,6 @@
         "\"You should write the general principles down somewhere, Dad, like they do with the United States Code."
     ],
 
-    "frequency": "Extremely Common",
     "translations": [
         {
             "word": "do",

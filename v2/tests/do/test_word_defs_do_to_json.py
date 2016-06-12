@@ -4,6 +4,8 @@ from src.def_groups import *
 from src.def_parser import DefParser
 from lxml import etree
 
+from src.html_parser import HtmlParser
+
 
 class HtmlToJsonTest(unittest.TestCase):
     word_name = ""
@@ -18,15 +20,15 @@ class HtmlToJsonTest(unittest.TestCase):
         # self.maxDiff = None
 
     def test_createHtmlToJson_obj(self):
-        obj = HtmlToJson(self.word_name, self.html_content)
+        obj = HtmlParser()
         self.assertIsNotNone(obj)
 
     def test_translateEmptyMain_toJson_returnsEmptyWord(self):
-        obj = HtmlToJson(self.word_name, self.html_content)
+        obj = HtmlParser()
 
         with patch.object(MainDefGroup, 'build_children') as mock:
             mock.return_value = None
-            json_obj = obj.translate()
+            json_obj = obj.parse(self.word_name, self.html_content)
             MainDefGroup.build_children.assert_called_once_with()
             self.assertEqual(json_obj, {})
 
@@ -532,7 +534,7 @@ class HtmlToJsonTest(unittest.TestCase):
                      "defs": {
                          "": [
                              {
-                                 "def": "(i) a variant spelling of doh1",
+                                 "def": "(i) a variant spelling of doh",
                                  "know": False
                              },
                          ],
@@ -620,16 +622,16 @@ class HtmlToJsonTest(unittest.TestCase):
         group.build()
         result = group.translate()
 
-        self.assertEqual({"examples": [
+        self.assertEqual([
                 "Then again, not to do him down too much, he does have his more positive side.",
                 "I'd shouted: You want her to be French, do n't you, you can't stand the idea of Jessica being English!",
                 "He was accusing me of being complicit in a murder, or being a murderer, I do n't know which.",
                 "\"You should write the general principles down somewhere, Dad, like they do with the United States Code."
-            ]}, result)
+            ], result)
 
     def test_translations(self):
-        obj = HtmlToJson(self.word_name, self.html_content)
-        json_obj = obj.translate()
+        obj = HtmlParser()
+        json_obj = obj.parse(self.word_name, self.html_content)
 
         self.assertEqual(json_obj["translations"],
                          [{"def": "If you do something, you spend some time on it or finish it.",
