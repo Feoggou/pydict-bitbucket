@@ -1,5 +1,8 @@
 import http
 from http import client
+import os
+
+from src import config
 
 
 class WordNotFoundError(RuntimeError):
@@ -14,20 +17,12 @@ class LocalHtmlFetcher:
     def __init__(self, word: str):
         self.word = word
 
-    """def get_html_path(self):
-        raise NotImplementedError()"""
-
     def fetch(self):
-        path = self.get_html_path()
-
-        with open(path, "r") as f:
+        with open(os.path.join(config.HTML_DIR_PATH, self.word + "_defs.html"), "r") as f:
             return f.read()
 
 
 class WebHtmlFetcher:
-    hostname = "www.collinsdictionary.com"
-    http_path = "/dictionary/english/"
-
     def __init__(self, word: str):
         self.word = word
 
@@ -40,8 +35,8 @@ class WebHtmlFetcher:
         return text
 
     def _try_fetch(self):
-        conn = http.client.HTTPConnection(WebHtmlFetcher.hostname)
-        conn.request("GET", WebHtmlFetcher.http_path + self.word)
+        conn = http.client.HTTPConnection(config.HOSTNAME)
+        conn.request("GET", config.HTTP_PATH+ self.word)
         reason = conn.getresponse()
 
         data = reason.read()

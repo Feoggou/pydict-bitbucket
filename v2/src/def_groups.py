@@ -1,5 +1,4 @@
 from .def_parser import DefParser
-from lxml import etree
 
 
 class JsonGroup:
@@ -285,19 +284,4 @@ class MainDefGroup:
 
         return json_object
 
-
-class HtmlToJson:
-    def __init__(self, word_name, html_content):
-        self.word_name = word_name
-        self.html_content = html_content
-        self.translated_obj = None
-
-    def translate(self):
-        root = etree.HTML(self.html_content)
-        dict_parser = DefParser(root, self.word_name)
-
-        main_def = MainDefGroup(dict_parser)
-        main_def.build_children()
-        self.translated_obj = main_def.translate()
-        return self.translated_obj
 

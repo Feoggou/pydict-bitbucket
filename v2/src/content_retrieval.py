@@ -9,9 +9,10 @@ class ContentRetrieval:
     def get_def_content(self):
         fetcher = self.Fetcher("do")
         html_content = fetcher.fetch()
+        # TODO: save html
 
         parser = HtmlParser()
-        return parser.parse(html_content)
+        return parser.parse("do", html_content)
 
     def get_syn_content(self):
-        pass
+        raise NotImplementedError()

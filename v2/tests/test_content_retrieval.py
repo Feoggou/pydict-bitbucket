@@ -44,7 +44,7 @@ class ContentRetrievalTest(unittest.TestCase):
                 result = content_retrieval.get_def_content()
 
         mock_fetch.assert_called_once_with()
-        mock_parser.assert_called_once_with(ContentRetrievalTest.html_content)
+        mock_parser.assert_called_once_with("do", ContentRetrievalTest.html_content)
         self.assertEqual(ContentRetrievalTest.expected_json, result)
 
     def test_getDef_do_usingLocal_returnsContent(self):
@@ -58,7 +58,7 @@ class ContentRetrievalTest(unittest.TestCase):
                 result = content_retrieval.get_def_content()
 
         mock_fetch.assert_called_once_with()
-        mock_parser.assert_called_once_with(ContentRetrievalTest.html_content)
+        mock_parser.assert_called_once_with("do", ContentRetrievalTest.html_content)
         self.assertEqual(ContentRetrievalTest.expected_json, result)
 
 
