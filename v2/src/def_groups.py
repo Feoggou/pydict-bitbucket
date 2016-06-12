@@ -85,7 +85,7 @@ class WordDefinition(JsonGroup):
             # assert self.subgroup is not None
             json_children = {"def_subgroup": self.subgroup.translate()}
         else:
-            json_children = {"def": self.definition, "know": False}
+            json_children = {"def": self.definition, "mark": "good"}
 
         if len(self.category):
             json_children["category"] = self.category

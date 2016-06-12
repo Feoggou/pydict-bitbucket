@@ -139,7 +139,7 @@ class HtmlToJsonTest(unittest.TestCase):
         word.build()
         result = word.translate()
 
-        self.assertEqual({"category": "slang", "def": "an act or instance of cheating or swindling", "know": False}, result)
+        self.assertEqual({"category": "slang", "def": "an act or instance of cheating or swindling", "mark": "good"}, result)
 
     def test_def_withSpecifiedUsage(self):
         root = etree.HTML(self.html_content)
@@ -187,7 +187,7 @@ class HtmlToJsonTest(unittest.TestCase):
         self.assertEqual([{
             "def": "to serve the needs of; be suitable for (a person, situation, etc); suffice",
             "example": "there isn't much food, but it'll do for the two of us",
-            "know": False,
+            "mark": "good",
         }],
             result["often intr; foll by for"])
 
@@ -205,8 +205,8 @@ class HtmlToJsonTest(unittest.TestCase):
         self.assertEqual({
             "category": "slang",
             "def_subgroup": [
-                {"def": "to arrest", "know": False},
-                {"def": "to convict of a crime", "know": False}
+                {"def": "to arrest", "mark": "good"},
+                {"def": "to convict of a crime", "mark": "good"}
         ]}, result)
 
     def test_gramGroup0_fullContent(self):
@@ -227,97 +227,97 @@ class HtmlToJsonTest(unittest.TestCase):
                     {
                         "def": "to perform or complete (a deed or action)",
                         "example": "to do a portrait; the work is done",
-                        "know": False
+                        "mark": "good"
                     },
                     {
                         "def": "used as an auxiliary to replace an earlier verb or verb phrase to avoid repetition",
                         "example": "he likes you as much as I do",
-                        "know": False
+                        "mark": "good"
                     },
-                    {"def": "(i) See do", "know": False},
-                    {"def": "(i) See do or die", "know": False},
-                    {"def": "(i) See how do you do?", "know": False},
-                    {"def": "(i) See make do", "know": False},
+                    {"def": "(i) See do", "mark": "good"},
+                    {"def": "(i) See do or die", "mark": "good"},
+                    {"def": "(i) See how do you do?", "mark": "good"},
+                    {"def": "(i) See make do", "mark": "good"},
                 ],
                 "often intr; foll by for": [
                     {
                         "def": "to serve the needs of; be suitable for (a person, situation, etc); suffice",
                         "example": "there isn't much food, but it'll do for the two of us",
-                        "know": False
+                        "mark": "good"
                     },
                 ],
                 "transitive": [
-                    {"def": "to arrange or fix", "example": "you should do the garden now", "know": False},
+                    {"def": "to arrange or fix", "example": "you should do the garden now", "mark": "good"},
                     {"def": "to prepare or provide; serve", "example": "this restaurant doesn't do lunch on Sundays",
-                     "know": False},
+                     "mark": "good"},
                     {"def": "to make tidy, elegant, ready, etc, as by arranging or adorning",
-                     "example": "to do one's hair", "know": False},
-                    {"def": "to improve (esp in the phrase do something to or for)", "know": False},
-                    {"def": "to find an answer to (a problem or puzzle)", "know": False},
+                     "example": "to do one's hair", "mark": "good"},
+                    {"def": "to improve (esp in the phrase do something to or for)", "mark": "good"},
+                    {"def": "to find an answer to (a problem or puzzle)", "mark": "good"},
                     {"def": "to translate or adapt the form or language of", "example": "the book was done into a play",
-                     "know": False},
-                    {"def": "to cause or produce", "example": "complaints do nothing to help", "know": False},
+                     "mark": "good"},
+                    {"def": "to cause or produce", "example": "complaints do nothing to help", "mark": "good"},
                     {"def": "to give or render", "example": "your portrait doesn't do you justice; do me a favour",
-                     "know": False},
+                     "mark": "good"},
                     {"def": "to work at, esp as a course of study or a profession", "example": "he is doing chemistry; "
-                     "what do you do for a living?", "know": False},
+                     "what do you do for a living?", "mark": "good"},
                     {"def": "to perform (a play, etc); act", "example": "they are doing 'Hamlet' next week",
-                     "know": False},
+                     "mark": "good"},
                     {"def": "to travel at a specified speed, esp as a maximum", "example": "this car will do 120 mph",
-                     "know": False},
+                     "mark": "good"},
                     {"def": "to travel or traverse (a distance)", "example": "we did 15 miles on our walk",
-                     "know": False},
+                     "mark": "good"},
                     {
                         "category": "informal",
                         "def": "to visit or explore as a sightseer or tourist",
                         "example": "to do Westminster Abbey",
-                        "know": False
+                        "mark": "good"
                     },
-                    {"def": "to wear out; exhaust", "know": False},
+                    {"def": "to wear out; exhaust", "mark": "good"},
                     {
                         "category": "slang",
                         "def": "to serve (a period of time) as a prison sentence",
                         "example": "he's doing three years for burglary; he's doing time",
-                        "know": False
+                        "mark": "good"
                     },
-                    {"category": "informal", "def": "to cheat or swindle", "know": False},
-                    {"category": "slang", "def": "to rob", "example": "they did three shops last night", "know": False},
+                    {"category": "informal", "def": "to cheat or swindle", "mark": "good"},
+                    {"category": "slang", "def": "to rob", "example": "they did three shops last night", "mark": "good"},
                     {
                         "category": "slang",
                         "def_subgroup": [
-                            {"def": "to arrest", "know": False},
-                            {"def": "to convict of a crime", "know": False}
+                            {"def": "to arrest", "mark": "good"},
+                            {"def": "to convict of a crime", "mark": "good"}
                         ]
                     },
-                    {"category": "Australian informal", "def": "to lose or spend (money) completely", "know": False},
-                    {"category": "slang, mainly British", "def": "to treat violently; assault", "know": False},
-                    {"category": "slang", "def": "to take or use (a drug)", "know": False},
-                    {"category": "taboo, slang", "def": "(of a male) to have sexual intercourse with", "know": False},
-                    {"def": "to arrange (a meal)", "example": "let's do lunch", "know": False},
+                    {"category": "Australian informal", "def": "to lose or spend (money) completely", "mark": "good"},
+                    {"category": "slang, mainly British", "def": "to treat violently; assault", "mark": "good"},
+                    {"category": "slang", "def": "to take or use (a drug)", "mark": "good"},
+                    {"category": "taboo, slang", "def": "(of a male) to have sexual intercourse with", "mark": "good"},
+                    {"def": "to arrange (a meal)", "example": "let's do lunch", "mark": "good"},
                 ],
                 "intransitive": [
-                    {"def": "to conduct oneself", "example": "do as you please", "know": False},
-                    {"def": "to fare or manage", "example": "how are you doing these days?", "know": False},
-                    {"def": "to happen (esp in the phrase nothing doing)", "know": False},
+                    {"def": "to conduct oneself", "example": "do as you please", "mark": "good"},
+                    {"def": "to fare or manage", "example": "how are you doing these days?", "mark": "good"},
+                    {"def": "to happen (esp in the phrase nothing doing)", "mark": "good"},
                 ],
                 "takes an infinitive without to": [
                     {
                         "def": "used as an auxiliary before the subject of an interrogative sentence as a way of "
                                "forming a question",
-                        "example": "do you agree?; when did John go out?", "know": False
+                        "example": "do you agree?; when did John go out?", "mark": "good"
                     },
                     {
                         "def": "used as an auxiliary to intensify positive statements and commands",
-                        "example": "I do like your new house; do hurry!", "know": False
+                        "example": "I do like your new house; do hurry!", "mark": "good"
                     },
                     {
                         "def": "used as an auxiliary before a negative adverb to form negative statements or commands",
-                        "example": "he does not like cheese; do not leave me here alone!", "know": False
+                        "example": "he does not like cheese; do not leave me here alone!", "mark": "good"
                     },
                     {
                         "def": "used as an auxiliary in inverted constructions",
                         "example": "little did he realize that; only rarely does he come in before ten o'clock",
-                        "know": False
+                        "mark": "good"
                     },
                 ]
             }
@@ -338,13 +338,13 @@ class HtmlToJsonTest(unittest.TestCase):
             "value": "noun",
             "defs": {
                 "": [
-                    {"category": "slang", "def": "an act or instance of cheating or swindling", "know": False},
+                    {"category": "slang", "def": "an act or instance of cheating or swindling", "mark": "good"},
                     {
                         "category": "informal, mainly British and New Zealand",
                         "def": "a formal or festive gathering; party",
-                        "know": False
+                        "mark": "good"
                     },
-                    {"def": "(i) See do's and don'ts", "know": False},
+                    {"def": "(i) See do's and don'ts", "mark": "good"},
                 ]
             }
         }, result)
@@ -372,105 +372,105 @@ class HtmlToJsonTest(unittest.TestCase):
                              {
                                  "def": "to perform or complete (a deed or action)",
                                  "example": "to do a portrait; the work is done",
-                                 "know": False
+                                 "mark": "good"
                              },
                              {
                                  "def": "used as an auxiliary to replace an earlier verb or verb phrase to avoid repetition",
                                  "example": "he likes you as much as I do",
-                                 "know": False
+                                 "mark": "good"
                              },
-                             {"def": "(i) See do", "know": False},
-                             {"def": "(i) See do or die", "know": False},
-                             {"def": "(i) See how do you do?", "know": False},
-                             {"def": "(i) See make do", "know": False},
+                             {"def": "(i) See do", "mark": "good"},
+                             {"def": "(i) See do or die", "mark": "good"},
+                             {"def": "(i) See how do you do?", "mark": "good"},
+                             {"def": "(i) See make do", "mark": "good"},
                          ],
                          "often intr; foll by for": [
                              {
                                  "def": "to serve the needs of; be suitable for (a person, situation, etc); suffice",
                                  "example": "there isn't much food, but it'll do for the two of us",
-                                 "know": False
+                                 "mark": "good"
                              },
                          ],
                          "transitive": [
-                             {"def": "to arrange or fix", "example": "you should do the garden now", "know": False},
+                             {"def": "to arrange or fix", "example": "you should do the garden now", "mark": "good"},
                              {"def": "to prepare or provide; serve",
                               "example": "this restaurant doesn't do lunch on Sundays",
-                              "know": False},
+                              "mark": "good"},
                              {"def": "to make tidy, elegant, ready, etc, as by arranging or adorning",
-                              "example": "to do one's hair", "know": False},
-                             {"def": "to improve (esp in the phrase do something to or for)", "know": False},
-                             {"def": "to find an answer to (a problem or puzzle)", "know": False},
+                              "example": "to do one's hair", "mark": "good"},
+                             {"def": "to improve (esp in the phrase do something to or for)", "mark": "good"},
+                             {"def": "to find an answer to (a problem or puzzle)", "mark": "good"},
                              {"def": "to translate or adapt the form or language of",
                               "example": "the book was done into a play",
-                              "know": False},
-                             {"def": "to cause or produce", "example": "complaints do nothing to help", "know": False},
+                              "mark": "good"},
+                             {"def": "to cause or produce", "example": "complaints do nothing to help", "mark": "good"},
                              {"def": "to give or render",
                               "example": "your portrait doesn't do you justice; do me a favour",
-                              "know": False},
+                              "mark": "good"},
                              {"def": "to work at, esp as a course of study or a profession",
                               "example": "he is doing chemistry; "
-                                         "what do you do for a living?", "know": False},
+                                         "what do you do for a living?", "mark": "good"},
                              {"def": "to perform (a play, etc); act", "example": "they are doing 'Hamlet' next week",
-                              "know": False},
+                              "mark": "good"},
                              {"def": "to travel at a specified speed, esp as a maximum",
                               "example": "this car will do 120 mph",
-                              "know": False},
+                              "mark": "good"},
                              {"def": "to travel or traverse (a distance)", "example": "we did 15 miles on our walk",
-                              "know": False},
+                              "mark": "good"},
                              {
                                  "category": "informal",
                                  "def": "to visit or explore as a sightseer or tourist",
                                  "example": "to do Westminster Abbey",
-                                 "know": False
+                                 "mark": "good"
                              },
-                             {"def": "to wear out; exhaust", "know": False},
+                             {"def": "to wear out; exhaust", "mark": "good"},
                              {
                                  "category": "slang",
                                  "def": "to serve (a period of time) as a prison sentence",
                                  "example": "he's doing three years for burglary; he's doing time",
-                                 "know": False
+                                 "mark": "good"
                              },
-                             {"category": "informal", "def": "to cheat or swindle", "know": False},
+                             {"category": "informal", "def": "to cheat or swindle", "mark": "good"},
                              {"category": "slang", "def": "to rob", "example": "they did three shops last night",
-                              "know": False},
+                              "mark": "good"},
                              {
                                  "category": "slang",
                                  "def_subgroup": [
-                                     {"def": "to arrest", "know": False},
-                                     {"def": "to convict of a crime", "know": False}
+                                     {"def": "to arrest", "mark": "good"},
+                                     {"def": "to convict of a crime", "mark": "good"}
                                  ]
                              },
                              {"category": "Australian informal", "def": "to lose or spend (money) completely",
-                              "know": False},
-                             {"category": "slang, mainly British", "def": "to treat violently; assault", "know": False},
-                             {"category": "slang", "def": "to take or use (a drug)", "know": False},
+                              "mark": "good"},
+                             {"category": "slang, mainly British", "def": "to treat violently; assault", "mark": "good"},
+                             {"category": "slang", "def": "to take or use (a drug)", "mark": "good"},
                              {"category": "taboo, slang", "def": "(of a male) to have sexual intercourse with",
-                              "know": False},
-                             {"def": "to arrange (a meal)", "example": "let's do lunch", "know": False},
+                              "mark": "good"},
+                             {"def": "to arrange (a meal)", "example": "let's do lunch", "mark": "good"},
                          ],
                          "intransitive": [
-                             {"def": "to conduct oneself", "example": "do as you please", "know": False},
-                             {"def": "to fare or manage", "example": "how are you doing these days?", "know": False},
-                             {"def": "to happen (esp in the phrase nothing doing)", "know": False},
+                             {"def": "to conduct oneself", "example": "do as you please", "mark": "good"},
+                             {"def": "to fare or manage", "example": "how are you doing these days?", "mark": "good"},
+                             {"def": "to happen (esp in the phrase nothing doing)", "mark": "good"},
                          ],
                          "takes an infinitive without to": [
                              {
                                  "def": "used as an auxiliary before the subject of an interrogative sentence as a way of "
                                         "forming a question",
-                                 "example": "do you agree?; when did John go out?", "know": False
+                                 "example": "do you agree?; when did John go out?", "mark": "good"
                              },
                              {
                                  "def": "used as an auxiliary to intensify positive statements and commands",
-                                 "example": "I do like your new house; do hurry!", "know": False
+                                 "example": "I do like your new house; do hurry!", "mark": "good"
                              },
                              {
                                  "def": "used as an auxiliary before a negative adverb to form negative statements or commands",
-                                 "example": "he does not like cheese; do not leave me here alone!", "know": False
+                                 "example": "he does not like cheese; do not leave me here alone!", "mark": "good"
                              },
                              {
                                  "def": "used as an auxiliary in inverted constructions",
                                  "example": "little did he realize that; only rarely does he come in before ten o'clock",
-                                 "know": False
+                                 "mark": "good"
                              },
                          ]
                      }
@@ -480,13 +480,13 @@ class HtmlToJsonTest(unittest.TestCase):
                      "value": "noun",
                      "defs": {
                          "": [
-                             {"category": "slang", "def": "an act or instance of cheating or swindling", "know": False},
+                             {"category": "slang", "def": "an act or instance of cheating or swindling", "mark": "good"},
                              {
                                  "category": "informal, mainly British and New Zealand",
                                  "def": "a formal or festive gathering; party",
-                                 "know": False
+                                 "mark": "good"
                              },
-                             {"def": "(i) See do's and don'ts", "know": False},
+                             {"def": "(i) See do's and don'ts", "mark": "good"},
                          ]
                      }
                  }
@@ -513,7 +513,7 @@ class HtmlToJsonTest(unittest.TestCase):
                                  "category": "informal",
                                  "def": "to act like; imitate",
                                  "example": "he's a good mimic – he can do all his friends well",
-                                 "know": False
+                                 "mark": "good"
                              },
                          ],
                      }
@@ -540,7 +540,7 @@ class HtmlToJsonTest(unittest.TestCase):
                          "": [
                              {
                                  "def": "(i) a variant spelling of doh",
-                                 "know": False
+                                 "mark": "good"
                              },
                          ],
                      }
@@ -567,7 +567,7 @@ class HtmlToJsonTest(unittest.TestCase):
                          "": [
                              {
                                  "def": "Dominican Republic",
-                                 "know": False
+                                 "mark": "good"
                              },
                          ],
                      }
@@ -592,8 +592,8 @@ class HtmlToJsonTest(unittest.TestCase):
                      "value": "abbreviation for",
                      "defs": {
                          "": [
-                             {"def": "Doctor of Optometry", "know": False},
-                             {"def": "Doctor of Osteopathy", "know": False},
+                             {"def": "Doctor of Optometry", "mark": "good"},
+                             {"def": "Doctor of Osteopathy", "mark": "good"},
                          ],
                      }
                  },
@@ -615,7 +615,7 @@ class HtmlToJsonTest(unittest.TestCase):
                  {
                      "forms": {"items": [], "info": ""},
                      "value": "abbreviation for",
-                     "defs": {"": [{"def": "ditto", "know": False}]}
+                     "defs": {"": [{"def": "ditto", "mark": "good"}]}
                  },
              ]}, result)
 
