@@ -48,7 +48,10 @@ class LearnParser:
     @staticmethod
     def get_note(def_group: etree._Element):
         note_item = def_group.xpath('.//*[@class=" note"]')
-        assert len(note_item) == 1
+        assert len(note_item) <= 1
+
+        if len(note_item) == 0:
+            return None
 
         return ParentHtmlItem(note_item[0]).read()
 

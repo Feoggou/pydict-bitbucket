@@ -8,6 +8,7 @@ from src.html_parser import HtmlParser
 
 class HtmlParserTest(unittest.TestCase):
     def_expected_json = None
+    learn_expected_json = None
     def_html_content = None
 
     syn_expected_json = None
@@ -16,11 +17,15 @@ class HtmlParserTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         path = os.path.dirname(os.path.abspath(__file__))
+        learn_json_file_name = os.path.join(path, "expected_do.learn")
         def_json_file_name = os.path.join(path, "expected_do.def")
         html_file_name = os.path.join(path, "do", "do_defs.html")
 
         syn_json_file_name = os.path.join(path, "expected_do.syn")
         syn_html_file_name = os.path.join(path, "do", "do_syn.html")
+
+        with open(learn_json_file_name) as f:
+            cls.learn_expected_json = json.load(f)
 
         with open(def_json_file_name) as f:
             cls.def_expected_json = json.load(f)
@@ -45,6 +50,12 @@ class HtmlParserTest(unittest.TestCase):
         result = parser.parse_syn("do", HtmlParserTest.syn_html_content)
 
         self.assertEqual(HtmlParserTest.syn_expected_json, result)
+
+    def test_htmlParse_learn_do(self):
+        parser = HtmlParser()
+        result = parser.parse_learn("do", HtmlParserTest.def_html_content)
+
+        self.assertEqual(HtmlParserTest.learn_expected_json["def_groups"], result)
 
 
 if __name__ == '__main__':
