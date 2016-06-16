@@ -15,11 +15,11 @@ class HtmlItem:
         self.use_tail = use_tail
         self.strip = strip
 
-        print_vb("text: '{}'".format(etree_item.text))
-        print_vb("tail: '{}'".format(etree_item.tail))
-
         self.text = etree_item.text if etree_item.text is not None else ""
         self.tail = etree_item.tail if etree_item.tail is not None else ""
+
+        print_vb("text: '{}'".format(self.text))
+        print_vb("tail: '{}'".format(self.tail))
 
     def read(self):
         text = self.text
@@ -55,11 +55,13 @@ class HtmlItemCreator:
 
         HtmlItemCreator.ALL_CLASSES = {
             # "xr": ParentHtmlItem,  # XrItem,
+            " xr": ParentHtmlItem,
             "xr_ref": ParentHtmlItem,  # XrRefItem,
             # "xr_ref_link": XrRefLinkItem,
             # "lbl register": ParentHtmlItem,  # LblRegisterItem,
             " lbl": ParentHtmlItem,
             # "orth": HtmlItemCreator.create_nothing,
+            " orth": ParentHtmlItem,
             "ref": ParentHtmlItem,  # don't know if it appears as parent, but it's better to make sure!
             " colloc": ParentHtmlItem,
             " hi": ParentHtmlItem,  # don't know if it appears as parent, but it's better to make sure!
