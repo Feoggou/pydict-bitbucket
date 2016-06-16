@@ -1,44 +1,6 @@
 import re
 
-from src import colors
-
-
-class ColoredText:
-    reset_color = ""
-    title_color = ""
-    h1_color = ""
-    word_color = ""
-    gram_color = ""
-    usage_color = ""
-
-    @staticmethod
-    def init_values():
-        ColoredText.reset_color = colors.RESET
-        ColoredText.title_color = colors.RED
-        ColoredText.h1_color = colors.BLUE
-        ColoredText.word_color = colors.BOLDBLACK
-        ColoredText.gram_color = colors.RED
-        ColoredText.usage_color = colors.GREEN
-
-    @staticmethod
-    def colored_title(s: str):
-        return ColoredText.title_color + s + ColoredText.reset_color
-
-    @staticmethod
-    def colored_h1(s: str):
-        return ColoredText.h1_color + s + ColoredText.reset_color
-
-    @staticmethod
-    def colored_word(s: str):
-        return ColoredText.word_color + s + ColoredText.reset_color
-
-    @staticmethod
-    def colored_gram(s: str):
-        return ColoredText.gram_color + s + ColoredText.reset_color
-
-    @staticmethod
-    def colored_usage(s: str):
-        return ColoredText.usage_color + s + ColoredText.reset_color
+from src.colors import ColoredText
 
 
 class DefinitionReader:
