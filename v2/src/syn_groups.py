@@ -1,5 +1,7 @@
 from .syn_parser import SynParser
 
+# TODO: try to merge syn_groups with def_groups
+
 
 class JsonGroup:
     def __init__(self, dict_parser: SynParser):
