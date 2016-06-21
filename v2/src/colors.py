@@ -29,12 +29,12 @@ class ColoredText:
 
     @staticmethod
     def init_values():
-        ColoredText.reset_color = colors.RESET
-        ColoredText.title_color = colors.RED
-        ColoredText.h1_color = colors.BLUE
-        ColoredText.word_color = colors.BOLDBLACK
-        ColoredText.gram_color = colors.RED
-        ColoredText.usage_color = colors.GREEN
+        ColoredText.reset_color = RESET
+        ColoredText.title_color = RED
+        ColoredText.h1_color = BLUE
+        ColoredText.word_color = BOLDBLACK
+        ColoredText.gram_color = RED
+        ColoredText.usage_color = GREEN
 
     @staticmethod
     def colored_title(s: str):

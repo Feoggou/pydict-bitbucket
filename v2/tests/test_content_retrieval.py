@@ -40,11 +40,13 @@ class ContentRetrievalTest(unittest.TestCase):
             with patch.object(HtmlParser, 'parse') as mock_parser:
                 mock_parser.return_value = ContentRetrievalTest.expected_json
 
-                content_retrieval = ContentRetrieval(from_web=True)
-                result = content_retrieval.get_def_content()
+                with patch.object(HtmlParser, 'parse_learn'):
+                    content_retrieval = ContentRetrieval(from_web=True)
+                    result, learn_content = content_retrieval.get_def_content()
 
         mock_fetch.assert_called_once_with()
         mock_parser.assert_called_once_with("do", ContentRetrievalTest.html_content)
+
         self.assertEqual(ContentRetrievalTest.expected_json, result)
 
     def test_getDef_do_usingLocal_returnsContent(self):
@@ -54,8 +56,9 @@ class ContentRetrievalTest(unittest.TestCase):
             with patch.object(HtmlParser, 'parse') as mock_parser:
                 mock_parser.return_value = ContentRetrievalTest.expected_json
 
-                content_retrieval = ContentRetrieval(from_web=False)
-                result = content_retrieval.get_def_content()
+                with patch.object(HtmlParser, 'parse_learn'):
+                    content_retrieval = ContentRetrieval(from_web=False)
+                    result, learn_content = content_retrieval.get_def_content()
 
         mock_fetch.assert_called_once_with()
         mock_parser.assert_called_once_with("do", ContentRetrievalTest.html_content)

@@ -12,7 +12,10 @@ class ContentRetrieval:
         # TODO: save html
 
         parser = HtmlParser()
-        return parser.parse("do", html_content)
+        def_content = parser.parse("do", html_content)
+        learn_content = parser.parse_learn("do", html_content)
+
+        return def_content, learn_content
 
     def get_syn_content(self):
         fetcher = self.Fetcher("do")

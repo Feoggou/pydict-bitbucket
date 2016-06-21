@@ -6,15 +6,18 @@ from src.content_retrieval import ContentRetrieval
 def process_input(input: str):
     content_retrieval = ContentRetrieval(from_web=False)
 
-    def_content = content_retrieval.get_def_content()
+    def_content, learn_content = content_retrieval.get_def_content()
     # TODO: syn content
     syn_content = content_retrieval.get_syn_content()
 
     saver = JsonSaver()
     saver.save("do.def", def_content)
+    saver.save("do.learn", learn_content)
     saver.save("do.syn", syn_content)
 
     printer = JsonPrinter()
     printer.print(def_content)
+
+    printer.print_learn(learn_content)
 
 
