@@ -1,6 +1,6 @@
 import unittest
 from unittest import mock
-from unittest.mock import  patch, call
+from unittest.mock import patch, call
 
 from src.input_processor import process_input
 from src.json_save import JsonSaver

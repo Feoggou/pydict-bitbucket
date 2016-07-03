@@ -1,5 +1,6 @@
 from src.json_reader import JsonReader
 from src.json_learn_reader import JsonLearnReader
+from src.json_syn_reader import JsonSynReader
 
 
 class JsonPrinter:
@@ -10,5 +11,10 @@ class JsonPrinter:
 
     def print_learn(self, content):
         reader = JsonLearnReader(content, use_colors=True)
+        text = reader.read_content()
+        print(text)
+
+    def print_syn(self, content):
+        reader = JsonSynReader(content, use_colors=True)
         text = reader.read_content()
         print(text)
