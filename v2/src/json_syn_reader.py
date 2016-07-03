@@ -6,14 +6,8 @@ from src.colors import ColoredText
 class SynReader:
     tab = "    "
 
-    def __init__(self, defs: list):
-        self.defs = defs
-
-    @staticmethod
-    def _read_category(obj: dict):
-        if "category" in obj.keys():
-            return "({}) ".format(obj["category"])
-        return ""
+    def __init__(self, syn_line: dict):
+        self.syn_line = syn_line
 
     @staticmethod
     def _read_example(obj: dict):
@@ -22,66 +16,50 @@ class SynReader:
         return ""
 
     @staticmethod
-    def _read_subdefinition(subdef: dict, level: int):
-        items = SynReader._read_def_item(subdef, level)
-        return "".join([" " * (level * 5) + line for line in items])
+    def _read_syn_line(obj: dict):
+        items = []
+        for key in obj.keys():
+            if len(obj[key]):
+                item = "({}) {}".format(obj[key], key)
+            else:
+                item = key
 
-    @staticmethod
-    def _read_def_subgroup(subgroup: dict, level: int):
-        text = "o) "
-        text += SynReader._read_category(subgroup) + "\n"
+            items.append(item)
 
-        for subdef in subgroup["def_subgroup"]:
-            text += SynReader._read_subdefinition(subdef, level)
+        text = ", ".join(items)
         return text
 
     @staticmethod
-    def _read_def_item(definition: dict, level: int) -> list:
+    def _read_syn_item(syn_obj: dict) -> list:
         items = list()
 
-        def_text = ""
-
-        if "def" in definition.keys():
-            def_text = ("*) " if level > 0 else "") + SynReader._read_category(definition) + definition["def"] + "\n"
-        elif "def_subgroup" in definition.keys():
-            # sub-subdefinition - beam
-            def_text = SynReader._read_def_subgroup(definition, level + 1)
+        def_text = SynReader._read_syn_line(syn_obj["syn_line"]) + "\n"
 
         items.append(def_text)
-
-        items.append(SynReader._read_example(definition))
+        items.append(SynReader._read_example(syn_obj))
         if '' in items:
             items.remove('')
 
         return items
 
     @staticmethod
-    def read_definition(obj: dict):
-        if "def_subgroup" in obj.keys():
-            return SynReader._read_def_subgroup(obj, level=1)
-        else:
-            return "o) " + "".join(SynReader._read_def_item(obj, level=0))
+    def read_syn(obj: dict):
+        return "o) " + "".join(SynReader._read_syn_item(obj))
 
     def __call__(self) -> str:
-        text = ""
-
-        for item in self.defs:
-            text += self.read_definition(item)
+        text = self.read_syn(self.syn_line)
 
         return text
 
 
-class DefUsageGroupReader:
+class DefSynsReader:
     def __init__(self, obj: dict):
-        self.usage_groups = obj
+        self.syns_groups = obj
 
-    def read_usage_group(self, usage_name: str):
+    def read_syn_group(self, syn_line: dict):
         text = ""
 
-        if len(usage_name) > 0:
-            text += ColoredText.colored_usage(usage_name + ":\n")
-
-        def_reader = SynReader(self.usage_groups[usage_name])
+        def_reader = SynReader(syn_line)
         text += def_reader()
         text += "\n"
         return text
@@ -89,8 +67,8 @@ class DefUsageGroupReader:
     def __call__(self) -> str:
         text = ""
 
-        for usage_name in self.usage_groups:
-            text += self.read_usage_group(usage_name)
+        for syn_line in self.syns_groups:
+            text += self.read_syn_group(syn_line)
 
         return text
 
@@ -108,35 +86,13 @@ class GramGroupReader:
 
         return text
 
-    @staticmethod
-    def _read_word_forms(obj: dict):
-        text = ""
-
-        if "forms" in obj.keys() and len(obj["forms"]["items"]) > 0:
-            forms = "(" + ", ".join(obj["forms"]["items"]) + ")"
-            if "info" in obj["forms"].keys():
-                info = obj["forms"]["info"]
-                if len(info) > 0:
-                    forms += " -- " + info
-
-            text += ColoredText.colored_title(forms)
-
-        return text
-
     def read_gram_group(self, gram_group: dict):
-        text = ""
         value = self._read_gram_value(gram_group)
-        forms = self._read_word_forms(gram_group)
 
-        if len(value) and len(forms):
-            text += value + " " + forms + "\n"
-        elif len(value) == len(forms) == 0:
-            pass
-        else:
-            text += value + forms + "\n"
+        text = value + "\n"
 
-        usage_groups = DefUsageGroupReader(gram_group["defs"])
-        text += usage_groups()
+        syns_groups = DefSynsReader(gram_group["syns"])
+        text += syns_groups()
         text += "\n"
         return text
 
@@ -151,23 +107,14 @@ class GramGroupReader:
 
 class DefGroupReader:
     def __init__(self, obj: dict):
-        self.def_groups = obj
+        self.def_group = obj
 
     @staticmethod
     def _read_word(obj: dict):
         return ColoredText.colored_word(obj["word"]) + "\n"
 
-    @staticmethod
-    def _read_frequency(obj: dict) -> str:
-        if "frequency" in obj and len(obj["frequency"]) > 0:
-            return ColoredText.colored_title("[{}]\n\n".format(obj["frequency"])) + "\n"
-
-        return ""
-
     def read_def_group(self, def_group: dict):
         text = self._read_word(def_group)
-
-        text += self._read_frequency(def_group)
 
         g_reader = GramGroupReader(def_group["gram_groups"])
         text += g_reader()
@@ -175,10 +122,7 @@ class DefGroupReader:
         return text
 
     def __call__(self) -> str:
-        text = ""
-
-        for item in self.def_groups:
-            text += self.read_def_group(item)
+        text = self.read_def_group(self.def_group)
 
         return text
 
@@ -186,64 +130,13 @@ class DefGroupReader:
 class JsonSynReader:
     def __init__(self, content: dict, use_colors: bool = True):
         self.content = content
-        self.keys = {
-            # "frequency": self.frequency,
-            "def_groups": self.definitions,
-            "translations": self.translations,
-            "examples": self.examples,
-            # "my_examples": self.my_examples,
-        }
 
         if use_colors:
             ColoredText.init_values()
 
-    """def frequency(self) -> str:
-        return ColoredText.colored_title("[{}]\n\n".format(self.content["frequency"]))"""
-
-    def definitions(self) -> str:
-        text = ColoredText.colored_h1("DEFINTIONS\n")
-
-        reader = DefGroupReader(self.content["def_groups"])
-        text += reader()
-
-        return text
-
-    def translations(self) -> str:
-        text = ColoredText.colored_h1("TRANSLATIONS\n")
-
-        for transl in self.content["translations"]:
-            text += ColoredText.colored_word(transl["word"]) + "\n"
-            text += ColoredText.colored_gram(transl["value"]) + "\n"
-            text += transl["def"] + "\n"
-            text += "{}e.g. {}\n".format(SynReader.tab, transl["example"])
-
-        text += "\n\n\n"
-
-        return text
-
-    def examples(self) -> str:
-        text = ColoredText.colored_h1("EXAMPLES\n")
-        text += "\n".join("o) " + example for example in self.content["examples"])
-
-        text += "\n\n"
-        return text
-
-    """def my_examples(self) -> str:
-        text = ColoredText.colored_h1("MY EXAMPLES\n")
-        text += "\n".join("o) " + example["example"] for example in self.content["my_examples"])
-
-        text += "\n\n"
-        return text"""
-
-    def read_by_key(self, key: str) -> str:
-        if key in self.content and len(self.content[key]):
-            return self.keys[key]()
-        return ""
-
     def read_content(self) -> str:
-        text = self.read_by_key("def_groups")
-        text += self.read_by_key("translations")
-        text += self.read_by_key("examples")
+        reader = DefGroupReader(self.content)
+        text = reader()
         text += "\n"
 
         return text
