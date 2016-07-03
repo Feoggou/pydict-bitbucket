@@ -1,13 +1,17 @@
 import re
 
 from src.json_save import JsonSaver
+from src.json_load import JsonLoader
 from src.json_print import JsonPrinter
 from src.content_retrieval import ContentRetrieval
 
 
 def print_syn(word: str):
     printer = JsonPrinter()
-    content = None
+    file_name = word + ".syn"
+
+    content = JsonLoader().load(file_name)
+
     printer.print_syn(content)
 
 
