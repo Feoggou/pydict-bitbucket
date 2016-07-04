@@ -2,6 +2,8 @@ DEFINTIONS
 do
 [Extremely Common]
 
+origin
+Old English dōn; related to Old Frisian duān, Old High German tuon, Latin abdere to put away, Greek tithenai to place; see deed, doom
 
 verb (does, doing, did, done)
 o) to perform or complete (a deed or action)

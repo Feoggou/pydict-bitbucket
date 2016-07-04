@@ -158,9 +158,15 @@ class DefGroupReader:
         return ColoredText.colored_word(obj["word"]) + "\n"
 
     @staticmethod
+    def _read_origin(obj: dict):
+        if "origin" in obj.keys():
+            return ColoredText.colored_h1("origin") + "\n" + obj["origin"] + "\n\n"
+        return ""
+
+    @staticmethod
     def _read_frequency(obj: dict) -> str:
         if "frequency" in obj and len(obj["frequency"]) > 0:
-            return ColoredText.colored_title("[{}]\n\n".format(obj["frequency"])) + "\n"
+            return ColoredText.colored_title("[{}]\n\n".format(obj["frequency"]))
 
         return ""
 
@@ -168,6 +174,7 @@ class DefGroupReader:
         text = self._read_word(def_group)
 
         text += self._read_frequency(def_group)
+        text += self._read_origin(def_group)
 
         g_reader = GramGroupReader(def_group["gram_groups"])
         text += g_reader()
