@@ -1,233 +1,231 @@
-{
-    "def_groups": [
-        {
-            "word": "do - auxiliary verb uses",
-            "forms": ["does", "doing", "did", "done"],
-            "note": 
-                "Do is used as an auxiliary with the simple present tense. Did is used as an auxiliary with the simple past tense. In spoken English, negative forms of do are often shortened, for example do not is shortened to don't and did not is shortened to didn't.",
-            "gram_groups": [
-                {
-                    "value": "auxiliary verb",
-                    "defs": [
-                        {
-                            "def": "Do is used to form the negative of main verbs, by putting 'not' after 'do' and before the main verb in its infinitive form, that is the form without 'to'.",
-                            "examples": ["They don't want to work.", "I did not know Jamie had a knife.", "It doesn't matter if you win or lose."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "Do is used to form questions, by putting the subject after 'do' and before the main verb in its infinitive form, that is the form without 'to'.",
-                            "examples": ["Do you like music?", "What did he say?", "Where does she live?"],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "Do is used in question tags.",
-                            "examples": ["You know about Andy, don't you?", "I'm sure they had some of the same questions last year didn't they?"],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "You use do when you are confirming or contradicting a statement containing 'do', or giving a negative or positive answer to a question.",
-                            "examples": ["'Did he think there was anything suspicious going on?'—'Yes, he did.'.", "'Do you have a metal detector?'—'No, I don't.'.", "They say they don't care, but they do."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "Do is used with a negative to tell someone not to behave in a certain way.",
-                            "examples": ["Don't be silly.", "Don't touch that!"],
-                            "mark": "good"
-                        },
-                        {
-                            "category": "emphasis",
-                            "def": "Do is used to give emphasis to the main verb when there is no other auxiliary.",
-                            "examples": ["Veronica, I do understand.", "You did have a tape recorder with you."],
-                            "mark": "good"
-                        },
-                        {
-                            "category": "politeness",
-                            "def": "Do is used as a polite way of inviting or trying to persuade someone to do something.",
-                            "examples": ["Do sit down.", "Do help yourself to another drink."],
-                            "mark": "good"
-                        }
-                    ]
-                },
-                {
-                    "value": "verb",
-                    "defs": [
-                        {
-                            "def": "Do can be used to refer back to another verb group when you are comparing or contrasting two things, or saying that they are the same.",
-                            "examples": [
-                                "I make more money than he does.",
-                                "One day she will walk out, just as her own mother did.",
-                                "I had fantasies, as do all mothers, about how life would be when my girls were grown.",
-                                "Girls receive less health care and less education in the developing world than do boys."
-                                ],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "You use do after 'so' and 'nor' to say that the same statement is true for two people or groups.",
-                            "examples": ["You know that's true, and so do I.", "We don't forget that. Nor does he.", "Her actions and thoughts became distorted. So did her behavior."],
-                            "mark": "good"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "word": "do - other verb uses",
-            "forms": ["does", "doing", "did", "done"],
-            "note": "do is used in a large number of expressions which are explained under other words in the dictionary. For example, the expression 'easier said than done' is explained at 'easy'.",
-            "gram_groups": [
-                {
-                    "value": "verb",
-                    "defs": [
-                        {
-                            "def": "When you do something, you take some action or perform an activity or task. Do is often used instead of a more specific verb, to talk about a common action involving a particular thing. For example you can say 'do your teeth' instead of 'brush your teeth'.",
-                            "examples": ["I was trying to do some work.", "After lunch Elizabeth and I did the washing up.", "Dad does the garden.", "Let me do your hair."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "Do can be used to stand for any verb group, or to refer back to another verb group, including one that was in a previous sentence.",
-                            "examples": [
-                                "What are you doing?",
-                                "So tell me what this molecule does that makes it special.",
-                                "Think twice before doing anything.",
-                                "A lot of people got arrested for looting so they will think before they do it again.",
-                                "I'm glad they gave me my money back, but I think they did this to shut me up.",
-                                "The first thing is to get some more food. When we've done that we ought to start again.",
-                                "Brian counted to twenty and lifted his binoculars. Elena did the same.",
-                                "He turned towards the open front door but, as he did so, she pushed past him."
+[
+    {
+        "word": "do - auxiliary verb uses",
+        "forms": ["does", "doing", "did", "done"],
+        "note": 
+            "Do is used as an auxiliary with the simple present tense. Did is used as an auxiliary with the simple past tense. In spoken English, negative forms of do are often shortened, for example do not is shortened to don't and did not is shortened to didn't.",
+        "gram_groups": [
+            {
+                "value": "auxiliary verb",
+                "defs": [
+                    {
+                        "def": "Do is used to form the negative of main verbs, by putting 'not' after 'do' and before the main verb in its infinitive form, that is the form without 'to'.",
+                        "examples": ["They don't want to work.", "I did not know Jamie had a knife.", "It doesn't matter if you win or lose."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "Do is used to form questions, by putting the subject after 'do' and before the main verb in its infinitive form, that is the form without 'to'.",
+                        "examples": ["Do you like music?", "What did he say?", "Where does she live?"],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "Do is used in question tags.",
+                        "examples": ["You know about Andy, don't you?", "I'm sure they had some of the same questions last year didn't they?"],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "You use do when you are confirming or contradicting a statement containing 'do', or giving a negative or positive answer to a question.",
+                        "examples": ["'Did he think there was anything suspicious going on?'—'Yes, he did.'.", "'Do you have a metal detector?'—'No, I don't.'.", "They say they don't care, but they do."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "Do is used with a negative to tell someone not to behave in a certain way.",
+                        "examples": ["Don't be silly.", "Don't touch that!"],
+                        "mark": "good"
+                    },
+                    {
+                        "category": "emphasis",
+                        "def": "Do is used to give emphasis to the main verb when there is no other auxiliary.",
+                        "examples": ["Veronica, I do understand.", "You did have a tape recorder with you."],
+                        "mark": "good"
+                    },
+                    {
+                        "category": "politeness",
+                        "def": "Do is used as a polite way of inviting or trying to persuade someone to do something.",
+                        "examples": ["Do sit down.", "Do help yourself to another drink."],
+                        "mark": "good"
+                    }
+                ]
+            },
+            {
+                "value": "verb",
+                "defs": [
+                    {
+                        "def": "Do can be used to refer back to another verb group when you are comparing or contrasting two things, or saying that they are the same.",
+                        "examples": [
+                            "I make more money than he does.",
+                            "One day she will walk out, just as her own mother did.",
+                            "I had fantasies, as do all mothers, about how life would be when my girls were grown.",
+                            "Girls receive less health care and less education in the developing world than do boys."
                             ],
-                            "mark": "good"
-                        },
-                        {
-                            "category": "emphasis",
-                            "def":
-                                "You can use do in a clause at the beginning of a sentence after words like 'what' and 'all', to give special emphasis to the information that comes at the end of the sentence.",
-                            "examples": ["All she does is complain.", "What I should do is go and see her.", "The best that can be done is to make things as difficult as possible."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If you do a particular thing with something, you use it in that particular way.",
-                            "examples": ["I was allowed to do whatever I wanted with my life.", "What did he do with the thirty pounds?", "The technology was good, but you couldn't do much with it."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If you do something about a problem, you take action to try to solve it.",
-                            "examples": [
-                                "They refuse to do anything about the real cause of crime: poverty.",
-                                "Well, what are you going to do about it?",
-                                "Sexual harassment, that's against the law. Something should be done about it.",
-                                "If an engine packs in, there's not much the engineer can do about it until the plane is back on the ground."
-                                ],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If an action or event does a particular thing, such as harm or good, it has that result or effect.",
-                            "examples": ["A few bombs can do a lot of damage.", "It'll do you good to take a rest.", "The publicity did her career no harm."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "You can use do to talk about the degree to which a person, action, or event affects or improves a particular situation.",
-                            "examples": [
-                                "The current reforms will do much to create these conditions.",
-                                "They did everything they could to help us.",
-                                "He said that the opposition had done everything possible to sabotage the elections.",
-                                "Such incidents do nothing for live music's reputation.",
-                                "I'd just tried to do what I could for Lou."
+                        "mark": "good"
+                    },
+                    {
+                        "def": "You use do after 'so' and 'nor' to say that the same statement is true for two people or groups.",
+                        "examples": ["You know that's true, and so do I.", "We don't forget that. Nor does he.", "Her actions and thoughts became distorted. So did her behavior."],
+                        "mark": "good"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "word": "do - other verb uses",
+        "forms": ["does", "doing", "did", "done"],
+        "note": "do is used in a large number of expressions which are explained under other words in the dictionary. For example, the expression 'easier said than done' is explained at 'easy'.",
+        "gram_groups": [
+            {
+                "value": "verb",
+                "defs": [
+                    {
+                        "def": "When you do something, you take some action or perform an activity or task. Do is often used instead of a more specific verb, to talk about a common action involving a particular thing. For example you can say 'do your teeth' instead of 'brush your teeth'.",
+                        "examples": ["I was trying to do some work.", "After lunch Elizabeth and I did the washing up.", "Dad does the garden.", "Let me do your hair."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "Do can be used to stand for any verb group, or to refer back to another verb group, including one that was in a previous sentence.",
+                        "examples": [
+                            "What are you doing?",
+                            "So tell me what this molecule does that makes it special.",
+                            "Think twice before doing anything.",
+                            "A lot of people got arrested for looting so they will think before they do it again.",
+                            "I'm glad they gave me my money back, but I think they did this to shut me up.",
+                            "The first thing is to get some more food. When we've done that we ought to start again.",
+                            "Brian counted to twenty and lifted his binoculars. Elena did the same.",
+                            "He turned towards the open front door but, as he did so, she pushed past him."
+                        ],
+                        "mark": "good"
+                    },
+                    {
+                        "category": "emphasis",
+                        "def":
+                            "You can use do in a clause at the beginning of a sentence after words like 'what' and 'all', to give special emphasis to the information that comes at the end of the sentence.",
+                        "examples": ["All she does is complain.", "What I should do is go and see her.", "The best that can be done is to make things as difficult as possible."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If you do a particular thing with something, you use it in that particular way.",
+                        "examples": ["I was allowed to do whatever I wanted with my life.", "What did he do with the thirty pounds?", "The technology was good, but you couldn't do much with it."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If you do something about a problem, you take action to try to solve it.",
+                        "examples": [
+                            "They refuse to do anything about the real cause of crime: poverty.",
+                            "Well, what are you going to do about it?",
+                            "Sexual harassment, that's against the law. Something should be done about it.",
+                            "If an engine packs in, there's not much the engineer can do about it until the plane is back on the ground."
                             ],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "You can talk about what someone or something does to a person to mean that they have a very harmful effect on them.",
-                            "examples": ["I saw what the liquor was doing to her.", "You overlook the pressure you're under and what it does to you."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If you ask someone what they do, you want to know what their job or profession is.",
-                            "examples": ["What does your father do?", "He knew what he wanted to do from the age of 14."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If you are doing something, you are busy or active in some way, or have planned an activity for some time in the future.",
-                            "examples": ["Are you doing anything tomorrow night?", "'What are you doing for Christmas?' Ella asked. 'We're going to Aunt Molly's.'.", "There is nothing to do around here."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If you say that someone or something does well or badly, you are talking about how successful or unsuccessful they are.",
-                            "examples": ["Connie did well at school and graduated with honours.", "Out-of-town superstores are doing well.", "How did I do?"],
-                            "mark": "good"
-                        },
-                        {
-                            "category": "mainly British",
-                            "def": "If a person or organization does a particular service or product, they provide that service or sell that product.",
-                            "examples": ["They provide design services and do printing and packaging.", "They do a good range of herbal tea."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "You can use do when referring to the speed or rate that something or someone achieves or is able to achieve.",
-                            "examples": ["They were doing 70 miles an hour.", "His catamaran will do 37 knots."],
-                            "mark": "good"
-                        },
-                        {
-                            "category": "spoken",
-                            "def": "If you do a subject, author, or book, you study them at school or college.",
-                            "examples": ["I'd like to do maths at university.", "'So you did 'Macbeth' in the first year?'—'No, in the first year we did 'Julius Caesar'.'"],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If you do a particular person, accent, or role, you imitate that person or accent, or act that role.",
-                            "examples": ["Gina does accents extremely well."],
-                            "mark": "good"
-                        },
-                        {
-                            "category": "informal",
-                            "def": "You can use do to say that you are able or unable to behave in a particular way.",
-                            "examples": ["'Can't you be nicer to your sister?'—'Nice? I don't do nice'."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If someone does drugs, they take illegal drugs.",
-                            "examples": ["I don't do drugs.", "I saw him doing ecstasy in the toilets."],
-                            "mark": "good"
-                        },
-                        {
-                            "def": "If you say that something will do or will do you, you mean that there is enough of it or that it is of good enough quality to meet your requirements or to satisfy you.",
-                            "examples": ["Anything to create a scene and attract attention will do.", "We need a win–a draw won't do at all.", "'What would you like to eat?'—'Anything'll do me, Eva.'"],
-                            "mark": "good"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "word": "do - noun uses",
-            "forms": ["dos"],
-            "gram_groups": [
-                {
-                    "value": "countable noun",
-                    "defs": [
-                        {
-                            "category": "mainly British, informal",
-                            "def": "A do is a party, dinner party, or other social event.",
-                            "examples": ["A friend of his is having a do in Stoke.", "They always have all-night dos there."],
-                            "mark": "good"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "word": "do.",
-            "forms": [],
-            "gram_groups": [
-                {
-                    "value": "",
-                    "defs": [
-                        {
-                            "def": "do. is an old-fashioned written abbreviation for ditto.",
-                            "mark": "good"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If an action or event does a particular thing, such as harm or good, it has that result or effect.",
+                        "examples": ["A few bombs can do a lot of damage.", "It'll do you good to take a rest.", "The publicity did her career no harm."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "You can use do to talk about the degree to which a person, action, or event affects or improves a particular situation.",
+                        "examples": [
+                            "The current reforms will do much to create these conditions.",
+                            "They did everything they could to help us.",
+                            "He said that the opposition had done everything possible to sabotage the elections.",
+                            "Such incidents do nothing for live music's reputation.",
+                            "I'd just tried to do what I could for Lou."
+                        ],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "You can talk about what someone or something does to a person to mean that they have a very harmful effect on them.",
+                        "examples": ["I saw what the liquor was doing to her.", "You overlook the pressure you're under and what it does to you."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If you ask someone what they do, you want to know what their job or profession is.",
+                        "examples": ["What does your father do?", "He knew what he wanted to do from the age of 14."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If you are doing something, you are busy or active in some way, or have planned an activity for some time in the future.",
+                        "examples": ["Are you doing anything tomorrow night?", "'What are you doing for Christmas?' Ella asked. 'We're going to Aunt Molly's.'.", "There is nothing to do around here."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If you say that someone or something does well or badly, you are talking about how successful or unsuccessful they are.",
+                        "examples": ["Connie did well at school and graduated with honours.", "Out-of-town superstores are doing well.", "How did I do?"],
+                        "mark": "good"
+                    },
+                    {
+                        "category": "mainly British",
+                        "def": "If a person or organization does a particular service or product, they provide that service or sell that product.",
+                        "examples": ["They provide design services and do printing and packaging.", "They do a good range of herbal tea."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "You can use do when referring to the speed or rate that something or someone achieves or is able to achieve.",
+                        "examples": ["They were doing 70 miles an hour.", "His catamaran will do 37 knots."],
+                        "mark": "good"
+                    },
+                    {
+                        "category": "spoken",
+                        "def": "If you do a subject, author, or book, you study them at school or college.",
+                        "examples": ["I'd like to do maths at university.", "'So you did 'Macbeth' in the first year?'—'No, in the first year we did 'Julius Caesar'.'"],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If you do a particular person, accent, or role, you imitate that person or accent, or act that role.",
+                        "examples": ["Gina does accents extremely well."],
+                        "mark": "good"
+                    },
+                    {
+                        "category": "informal",
+                        "def": "You can use do to say that you are able or unable to behave in a particular way.",
+                        "examples": ["'Can't you be nicer to your sister?'—'Nice? I don't do nice'."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If someone does drugs, they take illegal drugs.",
+                        "examples": ["I don't do drugs.", "I saw him doing ecstasy in the toilets."],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If you say that something will do or will do you, you mean that there is enough of it or that it is of good enough quality to meet your requirements or to satisfy you.",
+                        "examples": ["Anything to create a scene and attract attention will do.", "We need a win–a draw won't do at all.", "'What would you like to eat?'—'Anything'll do me, Eva.'"],
+                        "mark": "good"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "word": "do - noun uses",
+        "forms": ["dos"],
+        "gram_groups": [
+            {
+                "value": "countable noun",
+                "defs": [
+                    {
+                        "category": "mainly British, informal",
+                        "def": "A do is a party, dinner party, or other social event.",
+                        "examples": ["A friend of his is having a do in Stoke.", "They always have all-night dos there."],
+                        "mark": "good"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "word": "do.",
+        "forms": [],
+        "gram_groups": [
+            {
+                "value": "",
+                "defs": [
+                    {
+                        "def": "do. is an old-fashioned written abbreviation for ditto.",
+                        "mark": "good"
+                    }
+                ]
+            }
+        ]
+    }
+]

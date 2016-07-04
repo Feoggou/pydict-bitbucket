@@ -89,7 +89,7 @@ class DefUsageGroupReader:
     def __call__(self) -> str:
         text = ""
 
-        for usage_name in self.usage_groups:
+        for usage_name in sorted(self.usage_groups.keys()):
             text += self.read_usage_group(usage_name)
 
         return text

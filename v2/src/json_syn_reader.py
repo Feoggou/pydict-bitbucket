@@ -18,7 +18,7 @@ class SynReader:
     @staticmethod
     def _read_syn_line(obj: dict):
         items = []
-        for key in obj.keys():
+        for key in sorted(obj.keys()):
             if len(obj[key]):
                 item = "({}) {}".format(obj[key], key)
             else:

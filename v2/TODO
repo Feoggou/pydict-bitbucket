@@ -1,5 +1,9 @@
-other words beside "do"
-other commands beside "get word"
+other words beside "do":
+    word: "tall" (has opposite)
+
+other commands beside "get word":
+    syn
+
 it is not the Fetcher who decides whether to take from Local or Web: we must first try Local, and only if not found, try web.
 
 update:
