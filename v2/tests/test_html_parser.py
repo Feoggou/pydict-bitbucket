@@ -55,7 +55,7 @@ class HtmlParserTest(unittest.TestCase):
         parser = HtmlParser()
         result = parser.parse_learn("do", HtmlParserTest.def_html_content)
 
-        self.assertEqual(HtmlParserTest.learn_expected_json["def_groups"], result)
+        self.assertEqual(HtmlParserTest.learn_expected_json, result)
 
 
 if __name__ == '__main__':

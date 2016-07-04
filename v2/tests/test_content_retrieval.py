@@ -42,7 +42,7 @@ class ContentRetrievalTest(unittest.TestCase):
 
                 with patch.object(HtmlParser, 'parse_learn'):
                     content_retrieval = ContentRetrieval(from_web=True)
-                    result, learn_content = content_retrieval.get_def_content()
+                    result, learn_content = content_retrieval.get_def_content("do")
 
         mock_fetch.assert_called_once_with()
         mock_parser.assert_called_once_with("do", ContentRetrievalTest.html_content)
@@ -58,11 +58,38 @@ class ContentRetrievalTest(unittest.TestCase):
 
                 with patch.object(HtmlParser, 'parse_learn'):
                     content_retrieval = ContentRetrieval(from_web=False)
-                    result, learn_content = content_retrieval.get_def_content()
+                    result, learn_content = content_retrieval.get_def_content("do")
 
         mock_fetch.assert_called_once_with()
         mock_parser.assert_called_once_with("do", ContentRetrievalTest.html_content)
         self.assertEqual(ContentRetrievalTest.expected_json, result)
+
+    def test_getContentDef_tall_retrievesContent(self):
+        """
+        input: word to retrieve
+        result: content for tall.
+        """
+
+        exp_json = "dummy_value"
+        html_content = "dummy_html_content"
+
+        # must:
+        # a. fetch html
+        # b. transform to json (parse)
+        with patch.object(WebHtmlFetcher, 'fetch') as mock_fetch:
+            mock_fetch.return_value = html_content  # ContentRetrievalTest.html_content
+
+            with patch.object(HtmlParser, 'parse') as mock_parser:
+                mock_parser.return_value = exp_json  # ContentRetrievalTest.expected_json
+
+                with patch.object(HtmlParser, 'parse_learn'):
+                    content_retrieval = ContentRetrieval(from_web=True)
+                    result, learn_content = content_retrieval.get_def_content("tall")
+
+        mock_fetch.assert_called_once_with()
+        mock_parser.assert_called_once_with("tall", html_content)   # ContentRetrievalTest.html_content)
+
+        self.assertEqual(exp_json, result)
 
 
 if __name__ == '__main__':

@@ -15,15 +15,15 @@ def print_syn(word: str):
     printer.print_syn(content)
 
 
-def get_word():
+def get_word(word: str):
     content_retrieval = ContentRetrieval(from_web=False)
     def_content, learn_content = content_retrieval.get_def_content()
     syn_content = content_retrieval.get_syn_content()
     saver = JsonSaver()
 
-    saver.save("do.def", def_content)
-    saver.save("do.learn", learn_content)
-    saver.save("do.syn", syn_content)
+    saver.save(word + ".def", def_content)
+    saver.save(word + ".learn", learn_content)
+    saver.save(word + ".syn", syn_content)
 
     printer = JsonPrinter()
     printer.print(def_content)
@@ -36,4 +36,4 @@ def process_input(input: str):
         word = matcher.groups()[0]
         print_syn(word)
     else:
-        get_word()
+        get_word(input)

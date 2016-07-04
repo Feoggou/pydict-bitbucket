@@ -6,14 +6,14 @@ class ContentRetrieval:
     def __init__(self, from_web: bool):
         self.Fetcher = WebHtmlFetcher if from_web else LocalHtmlFetcher
 
-    def get_def_content(self):
-        fetcher = self.Fetcher("do")
+    def get_def_content(self, word: str):
+        fetcher = self.Fetcher(word)
         html_content = fetcher.fetch()
         # TODO: save html
 
         parser = HtmlParser()
-        def_content = parser.parse("do", html_content)
-        learn_content = parser.parse_learn("do", html_content)
+        def_content = parser.parse(word, html_content)
+        learn_content = parser.parse_learn(word, html_content)
 
         return def_content, learn_content
 
