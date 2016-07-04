@@ -7,57 +7,53 @@ from src.html_parser import HtmlParser
 
 
 class HtmlParserTest(unittest.TestCase):
-    def_expected_json = None
-    learn_expected_json = None
-    def_html_content = None
+    tests_path = None
 
-    syn_expected_json = None
-    syn_html_content = None
+    @classmethod
+    def read_content(cls, html_file, json_file):
+        json_file_name = os.path.join(cls.tests_path, json_file)
+        html_file_name = os.path.join(cls.tests_path, "html_files", html_file)
+
+        with open(json_file_name) as f:
+            expected_json = json.load(f)
+
+        with open(html_file_name) as f:
+            html_content = f.read()
+
+        return html_content, expected_json
 
     @classmethod
     def setUpClass(cls):
-        path = os.path.dirname(os.path.abspath(__file__))
-        learn_json_file_name = os.path.join(path, "expected_do.learn")
-        def_json_file_name = os.path.join(path, "expected_do.def")
-        html_path = os.path.join(path, "html_files")
+        cls.tests_path = os.path.dirname(os.path.abspath(__file__))
 
-        html_file_name = os.path.join(path, html_path, "do_defs.html")
-
-        syn_json_file_name = os.path.join(path, "expected_do.syn")
-        syn_html_file_name = os.path.join(path, html_path, "do_syn.html")
+        learn_json_file_name = os.path.join(cls.tests_path, "expected_do.learn")
 
         with open(learn_json_file_name) as f:
             cls.learn_expected_json = json.load(f)
 
-        with open(def_json_file_name) as f:
-            cls.def_expected_json = json.load(f)
-
-        with open(html_file_name) as f:
-            cls.def_html_content = f.read()
-
-        with open(syn_json_file_name) as f:
-            cls.syn_expected_json = json.load(f)
-
-        with open(syn_html_file_name) as f:
-            cls.syn_html_content = f.read()
-
     def test_htmlParse_do(self):
-        parser = HtmlParser()
-        result = parser.parse("do", HtmlParserTest.def_html_content)
+        html_contant, exp_json = self.read_content("do_defs.html", "expected_do.def")
 
-        self.assertEqual(HtmlParserTest.def_expected_json, result)
+        parser = HtmlParser()
+        result = parser.parse("do", html_contant)
+
+        self.assertEqual(exp_json, result)
 
     def test_htmlParse_syn_do(self):
-        parser = HtmlParser()
-        result = parser.parse_syn("do", HtmlParserTest.syn_html_content)
+        html_contant, exp_json = self.read_content("do_syn.html", "expected_do.syn")
 
-        self.assertEqual(HtmlParserTest.syn_expected_json, result)
+        parser = HtmlParser()
+        result = parser.parse_syn("do", html_contant)
+
+        self.assertEqual(exp_json, result)
 
     def test_htmlParse_learn_do(self):
-        parser = HtmlParser()
-        result = parser.parse_learn("do", HtmlParserTest.def_html_content)
+        html_contant, exp_json = self.read_content("do_defs.html", "expected_do.learn")
 
-        self.assertEqual(HtmlParserTest.learn_expected_json, result)
+        parser = HtmlParser()
+        result = parser.parse_learn("do", html_contant)
+
+        self.assertEqual(exp_json, result)
 
 
 if __name__ == '__main__':

@@ -9,11 +9,7 @@ from src.json_save import JsonSaver
 from src.json_print import JsonPrinter
 from src.content_retrieval import ContentRetrieval
 
-from src.html_fetcher import WebHtmlFetcher
 from src import config
-
-
-# we'll have: do.def, do.syn
 
 
 class GetWordCmdTest(unittest.TestCase):
