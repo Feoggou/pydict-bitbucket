@@ -31,9 +31,9 @@ class GetWordCmdTest(unittest.TestCase):
         cls.old_html_dir_path = config.HTML_DIR_PATH
         config.HTML_DIR_PATH = os.path.join(path, "html_files")
 
-        cls.do_def_json = cls.retrieve_json_content(os.path.join(path, "expected_do.def"))
-        cls.do_learn_json = cls.retrieve_json_content(os.path.join(path, "expected_do.learn"))
-        cls.do_syn_json = cls.retrieve_json_content(os.path.join(path, "expected_do.syn"))
+        cls.do_def_json = cls.retrieve_json_content(os.path.join(path, "json_files", "expected_do.def"))
+        cls.do_learn_json = cls.retrieve_json_content(os.path.join(path, "json_files", "expected_do.learn"))
+        cls.do_syn_json = cls.retrieve_json_content(os.path.join(path, "json_files", "expected_do.syn"))
 
     @classmethod
     def tearDownClass(cls):

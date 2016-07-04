@@ -13,8 +13,8 @@ class JsonReaderTest(unittest.TestCase):
 
     @classmethod
     def read_contents(cls, json_file, txt_file):
-        json_file_name = os.path.join(cls.tests_path, json_file)
-        txt_file_name = os.path.join(cls.tests_path, txt_file)
+        json_file_name = os.path.join(cls.tests_path, "json_files", json_file)
+        txt_file_name = os.path.join(cls.tests_path, "txt_files", txt_file)
 
         with open(json_file_name) as f:
             json_file = json.load(f)

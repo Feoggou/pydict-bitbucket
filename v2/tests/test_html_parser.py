@@ -11,7 +11,7 @@ class HtmlParserTest(unittest.TestCase):
 
     @classmethod
     def read_content(cls, html_file, json_file):
-        json_file_name = os.path.join(cls.tests_path, json_file)
+        json_file_name = os.path.join(cls.tests_path, "json_files", json_file)
         html_file_name = os.path.join(cls.tests_path, "html_files", html_file)
 
         with open(json_file_name) as f:
@@ -25,11 +25,6 @@ class HtmlParserTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.tests_path = os.path.dirname(os.path.abspath(__file__))
-
-        learn_json_file_name = os.path.join(cls.tests_path, "expected_do.learn")
-
-        with open(learn_json_file_name) as f:
-            cls.learn_expected_json = json.load(f)
 
     def test_htmlParse_do(self):
         html_contant, exp_json = self.read_content("do_defs.html", "expected_do.def")
