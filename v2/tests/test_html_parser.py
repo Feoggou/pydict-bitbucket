@@ -19,10 +19,12 @@ class HtmlParserTest(unittest.TestCase):
         path = os.path.dirname(os.path.abspath(__file__))
         learn_json_file_name = os.path.join(path, "expected_do.learn")
         def_json_file_name = os.path.join(path, "expected_do.def")
-        html_file_name = os.path.join(path, "do", "do_defs.html")
+        html_path = os.path.join(path, "html_files")
+
+        html_file_name = os.path.join(path, html_path, "do_defs.html")
 
         syn_json_file_name = os.path.join(path, "expected_do.syn")
-        syn_html_file_name = os.path.join(path, "do", "do_syn.html")
+        syn_html_file_name = os.path.join(path, html_path, "do_syn.html")
 
         with open(learn_json_file_name) as f:
             cls.learn_expected_json = json.load(f)

@@ -1,4 +1,5 @@
 import unittest
+import os
 
 from src.learn_parser import LearnParser
 from lxml import etree
@@ -10,7 +11,10 @@ class TestParser(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        with open("do_defs.html") as f:
+        path = os.path.dirname(os.path.abspath(__file__))
+        file_name = os.path.join(path, "html_files", "do_defs.html")
+
+        with open(file_name) as f:
             text = f.read()
 
         TestParser.root = etree.HTML(text)

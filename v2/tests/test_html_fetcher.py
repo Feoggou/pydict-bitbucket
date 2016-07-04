@@ -14,7 +14,7 @@ class HtmlFetcherTest(unittest.TestCase):
     def setUpClass(cls):
         path = os.path.dirname(os.path.abspath(__file__))
 
-        with open(os.path.join(path, "do", "do_defs.html")) as f:
+        with open(os.path.join(path, "html_files", "do_defs.html")) as f:
             cls.expected_html = f.read()
 
     def test_fetchFromWeb_do_yieldsAContent(self):

@@ -32,6 +32,8 @@ class GetWordCmdTest(unittest.TestCase):
         cls.path_to_tests = os.path.dirname(os.path.abspath(__file__))
         path = cls.path_to_tests  # os.path.join(cls.path_to_tests, "do")
 
+        config.HTML_DIR_PATH = os.path.join(cls.path_to_tests, "html_files")
+
         cls.do_def_json = cls.retrieve_json_content(os.path.join(path, "expected_do.def"))
         cls.do_learn_json = cls.retrieve_json_content(os.path.join(path, "expected_do.learn"))
         cls.do_syn_json = cls.retrieve_json_content(os.path.join(path, "expected_do.syn"))
@@ -62,8 +64,6 @@ class GetWordCmdTest(unittest.TestCase):
         mock_print_learn.assert_called_once_with(learn_content)
 
     def test_get_word_do_defs_Local(self):
-        config.HTML_DIR_PATH = os.path.join(self.path_to_tests, "do")
-
         with patch.object(JsonSaver, 'save') as mock_save_defs:
             with patch.object(JsonPrinter, 'print'):
                 with patch.object(JsonPrinter, 'print_learn'):

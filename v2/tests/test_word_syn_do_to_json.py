@@ -1,4 +1,6 @@
 import unittest
+import os
+
 from unittest.mock import patch
 from src.syn_groups import *
 from src.syn_parser import SynParser
@@ -13,7 +15,10 @@ class HtmlToJsonTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        with open("do_syn.html") as f:
+        path = os.path.dirname(os.path.abspath(__file__))
+        file_name = os.path.join(path, "html_files", "do_syn.html")
+
+        with open(file_name) as f:
             cls.word_name = "do"
             cls.html_content = f.read()
 

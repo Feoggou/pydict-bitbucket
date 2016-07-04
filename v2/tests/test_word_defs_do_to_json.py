@@ -1,4 +1,5 @@
 import unittest
+import os
 from unittest.mock import patch
 from src.def_groups import *
 from src.def_parser import DefParser
@@ -13,7 +14,10 @@ class HtmlToJsonTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        with open("do_defs.html") as f:
+        path = os.path.dirname(os.path.abspath(__file__))
+        file_name = os.path.join(path, "html_files", "do_defs.html")
+
+        with open(file_name) as f:
             cls.word_name = "do"
             cls.html_content = f.read()
 

@@ -21,7 +21,7 @@ class ContentRetrievalTest(unittest.TestCase):
             cls.expected_json = json.load(f)
 
         path = os.path.dirname(os.path.abspath(__file__))
-        cls.path_to_html = os.path.join(path, "do", "do_defs.html")
+        cls.path_to_html = os.path.join(path, "html_files", "do_defs.html")
 
         with open(cls.path_to_html) as f:
             cls.html_content = f.read()
