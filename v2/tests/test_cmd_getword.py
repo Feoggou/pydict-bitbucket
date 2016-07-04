@@ -17,7 +17,6 @@ from src import config
 
 
 class GetWordCmdTest(unittest.TestCase):
-    path_to_tests = None
     do_def_json = None
     do_learn_json = None
     do_syn_json = None
@@ -31,11 +30,10 @@ class GetWordCmdTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.path_to_tests = os.path.dirname(os.path.abspath(__file__))
-        path = cls.path_to_tests  # os.path.join(cls.path_to_tests, "do")
+        path = os.path.dirname(os.path.abspath(__file__))
 
         cls.old_html_dir_path = config.HTML_DIR_PATH
-        config.HTML_DIR_PATH = os.path.join(cls.path_to_tests, "html_files")
+        config.HTML_DIR_PATH = os.path.join(path, "html_files")
 
         cls.do_def_json = cls.retrieve_json_content(os.path.join(path, "expected_do.def"))
         cls.do_learn_json = cls.retrieve_json_content(os.path.join(path, "expected_do.learn"))

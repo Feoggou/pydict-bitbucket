@@ -1,14 +1,24 @@
-other words beside "do":
-    word: "tall" (has opposite)
-
-other commands beside "get word":
-    syn
-
-it is not the Fetcher who decides whether to take from Local or Web: we must first try Local, and only if not found, try web.
+tall:
+    derived forms
+    graded adjective & graded adjective
+    opposites
 
 update:
     don't download, except if .html is not found (use a config .py file)
     ask confirmation from user for each downloaded content.
+
+new features:
+    tags - all_tags(), tags(word), addtag(word)
+    all words (for, related)
+    know = True
+
+remaining old features:
+    search
+    main
+    my defs, examples, idioms
+    ask creating finds create
+    blase
+
 
 words:
 exactly - has unicode " "

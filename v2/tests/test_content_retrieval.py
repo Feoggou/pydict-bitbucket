@@ -1,9 +1,6 @@
-import json
-import os
-
 import unittest
 from unittest import mock
-from unittest.mock import patch, call
+from unittest.mock import patch
 
 from src.content_retrieval import ContentRetrieval
 from src.html_fetcher import WebHtmlFetcher, LocalHtmlFetcher
@@ -11,21 +8,6 @@ from src.html_parser import HtmlParser
 
 
 class ContentRetrievalTest(unittest.TestCase):
-    expected_json = None
-    html_content = None
-    path_to_html = None
-
-    @classmethod
-    def setUpClass(cls):
-        with open('expected_do.def') as f:
-            cls.expected_json = json.load(f)
-
-        path = os.path.dirname(os.path.abspath(__file__))
-        cls.path_to_html = os.path.join(path, "html_files", "do_defs.html")
-
-        with open(cls.path_to_html) as f:
-            cls.html_content = f.read()
-
     def test_getContentDef_tall_retrievesContent(self):
         """
         input: word to retrieve

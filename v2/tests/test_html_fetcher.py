@@ -1,22 +1,9 @@
-import os
-
 import unittest
-from unittest import mock
-from unittest.mock import patch
 
 from src.html_fetcher import WebHtmlFetcher, WordNotFoundError
 
 
 class HtmlFetcherTest(unittest.TestCase):
-    expected_html = None
-
-    @classmethod
-    def setUpClass(cls):
-        path = os.path.dirname(os.path.abspath(__file__))
-
-        with open(os.path.join(path, "html_files", "do_defs.html")) as f:
-            cls.expected_html = f.read()
-
     def test_fetchFromWeb_do_yieldsAContent(self):
         # here it doesn't matter what text it returns, only that it returns something (no error)
         fetcher = WebHtmlFetcher("do")
