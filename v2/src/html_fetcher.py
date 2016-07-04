@@ -17,12 +17,17 @@ class LocalHtmlFetcher:
     def __init__(self, word: str):
         self.word = word
 
-    def fetch(self):
-        with open(os.path.join(config.HTML_DIR_PATH, self.word + "_defs.html"), "r") as f:
-            return f.read()
+    def fetch(self, what: str):
+        """what: either "def" or "str" """
 
-    def fetch_syn(self):
-        with open(os.path.join(config.HTML_DIR_PATH, self.word + "_syn.html"), "r") as f:
+        if what == "def":
+            suffix = "_defs.html"
+        elif what == "syn":
+            suffix = "_syn.html"
+        else:
+            raise ValueError()
+
+        with open(os.path.join(config.HTML_DIR_PATH, self.word + suffix), "r") as f:
             return f.read()
 
 
@@ -30,19 +35,20 @@ class WebHtmlFetcher:
     def __init__(self, word: str):
         self.word = word
 
-    def fetch(self):
-        reason, text = self._try_fetch(config.HTTP_PATH)
+    def fetch(self, what: str):
+        """what: either "def" or "str" """
+
+        if what == "def":
+            path = config.HTTP_PATH
+        elif what == "syn":
+            path = config.SYN_HTTP_PATH
+        else:
+            raise ValueError()
+
+        reason, text = self._try_fetch(path)
 
         if len(text) == 0:
-            return self._handle_error(reason)
-
-        return text
-
-    def fetch_syn(self):
-        reason, text = self._try_fetch(config.SYN_HTTP_PATH)
-
-        if len(text) == 0:
-            return self._handle_error(reason)
+            return self._handle_error(what, reason)
 
         return text
 
@@ -56,7 +62,7 @@ class WebHtmlFetcher:
 
         return reason, text
 
-    def _handle_error(self, reason):
+    def _handle_error(self, what: str, reason):
         redirect_loc = reason.getheader('location')
         assert redirect_loc is not None
 
@@ -64,7 +70,7 @@ class WebHtmlFetcher:
             raise WordNotFoundError(self.word)
 
         self._update_redirect_word(redirect_loc)
-        return self.fetch()
+        return self.fetch(what)
 
     def _update_redirect_word(self, redirect_loc):
         self.word = redirect_loc.split('/')[-1]
