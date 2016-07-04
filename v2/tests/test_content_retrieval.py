@@ -36,10 +36,8 @@ class ContentRetrievalTest(unittest.TestCase):
         # b. transform to json (parse)
         with patch.object(WebHtmlFetcher, 'fetch') as mock_fetch:
             mock_fetch.return_value = ContentRetrievalTest.html_content
-
             with patch.object(HtmlParser, 'parse') as mock_parser:
                 mock_parser.return_value = ContentRetrievalTest.expected_json
-
                 with patch.object(HtmlParser, 'parse_learn'):
                     content_retrieval = ContentRetrieval(from_web=True)
                     result, learn_content = content_retrieval.get_def_content("do")
@@ -52,10 +50,8 @@ class ContentRetrievalTest(unittest.TestCase):
     def test_getDef_do_usingLocal_returnsContent(self):
         with patch.object(LocalHtmlFetcher, 'fetch') as mock_fetch:
             mock_fetch.return_value = ContentRetrievalTest.html_content
-
             with patch.object(HtmlParser, 'parse') as mock_parser:
                 mock_parser.return_value = ContentRetrievalTest.expected_json
-
                 with patch.object(HtmlParser, 'parse_learn'):
                     content_retrieval = ContentRetrieval(from_web=False)
                     result, learn_content = content_retrieval.get_def_content("do")
@@ -78,10 +74,8 @@ class ContentRetrievalTest(unittest.TestCase):
         # b. transform to json (parse)
         with patch.object(WebHtmlFetcher, 'fetch') as mock_fetch:
             mock_fetch.return_value = html_content  # ContentRetrievalTest.html_content
-
             with patch.object(HtmlParser, 'parse') as mock_parser:
                 mock_parser.return_value = exp_json  # ContentRetrievalTest.expected_json
-
                 with patch.object(HtmlParser, 'parse_learn'):
                     content_retrieval = ContentRetrieval(from_web=True)
                     result, learn_content = content_retrieval.get_def_content("tall")

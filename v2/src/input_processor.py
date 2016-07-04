@@ -17,7 +17,7 @@ def print_syn(word: str):
 
 def get_word(word: str):
     content_retrieval = ContentRetrieval(from_web=False)
-    def_content, learn_content = content_retrieval.get_def_content()
+    def_content, learn_content = content_retrieval.get_def_content(word)
     syn_content = content_retrieval.get_syn_content()
     saver = JsonSaver()
 
