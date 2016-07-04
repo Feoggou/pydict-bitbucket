@@ -83,6 +83,23 @@ class ContentRetrievalTest(unittest.TestCase):
         self.assertEqual(exp_json, result)
         mock_fetch_web.assert_called_once_with(mock.ANY)
 
+    def test_get_tall_syn(self):
+        exp_json = "dummy_value"
+        html_content = "dummy_html_content"
+
+        with patch('src.html_fetcher.LocalHtmlFetcher', autospec=True) as MockLocalHtmlFetcher:
+            mock_fetch_obj = MockLocalHtmlFetcher.return_value
+            mock_fetch_obj.fetch.return_value = html_content
+
+            with patch.object(HtmlParser, 'parse_syn') as mock_parser:
+                mock_parser.return_value = exp_json
+                content_retrieval = ContentRetrieval()
+                result = content_retrieval.get_syn_content("tall")
+
+        self.assertEqual(exp_json, result)
+        mock_fetch_obj.fetch.assert_called_once_with("syn")
+        MockLocalHtmlFetcher.assert_called_once_with("tall")
+
 
 if __name__ == '__main__':
     unittest.main()

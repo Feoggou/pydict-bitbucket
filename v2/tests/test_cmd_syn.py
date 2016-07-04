@@ -24,7 +24,7 @@ class SynCmdTest(unittest.TestCase):
 
         mock_print_syn.assert_called_once_with(mock.ANY)
 
-    def test_print_syn_printsContentForWord(self):
+    def test_printSyn_do_printsContentForWord(self):
         syn_content = "dummy_content"
 
         with patch.object(JsonLoader, 'load') as mock_load:

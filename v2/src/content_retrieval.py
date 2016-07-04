@@ -1,5 +1,5 @@
-from .html_fetcher import WebHtmlFetcher, LocalHtmlFetcher
-from .html_parser import HtmlParser
+from src import html_fetcher
+from src.html_parser import HtmlParser
 
 
 class ContentRetrieval:
@@ -11,12 +11,12 @@ class ContentRetrieval:
         return html_content
 
     def fetch_web(self, word, what: str):
-        fetcher = WebHtmlFetcher(word)
+        fetcher = html_fetcher.WebHtmlFetcher(word)
         html_content = fetcher.fetch(what)
         return html_content
 
     def try_fetch_local(self, word, what: str):
-        fetcher = LocalHtmlFetcher(word)
+        fetcher = html_fetcher.LocalHtmlFetcher(word)
         try:
             html_content = fetcher.fetch(what)
         except FileNotFoundError:
@@ -34,9 +34,9 @@ class ContentRetrieval:
 
         return def_content, learn_content
 
-    def get_syn_content(self):
-        html_content = self.try_fetch("do", "syn")
+    def get_syn_content(self, word: str):
+        html_content = self.try_fetch(word, "syn")
         # TODO: save html
 
         parser = HtmlParser()
-        return parser.parse_syn("do", html_content)
+        return parser.parse_syn(word, html_content)
