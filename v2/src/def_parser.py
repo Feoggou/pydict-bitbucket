@@ -236,3 +236,22 @@ class DefParser:
             etym_text += text
 
         return etym_text
+
+    @staticmethod
+    def get_derived_forms(def_group: etree._Element):
+        items = def_group.xpath('.//div[@class="content derivs"]/*[@class="hom_subsec re"]')
+        assert len(items) <= 1
+
+        if len(items) == 0:
+            return "", ""
+
+        form_items = items[0].xpath('./span[@class=" form"]')
+        assert len(form_items) == 1
+        form_text = ParentHtmlItem(form_items[0], strip=True).read()
+        form_text = form_text.replace("ˈ", "")
+
+        gram_items = items[0].xpath('./span[@class=" hom"]')
+        assert len(gram_items) == 1
+        gram_text = ParentHtmlItem(gram_items[0], strip=True).read()
+
+        return form_text, gram_text

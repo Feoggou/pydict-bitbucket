@@ -4,6 +4,7 @@ import os
 import unittest
 
 from src.html_parser import HtmlParser
+from src.json_save import JsonSaver
 
 
 class HtmlParserTest(unittest.TestCase):
@@ -47,6 +48,39 @@ class HtmlParserTest(unittest.TestCase):
 
         parser = HtmlParser()
         result = parser.parse_learn("do", html_contant)
+
+        self.assertEqual(exp_json, result)
+
+    def test_htmlParse_tall(self):
+        # has 'derived forms'
+        html_contant, exp_json = self.read_content("tall_defs.html", "expected_tall.def")
+
+        parser = HtmlParser()
+        result = parser.parse("tall", html_contant)
+
+        self.assertEqual(exp_json, result)
+
+    def test_htmlParse_syn_tall(self):
+        # has opposites
+        html_contant, exp_json = self.read_content("tall_syn.html", "expected_tall.syn")
+
+        parser = HtmlParser()
+        result = parser.parse_syn("tall", html_contant)
+
+        """saver = JsonSaver()
+        saver.save("_tall.syn", result)
+
+        # print(result)
+        self.maxDiff = None"""
+
+        self.assertEqual(exp_json, result)
+
+    def test_htmlParse_learn_tall(self):
+        # has an issue with gram values
+        html_contant, exp_json = self.read_content("tall_defs.html", "expected_tall.learn")
+
+        parser = HtmlParser()
+        result = parser.parse_learn("tall", html_contant)
 
         self.assertEqual(exp_json, result)
 

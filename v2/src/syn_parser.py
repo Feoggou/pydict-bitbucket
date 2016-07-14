@@ -43,28 +43,63 @@ class SynParser:
         syn_text = categ = ""
 
         for item in sense_item.getchildren():
-            if "class" in item.keys() and re.match("lbl.*", item.get("class")):
-                # HERE we check category
-                categ = SynParser._update_categ(categ, item)
+            categ, syn_text = SynParser._read_syn_or_opp(categ, item, syn_line, syn_text, "syn")
+            if categ is None and syn_text is None:
+                # we reached the opposites => have already reached the end and have all.
+                return syn_line
 
-                if item.tail is not None:
-                    if item.tail.startswith("),") or item.tail.startswith(") •"):
-                        syn_line[syn_text] = categ
-                        syn_text = ""
-                        categ = ""
-
-            elif "class" in item.keys() and item.get("class") == "syn":
-                # HERE we check the synonym
-                syn_text = ParentHtmlItem(item, use_tail=False, strip=True).read()
-                syn_line[syn_text] = ""
-
-                if item.tail is not None:
-                    if item.tail.startswith(",") or item.tail.startswith(" •"):
-                        syn_line[syn_text] = categ
-                        syn_text = ""
-                        categ = ""
+        if categ != "":
+            syn_line[syn_text] = categ
 
         return syn_line
+
+    @staticmethod
+    def get_opp_line(sense_item: etree._Element):
+        opp_line = dict()
+        opp_text = categ = ""
+
+        scbold_items = sense_item.xpath('./span[@class="scbold"]')
+        if len(scbold_items) == 0:
+            return ""
+
+        assert len(scbold_items) == 1
+
+        # sense_item.
+        for item in scbold_items[0].itersiblings():
+            categ, opp_text = SynParser._read_syn_or_opp(categ, item, opp_line, opp_text, "ant")
+
+        if categ != "":
+            opp_line[opp_text] = categ
+
+        return opp_line
+
+    @staticmethod
+    def _read_syn_or_opp(categ: str, item: etree._Element, line: dict, text: str, class_value: str):
+        if "class" in item.keys() and "scbold" == item.get("class"):
+            return None, None
+
+        if "class" in item.keys() and re.match("lbl.*", item.get("class")):
+            # HERE we check category
+            categ = SynParser._update_categ(categ, item)
+
+            if item.tail is not None:
+                if item.tail.startswith("),") or item.tail.startswith(") •"):
+                    line[text] = categ
+                    text = ""
+                    categ = ""
+
+        elif "class" in item.keys() and item.get("class") == class_value:
+            # HERE we check the synonym
+            text = ParentHtmlItem(item, use_tail=False, strip=True).read()
+            line[text] = ""
+
+            if item.tail is not None:
+                if item.tail.startswith(",") or item.tail.startswith(" •"):
+                    line[text] = categ
+                    text = ""
+                    categ = ""
+
+        return categ, text
 
     @staticmethod
     def _update_categ(categ, item):

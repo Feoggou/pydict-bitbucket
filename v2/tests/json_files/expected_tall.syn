@@ -1,0 +1,82 @@
+{
+    "gram_groups": [
+        {
+            "syns": [
+                {
+                    "example": "Being tall can make you incredibly self-confident.",
+                    "mark": "good",
+                    "syn_line": {
+                        "Brobdingnagian": "",
+                        "big": "",
+                        "giant": "",
+                        "lanky": "",
+                        "leggy": "",
+                        "lofty": "",
+                        "long-legged": ""
+                    }
+                },
+                {
+                    "example": "a lawn of tall, waving grass",
+                    "mark": "good",
+                    "opp_line": {
+                        "fubsy": "archaic, dialect",
+                        "short": "",
+                        "small": "",
+                        "squat": "",
+                        "stumpy": "",
+                        "tiny": "",
+                        "wee": ""
+                    },
+                    "syn_line": {
+                        "elevated": "",
+                        "high": "",
+                        "lofty": "",
+                        "soaring": "",
+                        "steep": "",
+                        "towering": ""
+                    }
+                },
+                {
+                    "example": "a tall story",
+                    "mark": "good",
+                    "opp_line": {
+                        "accurate": "",
+                        "believable": "",
+                        "plausible": "",
+                        "realistic": "",
+                        "reasonable": "",
+                        "true": "",
+                        "unexaggerated": ""
+                    },
+                    "syn_line": {
+                        "absurd": "",
+                        "cock-and-bull": "informal",
+                        "embellished": "",
+                        "exaggerated": "",
+                        "far-fetched": "",
+                        "implausible": "informal",
+                        "incredible": "",
+                        "overblown": "",
+                        "preposterous": "",
+                        "steep": "British, informal",
+                        "unbelievable": ""
+                    }
+                },
+                {
+                    "example": "Financing your studies can be a tall order.",
+                    "mark": "good",
+                    "syn_line": {
+                        "demanding": "",
+                        "difficult": "",
+                        "exorbitant": "",
+                        "hard": "",
+                        "unreasonable": "",
+                        "well-nigh impossible": ""
+                    }
+                }
+            ],
+            "value": "adjective"
+        }
+    ],
+    "word": "tall"
+}

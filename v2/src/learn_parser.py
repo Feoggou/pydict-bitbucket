@@ -62,8 +62,13 @@ class LearnParser:
 
     @staticmethod
     def get_gram_value(gram_group: etree._Element):
-        text_items = gram_group.xpath('./*[@class=" gramGrp"]/*[@class=" pos"]/text()')
-        text = "".join(text_items)
+        items = gram_group.xpath('./*[@class=" gramGrp"]')
+        if len(items) == 0:
+            return ""
+
+        assert len(items) == 1
+
+        text = ParentHtmlItem(items[0], strip=True).read()
         # NOTE: can be --- 'value': 'the internet domain name\n                    for'
         # so we must remove spaces and '\n' chars
         text = re.sub(r' +', ' ', text)

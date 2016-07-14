@@ -1,8 +1,3 @@
-tall:
-    derived forms
-    graded adjective & graded adjective
-    opposites
-
 update:
     don't download, except if .html is not found (use a config .py file)
     ask confirmation from user for each downloaded content.
@@ -16,7 +11,7 @@ remaining old features:
     search
     main
     my defs, examples, idioms
-    ask creating finds create
+    ask creating => finds create
     blase
 
 

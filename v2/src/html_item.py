@@ -55,6 +55,8 @@ class HtmlItemCreator:
 
         HtmlItemCreator.ALL_CLASSES = {
             # "xr": ParentHtmlItem,  # XrItem,
+            " gramGrp": ParentHtmlItem,
+            " pos": ParentHtmlItem,
             " xr": ParentHtmlItem,
             "xr_ref": ParentHtmlItem,  # XrRefItem,
             # "xr_ref_link": XrRefLinkItem,

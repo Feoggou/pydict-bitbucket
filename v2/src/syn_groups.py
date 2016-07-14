@@ -16,10 +16,12 @@ class SynLine(JsonGroup):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_elem
         self.syns = []
+        self.opps = []
         self.example = ""
 
     def build(self):
         self.syns = self.dict_parser.get_syn_line(self.etree_elem)
+        self.opps = self.dict_parser.get_opp_line(self.etree_elem)
         self.example = self.dict_parser.get_syn_example(self.etree_elem)
 
     def translate(self) -> dict:
@@ -27,6 +29,9 @@ class SynLine(JsonGroup):
 
         if len(self.example):
             json_children["example"] = self.example
+
+        if len(self.opps):
+            json_children["opp_line"] = self.opps
 
         return json_children
 

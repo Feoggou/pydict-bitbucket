@@ -45,7 +45,7 @@ class DefSubgroup(JsonGroup):
         senses = self.dict_parser.get_all_sense_items(self.etree_elem)
 
         for elem in senses:
-            word = WordDefinition(self.dict_parser, elem)
+            word = WordDefinition(self.dict_parser, elem, usage_is_categ=True)
             word.build()
             self.subdefs.append(word.translate())
 
@@ -55,7 +55,7 @@ class DefSubgroup(JsonGroup):
 
 # {"category":"slang", "def":"excrement; feces", "example":"dog do", "know": False}
 class WordDefinition(JsonGroup):
-    def __init__(self, dict_parser: DefParser, etree_elem):
+    def __init__(self, dict_parser: DefParser, etree_elem, usage_is_categ: bool=False):
         JsonGroup.__init__(self, dict_parser)
         self.etree_elem = etree_elem
         self.category = ""
@@ -63,6 +63,7 @@ class WordDefinition(JsonGroup):
         self.example = ""
         self.subgroup = None
         self.usage = ""
+        self.usage_is_categ = usage_is_categ
 
     def get_usage(self):
         return self.usage
@@ -72,6 +73,9 @@ class WordDefinition(JsonGroup):
         self.example = self.dict_parser.get_sense_example(self.etree_elem)
         self.category = self.dict_parser.get_sense_categ(self.etree_elem)
         self.usage = self.dict_parser.get_sense_usage(self.etree_elem)
+
+        if self.usage_is_categ:
+            self.category += self.usage
 
         if len(self.dict_parser.get_all_sense_items(self.etree_elem)):
             self.subgroup = DefSubgroup(self.dict_parser, self.etree_elem)
@@ -193,8 +197,10 @@ class DefGroup(JsonGroup):
         if len(self.origin) == 0:
             self.origin = None
 
-        """self.semantics = self.dict_parser.get_semantics(self.etree_elem)
-        self.derived_forms = self.dict_parser.get_all_derived_forms(self.etree_elem)"""
+        """self.semantics = self.dict_parser.get_semantics(self.etree_elem)"""
+        derived_form, gram_value = self.dict_parser.get_derived_forms(self.etree_elem)
+        if len(derived_form):
+            self.derived_forms = {derived_form: gram_value}
         self.frequency = WordFrequencyGroup(self.dict_parser, self.etree_elem)
         self.frequency.build()
 
@@ -210,9 +216,6 @@ class DefGroup(JsonGroup):
         if self.semantics is not None:
             json_obj["semantics"] = self.semantics
 
-        if self.derived_forms is not None:
-            json_obj["derived_forms"] = self.derived_forms
-
         if len(self.word):
             return json_obj
         return None"""
@@ -224,6 +227,9 @@ class DefGroup(JsonGroup):
 
         if self.origin is not None:
             json_obj["origin"] = self.origin
+
+        if self.derived_forms is not None:
+            json_obj["derived_forms"] = self.derived_forms
 
         return json_obj
 
@@ -256,13 +262,7 @@ class MainDefGroup:
         self.dict_parser = dict_parser
         self.def_groups = None
         self.examples = None
-        """self.etree_main = self.dict_parser.get_def_main()
-
-        self.word_frequency = None
-
-        self.nearby_words = None"""
         self.translations = None
-        pass
 
     def build_children(self):
         self.def_groups = DefGroups(self.dict_parser)
