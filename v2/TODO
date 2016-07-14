@@ -1,3 +1,11 @@
+syn items: don't reorder.
+
+word lead:
+    has multiple translations
+
+word soliloquy:
+    has no translations
+
 update:
     don't download, except if .html is not found (use a config .py file)
     ask confirmation from user for each downloaded content.
