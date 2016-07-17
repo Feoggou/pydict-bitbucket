@@ -40,34 +40,14 @@ class HtmlItemCreator:
 
     def __init__(self):
         HtmlItemCreator.ALL_TAGS = {
-            # "strong": HtmlItemCreator.create_default_item,
             "em": HtmlItemCreator.create_default_item,
             "span": HtmlItemCreator.create_keys_item,
             "a": HtmlItemCreator.create_a_href_item,
-            # "sup": HtmlItemCreator.create_sup_item,
-            # "br": HtmlItemCreator.create_br_item,
         }
 
         HtmlItemCreator.ALL_KEYS = {
             "class": HtmlItemCreator.create_class_item,
             "href": HtmlItemCreator.create_a_href_item2,
-        }
-
-        HtmlItemCreator.ALL_CLASSES = {
-            # "xr": ParentHtmlItem,  # XrItem,
-            " gramGrp": ParentHtmlItem,
-            " pos": ParentHtmlItem,
-            " xr": ParentHtmlItem,
-            "xr_ref": ParentHtmlItem,  # XrRefItem,
-            # "xr_ref_link": XrRefLinkItem,
-            # "lbl register": ParentHtmlItem,  # LblRegisterItem,
-            " lbl": ParentHtmlItem,
-            # "orth": HtmlItemCreator.create_nothing,
-            " orth": ParentHtmlItem,
-            "ref": ParentHtmlItem,  # don't know if it appears as parent, but it's better to make sure!
-            " colloc": ParentHtmlItem,
-            " hi": ParentHtmlItem,  # don't know if it appears as parent, but it's better to make sure!
-            " subc": ParentHtmlItem,
         }
 
     @staticmethod
@@ -88,15 +68,13 @@ class HtmlItemCreator:
 
     @staticmethod
     def create_a_href_item2(elem):
-        # assert len(elem.keys()) == 2
-        # key = elem.keys()[0]
-
         return HtmlItemCreator.ALL_KEYS["class"](elem)
 
     @staticmethod
     def create_keys_item(elem):
         if len(elem.keys()) == 0:
-            return ParentHtmlItem(elem)  # might be parent, might be ordinary (so far, ordinary)
+            # might be parent, might be ordinary (so far, ordinary)
+            return ParentHtmlItem(elem)
 
         if len(elem.keys()) == 1:
             key = elem.keys()[0]
@@ -105,9 +83,8 @@ class HtmlItemCreator:
                 key = "class"
                 pass
             else:
-                raise NotImplementedError(
-                    "Attempted to use create_keys_item with an item, multiple keys ({}), but we don't know which to pick!"
-                        .format(elem.keys()))
+                raise NotImplementedError("Attempted to use create_keys_item with an item, multiple keys ({}), "
+                                          "but we don't know which to pick!".format(elem.keys()))
 
         return HtmlItemCreator.ALL_KEYS[key](elem)
 
@@ -120,15 +97,12 @@ class HtmlItemCreator:
         class_name = elem.get("class")
         print_vb("class: ", class_name)
 
-        # if class_name in HtmlItemCreator.ALL_CLASSES:
-        return HtmlItemCreator.ALL_CLASSES[class_name](elem)
-
-        # return None
+        return ParentHtmlItem(elem)
 
     @staticmethod
     def create_tag_item(elem):
         print_vb("create tag item: tag='{}'; keys='{}'; values='{}'; text='{}'; tail='{}'"
-              .format(elem.tag, elem.keys(), elem.values(), elem.text, elem.tail))
+                 .format(elem.tag, elem.keys(), elem.values(), elem.text, elem.tail))
         return HtmlItemCreator.ALL_TAGS[elem.tag](elem)
 
 
@@ -155,7 +129,6 @@ class ParentHtmlItem(HtmlItem):
         text = ""
         for e in self.item.getchildren():
             item = self.creator.create_tag_item(e)
-            # item = ALL_TAGS[e.tag](e)
             text += item.read()
         return text
 

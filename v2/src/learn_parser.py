@@ -30,9 +30,7 @@ class LearnParser:
         assert(len(h1_items) == 1)
 
         # the normal one in the header: always there
-        # text_list = h1_items[0].xpath('./*[@class=" orth"]/text()')
         text = ParentHtmlItem(h1_items[0], strip=True).read()
-        # text = "".join(text_list)
 
         # for "do" (and on the second line, "or do a"), we must filter -- anything with a key that is not a " pron"
         # these are siblings of h1_entry, children of def_group (div[@class="entry_header"]) also.
@@ -80,11 +78,6 @@ class LearnParser:
         text_items = def_group.xpath('.//*[@class="inflected_forms form"]/*[@class=" orth"]/text()')
         return text_items
 
-    """@staticmethod
-    def get_word_forms_info(gram_group: etree._Element):
-        text_items = gram_group.xpath('./*[@class="inflected_forms form"]/*[@type="gram"]/text()')
-        return "".join(text_items)"""
-
     @staticmethod
     def get_all_sense_items(gram_group: etree._Element):
         items = gram_group.xpath('./*[@class=" sense"]')
@@ -114,8 +107,6 @@ class LearnParser:
             return ""
 
         def_item = items[0]
-        """if "type" in def_item.keys() and def_item.get("type") == "register":
-            return None"""
 
         # might be HtmlItem simple, but we can't promise!
         text = ParentHtmlItem(def_item).read()

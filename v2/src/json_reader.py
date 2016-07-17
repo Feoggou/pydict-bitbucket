@@ -194,18 +194,13 @@ class JsonReader:
     def __init__(self, content: dict, use_colors: bool = True):
         self.content = content
         self.keys = {
-            # "frequency": self.frequency,
             "def_groups": self.definitions,
             "translations": self.translations,
             "examples": self.examples,
-            # "my_examples": self.my_examples,
         }
 
         if use_colors:
             ColoredText.init_values()
-
-    """def frequency(self) -> str:
-        return ColoredText.colored_title("[{}]\n\n".format(self.content["frequency"]))"""
 
     def definitions(self) -> str:
         text = ColoredText.colored_h1("DEFINTIONS\n")
@@ -235,24 +230,15 @@ class JsonReader:
         text += "\n\n"
         return text
 
-    """def my_examples(self) -> str:
-        text = ColoredText.colored_h1("MY EXAMPLES\n")
-        text += "\n".join("o) " + example["example"] for example in self.content["my_examples"])
-
-        text += "\n\n"
-        return text"""
-
     def read_by_key(self, key: str) -> str:
         if key in self.content and len(self.content[key]):
             return self.keys[key]()
         return ""
 
     def read_content(self, word) -> str:
-        # text = self.read_by_key("frequency")
         text = self.read_by_key("def_groups")
         text += self.read_by_key("translations")
         text += self.read_by_key("examples")
-        # text += self.read_by_key("my_examples")
         text += "\n"
 
         return text

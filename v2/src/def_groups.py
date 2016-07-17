@@ -197,7 +197,6 @@ class DefGroup(JsonGroup):
         if len(self.origin) == 0:
             self.origin = None
 
-        """self.semantics = self.dict_parser.get_semantics(self.etree_elem)"""
         derived_form, gram_value = self.dict_parser.get_derived_forms(self.etree_elem)
         if len(derived_form):
             self.derived_forms = {derived_form: gram_value}
@@ -210,15 +209,6 @@ class DefGroup(JsonGroup):
             json_child = child.translate()
             if json_child is not None:
                 gram_groups.append(json_child)
-
-        """json_obj = {"word": self.word, "gram_groups": gram_groups}
-
-        if self.semantics is not None:
-            json_obj["semantics"] = self.semantics
-
-        if len(self.word):
-            return json_obj
-        return None"""
 
         json_obj = {"word": self.word, "gram_groups": gram_groups}
 

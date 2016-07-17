@@ -11,8 +11,6 @@ from .syn_parser import SynParser
 
 class HtmlParser:
     def __init__(self):
-        # self.word_name = word_name
-        # self.html_content = html_content
         self.translated_obj = None
 
     def parse(self, word_name, html_content: str):
