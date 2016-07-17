@@ -247,8 +247,7 @@ class JsonReader:
             return self.keys[key]()
         return ""
 
-    # TODO: remove "word"
-    def read_content(self, word) -> str:
+    def read_content(self) -> str:
         text = self.read_by_key("def_groups")
         text += self.read_by_key("translations")
         text += self.read_by_key("examples")

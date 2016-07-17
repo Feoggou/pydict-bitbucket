@@ -32,7 +32,7 @@ class JsonReaderTest(unittest.TestCase):
         json_content, exp_txt_content = self.read_contents("expected_do.def", "expected_do.txt")
 
         reader = JsonReader(json_content, use_colors=False)
-        actual = reader.read_content("do")
+        actual = reader.read_content()
 
         self.assertEqual(exp_txt_content, actual)
 
@@ -57,7 +57,7 @@ class JsonReaderTest(unittest.TestCase):
         json_content, exp_txt_content = self.read_contents("expected_tall.def", "expected_tall.txt")
 
         reader = JsonReader(json_content, use_colors=False)
-        actual = reader.read_content("do")
+        actual = reader.read_content()
 
         self.assertEqual(exp_txt_content, actual)
 
