@@ -57,11 +57,11 @@ class TestParser(unittest.TestCase):
         sense = self.parser.get_all_sense_items(ggroup)[0]
         syn_list = self.parser.get_syn_line(sense)
 
-        self.assertEqual({
-            "perform": "", "work": "", "achieve": "", "carry out": "", "produce": "", "effect": "",
-            "complete": "", "conclude": "", "undertake": "", "accomplish": "", "execute": "",
-            "discharge": "", "pull off": "", "transact": ""
-        }, syn_list)
+        self.assertEqual([
+            {"perform": ""}, {"work": ""}, {"achieve": ""}, {"carry out": ""}, {"produce": ""}, {"effect": ""},
+            {"complete": ""}, {"conclude": ""}, {"undertake": ""}, {"accomplish": ""}, {"execute": ""},
+            {"discharge": ""}, {"pull off": ""}, {"transact": ""}
+        ], syn_list)
 
     def test_getSyns8_fromGramGroup0(self):
         ggroup = self.parser.get_all_grammar_groups()[0]
@@ -70,11 +70,11 @@ class TestParser(unittest.TestCase):
         sense = self.parser.get_all_sense_items(ggroup)[8]
         syn_list = self.parser.get_syn_line(sense)
 
-        self.assertEqual({
-            "cheat": "informal", "trick": "", "con": "informal", "skin": "slang", "stiff": "slang", "sting": "informal",
-            "deceive": "", "fleece": "", "hoax": "", "defraud": "", "dupe": "", "swindle": "", "diddle": "informal",
-            "take (someone) for a ride": "informal", "pull a fast one on": "informal", "cozen": "", "scam": "slang"
-        }, syn_list)
+        self.assertEqual([
+            {"cheat": "informal"}, {"trick": ""}, {"con": "informal"}, {"skin": "slang"}, {"stiff": "slang"}, {"sting": "informal"},
+            {"deceive": ""}, {"fleece": ""}, {"hoax": ""}, {"defraud": ""}, {"dupe": ""}, {"swindle": ""}, {"diddle": "informal"},
+            {"take (someone) for a ride": "informal"}, {"pull a fast one on": "informal"}, {"cozen": ""}, {"scam": "slang"}
+        ], syn_list)
 
     def test_getSyns0_fromGramGroup1(self):
         ggroup = self.parser.get_all_grammar_groups()[1]
@@ -85,13 +85,13 @@ class TestParser(unittest.TestCase):
 
         self.maxDiff = None
 
-        self.assertEqual({
-            "party": "informal, mainly British & New Zealand", "gathering": "", "function": "", "social": "",
-            "event": "", "affair": "", "at-home": "", "occasion": "", "celebration": "", "reception": "",
-            "bash": "informal", "rave": "British, slang", "get-together": "informal", "festivity": "",
-            "knees-up": "British, informal", "beano": "British, slang", "social gathering": "", "shindig": "informal",
-            "soirée": "", "rave-up": "British, slang", "hooley or hoolie": "mainly Irish & New Zealand"
-        }, syn_list)
+        self.assertEqual([
+            {"party": "informal, mainly British & New Zealand"}, {"gathering": ""}, {"function": ""}, {"social": ""},
+            {"event": ""}, {"affair": ""}, {"at-home": ""}, {"occasion": ""}, {"celebration": ""}, {"reception": ""},
+            {"bash": "informal"}, {"rave": "British, slang"}, {"get-together": "informal"}, {"festivity": ""},
+            {"knees-up": "British, informal"}, {"beano": "British, slang"}, {"social gathering": ""}, {"shindig": "informal"},
+            {"soirée": ""}, {"rave-up": "British, slang"}, {"hooley or hoolie": "mainly Irish & New Zealand"}
+        ], syn_list)
 
     def test_getEx0_fromDef0_defGroup0_gramGroup0(self):
         ggroup = self.parser.get_all_grammar_groups()[0]

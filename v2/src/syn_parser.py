@@ -1,5 +1,4 @@
-from lxml import etree
-import re
+from collections import OrderedDict
 
 from src.html_item import *
 
@@ -39,23 +38,35 @@ class SynParser:
 
     @staticmethod
     def get_syn_line(sense_item: etree._Element):
-        syn_line = dict()
+        syn_line = OrderedDict()
         syn_text = categ = ""
 
         for item in sense_item.getchildren():
             categ, syn_text = SynParser._read_syn_or_opp(categ, item, syn_line, syn_text, "syn")
             if categ is None and syn_text is None:
                 # we reached the opposites => have already reached the end and have all.
-                return syn_line
+                return SynParser.syn_opp_result(syn_line)
 
         if categ != "":
             syn_line[syn_text] = categ
 
-        return syn_line
+        result = SynParser.syn_opp_result(syn_line)
+
+        print("syn line: ", syn_line)
+
+        return result
+
+    @staticmethod
+    def syn_opp_result(line):
+        result = []
+        for word in line.keys():
+            item = {word: line[word]}
+            result.append(item)
+        return result
 
     @staticmethod
     def get_opp_line(sense_item: etree._Element):
-        opp_line = dict()
+        opp_line = OrderedDict()
         opp_text = categ = ""
 
         scbold_items = sense_item.xpath('./span[@class="scbold"]')
@@ -71,10 +82,10 @@ class SynParser:
         if categ != "":
             opp_line[opp_text] = categ
 
-        return opp_line
+        return SynParser.syn_opp_result(opp_line)
 
     @staticmethod
-    def _read_syn_or_opp(categ: str, item: etree._Element, line: dict, text: str, class_value: str):
+    def _read_syn_or_opp(categ: str, item: etree._Element, line: OrderedDict, text: str, class_value: str):
         if "class" in item.keys() and "scbold" == item.get("class"):
             return None, None
 

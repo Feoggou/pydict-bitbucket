@@ -16,13 +16,16 @@ class SynReader:
         return ""
 
     @staticmethod
-    def _read_syn_line(obj: dict):
+    def _read_syn_line(syn_list: list):
         items = []
-        for key in sorted(obj.keys()):
-            if len(obj[key]):
-                item = "({}) {}".format(obj[key], key)
+        print("obj = ", syn_list)
+        for item in syn_list:
+            word = list(item.keys())[0]
+            categ = item[word]
+            if len(categ):
+                item = "({}) {}".format(categ, word)
             else:
-                item = key
+                item = word
 
             items.append(item)
 

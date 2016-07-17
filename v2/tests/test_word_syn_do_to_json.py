@@ -59,11 +59,11 @@ class HtmlToJsonTest(unittest.TestCase):
         result = word.translate()
 
         self.assertEqual({
-            "syn_line": {
-                "perform": "", "work": "", "achieve": "", "carry out": "", "produce": "", "effect": "",
-                "complete": "", "conclude": "", "undertake": "", "accomplish": "", "execute": "",
-                "discharge": "", "pull off": "", "transact": ""
-            },
+            "syn_line": [
+                {"perform": ""}, {"work": ""}, {"achieve": ""}, {"carry out": ""}, {"produce": ""}, {"effect": ""},
+                {"complete": ""}, {"conclude": ""}, {"undertake": ""}, {"accomplish": ""}, {"execute": ""},
+                {"discharge": ""}, {"pull off": ""}, {"transact": ""}
+            ],
             "example": "I was trying to do some work.",
             "mark": "good"
         }, result)
