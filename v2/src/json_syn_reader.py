@@ -18,7 +18,7 @@ class SynReader:
     @staticmethod
     def _read_syn_line(syn_list: list):
         items = []
-        print("obj = ", syn_list)
+
         for item in syn_list:
             word = list(item.keys())[0]
             categ = item[word]
@@ -36,9 +36,15 @@ class SynReader:
     def _read_syn_item(syn_obj: dict) -> list:
         items = list()
 
-        def_text = SynReader._read_syn_line(syn_obj["syn_line"]) + "\n"
+        syn_text = SynReader._read_syn_line(syn_obj["syn_line"]) + "\n"
+        if "opp_line" in syn_obj:
+            opp_text = SynReader._read_syn_line(syn_obj["opp_line"])
+            opp_text = ColoredText.colored_h1("{}[opp: {}]\n".format(SynReader.tab, opp_text))
+        else:
+            opp_text = ""
 
-        items.append(def_text)
+        items.append(syn_text)
+        items.append(opp_text)
         items.append(SynReader._read_example(syn_obj))
         if '' in items:
             items.remove('')
