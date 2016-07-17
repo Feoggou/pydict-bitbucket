@@ -164,6 +164,17 @@ class DefGroupReader:
         return ""
 
     @staticmethod
+    def _read_derived_forms(obj: dict):
+        if "derived_forms" in obj.keys():
+            text = ColoredText.colored_h1("derived forms") + "\n"
+            dict_obj = obj["derived_forms"]
+            for key in dict_obj.keys():
+                text += "({}) {}\n".format(ColoredText.colored_gram(dict_obj[key]), key)
+            text += "\n"
+            return text
+        return ""
+
+    @staticmethod
     def _read_frequency(obj: dict) -> str:
         if "frequency" in obj and len(obj["frequency"]) > 0:
             return ColoredText.colored_title("[{}]\n\n".format(obj["frequency"]))
@@ -175,6 +186,7 @@ class DefGroupReader:
 
         text += self._read_frequency(def_group)
         text += self._read_origin(def_group)
+        text += self._read_derived_forms(def_group)
 
         g_reader = GramGroupReader(def_group["gram_groups"])
         text += g_reader()
@@ -235,6 +247,7 @@ class JsonReader:
             return self.keys[key]()
         return ""
 
+    # TODO: remove "word"
     def read_content(self, word) -> str:
         text = self.read_by_key("def_groups")
         text += self.read_by_key("translations")

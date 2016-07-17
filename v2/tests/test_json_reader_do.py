@@ -52,6 +52,32 @@ class JsonReaderTest(unittest.TestCase):
 
         self.assertEqual(exp_txt_content, actual)
 
+    def test_jsonRead_tall(self):
+        """has subdef, derived forms."""
+        json_content, exp_txt_content = self.read_contents("expected_tall.def", "expected_tall.txt")
+
+        reader = JsonReader(json_content, use_colors=False)
+        actual = reader.read_content("do")
+
+        self.assertEqual(exp_txt_content, actual)
+
+    """def test_jsonLearnRead_tall(self):
+        json_content, exp_txt_content = self.read_contents("expected_tall.learn", "expected_tall_learn.txt")
+
+        reader = JsonLearnReader(json_content, use_colors=False)
+        actual = reader.read_content()
+
+        self.assertEqual(exp_txt_content, actual)
+
+    def test_jsonSynRead_tall(self):
+        # has opposites
+        json_content, exp_txt_content = self.read_contents("expected_tall.syn", "expected_tall_syn.txt")
+
+        reader = JsonSynReader(json_content, use_colors=False)
+        actual = reader.read_content()
+
+        self.assertEqual(exp_txt_content, actual)"""
+
 
 if __name__ == '__main__':
     unittest.main()
