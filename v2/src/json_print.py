@@ -9,7 +9,7 @@ class JsonPrinter:
 
     def print(self, content):
         reader = JsonReader(content, use_colors=True)
-        text = reader.read_content("do")
+        text = reader.read_content()
         self.output(text)
 
     def print_learn(self, content):
