@@ -1,0 +1,4433 @@
+ 0 TAG: "head"
+ 0 TEXT: "((space))"
+ 0 KEYS: (head) 
+ 0 TAIL: "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     (meta) charset="utf-8"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     (meta) name="viewport"; content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     (meta) http-equiv="X-UA-Compatible"; content="IE=edge"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "title"
+ 1 TEXT:     "Exactly | Definition, meaning & more | Collins Dictionary"
+ 1 KEYS:     (title) 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     (meta) name="title"; content="Exactly | Definition, meaning & more | Collins Dictionary"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "meta"
+ 1 KEYS:     (meta) name="description"; content="Exactly | in an exact manner; accurately or precisely | Definition, pronunciation, examples & translations"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "link"
+ 1 KEYS:     (link) rel="canonical"; href="http://www.collinsdictionary.com/dictionary/english/exactly"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "link"
+ 1 KEYS:     (link) rel="shortcut icon"; type="image/x-icon"; href="/favicon.ico?version=3.1.17"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "link"
+ 1 KEYS:     (link) type="text/css"; rel="stylesheet"; media="screen"; href="/common.css?version=3.1.17"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "script"
+ 1 TEXT:     "
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    var dfpSlots = {};
+    (function() {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') +'//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+    })();
+    googletag.cmd.push(function() {
+                                                                             var mapping_btmslot_a = googletag.sizeMapping()
+                                         .addSize([1223, 0], [[300, 250], [250, 250], [250, 360], [300, 100], [336, 280], [580, 400]])                                                                                  .addSize([745, 0], [[300, 250], [250, 250], [250, 360], [300, 100], [336, 280]])                                                             .addSize([0, 0], [[300, 250], [250, 250], [250, 360], [300, 100]]) .build();
+
+                    dfpSlots["btmslot_a"] = googletag.defineSlot('/20182162/btmslot', [[300, 250], [250, 250], [250, 360], [300, 100], [336, 280]], 'ad_btmslot_a').defineSizeMapping(mapping_btmslot_a)
+                     .setTargeting('hcd_vp', 'btm')  .setTargeting('hcd_hp', 'center')                     .addService(googletag.pubads());
+                                                                                                         var mapping_btmslot_b = googletag.sizeMapping()
+                                                                                                                         .addSize([745, 0], [])                                                             .addSize([0, 0], [320, 50]) .build();
+
+                    dfpSlots["btmslot_b"] = googletag.defineSlot('/20182162/btmslot', [], 'ad_btmslot_b').defineSizeMapping(mapping_btmslot_b)
+                     .setTargeting('hcd_vp', 'btm')  .setTargeting('hcd_hp', 'center')                     .addService(googletag.pubads());
+                     dfpSlots["btmslot_b"].renderCallback = function(e) { stickyBtmBannerRendering(e) };                                                                                      var mapping_leftslot_a = googletag.sizeMapping()
+                                         .addSize([1223, 0], [])                                          .addSize([932, 0], [160, 600])                                                                                                     .addSize([0, 0], []) .build();
+
+                    dfpSlots["leftslot_a"] = googletag.defineSlot('/20182162/leftslot', [160, 600], 'ad_leftslot_a').defineSizeMapping(mapping_leftslot_a)
+                     .setTargeting('hcd_vp', 'mid')  .setTargeting('hcd_hp', 'left')                     .addService(googletag.pubads());
+                                                                                                         var mapping_leftslot_b = googletag.sizeMapping()
+                                         .addSize([1223, 0], [[120, 600], [160, 600]])                                                                                                                                             .addSize([0, 0], []) .build();
+
+                    dfpSlots["leftslot_b"] = googletag.defineSlot('/20182162/leftslot', [], 'ad_leftslot_b').defineSizeMapping(mapping_leftslot_b)
+                     .setTargeting('hcd_vp', 'mid')  .setTargeting('hcd_hp', 'left')                     .addService(googletag.pubads());
+                                                                                                         var mapping_topslot = googletag.sizeMapping()
+                                         .addSize([1223, 0], [[728, 90], [750, 100], [750, 200], [930, 180], [970, 90], [980, 90], [980, 120]])                                                                                  .addSize([745, 0], [[728, 90], [750, 100]])                                                             .addSize([0, 0], []) .build();
+
+                    dfpSlots["topslot"] = googletag.defineSlot('/20182162/topslot', [[728, 90], [750, 100]], 'ad_topslot').defineSizeMapping(mapping_topslot)
+                     .setTargeting('hcd_vp', 'top')  .setTargeting('hcd_hp', 'center')                     .addService(googletag.pubads());
+                     dfpSlots["topslot"].renderCallback = function(e) { topslotCallback(e) };                                                                                      var mapping_rightslot = googletag.sizeMapping()
+                                                                                 .addSize([932, 0], [[300, 250], [240, 400], [250, 250], [250, 360], [300, 100]])                                                                                                     .addSize([0, 0], []) .build();
+
+                    dfpSlots["rightslot"] = googletag.defineSlot('/20182162/rightslot', [[300, 250], [240, 400], [250, 250], [250, 360], [300, 100]], 'ad_rightslot').defineSizeMapping(mapping_rightslot)
+                     .setTargeting('hcd_vp', 'top')  .setTargeting('hcd_hp', 'right')                     .addService(googletag.pubads());
+                                                            googletag.pubads().addEventListener('slotRenderEnded', function(event) { if (!event.isEmpty && event.slot.renderCallback) { event.slot.renderCallback(event); } });
+                                             googletag.pubads().setTargeting("hcd_pc", "dictionary");                              googletag.pubads().setTargeting("hcd_pt", "entry");                              googletag.pubads().setTargeting("hcd_dc", "english");                              googletag.pubads().setTargeting("hcd_ei", "exactly");                     
+                     googletag.pubads().setCategoryExclusion('wprod');         
+                                googletag.pubads().collapseEmptyDivs(false);
+        googletag.enableServices();
+    });
+"
+ 1 KEYS:     (script) type="text/javascript"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "script"
+ 1 TEXT:     "
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1927569-11']);
+        _gaq.push(['_trackPageview']);
+                                                      (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    "
+ 1 KEYS:     (script) type="text/javascript"; 
+ 1 TAIL:     "((space))"
+
+
+ 0 TAG: "body"
+ 0 TEXT: "((space))"
+ 0 KEYS: (body) class="definition context-english"; 
+ 0 TAIL: "((space))"
+
+
+ 1 TAG:     "header"
+ 1 TEXT:     "((space))"
+ 1 KEYS:     (header) class="sticky"; 
+ 1 TAIL:     "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) class="extra res_hos"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (div) class="quickLinks"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "English Dictionary"
+ 4 KEYS:                 (a) class="current"; href="/dictionary/english"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "span"
+ 4 TEXT:                 "|"
+ 4 KEYS:                 (span) 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "Thesaurus"
+ 4 KEYS:                 (a) href="/english-thesaurus"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "span"
+ 4 TEXT:                 "|"
+ 4 KEYS:                 (span) 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "Translator"
+ 4 KEYS:                 (a) href="/translator"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "span"
+ 4 TEXT:                 "|"
+ 4 KEYS:                 (span) 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "Scrabble"
+ 4 KEYS:                 (a) href="/scrabble/"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "span"
+ 4 TEXT:                 "|"
+ 4 KEYS:                 (span) 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "Word Lover's blog"
+ 4 KEYS:                 (a) href="/word-lovers-blog/"; 
+ 4 TAIL:                 "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (div) class="userStatus"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "i"
+ 4 KEYS:                 (i) class="icon-user"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "Sign Up "
+ 4 KEYS:                 (a) rel="nofollow"; href="https://www.collinsdictionary.com/register"; target="_top"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "i"
+ 5 KEYS:                     (i) class="icon-angle-right"; 
+
+
+ 4 TAG:                 "span"
+ 4 TEXT:                 "|"
+ 4 KEYS:                 (span) 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "Log In "
+ 4 KEYS:                 (a) rel="nofollow"; href="https://www.collinsdictionary.com/login?returnTo=/dictionary/english/exactly"; target="_top"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "i"
+ 5 KEYS:                     (i) class="icon-angle-right"; 
+
+
+ 2 TAG:         "div"
+ 2 KEYS:         (div) class="clear"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) class="left"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "a"
+ 3 KEYS:             (a) class="menuPanelOpenButton icon-bars icon-2x res_hot res_hod res_hoh"; title="Menu "; 
+ 3 TAIL:             "((space))"
+
+
+ 3 TAG:             "a"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (a) class="logo"; href="/"; title="www.collinsdictionary.com"; 
+ 3 TAIL:             "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) class="right"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "a"
+ 3 KEYS:             (a) class="searchPanelOpenButton icon-search icon-2x res_hot res_hod res_hoh"; title="Search"; 
+ 3 TAIL:             "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) class="res_hos"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "form"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (form) action="/search/"; class="search-form"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="custom-select-label-container"; style="float:left;"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "span"
+ 5 TEXT:                     "English"
+ 5 KEYS:                     (span) class="custom-select-label res_hos"; title="Select your dictionary"; 
+
+
+ 5 TAG:                     "i"
+ 5 KEYS:                     (i) class="icon-caret-down icon-fw"; 
+ 5 TAIL:                     "((space))"
+
+
+ 4 TAG:                 "button"
+ 4 KEYS:                 (button) type="submit"; class="search-submit"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "i"
+ 5 KEYS:                     (i) class="icon-search icon-fw"; title="Search"; 
+
+
+ 4 TAG:                 "button"
+ 4 KEYS:                 (button) class="search-keyboard"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "i"
+ 5 KEYS:                     (i) class="icon-keyboard icon-fw"; 
+
+
+ 4 TAG:                 "select"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (select) name="dictCode"; class="search-select custom-select autoc-dict"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="English"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English"
+ 6 KEYS:                         (option) value="english"; selected="selected"; data-placeholder="English Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English Thesaurus"
+ 6 KEYS:                         (option) value="english-thesaurus"; data-placeholder="English Thesaurus"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "American Thesaurus"
+ 6 KEYS:                         (option) value="american-thesaurus"; data-placeholder="American Thesaurus"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="French"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - French"
+ 6 KEYS:                         (option) value="english-french"; data-placeholder="English - French Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "French - English"
+ 6 KEYS:                         (option) value="french-english"; data-specialchar="àâäçèéêëîïôö"; data-placeholder="French - English Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="German"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - German"
+ 6 KEYS:                         (option) value="english-german"; data-placeholder="English - German Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "German - English"
+ 6 KEYS:                         (option) value="german-english"; data-specialchar="äöüß"; data-placeholder="German - English Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="Spanish"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - Spanish"
+ 6 KEYS:                         (option) value="english-spanish"; data-placeholder="English - Spanish Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "Spanish - English"
+ 6 KEYS:                         (option) value="spanish-english"; data-specialchar="áéíñóúü"; data-placeholder="Spanish - English Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="Italian"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - Italian"
+ 6 KEYS:                         (option) value="english-italian"; data-placeholder="English - Italian Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "Italian - English"
+ 6 KEYS:                         (option) value="italian-english"; data-specialchar="àáèéìíòóùú"; data-placeholder="Italian - English Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="Chinese"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - Chinese"
+ 6 KEYS:                         (option) value="english-chinese"; data-placeholder="English - Chinese Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "Chinese - English"
+ 6 KEYS:                         (option) value="chinese-english"; data-placeholder="Chinese - English Dictionary"; 
+ 6 TAIL:                         "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 KEYS:                 (div) class="autoc-results"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="search-input-container"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "input"
+ 5 KEYS:                     (input) type="text"; name="q"; class="search-input autoc-input"; autocomplete="off"; autocorrect="off"; autocapitalize="off"; spellcheck="false"; autofocus=""; 
+ 5 TAIL:                     "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 KEYS:                 (div) class="custom-select-menu"; 
+ 4 TAIL:                 "((space))"
+
+
+ 1 TAG:     "nav"
+ 1 TEXT:     "((space))"
+ 1 KEYS:     (nav) class="menuPanel"; 
+ 1 TAIL:     "((space))"
+
+
+ 2 TAG:         "a"
+ 2 KEYS:         (a) class="menuPanelCloseButton icon-times icon-2x"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "Menu"
+ 2 KEYS:         (div) class="title"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "a"
+ 2 TEXT:         "English Dictionary"
+ 2 KEYS:         (a) class="current"; href="/"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "a"
+ 2 TEXT:         "Thesaurus"
+ 2 KEYS:         (a) href="/english-thesaurus"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "a"
+ 2 TEXT:         "Translator"
+ 2 KEYS:         (a) href="/translator"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "a"
+ 2 TEXT:         "Scrabble"
+ 2 KEYS:         (a) href="/scrabble/"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "a"
+ 2 TEXT:         "Word Lover's blog"
+ 2 KEYS:         (a) href="/word-lovers-blog/"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "a"
+ 2 TEXT:         "Sign Up "
+ 2 KEYS:         (a) rel="nofollow"; href="https://www.collinsdictionary.com/register"; target="_top"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "i"
+ 3 KEYS:             (i) class="icon-angle-right"; 
+
+
+ 2 TAG:         "a"
+ 2 TEXT:         "Log In "
+ 2 KEYS:         (a) rel="nofollow"; href="https://www.collinsdictionary.com/login?returnTo=/dictionary/english/exactly"; target="_top"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "i"
+ 3 KEYS:             (i) class="icon-angle-right"; 
+
+
+ 1 TAG:     "nav"
+ 1 TEXT:     "((space))"
+ 1 KEYS:     (nav) class="searchPanel"; 
+ 1 TAIL:     "((space))"
+
+
+ 2 TAG:         "a"
+ 2 KEYS:         (a) class="searchPanelCloseButton icon-times icon-2x"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "Search"
+ 2 KEYS:         (div) class="title"; 
+ 2 TAIL:         "((space))"
+
+
+ 2 TAG:         "form"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (form) action="/search/"; class="searchForm"; 
+
+
+ 3 TAG:             "p"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (p) 
+
+
+ 4 TAG:                 "button"
+ 4 KEYS:                 (button) class="searchButton"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "i"
+ 5 KEYS:                     (i) class="icon-search"; 
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (div) class="searchInputContainer"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "input"
+ 4 KEYS:                 (input) type="text"; name="q"; class="searchInput autoc-input"; placeholder="Query..."; autocomplete="off"; autocorrect="off"; autocapitalize="off"; spellcheck="false"; 
+ 4 TAIL:                 "((space))"
+
+
+ 3 TAG:             "div"
+ 3 KEYS:             (div) class="autoc-results"; 
+ 3 TAIL:             "((space))"
+
+
+ 3 TAG:             "p"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (p) 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "label"
+ 4 TEXT:                 "Dictionary"
+ 4 KEYS:                 (label) for="searchDictionary"; 
+ 4 TAIL:                 "((space))"
+
+
+ 4 TAG:                 "select"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (select) name="dictCode"; id="searchDictionary"; class="searchDictionary autoc-dict"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="English"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English"
+ 6 KEYS:                         (option) value="english"; selected="selected"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English Thesaurus"
+ 6 KEYS:                         (option) value="english-thesaurus"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "American Thesaurus"
+ 6 KEYS:                         (option) value="american-thesaurus"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="French"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - French"
+ 6 KEYS:                         (option) value="english-french"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "French - English"
+ 6 KEYS:                         (option) value="french-english"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="German"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - German"
+ 6 KEYS:                         (option) value="english-german"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "German - English"
+ 6 KEYS:                         (option) value="german-english"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="Spanish"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - Spanish"
+ 6 KEYS:                         (option) value="english-spanish"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "Spanish - English"
+ 6 KEYS:                         (option) value="spanish-english"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="Italian"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - Italian"
+ 6 KEYS:                         (option) value="english-italian"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "Italian - English"
+ 6 KEYS:                         (option) value="italian-english"; 
+ 6 TAIL:                         "((space))"
+
+
+ 5 TAG:                     "optgroup"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (optgroup) label="Chinese"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "English - Chinese"
+ 6 KEYS:                         (option) value="english-chinese"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "option"
+ 6 TEXT:                         "Chinese - English"
+ 6 KEYS:                         (option) value="chinese-english"; 
+ 6 TAIL:                         "((space))"
+
+
+ 1 TAG:     "div"
+ 1 KEYS:     (div) class="menuOverlay"; 
+ 1 TAIL:     "((space))"
+
+
+ 1 TAG:     "main"
+ 1 TEXT:     "((space))"
+ 1 KEYS:     (main) 
+ 1 TAIL:     "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) class="ad_trick"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (div) id="ad_topslot"; class="am-default res_hos"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "script"
+ 4 TEXT:                 "googletag.cmd.push(function() { googletag.display('ad_topslot'); });"
+ 4 KEYS:                 (script) type="text/javascript"; 
+ 4 TAIL:                 "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) class="dictionary"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (div) class="res_cell_left res_hos res_hot"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="ac_leftslot_a sticky res_hoh res_hos"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) id="ad_leftslot_a"; class="am-default "; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "script"
+ 6 TEXT:                         "googletag.cmd.push(function() { googletag.display('ad_leftslot_a'); });"
+ 6 KEYS:                         (script) type="text/javascript"; 
+ 6 TAIL:                         "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="ac_leftslot_b sticky res_hod res_hot res_hos"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) id="ad_leftslot_b"; class="am-default "; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "script"
+ 6 TEXT:                         "googletag.cmd.push(function() { googletag.display('ad_leftslot_b'); });"
+ 6 KEYS:                         (script) type="text/javascript"; 
+ 6 TAIL:                         "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (div) class="res_cell_center"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="definition_content res_cell_center_content"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) id="exactly_1"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (div) class="homograph-entry"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 KEYS:                             (div) class=" page"; id="exactly"; idm_id="000059671"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "span"
+ 8 KEYS:                                 (span) class="metadata metadata"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "exactly"
+ 9 KEYS:                                     (span) class=" url"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "exactly | meaning of exactly in Collins Dictionaries"
+ 9 KEYS:                                     (span) class="title title"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "exactly meaning, definition, what is exactly: in an exact manner; accurately or precisely: Learn more."
+ 9 KEYS:                                     (span) class="description description"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "in an exact manner; accurately or precisely"
+ 9 KEYS:                                     (span) class="summary summary"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="og og"; 
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "What does exactly mean and how do you use exactly in a sentence?"
+10 KEYS:                                         (span) class="title title"; 
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "[URL]/exactly"
+10 KEYS:                                         (span) class="url url"; 
+
+
+ 8 TAG:                                 "div"
+ 8 KEYS:                                 (div) class="dictionary dictionaries"; 
+
+
+ 9 TAG:                                     "div"
+ 9 KEYS:                                     (div) class="Collins_Eng_Dict dictionary"; 
+
+
+10 TAG:                                         "div"
+10 KEYS:                                         (div) class=" dictentry"; type="full"; 
+
+
+11 TAG:                                             "div"
+11 KEYS:                                             (div) class=" dictlink"; 
+
+
+12 TAG:                                                 "div"
+12 KEYS:                                                 (div) class="ced entry"; lang="en-gb"; 
+
+
+13 TAG:                                                     "div"
+13 TEXT:                                                     "((space))"
+13 KEYS:                                                     (div) class="entry_header"; 
+
+
+14 TAG:                                                         "div"
+14 TEXT:                                                         "((space))"
+14 KEYS:                                                         (div) class="word-frequency-container res_hos"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "div"
+15 TEXT:                                                             "Word Frequency"
+15 KEYS:                                                             (div) class="label"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "div"
+15 TEXT:                                                             "((space))"
+15 KEYS:                                                             (div) class="word-frequency-img"; title="Very Common. exactly is one of the 4000 most commonly used words in the Collins dictionary"; data-word="exactly"; data-band="4"; alt="Word Frequency of {0}"; 
+15 TAIL:                                                             "((space))"
+
+
+16 TAG:                                                                 "div"
+16 KEYS:                                                                 (div) class="level level1"; 
+16 TAIL:                                                                 "((space))"
+
+
+17 TAG:                                                                     "div"
+17 KEYS:                                                                     (div) class="round  roundRed "; 
+
+
+16 TAG:                                                                 "div"
+16 KEYS:                                                                 (div) class="level level2"; 
+16 TAIL:                                                                 "((space))"
+
+
+17 TAG:                                                                     "div"
+17 KEYS:                                                                     (div) class="round  roundRed "; 
+
+
+16 TAG:                                                                 "div"
+16 KEYS:                                                                 (div) class="level level3"; 
+16 TAIL:                                                                 "((space))"
+
+
+17 TAG:                                                                     "div"
+17 KEYS:                                                                     (div) class="round  roundRed "; 
+
+
+16 TAG:                                                                 "div"
+16 KEYS:                                                                 (div) class="level level4"; 
+16 TAIL:                                                                 "((space))"
+
+
+17 TAG:                                                                     "div"
+17 KEYS:                                                                     (div) class="round  roundRed "; 
+
+
+16 TAG:                                                                 "div"
+16 KEYS:                                                                 (div) class="level level5"; 
+16 TAIL:                                                                 "((space))"
+
+
+17 TAG:                                                                     "div"
+17 KEYS:                                                                     (div) class="round "; 
+
+
+14 TAG:                                                         "h1"
+14 KEYS:                                                         (h1) class="h1_entry"; id="exactly__1"; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "exactly"
+15 KEYS:                                                             (span) class=" orth"; 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         " ("
+14 KEYS:                                                         (span) 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "ɪɡˈzæktlɪ"
+14 KEYS:                                                         (span) class=" pron"; type=""; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "((space))"
+15 KEYS:                                                             (span) class="hwd_sound ptr"; 
+
+
+16 TAG:                                                                 "a"
+16 KEYS:                                                                 (a) class="hwd_sound sound audio_play_button icon-volume-up ptr"; title="Pronunciation for exactly"; data-src-mp3="/sounds/1/193/19381/19381.mp3"; 
+16 TAIL:                                                                 "((space))"
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         ")"
+14 KEYS:                                                         (span) 
+
+
+13 TAG:                                                     "div"
+13 TEXT:                                                     "((space))"
+13 KEYS:                                                     (div) class="content definitions ced"; 
+
+
+14 TAG:                                                         "div"
+14 TEXT:                                                         "((space))"
+14 KEYS:                                                         (div) class="socialButtons"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "a"
+15 KEYS:                                                             (a) href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.collinsdictionary.com%2Fdictionary%2Fenglish%2Fexactly"; target="_blank"; class="socialButtons-facebook icon-facebook"; title="Share this page on Facebook"; onclick="_gaq.push(['_trackEvent', 'socialButtons', 'facebook']);"; 
+
+
+15 TAG:                                                             "a"
+15 KEYS:                                                             (a) href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.collinsdictionary.com%2Fdictionary%2Fenglish%2Fexactly&via=collinsdict"; target="_blank"; class="socialButtons-twitter icon-twitter"; title="Share this page on Twitter"; onclick="_gaq.push(['_trackEvent', 'socialButtons', 'twitter']);"; 
+
+
+15 TAG:                                                             "a"
+15 KEYS:                                                             (a) href="https://plus.google.com/share?url=http%3A%2F%2Fwww.collinsdictionary.com%2Fdictionary%2Fenglish%2Fexactly"; target="_blank"; class="socialButtons-google icon-google-plus"; title="Share this page on Google+"; onclick="_gaq.push(['_trackEvent', 'socialButtons', 'google']);"; 
+
+
+15 TAG:                                                             "a"
+15 KEYS:                                                             (a) href="#commentsBox"; class="socialButtons-comments icon-chat"; title="Comment this entry"; onclick="_gaq.push(['_trackEvent', 'socialButtons', 'comments']);"; 
+15 TAIL:                                                             "((space))"
+
+
+14 TAG:                                                         "div"
+14 TEXT:                                                         "Definitions"
+14 KEYS:                                                         (div) class="h2_entry"; 
+
+
+14 TAG:                                                         "div"
+14 TEXT:                                                         "Collins English Dictionary"
+14 KEYS:                                                         (div) class="dictname"; 
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" hom"; id="exactly__2"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" gramGrp"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "adverb"
+16 KEYS:                                                                 (span) class=" pos"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; n="1."; id="exactly__3"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "1. "
+16 KEYS:                                                                 (span) class="sensenum"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "in an "
+16 KEYS:                                                                 (span) class=" def"; 
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "exact"
+17 KEYS:                                                                     (a) class="ref"; href="exact"; type="def"; title="Definition of exact"; 
+17 TAIL:                                                                     " manner; accurately or "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "precisely"
+17 KEYS:                                                                     (a) class="ref"; href="precisely"; type="def"; title="Definition of precisely"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; n="2."; id="exactly__4"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "2. "
+16 KEYS:                                                                 (span) class="sensenum"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "in every "
+16 KEYS:                                                                 (span) class=" def"; 
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "respect"
+17 KEYS:                                                                     (a) class="ref"; href="respect"; title="Definition of respect"; type="def"; 
+17 TAIL:                                                                     "; just"
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" cit"; type="example"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "it is exactly what I want"
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; id="exactly__5"; n="3."; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "3. "
+16 KEYS:                                                                 (span) class="sensenum"; 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" xr"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "See "
+17 KEYS:                                                                     (span) class=" lbl"; 
+17 TAIL:                                                                     "((space))"
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "not exactly"
+17 KEYS:                                                                     (a) class="ref"; href="not-exactly"; 
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" hom"; id="exactly__6"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" gramGrp"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "sentence substitute"
+16 KEYS:                                                                 (span) class=" pos"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; n="4."; id="exactly__7"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "4. "
+16 KEYS:                                                                 (span) class="sensenum"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "just so! precisely!"
+16 KEYS:                                                                 (span) class=" def"; 
+
+
+ 9 TAG:                                     "div"
+ 9 KEYS:                                     (div) class="Cob_Adv_Brit dictionary"; 
+
+
+10 TAG:                                         "div"
+10 KEYS:                                         (div) class=" dictentry"; type="full"; 
+
+
+11 TAG:                                             "div"
+11 KEYS:                                             (div) class=" dictlink"; 
+
+
+12 TAG:                                                 "div"
+12 KEYS:                                                 (div) class="cobuild br entry"; lang="en-gb"; id="exactly__8"; 
+
+
+13 TAG:                                                     "div"
+13 KEYS:                                                     (div) class="entry_header"; 
+
+
+14 TAG:                                                         "h2"
+14 KEYS:                                                         (h2) class="h1_entry"; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "exactly"
+15 KEYS:                                                             (span) class=" orth"; 
+
+
+14 TAG:                                                         "div"
+14 KEYS:                                                         (div) class="power"; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "Powered by"
+15 KEYS:                                                             (span) class=" i"; 
+15 TAIL:                                                             " COBUILD"
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         " ("
+14 KEYS:                                                         (span) 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "ɪgz"
+14 KEYS:                                                         (span) class=" pron"; type=""; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "æ"
+15 KEYS:                                                             (span) class=" hi"; rend="u"; 
+15 TAIL:                                                             "ktli"
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "((space))"
+15 KEYS:                                                             (span) class="hwd_sound ptr"; 
+
+
+16 TAG:                                                                 "a"
+16 KEYS:                                                                 (a) class="hwd_sound sound audio_play_button icon-volume-up ptr"; title="Pronunciation for exactly"; data-src-mp3="/sounds/1/193/19381/19381.mp3"; 
+16 TAIL:                                                                 "((space))"
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         ")"
+14 KEYS:                                                         (span) 
+
+
+13 TAG:                                                     "div"
+13 TEXT:                                                     "((space))"
+13 KEYS:                                                     (div) class="content definitions cobuild br"; 
+
+
+14 TAG:                                                         "div"
+14 TEXT:                                                         "((space))"
+14 KEYS:                                                         (div) class="socialButtons"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "a"
+15 KEYS:                                                             (a) href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.collinsdictionary.com%2Fdictionary%2Fenglish%2Fexactly"; target="_blank"; class="socialButtons-facebook icon-facebook"; title="Share this page on Facebook"; onclick="_gaq.push(['_trackEvent', 'socialButtons', 'facebook']);"; 
+
+
+15 TAG:                                                             "a"
+15 KEYS:                                                             (a) href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.collinsdictionary.com%2Fdictionary%2Fenglish%2Fexactly&via=collinsdict"; target="_blank"; class="socialButtons-twitter icon-twitter"; title="Share this page on Twitter"; onclick="_gaq.push(['_trackEvent', 'socialButtons', 'twitter']);"; 
+
+
+15 TAG:                                                             "a"
+15 KEYS:                                                             (a) href="https://plus.google.com/share?url=http%3A%2F%2Fwww.collinsdictionary.com%2Fdictionary%2Fenglish%2Fexactly"; target="_blank"; class="socialButtons-google icon-google-plus"; title="Share this page on Google+"; onclick="_gaq.push(['_trackEvent', 'socialButtons', 'google']);"; 
+
+
+15 TAG:                                                             "a"
+15 KEYS:                                                             (a) href="#commentsBox"; class="socialButtons-comments icon-chat"; title="Comment this entry"; onclick="_gaq.push(['_trackEvent', 'socialButtons', 'comments']);"; 
+15 TAIL:                                                             "((space))"
+
+
+14 TAG:                                                         "div"
+14 TEXT:                                                         "Definitions"
+14 KEYS:                                                         (div) class="h2_entry"; 
+
+
+14 TAG:                                                         "div"
+14 TEXT:                                                         "COBUILD Advanced British English Dictionary"
+14 KEYS:                                                         (div) class="dictname"; 
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" hom"; n="1."; id="exactly__10"; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "1. "
+15 KEYS:                                                             (span) class="sensenum"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" gramGrp"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "adverb"
+16 KEYS:                                                                 (span) class=" pos"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; id="exactly__11"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "You use "
+16 KEYS:                                                                 (span) class=" def"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "exactly"
+17 KEYS:                                                                     (span) class=" hi"; rend="b"; 
+17 TAIL:                                                                     " before an amount, number, or position to "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "emphasize"
+17 KEYS:                                                                     (a) class="ref"; href="emphasize"; type="def"; title="Definition of emphasize"; 
+17 TAIL:                                                                     " that it is no more, no less, or no different from what you are stating."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" lbl"; type="pragmatics"; 
+16 TAIL:                                                                 "((space))"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     " ["
+17 KEYS:                                                                     (span) 
+17 TAIL:                                                                     "emphasis"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "]"
+17 KEYS:                                                                     (span) 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "Each corner had a guard tower, each of which was exactly ten meters in height."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "Agnew's car pulled into the driveway at exactly five o'clock."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "It seems logical to keep a moving subject exactly in the middle of the picture."
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" hom"; id="exactly__12"; n="2."; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "2. "
+15 KEYS:                                                             (span) class="sensenum"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" gramGrp"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "adverb"
+16 KEYS:                                                                 (span) class=" pos"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; id="exactly__13"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "If you "
+16 KEYS:                                                                 (span) class=" def"; 
+16 TAIL:                                                                 "((space))"
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "say"
+17 KEYS:                                                                     (a) class="ref"; href="say"; type="def"; title="Definition of say"; 
+17 TAIL:                                                                     " '"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "Exactly"
+17 KEYS:                                                                     (span) class=" hi"; rend="b"; 
+17 TAIL:                                                                     "', you are "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "agreeing"
+17 KEYS:                                                                     (a) class="ref"; href="agree"; type="def"; title="Definition of agree"; 
+17 TAIL:                                                                     " with someone or emphasizing the "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "truth"
+17 KEYS:                                                                     (a) class="ref"; href="truth"; title="Definition of truth"; type="def"; 
+17 TAIL:                                                                     " of what they say. If you say '"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "Not exactly"
+17 KEYS:                                                                     (span) class=" hi"; rend="b"; 
+17 TAIL:                                                                     "', you are "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "telling"
+17 KEYS:                                                                     (a) class="ref"; href="tell"; type="def"; title="Definition of tell"; 
+17 TAIL:                                                                     " them politely that they are "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "wrong"
+17 KEYS:                                                                     (a) class="ref"; href="wrong"; title="Definition of wrong"; type="def"; 
+17 TAIL:                                                                     " in part of what they are "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "saying"
+17 KEYS:                                                                     (a) class="ref"; href="saying"; title="Definition of saying"; type="def"; 
+17 TAIL:                                                                     "."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "Eve nodded, almost approvingly. 'Exactly.'."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "'We don't know the answer to that.'—'Exactly–so shut up and stop speculating.'."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "'And you refused?'—'Well, not exactly. I couldn't say yes.'"
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" hom"; n="3."; id="exactly__14"; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "3. "
+15 KEYS:                                                             (span) class="sensenum"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" gramGrp"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "adverb"
+16 KEYS:                                                                 (span) class=" pos"; 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" lbl"; type="syntax"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     " ["
+17 KEYS:                                                                     (span) 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "not"
+17 KEYS:                                                                     (span) class=" hi"; rend="i"; 
+17 TAIL:                                                                     "((space))"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "ADV"
+17 KEYS:                                                                     (span) class=" hi"; rend="sc"; 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" lbl"; type="syntax"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     ", "
+17 KEYS:                                                                     (span) 
+17 TAIL:                                                                     "usu "
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "ADV"
+17 KEYS:                                                                     (span) class=" hi"; rend="sc"; 
+17 TAIL:                                                                     " group"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "]"
+17 KEYS:                                                                     (span) 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; id="exactly__15"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "You use "
+16 KEYS:                                                                 (span) class=" def"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "not exactly"
+17 KEYS:                                                                     (span) class=" hi"; rend="b"; 
+17 TAIL:                                                                     " to indicate that a "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "meaning"
+17 KEYS:                                                                     (a) class="ref"; href="meaning"; title="Definition of meaning"; type="def"; 
+17 TAIL:                                                                     " or "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "situation"
+17 KEYS:                                                                     (a) class="ref"; href="situation"; title="Definition of situation"; type="def"; 
+17 TAIL:                                                                     " is "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "slightly"
+17 KEYS:                                                                     (a) class="ref"; href="slightly"; type="def"; title="Definition of slightly"; 
+17 TAIL:                                                                     " different from what people "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "think"
+17 KEYS:                                                                     (a) class="ref"; href="think_1"; type="def"; title="Definition of think"; 
+17 TAIL:                                                                     " or "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "expect"
+17 KEYS:                                                                     (a) class="ref"; href="expect"; title="Definition of expect"; type="def"; 
+17 TAIL:                                                                     "."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" lbl"; type="pragmatics"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     " ["
+17 KEYS:                                                                     (span) 
+17 TAIL:                                                                     "vagueness"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "]"
+17 KEYS:                                                                     (span) 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "He's not exactly homeless, he just hangs out in this park."
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" hom"; id="exactly__16"; n="4."; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "4. "
+15 KEYS:                                                             (span) class="sensenum"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" gramGrp"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "adverb"
+16 KEYS:                                                                 (span) class=" pos"; 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" lbl"; type="syntax"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     " ["
+17 KEYS:                                                                     (span) 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "not"
+17 KEYS:                                                                     (span) class=" hi"; rend="i"; 
+17 TAIL:                                                                     "((space))"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "ADV"
+17 KEYS:                                                                     (span) class=" hi"; rend="sc"; 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" lbl"; type="syntax"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     ", "
+17 KEYS:                                                                     (span) 
+17 TAIL:                                                                     "usu "
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "ADV"
+17 KEYS:                                                                     (span) class=" hi"; rend="sc"; 
+17 TAIL:                                                                     " group"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "]"
+17 KEYS:                                                                     (span) 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; id="exactly__17"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "You can use "
+16 KEYS:                                                                 (span) class=" def"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "not exactly"
+17 KEYS:                                                                     (span) class=" hi"; rend="b"; 
+17 TAIL:                                                                     " to show that you mean the "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "opposite"
+17 KEYS:                                                                     (a) class="ref"; href="opposite"; type="def"; title="Definition of opposite"; 
+17 TAIL:                                                                     " of what you are saying."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" lbl"; type="pragmatics"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     " ["
+17 KEYS:                                                                     (span) 
+17 TAIL:                                                                     "emphasis"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "]"
+17 KEYS:                                                                     (span) 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "This was not exactly what I wanted to hear."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "Sailing is not exactly cheap."
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" hom"; n="5."; id="exactly__18"; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "5. "
+15 KEYS:                                                             (span) class="sensenum"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" gramGrp"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "adverb"
+16 KEYS:                                                                 (span) class=" pos"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" sense"; id="exactly__19"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "You use "
+16 KEYS:                                                                 (span) class=" def"; 
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "exactly"
+17 KEYS:                                                                     (span) class=" hi"; rend="b"; 
+17 TAIL:                                                                     " with a "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "question"
+17 KEYS:                                                                     (a) class="ref"; href="question"; title="Definition of question"; type="def"; 
+17 TAIL:                                                                     " to show that you "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "disapprove"
+17 KEYS:                                                                     (a) class="ref"; href="disapprove"; type="def"; title="Definition of disapprove"; 
+17 TAIL:                                                                     " of what the person you are "
+
+
+17 TAG:                                                                     "a"
+17 TEXT:                                                                     "talking"
+17 KEYS:                                                                     (a) class="ref"; href="talk"; title="Definition of talk"; type="def"; 
+17 TAIL:                                                                     " to is doing or saying."
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" lbl"; type="pragmatics"; 
+16 TAIL:                                                                 "((space))"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     " ["
+17 KEYS:                                                                     (span) 
+17 TAIL:                                                                     "disapproval"
+
+
+17 TAG:                                                                     "span"
+17 TEXT:                                                                     "]"
+17 KEYS:                                                                     (span) 
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "What exactly do you mean?"
+
+
+16 TAG:                                                                 "span"
+16 KEYS:                                                                 (span) class=" exmplgrp"; 
+
+
+17 TAG:                                                                     "span"
+17 KEYS:                                                                     (span) class=" quote"; 
+
+
+18 TAG:                                                                         "span"
+18 TEXT:                                                                         " ⇒ "
+18 KEYS:                                                                         (span) 
+18 TAIL:                                                                         "Exactly what are you looking for?"
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" hom"; n="6."; id="exactly__20"; 
+
+
+15 TAG:                                                             "span"
+15 TEXT:                                                             "6. "
+15 KEYS:                                                             (span) class="sensenum"; 
+
+
+15 TAG:                                                             "span"
+15 KEYS:                                                             (span) class=" xr"; 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "→ "
+16 KEYS:                                                                 (span) 
+
+
+16 TAG:                                                                 "span"
+16 TEXT:                                                                 "see also"
+16 KEYS:                                                                 (span) class=" lbl"; 
+16 TAIL:                                                                 "((space))"
+
+
+16 TAG:                                                                 "a"
+16 TEXT:                                                                 "exact"
+16 KEYS:                                                                 (a) class="ref"; href="exact#exact__23"; 
+
+
+ 8 TAG:                                 "span"
+ 8 KEYS:                                 (span) class=" assets"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="Corpus_Examples_EN asset"; 
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         (span) class=" assetlink"; target="ucc888ac159e9af03.-17242a22.153cd24ad06.7938"; 
+
+
+11 TAG:                                             "span"
+11 KEYS:                                             (span) class=" examples"; 
+
+
+12 TAG:                                                 "div"
+12 KEYS:                                                 (div) class="content examples"; 
+
+
+13 TAG:                                                     "div"
+13 TEXT:                                                     "Example sentences containing 'exactly'"
+13 KEYS:                                                     (div) class="h2_entry"; 
+
+
+13 TAG:                                                     "span"
+13 KEYS:                                                     (span) class=" cit"; type="example"; 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "We weren't exactly "
+14 KEYS:                                                         (span) class=" quote"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "girls"
+15 KEYS:                                                             (a) class="ref"; href="girl"; type="def"; title="Definition of girl"; 
+15 TAIL:                                                             " on an equal "
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "footing"
+15 KEYS:                                                             (a) class="ref"; href="footing"; title="Definition of footing"; type="def"; 
+15 TAIL:                                                             " - she was the Ambassador's "
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "wife"
+15 KEYS:                                                             (a) class="ref"; href="wife"; title="Definition of wife"; type="def"; 
+15 TAIL:                                                             "."
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "Jon Cleary"
+14 KEYS:                                                         (span) class=" author"; 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         " YESTERDAY'S SHADOW"
+14 KEYS:                                                         (span) class=" title"; 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "I didn't "
+14 KEYS:                                                         (span) class=" quote"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "really"
+15 KEYS:                                                             (a) class="ref"; href="really"; title="Definition of really"; type="def"; 
+15 TAIL:                                                             "((space))"
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "care"
+15 KEYS:                                                             (a) class="ref"; href="care"; type="def"; title="Definition of care"; 
+15 TAIL:                                                             " too much about what exactly he was up to."
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "Hugo Wilcken"
+14 KEYS:                                                         (span) class=" author"; 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         " THE EXECUTION"
+14 KEYS:                                                         (span) class=" title"; 
+
+
+14 TAG:                                                         "span"
+14 KEYS:                                                         (span) class=" quote"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "Clearly"
+15 KEYS:                                                             (a) class="ref"; href="clearly"; title="Definition of clearly"; type="def"; 
+15 TAIL:                                                             ", it would take some time to "
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "find"
+15 KEYS:                                                             (a) class="ref"; href="find"; title="Definition of find"; type="def"; 
+15 TAIL:                                                             " out exactly what the "
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "creature"
+15 KEYS:                                                             (a) class="ref"; href="creature"; type="def"; title="Definition of creature"; 
+15 TAIL:                                                             " was."
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "Garth Nix"
+14 KEYS:                                                         (span) class=" author"; 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         " LIRAEL: DAUGHTER OF THE CLAYR"
+14 KEYS:                                                         (span) class=" title"; 
+
+
+13 TAG:                                                     "span"
+13 KEYS:                                                     (span) class=" cit"; type="example"; 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "Didn't exactly "
+14 KEYS:                                                         (span) class=" quote"; 
+14 TAIL:                                                         "((space))"
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "blend"
+15 KEYS:                                                             (a) class="ref"; href="blend"; type="def"; title="Definition of blend"; 
+15 TAIL:                                                             " into the "
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "stucco"
+15 KEYS:                                                             (a) class="ref"; href="stucco"; title="Definition of stucco"; type="def"; 
+15 TAIL:                                                             " that fronted the New "
+
+
+15 TAG:                                                             "a"
+15 TEXT:                                                             "Center"
+15 KEYS:                                                             (a) class="ref"; href=""; type="def"; title="Definition of center"; 
+15 TAIL:                                                             " building."
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         "Gregg Andrew Hurwitz"
+14 KEYS:                                                         (span) class=" author"; 
+
+
+14 TAG:                                                         "span"
+14 TEXT:                                                         " MINUTES TO BURN"
+14 KEYS:                                                         (span) class=" title"; 
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (div) class="content-box content-box-synonyms"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "h2"
+ 7 TEXT:                             "Similar Words"
+ 7 KEYS:                             (h2) class="h2_entry"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             (div) id="synonyms_content"; class="lang_en-gb"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "div"
+ 8 KEYS:                                 (div) class="thesaurus_synonyms"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "accurately"
+10 KEYS:                                         (a) href="accurately"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "correctly"
+10 KEYS:                                         (a) href="correctly"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "definitely"
+10 KEYS:                                         (a) href="definitely"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "truly"
+10 KEYS:                                         (a) href="truly"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "precisely"
+10 KEYS:                                         (a) href="precisely"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "strictly"
+10 KEYS:                                         (a) href="strictly"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "literally"
+10 KEYS:                                         (a) href="literally"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "faithfully"
+10 KEYS:                                         (a) href="faithfully"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "explicitly"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "rigorously"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "unequivocally"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "scrupulously"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "truthfully"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "methodically"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "unerringly"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "faultlessly"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "veraciously"
+ 9 KEYS:                                     (span) class="synonym"; 
+
+
+ 8 TAG:                                 "div"
+ 8 KEYS:                                 (div) class="thesaurus_synonyms"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "precisely"
+10 KEYS:                                         (a) href="precisely"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "just"
+10 KEYS:                                         (a) href="just"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "expressly"
+10 KEYS:                                         (a) href="expressly"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "prompt"
+10 KEYS:                                         (a) href="prompt"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (informal)"
+ 9 KEYS:                                     (span) class="lbl"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "specifically"
+10 KEYS:                                         (a) href="specifically"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "bang on"
+ 9 KEYS:                                     (span) class="synonym"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (informal)"
+ 9 KEYS:                                     (span) class="lbl"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "to the letter"
+10 KEYS:                                         (a) href="to-the-letter"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "on the button"
+ 9 KEYS:                                     (span) class="synonym"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (informal)"
+ 9 KEYS:                                     (span) class="lbl"; 
+
+
+ 8 TAG:                                 "div"
+ 8 KEYS:                                 (div) class="thesaurus_synonyms"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "precisely"
+10 KEYS:                                         (a) href="precisely"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "yes"
+10 KEYS:                                         (a) href="yes"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "quite"
+10 KEYS:                                         (a) href="quite"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "of course"
+10 KEYS:                                         (a) href="of-course"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "certainly"
+10 KEYS:                                         (a) href="certainly"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "indeed"
+10 KEYS:                                         (a) href="indeed"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "truly"
+10 KEYS:                                         (a) href="truly"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "that's right"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "absolutely"
+10 KEYS:                                         (a) href="absolutely"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "spot-on"
+10 KEYS:                                         (a) href="spoton"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (British)"
+ 9 KEYS:                                     (span) class="lbl"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (informal)"
+ 9 KEYS:                                     (span) class="lbl"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "just so"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "quite so"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="synonym"; 
+
+
+10 TAG:                                         "a"
+10 TEXT:                                         "ya"
+10 KEYS:                                         (a) href="ya"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (South Africa)"
+ 9 KEYS:                                     (span) class="lbl"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "as you say"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "you got it"
+ 9 KEYS:                                     (span) class="synonym"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (informal)"
+ 9 KEYS:                                     (span) class="lbl"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "assuredly"
+ 9 KEYS:                                     (span) class="synonym"; 
+ 9 TAIL:                                     ", "
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "yebo"
+ 9 KEYS:                                     (span) class="synonym"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (South Africa)"
+ 9 KEYS:                                     (span) class="lbl"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     " (informal)"
+ 9 KEYS:                                     (span) class="lbl"; 
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "View thesaurus entry"
+ 7 KEYS:                             (a) class="extra-link"; href="/dictionary/english-thesaurus/exactly"; 
+ 7 TAIL:                             "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="content-box content-box-usage"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "h2"
+ 6 TEXT:                         "Word usage trends for “exactly”"
+ 6 KEYS:                         (h2) class="h2_entry"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (div) class="block-content clear"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "p"
+ 7 TEXT:                             "View usage over:"
+ 7 KEYS:                             (p) class="dropdown-label"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "select"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             (select) class="expandable-list"; id="graph_years"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "option"
+ 8 TEXT:                                 "Last 10 years"
+ 8 KEYS:                                 (option) value="10"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "option"
+ 8 TEXT:                                 "Last 50 years"
+ 8 KEYS:                                 (option) value="50"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "option"
+ 8 TEXT:                                 "Last 100 years"
+ 8 KEYS:                                 (option) value="100"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "option"
+ 8 TEXT:                                 "Last 300 years"
+ 8 KEYS:                                 (option) value="300"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 KEYS:                             (div) id="visualization"; 
+ 7 TAIL:                             "((space))"
+
+
+ 5 TAG:                     "script"
+ 5 TEXT:                     "
+                            var frequencyData = "1708:1105|1709:621|1710:650|1711:979|1712:710|1713:888|1714:741|1715:786|1716:797|1717:871|1718:928|1719:834|1720:860|1721:963|1722:946|1723:920|1724:839|1725:1038|1726:1232|1727:911|1728:1063|1729:1106|1730:974|1731:957|1732:1360|1733:555|1734:1071|1735:1258|1736:987|1737:1487|1738:997|1739:1119|1740:777|1741:900|1742:976|1743:1077|1744:1107|1745:1081|1746:1070|1747:767|1748:967|1749:1081|1750:864|1751:923|1752:881|1753:865|1754:1037|1755:766|1756:871|1757:881|1758:983|1759:762|1760:902|1761:781|1762:636|1763:891|1764:658|1765:793|1766:759|1767:796|1768:837|1769:844|1770:816|1771:679|1772:889|1773:687|1774:934|1775:862|1776:780|1777:827|1778:700|1779:407|1780:698|1781:841|1782:694|1783:885|1784:765|1785:838|1786:886|1787:735|1788:792|1789:941|1790:753|1791:832|1792:754|1793:669|1794:850|1795:594|1796:804|1797:571|1798:684|1799:789|1800:897|1801:865|1802:793|1803:806|1804:786|1805:837|1806:722|1807:719|1808:773|1809:763|1810:614|1811:801|1812:759|1813:760|1814:839|1815:867|1816:780|1817:836|1818:794|1819:774|1820:696|1821:737|1822:815|1823:756|1824:798|1825:795|1826:725|1827:766|1828:728|1829:741|1830:758|1831:740|1832:810|1833:774|1834:798|1835:836|1836:867|1837:776|1838:796|1839:782|1840:751|1841:790|1842:748|1843:834|1844:813|1845:772|1846:783|1847:806|1848:808|1849:785|1850:776|1851:817|1852:834|1853:783|1854:835|1855:862|1856:829|1857:791|1858:779|1859:861|1860:940|1861:846|1862:858|1863:872|1864:861|1865:929|1866:903|1867:892|1868:928|1869:887|1870:866|1871:878|1872:982|1873:981|1874:1009|1875:934|1876:934|1877:982|1878:972|1879:1043|1880:967|1881:947|1882:987|1883:947|1884:990|1885:922|1886:1045|1887:898|1888:986|1889:990|1890:1005|1891:1053|1892:1023|1893:1001|1894:1038|1895:1014|1896:1037|1897:1012|1898:1019|1899:975|1900:1011|1901:965|1902:977|1903:977|1904:966|1905:952|1906:981|1907:960|1908:986|1909:955|1910:932|1911:1013|1912:970|1913:1046|1914:1046|1915:1023|1916:1091|1917:1014|1918:1054|1919:1013|1920:1059|1921:1052|1922:1096|1923:1121|1924:1045|1925:1030|1926:1036|1927:1013|1928:980|1929:1033|1930:1041|1931:1067|1932:1117|1933:1081|1934:1114|1935:1057|1936:1030|1937:1115|1938:1025|1939:1090|1940:1046|1941:1052|1942:1070|1943:1091|1944:1096|1945:1061|1946:1058|1947:1078|1948:1043|1949:1064|1950:1091|1951:1100|1952:1031|1953:1041|1954:1038|1955:1074|1956:1051|1957:1021|1958:1042|1959:1000|1960:1074|1961:1004|1962:1031|1963:1011|1964:1038|1965:1035|1966:1003|1967:973|1968:1004|1969:1005|1970:986|1971:987|1972:972|1973:956|1974:972|1975:943|1976:975|1977:913|1978:968|1979:935|1980:956|1981:919|1982:962|1983:965|1984:986|1985:940|1986:958|1987:948|1988:950|1989:946|1990:993|1991:995|1992:952|1993:957|1994:915|1995:943|1996:935|1997:949|1998:978|1999:959|2000:939|2001:964|2002:975|2003:971|2004:1002|2005:1003|2006:980|2007:979|2008:940";
+                        "
+ 5 KEYS:                     (script) type="text/javascript"; 
+ 5 TAIL:                     "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="content-box content-box-translations"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "h2"
+ 6 TEXT:                         "Translations for 'exactly'"
+ 6 KEYS:                         (h2) class="h2_entry"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "ul"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (ul) class="translation_list clear"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) class="translation"; lang="lang_en-gb"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "span"
+ 8 KEYS:                                 (span) class="hom lang_EN-GB"; id="w0030040EN-GB"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "British English"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline"; 
+ 9 TAIL:                                     " /"
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         (span) class="orth"; 
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "exactly"
+11 KEYS:                                             (a) href="
+		
+			/dictionary/english/exactly "; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "ɪɡˈzæktlɪ"
+ 9 KEYS:                                     (span) class="pron"; 
+ 9 TAIL:                                     "/  "
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for exactly"; data-src-mp3="/sounds/e/en_/en_gb/en_gb_w0030040.mp3"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     (span) class="neutral"; 
+ 9 TAIL:                                     "ADVERB"
+
+
+ 9 TAG:                                     "br"
+ 9 KEYS:                                     (br) 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "((space))"
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "em"
+ 9 TEXT:                                     "Exactly"
+ 9 KEYS:                                     (em) class="hi"; 
+ 9 TAIL:                                     " means in an exact manner, accurately or precisely."
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Where exactly is the smell coming from?"
+ 9 KEYS:                                     (span) class="example"; 
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             (div) class="columns2"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_AR"; id="w0030040AR"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Arabic"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_AR"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "تـَمَاماً"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for تـَمَاماً"; data-src-mp3="/sounds/a/ar_/ar_w0/ar_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_PT-BR"; id="w0030040PT-BR"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Brazilian Portuguese"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_PT-BR"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "exatamente"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for exatamente"; data-src-mp3="/sounds/p/pt_/pt_br/pt_br_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_ZH-CN"; id="w0030040ZH-CN"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Chinese"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_ZH-CN"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "严密地"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for 严密地"; data-src-mp3="/sounds/z/zh_/zh_cn/zh_cn_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_HR"; id="w0030040HR"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Croatian"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_HR"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "precizno"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for precizno"; data-src-mp3="/sounds/h/hr_/hr_w0/hr_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_CS"; id="w0030040CS"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Czech"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_CS"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "přesně"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for přesně"; data-src-mp3="/sounds/c/cs_/cs_w0/cs_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_DA"; id="w0030040DA"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Danish"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_DA"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "præcist"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for præcist"; data-src-mp3="/sounds/d/da_/da_w0/da_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_NL"; id="w0030040NL"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Dutch"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_NL"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "precies"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for precies"; data-src-mp3="/sounds/n/nl_/nl_w0/nl_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_ES-ES"; id="w0030040ES-ES"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "European Spanish"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_ES-ES"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         (span) class="orth"; 
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "exactamente"
+11 KEYS:                                             (a) href="
+		
+			/dictionary/spanish-english/exactamente "; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for exactamente"; data-src-mp3="/sounds/e/es_/es_es/es_es_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_FI"; id="w0030040FI"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Finnish"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_FI"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "täsmälleen"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for täsmälleen"; data-src-mp3="/sounds/f/fi_/fi_w0/fi_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_FR"; id="w0030040FR"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "French"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_FR"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         (span) class="orth"; 
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "exactement"
+11 KEYS:                                             (a) href="
+		
+			/dictionary/french-english/exactement "; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for exactement"; data-src-mp3="/sounds/f/fr_/fr_w0/fr_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_DE"; id="w0030040DE"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "German"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_DE"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         (span) class="orth"; 
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "genau"
+11 KEYS:                                             (a) href="
+		
+			/dictionary/german-english/genau "; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for genau"; data-src-mp3="/sounds/d/de_/de_w0/de_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_EL"; id="w0030040EL"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Greek"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_EL"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "ακριβώς"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for ακριβώς"; data-src-mp3="/sounds/e/el_/el_w0/el_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_IT"; id="w0030040IT"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Italian"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_IT"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         (span) class="orth"; 
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "esattamente"
+11 KEYS:                                             (a) href="
+		
+			/dictionary/italian-english/esattamente "; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for esattamente"; data-src-mp3="/sounds/i/it_/it_w0/it_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_JA"; id="w0030040JA"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Japanese"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_JA"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "正確に"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for 正確に"; data-src-mp3="/sounds/j/ja_/ja_w0/ja_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_KO"; id="w0030040KO"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Korean"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_KO"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "정확히"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for 정확히"; data-src-mp3="/sounds/k/ko_/ko_w0/ko_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_NO"; id="w0030040NO"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Norwegian"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_NO"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "akkurat"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for akkurat"; data-src-mp3="/sounds/n/no_/no_w0/no_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_PL"; id="w0030040PL"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Polish"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_PL"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "dokładnie"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for dokładnie"; data-src-mp3="/sounds/p/pl_/pl_w0/pl_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_PT-PT"; id="w0030040PT-PT"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Portuguese"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_PT-PT"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "exatamente"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for exatamente"; data-src-mp3="/sounds/p/pt_/pt_pt/pt_pt_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_RO"; id="w0030040RO"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Romanian"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_RO"; 
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "exact"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_RU"; id="w0030040RU"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Russian"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_RU"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "точно"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for точно"; data-src-mp3="/sounds/r/ru_/ru_w0/ru_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_ES-419"; id="w0030040ES-419"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Spanish"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_ES-419"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 KEYS:                                         (span) class="orth"; 
+
+
+11 TAG:                                             "a"
+11 TEXT:                                             "exactamente"
+11 KEYS:                                             (a) href="
+		
+			/dictionary/spanish-english/exactamente "; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for exactamente"; data-src-mp3="/sounds/e/es_/es_41/es_419_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_SV"; id="w0030040SV"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Swedish"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_SV"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "exakt"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for exakt"; data-src-mp3="/sounds/s/sv_/sv_w0/sv_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_TH"; id="w0030040TH"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Thai"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_TH"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "อย่างถูกต้อง"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for อย่างถูกต้อง"; data-src-mp3="/sounds/t/th_/th_w0/th_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_TR"; id="w0030040TR"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Turkish"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_TR"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "tam olarak"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for tam olarak"; data-src-mp3="/sounds/t/tr_/tr_w0/tr_w0030040.mp3"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_UK"; id="w0030040UK"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Ukrainian"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_UK"; 
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "точно"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 8 TAG:                                 "li"
+ 8 KEYS:                                 (li) class="translation lang_VI"; id="w0030040VI"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     "Vietnamese"
+ 9 KEYS:                                     (span) class="lang"; 
+
+
+ 9 TAG:                                     "span"
+ 9 TEXT:                                     ": "
+ 9 KEYS:                                     (span) class="neutral"; 
+
+
+ 9 TAG:                                     "span"
+ 9 KEYS:                                     (span) class="inline lang_VI"; 
+ 9 TAIL:                                     "((space))"
+
+
+10 TAG:                                         "span"
+10 TEXT:                                         "một cách chính xác"
+10 KEYS:                                         (span) class="orth"; 
+
+
+ 9 TAG:                                     "a"
+ 9 KEYS:                                     (a) class="sound audio_play_button icon-volume-up"; title="Pronunciation for một cách chính xác"; data-src-mp3="/sounds/v/vi_/vi_w0/vi_w0030040.mp3"; 
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="content-box content-box-comments"; id="commentsBox"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (div) class="user_comments"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "h2"
+ 7 TEXT:                             "Comments"
+ 7 KEYS:                             (h2) class="h2_entry"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             (div) id="ad_btmslot_a"; class="am-default "; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "script"
+ 8 TEXT:                                 "googletag.cmd.push(function() { googletag.display('ad_btmslot_a'); });"
+ 8 KEYS:                                 (script) type="text/javascript"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (div) class="have_your_say"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Log in"
+ 7 KEYS:                             (a) href="https://www.collinsdictionary.com/login?returnTo=/dictionary/english/exactly"; 
+ 7 TAIL:                             " to comment on this word.
+            "
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (div) class="res_cell_right"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="columns_item sidebar_item"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "a"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (a) class="wotd promoBox"; href="/dictionary/english/chaos"; title="Definition of chaos"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 KEYS:                         (div) class="wotd-img"; style="background-image:url(https://s3-eu-west-1.amazonaws.com/fr.idm.hcd.cdn/images/wotd/2036);"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (div) class="wotd-txt-block"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "chaos"
+ 7 KEYS:                             (div) class="wotd-title"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "complete disorder; utter confusion"
+ 7 KEYS:                             (div) class="wotd-description"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             (div) class="wotd-footer"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-caret-right"; 
+ 8 TAIL:                                 "
+                        Word of the day
+                    "
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) id="ad_rightslot"; class="am-default "; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "script"
+ 5 TEXT:                     "googletag.cmd.push(function() { googletag.display('ad_rightslot'); });"
+ 5 KEYS:                     (script) type="text/javascript"; 
+ 5 TAIL:                     "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (a) class="promoBox"; href="http://www.collinsdictionary.com/scrabble/scrabble-blog/tips-for-learning-scrabble-words,271,HCB.html"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 KEYS:                     (div) class="promoBox-img"; style="background-image:url(http://resources.collins.co.uk/Dictionary/2.png)"; 
+ 5 TAIL:                     "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="promoBox-content"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "Train like a Scrabble champion"
+ 6 KEYS:                         (div) class="promoBox-title"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "Allan Simmons' 5 tips on learning words."
+ 6 KEYS:                         (div) class="promoBox-description"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "Show more"
+ 6 KEYS:                         (div) class="promoBox-readMore"; 
+ 6 TAIL:                         "((space))"
+
+
+ 4 TAG:                 "a"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (a) class="promoBox"; href="https://www.collinsdictionary.com/register"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="promoBox-content"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "Join our newsletter"
+ 6 KEYS:                         (div) class="promoBox-title"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "All the latest wordy news, linguistic insights, offers and competitions every month."
+ 6 KEYS:                         (div) class="promoBox-description"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "img"
+ 6 KEYS:                         (img) src="http://resources.collins.co.uk/Dictionary/Collins-dictionary-newsletter-signup-150x100.gif"; 
+ 6 TAIL:                         "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "Sign in"
+ 6 KEYS:                         (div) class="promoBox-button"; 
+ 6 TAIL:                         "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="columns_item sidebar_item"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="scrabble-box promoBox"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "div"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (div) class="scrabble-txt-block"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 KEYS:                             (div) class="scrabble-logo"; 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 KEYS:                                 (a) href="/scrabble/"; 
+
+
+ 9 TAG:                                     "img"
+ 9 KEYS:                                     (img) src="/external/images/ScrabbleLogo.png"; width="100%"; 
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "Scrabble score for 'exactly': 19"
+ 7 KEYS:                             (div) class="scrabble-txt"; 
+ 7 TAIL:                             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="columns_item"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="content-box promoBox lsw"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "table"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (table) class="lsw_title"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "tr"
+ 7 TEXT:                             "((space))"
+ 7 KEYS:                             (tr) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "td"
+ 8 KEYS:                                 (td) 
+ 8 TAIL:                                 "((space))"
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     (i) class="icon-community res_hot"; 
+
+
+ 8 TAG:                                 "td"
+ 8 TEXT:                                 "Latest Word Submissions"
+ 8 KEYS:                                 (td) 
+ 8 TAIL:                                 "((space))"
+
+
+ 6 TAG:                         "ul"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (ul) class="lsw_list"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 KEYS:                                 (a) href="/submission/17549/verklempt"; title="verklempt"; 
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     (i) class="icon-caret-right"; 
+ 9 TAIL:                                     " verklempt"
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 KEYS:                                 (a) href="/submission/17548/amplicon"; title="amplicon"; 
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     (i) class="icon-caret-right"; 
+ 9 TAIL:                                     " amplicon"
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 KEYS:                                 (a) href="/submission/17547/femulate"; title="femulate"; 
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     (i) class="icon-caret-right"; 
+ 9 TAIL:                                     " femulate"
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 KEYS:                                 (a) href="/submission/17546/Orava+."; title="Orava ."; 
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     (i) class="icon-caret-right"; 
+ 9 TAIL:                                     " Orava ."
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 KEYS:                                 (a) href="/submission/17545/OOTD"; title="OOTD"; 
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     (i) class="icon-caret-right"; 
+ 9 TAIL:                                     " OOTD"
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 KEYS:                                 (a) href="/submission/17544/shitposting"; title="shitposting"; 
+
+
+ 9 TAG:                                     "i"
+ 9 KEYS:                                     (i) class="icon-caret-right"; 
+ 9 TAIL:                                     " shitposting"
+
+
+ 6 TAG:                         "a"
+ 6 KEYS:                         (a) class="view_more"; href="/submissions/latest"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "i"
+ 7 KEYS:                             (i) class="icon-caret-right"; 
+ 7 TAIL:                             " View More"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="content-box"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "h2"
+ 5 TEXT:                     "Related Terms"
+ 5 KEYS:                     (h2) class="title"; 
+ 5 TAIL:                     "((space))"
+
+
+ 5 TAG:                     "p"
+ 5 TEXT:                     "2 results"
+ 5 KEYS:                     (p) 
+ 5 TAIL:                     "((space))"
+
+
+ 5 TAG:                     "ul"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (ul) 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "i"
+ 7 KEYS:                             (i) class="icon-angle-right"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "not exactly"
+ 7 KEYS:                             (a) href="/dictionary/english/not-exactly"; title="Definition of not exactly, related term of exactly"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "i"
+ 7 KEYS:                             (i) class="icon-angle-right"; 
+ 7 TAIL:                             "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "it does exactly what it says on the tin"
+ 7 KEYS:                             (a) href="/dictionary/english/it-does-exactly-what-it-says-on-the-tin"; title="Definition of it does exactly what it says on the tin, related term of exactly"; 
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="content-box"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "h2"
+ 5 TEXT:                     "Browse nearby words"
+ 5 KEYS:                     (h2) class="h2"; 
+ 5 TAIL:                     "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="browse-container mid-scroll"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "ul"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (ul) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-angle-right"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "exacting"
+ 8 KEYS:                                 (a) href="/dictionary/english/exacting"; title="Definition of exacting, nearby word of exactly"; 
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-angle-right"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "exaction"
+ 8 KEYS:                                 (a) href="/dictionary/english/exaction"; title="Definition of exaction, nearby word of exactly"; 
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-angle-right"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "exactitude"
+ 8 KEYS:                                 (a) href="/dictionary/english/exactitude"; title="Definition of exactitude, nearby word of exactly"; 
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-angle-right"; 
+ 8 TAIL:                                 " exactly"
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-angle-right"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "exactment"
+ 8 KEYS:                                 (a) href="/dictionary/english/exactment"; title="Definition of exactment, nearby word of exactly"; 
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-angle-right"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "exactness"
+ 8 KEYS:                                 (a) href="/dictionary/english/exactness"; title="Definition of exactness, nearby word of exactly"; 
+
+
+ 7 TAG:                             "li"
+ 7 KEYS:                             (li) 
+ 7 TAIL:                             "((space))"
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-angle-right"; 
+ 8 TAIL:                                 "((space))"
+
+
+ 8 TAG:                                 "a"
+ 8 TEXT:                                 "exactress"
+ 8 KEYS:                                 (a) href="/dictionary/english/exactress"; title="Definition of exactress, nearby word of exactly"; 
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (div) class="words_that_begin_with"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "p"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (p) class="view_more"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "All English words that begin with 'E'"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-e"; title="All English words that begin with 'E'"; 
+ 7 TAIL:                             "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 KEYS:                     (div) class="clear"; 
+ 5 TAIL:                     "((space))"
+
+
+ 2 TAG:         "div"
+ 2 KEYS:         (div) class="clear"; 
+ 2 TAIL:         "((space))"
+
+
+ 1 TAG:     "footer"
+ 1 TEXT:     "((space))"
+ 1 KEYS:     (footer) 
+ 1 TAIL:     "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) class="footer_content"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "div"
+ 3 TEXT:             "((space))"
+ 3 KEYS:             (div) class="main-content"; 
+ 3 TAIL:             "((space))"
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="footer_block"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "div"
+ 5 TEXT:                     "Browse Dictionary"
+ 5 KEYS:                     (div) class="title"; 
+ 5 TAIL:                     "((space))"
+
+
+ 5 TAG:                     "ul"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (ul) class="browse-letters"; 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "#"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-digit"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "A"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-a"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "B"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-b"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "C"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-c"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "D"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-d"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "E"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-e"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "F"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-f"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "G"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-g"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "H"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-h"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "I"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-i"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "J"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-j"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "K"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-k"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "L"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-l"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "M"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-m"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "N"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-n"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "O"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-o"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "P"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-p"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Q"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-q"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "R"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-r"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "S"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-s"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "T"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-t"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "U"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-u"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "V"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-v"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "W"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-w"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "X"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-x"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Y"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-y"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Z"
+ 7 KEYS:                             (a) href="/browse/english/words-starting-with-z"; 
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="footer_block"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "ul"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (ul) 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 TEXT:                             "View more"
+ 7 KEYS:                             (div) class="title"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Tools & Widgets"
+ 7 KEYS:                             (a) rel="nofollow"; href="/tools-and-widgets"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "API"
+ 7 KEYS:                             (a) rel="nofollow"; href="/api"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Advertising"
+ 7 KEYS:                             (a) rel="nofollow"; href="/advertising"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Word Banks"
+ 7 KEYS:                             (a) rel="nofollow"; href="/wordbanks"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Terms & Conditions"
+ 7 KEYS:                             (a) rel="nofollow"; href="/terms-and-conditions"; 
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "Contact us"
+ 7 KEYS:                             (a) rel="nofollow"; href="/contact-us"; 
+
+
+ 4 TAG:                 "div"
+ 4 TEXT:                 "((space))"
+ 4 KEYS:                 (div) class="footer_block"; 
+ 4 TAIL:                 "((space))"
+
+
+ 5 TAG:                     "ul"
+ 5 TEXT:                     "((space))"
+ 5 KEYS:                     (ul) 
+ 5 TAIL:                     "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "div"
+ 7 KEYS:                             (div) class="title"; 
+
+
+ 8 TAG:                                 "i"
+ 8 KEYS:                                 (i) class="icon-globe"; 
+ 8 TAIL:                                 " Languages"
+
+
+ 6 TAG:                         "li"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (li) class="current"; 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "
+                                English
+                            "
+ 7 KEYS:                             (a) href="/dictionary/english"; title="English dictionary"; 
+ 7 TAIL:                             "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "
+                                French
+                            "
+ 7 KEYS:                             (a) href="/dictionary/english-french"; title="French dictionary"; 
+ 7 TAIL:                             "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "
+                                German
+                            "
+ 7 KEYS:                             (a) href="/dictionary/english-german"; title="German dictionary"; 
+ 7 TAIL:                             "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "
+                                Spanish
+                            "
+ 7 KEYS:                             (a) href="/dictionary/english-spanish"; title="Spanish dictionary"; 
+ 7 TAIL:                             "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "
+                                Italian
+                            "
+ 7 KEYS:                             (a) href="/dictionary/english-italian"; title="Italian dictionary"; 
+ 7 TAIL:                             "((space))"
+
+
+ 6 TAG:                         "li"
+ 6 TEXT:                         "((space))"
+ 6 KEYS:                         (li) 
+ 6 TAIL:                         "((space))"
+
+
+ 7 TAG:                             "a"
+ 7 TEXT:                             "
+                                Chinese
+                            "
+ 7 KEYS:                             (a) href="/dictionary/english-chinese"; title="Chinese dictionary"; 
+ 7 TAIL:                             "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) class="footer_bottom"; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "i"
+ 3 KEYS:             (i) class="fa fa-copyright"; 
+ 3 TAIL:             " © Collins 2016
+    "
+
+
+ 1 TAG:     "div"
+ 1 TEXT:     "((space))"
+ 1 KEYS:     (div) class="btmslot_b-container"; 
+ 1 TAIL:     "((space))"
+
+
+ 2 TAG:         "div"
+ 2 TEXT:         "((space))"
+ 2 KEYS:         (div) id="ad_btmslot_b"; class="am-default "; 
+ 2 TAIL:         "((space))"
+
+
+ 3 TAG:             "script"
+ 3 TEXT:             "googletag.cmd.push(function() { googletag.display('ad_btmslot_b'); });"
+ 3 KEYS:             (script) type="text/javascript"; 
+ 3 TAIL:             "((space))"
+
+
+ 1 TAG:     "script"
+ 1 KEYS:     (script) type="text/javascript"; src="/common.js?version=3.1.17"; async=""; 
+ 1 TAIL:     "((space))"
+
+
