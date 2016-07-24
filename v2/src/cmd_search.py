@@ -11,11 +11,13 @@ class SearchResult:
         ColoredText.init_values()
 
     def __str__(self):
-        text = ""
+        text = "\n"
 
         if len(self.file_names):
-            text = "=== FILES ===\n"
+            text += "=== FILES ===\n"
             text += "; ".join(self.file_names)
+
+        text += "\n"
 
         return text
 
@@ -23,7 +25,7 @@ class SearchResult:
 class Search:
     def search(self, expr: str):
         result = SearchResult()
-        result.files = self.find_files(expr)
+        result.file_names = self.find_files(expr)
         return result
 
     def find_files(self, expr: str):

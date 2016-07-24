@@ -31,8 +31,8 @@ def get_word(word: str):
     printer.print_learn(learn_content)
 
 
-def output_text(text: str):
-    print(text)
+def output_text(results):
+    print(results)
 
 
 def call_search(expr: str):
