@@ -21,3 +21,6 @@ class JsonPrinter:
         reader = JsonSynReader(content, use_colors=True)
         text = reader.read_content()
         self.output(text)
+
+    def print_results(self, results):
+        raise NotImplementedError()

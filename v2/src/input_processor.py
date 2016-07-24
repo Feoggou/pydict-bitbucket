@@ -4,6 +4,7 @@ from src.json_save import JsonSaver
 from src.json_load import JsonLoader
 from src.json_print import JsonPrinter
 from src.content_retrieval import ContentRetrieval
+from src.cmd_search import Search
 
 
 def print_syn(word: str):
@@ -36,4 +37,12 @@ def process_input(input: str):
         word = matcher.groups()[0]
         print_syn(word)
     else:
-        get_word(input)
+        matcher = re.match('search\((.*)\)', input)
+        if matcher:
+            expr = matcher.groups()[0]
+            seeker = Search()
+            results = seeker.search(expr)
+            printer = JsonPrinter()
+            printer.print_results(results)
+        else:
+            get_word(input)
