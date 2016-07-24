@@ -19,13 +19,6 @@ from src.input_processor import process_input, print_syn
 # TODO: wsearch will search word-based (i.e. pick all word forms, then start search with each)
 #       TAG will search solely based on tag
 class TestSearch(unittest.TestCase):
-    """def test_dummy(self):
-        # INPUT: search(do)
-        # CONTAINER HAS:      "do.def", "do.learn", "do.syn", "to-do-something.def", "doing.def", "smth-do.learn"
-        # EXPECTED RESULT:    find files "do.def; do.learn; do.syn", "to-do-something.def"
-        result = process_input("search(do)")
-        self.assertEqual(["do.def", "do.learn", "do.syn", "to-do-something.def"], result)"""
-
     def test_input_do_calls_search_and_print(self):
         with patch.object(Search, "search") as mock_search:
             mock_search.return_value = "dummy_result"
@@ -34,6 +27,26 @@ class TestSearch(unittest.TestCase):
 
         mock_search.assert_called_once_with("do")
         mock_print.assert_called_once_with(mock.ANY)
+
+    def test_search_do_callsFindFiles(self):
+        op = Search()
+
+        with patch.object(Search, 'find_files') as mock_find_files:
+            op.search("do")
+
+        mock_find_files.assert_called_once_with("do")
+
+    def test_search_do_findsFiles(self):
+        """
+        INPUT: "do"
+        CONTAINER HAS:      "do.def", "do.learn", "do.syn", "to-do-something.def", "doing.def", "smth-do.learn"
+        EXPECTED RESULT:    find files "do.def; do.learn; do.syn", "to-do-something.def"""
+        op = Search()
+
+        result = op.search("do")
+
+        self.assertEqual(["do.def", "do.learn", "do.syn", "to-do-something.def"], result)
+
 
 
 if __name__ == '__main__':
