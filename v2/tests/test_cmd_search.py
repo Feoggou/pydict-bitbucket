@@ -71,17 +71,16 @@ class TestSearch(unittest.TestCase):
 
         mock_find.assert_called_once_with("do")
 
-    def test_findWordForms_collectsWordsAndMatches(self):
-        op = Search()
+    @patch.object(Search, "collect_filenames")
+    @patch.object(JsonLoader, "load")
+    def test_findWordForms_collectsWordsAndMatches(self, mock_load, mock_filenames):
+        mock_filenames.return_value = ["abcd.def"]
 
-        with patch.object(JsonLoader, "load") as mock_load:
-            mock_load.return_value = "dummy_content"
-            with patch.object(Search, "collect_filenames") as mock_filenames:
-                mock_filenames.return_value = ["abcd.def"]
-                with patch.object(JsonCollector, "collect_word_forms") as mock_collect:
-                    mock_collect.return_value = ["do", "a", "doing", "do or done", "whatever", "doing and do"]
+        with patch.object(JsonCollector, "collect_word_forms") as mock_collect:
+            mock_collect.return_value = ["do", "a", "doing", "do or done", "whatever", "doing and do"]
 
-                    result = op.find_word_forms("do")
+            op = Search()
+            result = op.find_word_forms("do")
 
         self.assertEqual({"abcd.def": ["do", "do or done", "doing and do"]}, result)
 
