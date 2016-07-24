@@ -31,18 +31,32 @@ def get_word(word: str):
     printer.print_learn(learn_content)
 
 
+def call_search(expr: str):
+    seeker = Search()
+    results = seeker.search(expr)
+    printer = JsonPrinter()
+    printer.print_results(results)
+
+
+def get_command_obj(cmd_name: str):
+    switch = {
+        "syn": print_syn,
+        "search": call_search
+    }
+
+    cmd_obj = switch[cmd_name]
+    if cmd_obj is None:
+        raise ValueError("Unknown command: ", cmd_name)
+
+    return cmd_obj
+
+
 def process_input(input: str):
-    matcher = re.match('syn\((.*)\)', input)
+    matcher = re.match('([a-z]+)\((.*)\)', input)
     if matcher:
-        word = matcher.groups()[0]
-        print_syn(word)
+        cmd_name = matcher.groups()[0]
+        arg = matcher.groups()[1]
+        cmd = get_command_obj(cmd_name)
+        cmd(arg)
     else:
-        matcher = re.match('search\((.*)\)', input)
-        if matcher:
-            expr = matcher.groups()[0]
-            seeker = Search()
-            results = seeker.search(expr)
-            printer = JsonPrinter()
-            printer.print_results(results)
-        else:
-            get_word(input)
+        get_word(input)

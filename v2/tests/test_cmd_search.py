@@ -26,7 +26,7 @@ class TestSearch(unittest.TestCase):
         result = process_input("search(do)")
         self.assertEqual(["do.def", "do.learn", "do.syn", "to-do-something.def"], result)"""
 
-    def test_input_do(self):
+    def test_input_do_calls_search_and_print(self):
         with patch.object(Search, "search") as mock_search:
             mock_search.return_value = "dummy_result"
             with patch.object(JsonPrinter, "print_results") as mock_print:
