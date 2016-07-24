@@ -44,7 +44,9 @@ class TestSearch(unittest.TestCase):
         op = Search()
 
         with patch.object(Search, "collect_filenames") as mock_collect:
-            mock_collect.return_value = ["do.def", "do.learn", "do.syn", "to-do-something.def", "doing.def", "smth-do.learn"]
+            mock_collect.return_value = [
+                "do.def", "do.learn", "do.syn", "to-do-something.def", "doing.def", "smth-do.learn", "_do.def"
+            ]
 
             result = op.find_files("do")
 

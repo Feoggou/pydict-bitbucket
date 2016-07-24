@@ -1,21 +1,30 @@
 import re
+import os
+
+from src import config
+
 
 class Search:
     def search(self, expr: str):
-        self.find_files(expr)
+        files = self.find_files(expr)
+        # print("files: ", files)
 
     def find_files(self, expr: str):
-        file_names = self.collect_filenames(expr)
+        file_names = self.collect_filenames()
 
         return [x for x in file_names if self.file_name_matches(x, expr)]
 
-    def collect_filenames(self, expr: str):
-        raise NotImplementedError()
+    @staticmethod
+    def collect_filenames():
+        file_names = [file_name for file_name in os.listdir(config.JSON_DIR_PATH) if
+                      os.path.isfile(os.path.join(config.JSON_DIR_PATH, file_name)) and
+                      (file_name.endswith(".def") or
+                       file_name.endswith(".learn") or
+                       file_name.endswith(".syn"))]
+
+        return sorted(file_names)
 
     @staticmethod
     def file_name_matches(file_name: str, what: str) -> bool:
-        if not file_name.endswith(".def") and not file_name.endswith(".learn") and not file_name.endswith(".syn"):
-            return False
-
         pattern = re.compile(r'\b{}\b'.format(what))
         return re.search(pattern, file_name)
