@@ -203,7 +203,7 @@ class DefGroupReader:
 
 
 class JsonReader:
-    def __init__(self, content: dict, use_colors: bool = True):
+    def __init__(self, content: dict):
         self.content = content
         self.keys = {
             "def_groups": self.definitions,
@@ -211,8 +211,7 @@ class JsonReader:
             "examples": self.examples,
         }
 
-        if use_colors:
-            ColoredText.init_values()
+        ColoredText.init_values()
 
     def definitions(self) -> str:
         text = ColoredText.colored_h1("DEFINTIONS\n")

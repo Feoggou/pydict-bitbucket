@@ -2,12 +2,29 @@ import re
 import os
 
 from src import config
+from src.colors import ColoredText
+
+
+class SearchResult:
+    def __init__(self):
+        self.file_names = []
+        ColoredText.init_values()
+
+    def __str__(self):
+        text = ""
+
+        if len(self.file_names):
+            text = "=== FILES ===\n"
+            text += "; ".join(self.file_names)
+
+        return text
 
 
 class Search:
     def search(self, expr: str):
-        files = self.find_files(expr)
-        return files
+        result = SearchResult()
+        result.files = self.find_files(expr)
+        return result
 
     def find_files(self, expr: str):
         file_names = self.collect_filenames()

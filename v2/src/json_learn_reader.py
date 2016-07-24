@@ -139,11 +139,10 @@ class DefGroupReader:
 
 
 class JsonLearnReader:
-    def __init__(self, content: dict, use_colors: bool = True):
+    def __init__(self, content: dict):
         self.content = content
 
-        if use_colors:
-            ColoredText.init_values()
+        ColoredText.init_values()
 
     def definitions(self) -> str:
         text = ColoredText.colored_h1("[cobuild]\n")

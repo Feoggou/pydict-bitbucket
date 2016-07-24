@@ -22,7 +22,7 @@ class TestSearch(unittest.TestCase):
     def test_input_do_calls_search_and_print(self):
         with patch.object(Search, "search") as mock_search:
             mock_search.return_value = "dummy_result"
-            with patch.object(JsonPrinter, "print_results") as mock_print:
+            with patch("src.input_processor.output_text") as mock_print:
                 process_input("search(do)")
 
         mock_search.assert_called_once_with("do")
@@ -58,7 +58,7 @@ class TestSearch(unittest.TestCase):
 
             result = op.search("do")
 
-        self.assertEqual(["do.def", "do.learn", "do.syn", "to-do-something.def", "smth-do.learn"], result)
+        self.assertEqual(["do.def", "do.learn", "do.syn", "to-do-something.def", "smth-do.learn"], result.files)
 
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@ import unittest
 from src.json_reader import JsonReader
 from src.json_learn_reader import JsonLearnReader
 from src.json_syn_reader import JsonSynReader
+from src import config
 
 
 class JsonReaderTest(unittest.TestCase):
@@ -26,12 +27,13 @@ class JsonReaderTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        config.USE_COLORS = False
         cls.tests_path = os.path.dirname(os.path.abspath(__file__))
 
     def test_jsonRead_do(self):
         json_content, exp_txt_content = self.read_contents("expected_do.def", "expected_do.txt")
 
-        reader = JsonReader(json_content, use_colors=False)
+        reader = JsonReader(json_content)
         actual = reader.read_content()
 
         self.assertEqual(exp_txt_content, actual)
@@ -39,7 +41,7 @@ class JsonReaderTest(unittest.TestCase):
     def test_jsonLearnRead_do(self):
         json_content, exp_txt_content = self.read_contents("expected_do.learn", "expected_do_learn.txt")
 
-        reader = JsonLearnReader(json_content, use_colors=False)
+        reader = JsonLearnReader(json_content)
         actual = reader.read_content()
 
         self.assertEqual(exp_txt_content, actual)
@@ -47,7 +49,7 @@ class JsonReaderTest(unittest.TestCase):
     def test_jsonSynRead_do(self):
         json_content, exp_txt_content = self.read_contents("expected_do.syn", "expected_do_syn.txt")
 
-        reader = JsonSynReader(json_content, use_colors=False)
+        reader = JsonSynReader(json_content)
         actual = reader.read_content()
 
         self.assertEqual(exp_txt_content, actual)
@@ -56,7 +58,7 @@ class JsonReaderTest(unittest.TestCase):
         """has subdef, derived forms."""
         json_content, exp_txt_content = self.read_contents("expected_tall.def", "expected_tall.txt")
 
-        reader = JsonReader(json_content, use_colors=False)
+        reader = JsonReader(json_content)
         actual = reader.read_content()
 
         self.assertEqual(exp_txt_content, actual)
@@ -65,7 +67,7 @@ class JsonReaderTest(unittest.TestCase):
         """has opposites"""
         json_content, exp_txt_content = self.read_contents("expected_tall.syn", "expected_tall_syn.txt")
 
-        reader = JsonSynReader(json_content, use_colors=False)
+        reader = JsonSynReader(json_content)
         actual = reader.read_content()
 
         self.assertEqual(exp_txt_content, actual)

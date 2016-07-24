@@ -137,11 +137,10 @@ class DefGroupReader:
 
 
 class JsonSynReader:
-    def __init__(self, content: dict, use_colors: bool = True):
+    def __init__(self, content: dict):
         self.content = content
 
-        if use_colors:
-            ColoredText.init_values()
+        ColoredText.init_values()
 
     def read_content(self) -> str:
         reader = DefGroupReader(self.content)

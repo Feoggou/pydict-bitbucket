@@ -8,19 +8,16 @@ class JsonPrinter:
         print(text)
 
     def print(self, content):
-        reader = JsonReader(content, use_colors=True)
+        reader = JsonReader(content)
         text = reader.read_content()
         self.output(text)
 
     def print_learn(self, content):
-        reader = JsonLearnReader(content, use_colors=True)
+        reader = JsonLearnReader(content)
         text = reader.read_content()
         self.output(text)
 
     def print_syn(self, content):
-        reader = JsonSynReader(content, use_colors=True)
+        reader = JsonSynReader(content)
         text = reader.read_content()
         self.output(text)
-
-    def print_results(self, results):
-        raise NotImplementedError()

@@ -1,3 +1,5 @@
+from src import config
+
 
 RESET = "\033[0m"
 BLACK = "\033[30m"
@@ -29,12 +31,20 @@ class ColoredText:
 
     @staticmethod
     def init_values():
-        ColoredText.reset_color = RESET
-        ColoredText.title_color = RED
-        ColoredText.h1_color = BLUE
-        ColoredText.word_color = BOLDBLACK
-        ColoredText.gram_color = RED
-        ColoredText.usage_color = GREEN
+        if config.USE_COLORS:
+            ColoredText.reset_color = RESET
+            ColoredText.title_color = RED
+            ColoredText.h1_color = BLUE
+            ColoredText.word_color = BOLDBLACK
+            ColoredText.gram_color = RED
+            ColoredText.usage_color = GREEN
+        else:
+            ColoredText.reset_color = ""
+            ColoredText.title_color = ""
+            ColoredText.h1_color = ""
+            ColoredText.word_color = ""
+            ColoredText.gram_color = ""
+            ColoredText.usage_color = ""
 
     @staticmethod
     def colored_title(s: str):

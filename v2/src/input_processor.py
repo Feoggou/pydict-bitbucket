@@ -31,11 +31,14 @@ def get_word(word: str):
     printer.print_learn(learn_content)
 
 
+def output_text(text: str):
+    print(text)
+
+
 def call_search(expr: str):
     seeker = Search()
     results = seeker.search(expr)
-    printer = JsonPrinter()
-    printer.print_results(results)
+    output_text(results)
 
 
 def get_command_obj(cmd_name: str):

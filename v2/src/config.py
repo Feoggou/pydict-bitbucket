@@ -1,4 +1,6 @@
 
+USE_COLORS = True
+
 HOSTNAME = "www.collinsdictionary.com"
 HTTP_PATH = "/dictionary/english/"
 SYN_HTTP_PATH = "/dictionary/english-thesaurus/"
