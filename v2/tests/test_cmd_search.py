@@ -37,10 +37,6 @@ class TestSearch(unittest.TestCase):
         mock_find_files.assert_called_once_with("do")
 
     def test_findFiles_retrievesFileNames(self):
-        """
-        INPUT: "do"
-        CONTAINER HAS:
-        EXPECTED RESULT:    find files "do.def; do.learn; do.syn", "to-do-something.def"""
         op = Search()
 
         with patch.object(Search, "collect_filenames") as mock_collect:
@@ -49,6 +45,18 @@ class TestSearch(unittest.TestCase):
             ]
 
             result = op.find_files("do")
+
+        self.assertEqual(["do.def", "do.learn", "do.syn", "to-do-something.def", "smth-do.learn"], result)
+
+    def test_search_retrievesFileNames(self):
+        op = Search()
+
+        with patch.object(Search, "collect_filenames") as mock_collect:
+            mock_collect.return_value = [
+                "do.def", "do.learn", "do.syn", "to-do-something.def", "doing.def", "smth-do.learn", "_do.def"
+            ]
+
+            result = op.search("do")
 
         self.assertEqual(["do.def", "do.learn", "do.syn", "to-do-something.def", "smth-do.learn"], result)
 

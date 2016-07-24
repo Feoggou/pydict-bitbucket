@@ -7,7 +7,7 @@ from src import config
 class Search:
     def search(self, expr: str):
         files = self.find_files(expr)
-        # print("files: ", files)
+        return files
 
     def find_files(self, expr: str):
         file_names = self.collect_filenames()
