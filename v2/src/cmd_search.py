@@ -11,7 +11,7 @@ from src.json_load import JsonLoader
 class SearchResult:
     def __init__(self):
         self.file_names = []
-        self.word_forms = []
+        self.word_forms = OrderedDict()
 
         ColoredText.init_values()
 
@@ -21,6 +21,17 @@ class SearchResult:
         if len(self.file_names):
             text += "=== FILES ===\n"
             text += "; ".join(self.file_names)
+
+        text += "\n\n"
+
+        if len(self.word_forms):
+            text += "=== WORD FORMS ===\n"
+            for file_name in self.word_forms.keys():
+                if len(self.word_forms[file_name]):
+                    text += "* " + file_name + "\n"
+                    text += "    " + "; ".join(self.word_forms[file_name])
+                    text += "\n"
+            text += "\n"
 
         text += "\n"
 

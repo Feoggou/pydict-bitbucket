@@ -5,9 +5,13 @@ class JsonCollector:
         collectors = {
             "def": DefCollector,
             "learn": LearnCollector,
+            "syn": SynCollector
             }
-        collector = collectors.get(file_kind)()
-        return collector.collect_word_forms(content)
+        collector = collectors.get(file_kind, None)
+        if collector is None:
+            raise RuntimeError("Could not find collector for: " + file_kind)
+
+        return collector().collect_word_forms(content)
 
 
 class DefCollector:
@@ -58,5 +62,9 @@ class LearnCollector:
             forms = group["forms"]
             results += forms
 
-
         return sorted(list(set(results)))
+
+
+class SynCollector:
+    def collect_word_forms(self, content: list):
+        return []
