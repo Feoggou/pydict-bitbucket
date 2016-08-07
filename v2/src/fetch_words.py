@@ -104,7 +104,6 @@ def timer_callback():
         if WORDS_RETRIEVED >= 10:
             save_json()
             WORDS_RETRIEVED = 0
-            exit(0)
     else:
         show_notif_error("ERROR: Could not download: " + to_download[index]["link"])
 
