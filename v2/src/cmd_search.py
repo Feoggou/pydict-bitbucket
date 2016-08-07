@@ -64,8 +64,9 @@ class Search:
 
         for file_name in Search.collect_filenames():
             content = JsonLoader().load(file_name)
+            file_kind = file_name.split('.')[1]
 
-            forms = collector.collect_word_forms(content)
+            forms = collector.collect_word_forms(file_kind, content)
             forms = [x for x in forms if Search.name_matches(x, expr)]
 
             results[file_name] = forms
