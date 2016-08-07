@@ -12,7 +12,8 @@ sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
 
 from src import config
 
-HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/a.json"  # TODO
+LETTER = "a"
+HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)  # TODO b, ...
 HTML_PERMANENT_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/html"
 WORDS_RETRIEVED = 0
 ALL_ITEMS = []
@@ -22,13 +23,18 @@ with open(HTML_ALLWORDS_PATH, "r", encoding="utf-8") as f:
 
 
 def show_initial_notification():
-    global ALL_ITEMS
+    global ALL_ITEMS, LETTER
     Notify.init("WebWordFetcher")
 
     done = [x for x in ALL_ITEMS if x["have"] is True]
-    content = "{} / {}".format(len(done), len(ALL_ITEMS))
+    content = "{}: {} / {}".format(LETTER, len(done), len(ALL_ITEMS))
 
     notif_obj = Notify.Notification.new("WebWordFetcher", content, "dialog-information")
+    notif_obj.show()
+
+
+def show_notif_error(error_msg: str):
+    notif_obj = Notify.Notification.new("WebWordFetcher", error_msg, "dialog-error")
     notif_obj.show()
 
 
@@ -84,7 +90,7 @@ def save_json():
 
 
 def timer_callback():
-    global HTML_ALLWORDS_PATH, WORDS_RETRIEVED, ALL_ITEMS
+    global HTML_ALLWORDS_PATH, WORDS_RETRIEVED, ALL_ITEMS, TIMER
 
     to_download = [x for x in ALL_ITEMS if x["have"] is False]
     print("TODO: {} / {} ".format(len(to_download), len(ALL_ITEMS)))
@@ -99,11 +105,13 @@ def timer_callback():
             save_json()
             WORDS_RETRIEVED = 0
             exit(0)
+    else:
+        show_notif_error("ERROR: Could not download: " + to_download[index]["link"])
 
-    # timer = Timer(5, timer_callback)
-    # timer.start()
+    TIMER = Timer(5, timer_callback)
+    TIMER.start()
 
 show_initial_notification()
 
-timer = Timer(0, timer_callback)
-timer.start()
+TIMER = Timer(0, timer_callback)
+TIMER.start()
