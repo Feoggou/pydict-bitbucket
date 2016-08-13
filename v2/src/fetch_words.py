@@ -12,7 +12,7 @@ sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
 
 from src import config
 
-LETTER = "a"
+LETTER = "b"
 HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)  # TODO b, ...
 HTML_PERMANENT_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/html"
 WORDS_RETRIEVED = 0
@@ -47,6 +47,8 @@ def get_rand_range(maximum):
 
 def get_random_item(to_download: list):
     count = len(to_download)
+    if count == 0:
+        return -1
     index = get_rand_range(count)
     return index
 
@@ -96,6 +98,11 @@ def timer_callback():
     print("TODO: {} / {} ".format(len(to_download), len(ALL_ITEMS)))
 
     index = get_random_item(to_download)
+    if index == -1:
+        save_json()
+        Notify.Notification.new("WebWordFetcher", "Finished!", "dialog-warning")
+        exit(0)
+
     if download_word(to_download[index]) is True:
         # NOTE: also writes in all_items
         to_download[index]["have"] = True
