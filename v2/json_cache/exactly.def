@@ -1,0 +1,63 @@
+{
+    "def_groups": [
+        {
+            "frequency": "Very Common",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "in an exact manner; accurately or precisely",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "in every respect; just",
+                                "example": "it is exactly what I want",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See not exactly",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "adverb"
+                },
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "just so! precisely!",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "sentence substitute"
+                }
+            ],
+            "word": "exactly"
+        }
+    ],
+    "examples": [
+        "We weren't exactly girls on an equal footing - she was the Ambassador's wife.",
+        "I didn't really care too much about what exactly he was up to.",
+        "Clearly, it would take some time to find out exactly what the creature was.",
+        "Didn't exactly blend into the stucco that fronted the New Center building."
+    ],
+    "translations": [
+        {
+            "def": "Exactly means in an exact manner, accurately or precisely.",
+            "example": "Where exactly is the smell coming from?",
+            "value": "adverb",
+            "word": "exactly"
+        }
+    ]
+}

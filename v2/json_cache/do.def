@@ -1,0 +1,377 @@
+{
+    "def_groups": [
+        {
+            "frequency": "Extremely Common",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "to perform or complete (a deed or action)",
+                                "example": "to do a portrait; the work is done",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "used as an auxiliary to replace an earlier verb or verb phrase to avoid repetition",
+                                "example": "he likes you as much as I do",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See do",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See do or die",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See how do you do?",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See make do",
+                                "mark": "good"
+                            }
+                        ],
+                        "intransitive": [
+                            {
+                                "def": "to conduct oneself",
+                                "example": "do as you please",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to fare or manage",
+                                "example": "how are you doing these days?",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to happen (esp in the phrase nothing doing)",
+                                "mark": "good"
+                            }
+                        ],
+                        "often intr; foll by for": [
+                            {
+                                "def": "to serve the needs of; be suitable for (a person, situation, etc); suffice",
+                                "example": "there isn't much food, but it'll do for the two of us",
+                                "mark": "good"
+                            }
+                        ],
+                        "takes an infinitive without to": [
+                            {
+                                "def": "used as an auxiliary before the subject of an interrogative sentence as a way of forming a question",
+                                "example": "do you agree?; when did John go out?",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "used as an auxiliary to intensify positive statements and commands",
+                                "example": "I do like your new house; do hurry!",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "used as an auxiliary before a negative adverb to form negative statements or commands",
+                                "example": "he does not like cheese; do not leave me here alone!",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "used as an auxiliary in inverted constructions",
+                                "example": "little did he realize that; only rarely does he come in before ten o'clock",
+                                "mark": "good"
+                            }
+                        ],
+                        "transitive": [
+                            {
+                                "def": "to arrange or fix",
+                                "example": "you should do the garden now",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to prepare or provide; serve",
+                                "example": "this restaurant doesn't do lunch on Sundays",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to make tidy, elegant, ready, etc, as by arranging or adorning",
+                                "example": "to do one's hair",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to improve (esp in the phrase do something to or for)",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to find an answer to (a problem or puzzle)",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to translate or adapt the form or language of",
+                                "example": "the book was done into a play",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to cause or produce",
+                                "example": "complaints do nothing to help",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to give or render",
+                                "example": "your portrait doesn't do you justice; do me a favour",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to work at, esp as a course of study or a profession",
+                                "example": "he is doing chemistry; what do you do for a living?",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to perform (a play, etc); act",
+                                "example": "they are doing 'Hamlet' next week",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to travel at a specified speed, esp as a maximum",
+                                "example": "this car will do 120 mph",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to travel or traverse (a distance)",
+                                "example": "we did 15 miles on our walk",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "informal",
+                                "def": "to visit or explore as a sightseer or tourist",
+                                "example": "to do Westminster Abbey",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to wear out; exhaust",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "slang",
+                                "def": "to serve (a period of time) as a prison sentence",
+                                "example": "he's doing three years for burglary; he's doing time",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "informal",
+                                "def": "to cheat or swindle",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "slang",
+                                "def": "to rob",
+                                "example": "they did three shops last night",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "slang",
+                                "def_subgroup": [
+                                    {
+                                        "def": "to arrest",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "to convict of a crime",
+                                        "mark": "good"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": "Australian informal",
+                                "def": "to lose or spend (money) completely",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "slang, mainly British",
+                                "def": "to treat violently; assault",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "slang",
+                                "def": "to take or use (a drug)",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "taboo, slang",
+                                "def": "(of a male) to have sexual intercourse with",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to arrange (a meal)",
+                                "example": "let's do lunch",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": [
+                            "does",
+                            "doing",
+                            "did",
+                            "done"
+                        ]
+                    },
+                    "value": "verb"
+                },
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "category": "slang",
+                                "def": "an act or instance of cheating or swindling",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "informal, mainly British and New Zealand",
+                                "def": "a formal or festive gathering; party",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See do's and don'ts",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "plural",
+                        "items": [
+                            "dos",
+                            "do's"
+                        ]
+                    },
+                    "value": "noun"
+                }
+            ],
+            "origin": "Old English dōn; related to Old Frisian duān, Old High German tuon, Latin abdere to put away, Greek tithenai to place; see deed, doom",
+            "word": "do"
+        },
+        {
+            "frequency": "",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "category": "informal",
+                                "def": "to act like; imitate",
+                                "example": "he's a good mimic – he can do all his friends well",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    }
+                }
+            ],
+            "word": "do or do a"
+        },
+        {
+            "frequency": "",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "(i) a variant spelling of doh",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "plural",
+                        "items": [
+                            "dos"
+                        ]
+                    },
+                    "value": "noun"
+                }
+            ],
+            "word": "do"
+        },
+        {
+            "frequency": "",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "Dominican Republic",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "the internet domain name for"
+                }
+            ],
+            "word": "do"
+        },
+        {
+            "frequency": "",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "Doctor of Optometry",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "Doctor of Osteopathy",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "abbreviation for"
+                }
+            ],
+            "word": "DO"
+        },
+        {
+            "frequency": "",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "ditto",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "abbreviation for"
+                }
+            ],
+            "word": "do."
+        }
+    ],
+    "examples": [
+        "Then again, not to do him down too much, he does have his more positive side.",
+        "I'd shouted: You want her to be French, do n't you, you can't stand the idea of Jessica being English!",
+        "He was accusing me of being complicit in a murder, or being a murderer, I do n't know which.",
+        "\"You should write the general principles down somewhere, Dad, like they do with the United States Code."
+    ],
+    "translations": [
+        {
+            "def": "If you do something, you spend some time on it or finish it.",
+            "example": "I tried to do some work.",
+            "value": "verb",
+            "word": "do"
+        }
+    ]
+}

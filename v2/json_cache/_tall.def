@@ -1,0 +1,73 @@
+{
+    "def_groups": [
+        {
+            "derived_forms": {
+                "tallness": "noun"
+            },
+            "frequency": "Very Common",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "of more than average height",
+                                "mark": "good"
+                            },
+                            {
+                                "def_subgroup": [
+                                    {
+                                        "category": "postpositive",
+                                        "def": "having a specified height",
+                                        "example": "a woman five feet tall",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "(in combination)",
+                                        "example": "a twenty-foot-tall partition",
+                                        "mark": "good"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": "informal",
+                                "def": "exaggerated or incredible",
+                                "example": "a tall story",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "informal",
+                                "def": "difficult to accomplish",
+                                "example": "a tall order",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) an archaic word for excellent",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "adjective"
+                }
+            ],
+            "origin": "C14 (in the sense: big, comely, valiant); related to Old English getæl prompt, Old High German gizal quick, Gothic untals foolish",
+            "word": "tall"
+        }
+    ],
+    "examples": [
+        "Smoking torches threw tall shadows on the canvas walls, which made Mikel's eyes water.",
+        "Mikel was giddy with relief as the tall knight in the lead lifted his faceplate.",
+        "A tall male figure stood in the garage door, silhouetted against the bright light outside."
+    ],
+    "translations": [
+        {
+            "def": "Someone or something that is tall is above average height.",
+            "example": "He was very tall.",
+            "value": "adjective",
+            "word": "tall"
+        }
+    ]
+}
