@@ -12,8 +12,8 @@ sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
 
 from src import config
 
-# a, b, c
-LETTER = "d"
+# a, b, c, d
+LETTER = "s"
 HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)  # TODO b, ...
 HTML_PERMANENT_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/html"
 WORDS_RETRIEVED = 0
