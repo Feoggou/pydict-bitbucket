@@ -12,8 +12,8 @@ sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
 
 from src import config
 
-# a, b, c, d
-LETTER = "s"
+# a, b, c, d, p
+LETTER = "p"
 HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)  # TODO b, ...
 HTML_PERMANENT_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/html"
 WORDS_RETRIEVED = 0
@@ -115,7 +115,10 @@ def timer_callback():
     else:
         show_notif_error("ERROR: Could not download: " + to_download[index]["link"])
 
-    TIMER = Timer(5, timer_callback)
+    mseconds = get_rand_range(10000)
+    seconds = float(mseconds) / 1000.0
+    print("next: ", seconds)
+    TIMER = Timer(seconds, timer_callback)
     TIMER.start()
 
 show_initial_notification()
