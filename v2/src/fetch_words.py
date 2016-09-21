@@ -19,6 +19,7 @@ HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent
 HTML_PERMANENT_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/html"
 WORDS_RETRIEVED = 0
 ALL_ITEMS = []
+FAILED_ITEMS = []
 
 with open(HTML_ALLWORDS_PATH, "r", encoding="utf-8") as f:
     ALL_ITEMS = json.load(f)
@@ -94,15 +95,16 @@ def save_json():
 
 
 def timer_callback():
-    global HTML_ALLWORDS_PATH, WORDS_RETRIEVED, ALL_ITEMS, TIMER
+    global HTML_ALLWORDS_PATH, WORDS_RETRIEVED, ALL_ITEMS, TIMER, FAILED_ITEMS
 
-    to_download = [x for x in ALL_ITEMS if x["have"] is False]
+    to_download = [x for x in ALL_ITEMS if x["have"] is False and x not in FAILED_ITEMS]
     print("TODO: {} / {} ".format(len(to_download), len(ALL_ITEMS)))
 
     index = get_random_item(to_download)
     if index == -1:
         save_json()
         Notify.Notification.new("WebWordFetcher", "Finished!", "dialog-warning")
+        print("ITEMS THAT FAILED:\n", FAILED_ITEMS)
         exit(0)
 
     if download_word(to_download[index]) is True:
@@ -115,10 +117,11 @@ def timer_callback():
             WORDS_RETRIEVED = 0
     else:
         show_notif_error("ERROR: Could not download: " + to_download[index]["link"])
+        FAILED_ITEMS.append(to_download[index])
 
-    mseconds = get_rand_range(10000)
-    seconds = float(mseconds) / 1000.0
-    print("next: ", seconds)
+    mseconds = get_rand_range(7000)
+    seconds = 1 + float(mseconds) / 1000.0
+    print("next: ", seconds, "[{}]".format(WORDS_RETRIEVED))
     TIMER = Timer(seconds, timer_callback)
     TIMER.start()
 
