@@ -12,8 +12,8 @@ sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
 
 from src import config
 
-# a, b, c, d, p, m, t, l, f, r, g
-LETTER = "h"
+# a, b, c, d, f, g, h, l, m, p, t, r,
+LETTER = "z"
 
 HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)
 HTML_PERMANENT_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/html"
