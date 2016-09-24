@@ -13,7 +13,16 @@ sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
 from src import config
 
 # a, b, c, d, f, g, h, l, m, p, t, r,
-LETTER = "z"
+
+def get_rand_range(maximum):
+    value = int().from_bytes(os.urandom(4), byteorder="little")
+    value = abs(value)
+    value %= maximum
+    return value
+
+remaining = ['e', 'i', 'j', 'k', 'n', 'o', 'q', 'u', 'v', 'w', 'x', 'y', 'z']
+LETTER = remaining[get_rand_range(len(remaining))]
+print("LETTER: ", LETTER)
 
 HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)
 HTML_PERMANENT_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/html"
@@ -39,13 +48,6 @@ def show_initial_notification():
 def show_notif_error(error_msg: str):
     notif_obj = Notify.Notification.new("WebWordFetcher", error_msg, "dialog-error")
     notif_obj.show()
-
-
-def get_rand_range(maximum):
-    value = int().from_bytes(os.urandom(4), byteorder="little")
-    value = abs(value)
-    value %= maximum
-    return value
 
 
 def get_random_item(to_download: list):
