@@ -2,10 +2,13 @@
 
 sleep 2
 ./fetch_words.py
-sleep 60
+sleep 3
 ./fetch_words.py
-sleep 600
+sleep 4
 ./fetch_words.py
-sleep 7842
+sleep 2
 ./fetch_words.py
+sleep 5
+./fetch_words.py
+
 
