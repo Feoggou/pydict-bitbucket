@@ -12,7 +12,7 @@ sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
 
 from src import config
 
-# a, b, c, d, f, g, h, l, m, p, t, r, x, z, i
+# a, b, c, d, e, f, g, h, l, m, p, t, r, v, x, z, i
 
 def get_rand_range(maximum):
     value = int().from_bytes(os.urandom(4), byteorder="little")
@@ -20,9 +20,9 @@ def get_rand_range(maximum):
     value %= maximum
     return value
 
-remaining = ['e', 'j', 'k', 'n', 'o', 'q', 'u', 'v', 'w', 'y']
-# LETTER = remaining[get_rand_range(len(remaining))]
-LETTER = "e"
+remaining = ['j', 'k', 'n', 'o', 'q', 'u', 'w', 'y']
+LETTER = remaining[get_rand_range(len(remaining))]
+# LETTER = ""
 print("LETTER: ", LETTER)
 
 HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)
