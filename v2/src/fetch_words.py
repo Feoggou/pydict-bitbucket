@@ -20,7 +20,7 @@ def get_rand_range(maximum):
     value %= maximum
     return value
 
-remaining = ['j', 'k', 'n', 'o', 'q', 'u', 'w', 'y']
+remaining = ['j', 'k', 'n', 'o', 'u', 'w']
 LETTER = remaining[get_rand_range(len(remaining))]
 # LETTER = ""
 print("LETTER: ", LETTER)
