@@ -6,13 +6,14 @@ import http
 from http import client
 from threading import Timer
 import os
+import time
 from gi.repository import Notify
 
 sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
 
 from src import config
 
-# a, b, c, d, e, f, g, h, i, l, m, p, r, t, v, w, x, z
+# a, b, c, d, e, f, g, h, i, j, k, l, m, n, p, r, t, v, w, x, z
 
 def get_rand_range(maximum):
     value = int().from_bytes(os.urandom(4), byteorder="little")
@@ -20,9 +21,9 @@ def get_rand_range(maximum):
     value %= maximum
     return value
 
-remaining = ['j', 'k', 'n', 'o', 'u']
-LETTER = remaining[get_rand_range(len(remaining))]
-# LETTER = ""
+# remaining = ['o', 'u']
+# LETTER = remaining[get_rand_range(len(remaining))]
+LETTER = ""
 print("LETTER: ", LETTER)
 
 HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)
@@ -110,17 +111,22 @@ def timer_callback():
         print("ITEMS THAT FAILED:\n", FAILED_ITEMS)
         exit(0)
 
-    if download_word(to_download[index]) is True:
-        # NOTE: also writes in all_items
-        to_download[index]["have"] = True
-        WORDS_RETRIEVED += 1
+    try:
+        if download_word(to_download[index]) is True:
+            # NOTE: also writes in all_items
+            to_download[index]["have"] = True
+            WORDS_RETRIEVED += 1
 
-        if WORDS_RETRIEVED >= 10:
-            save_json()
-            WORDS_RETRIEVED = 0
-    else:
-        show_notif_error("ERROR: Could not download: " + to_download[index]["link"])
-        FAILED_ITEMS.append(to_download[index])
+            if WORDS_RETRIEVED >= 10:
+                save_json()
+                WORDS_RETRIEVED = 0
+        else:
+            show_notif_error("ERROR: Could not download: " + to_download[index]["link"])
+            FAILED_ITEMS.append(to_download[index])
+
+    except Exception as e:
+        print("failed with exception: ", e)
+        time.sleep(5)
 
     mseconds = get_rand_range(7000)
     seconds = 1 + float(mseconds) / 1000.0
