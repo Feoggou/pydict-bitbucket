@@ -1,9 +1,11 @@
 import unittest
 import os
 
-from src.def_parser import DefParser
 from lxml import etree
+
 from src.etree_printer import *
+from src.def_parser import DefParser
+from src import config
 
 
 class TestParser(unittest.TestCase):
@@ -11,8 +13,7 @@ class TestParser(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        path = os.path.dirname(os.path.abspath(__file__))
-        file_name = os.path.join(path, "html_files", "do_defs.html")
+        file_name = os.path.join(config.HTML_SOURCE_PATH, "do_defs.html")
 
         with open(file_name) as f:
             text = f.read()

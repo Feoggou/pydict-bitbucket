@@ -37,7 +37,7 @@ class LearnParser:
         for item in h1_items[0].itersiblings():
             if len(item.keys()) == 0:
                 continue
-            if "class" in item.keys() and item.get("class") == " pron":
+            if "class" in item.keys() and (item.get("class") == " pron" or item.get("class") == "dictname"):
                 continue
             text += HtmlItem(item, strip=True).read()
 

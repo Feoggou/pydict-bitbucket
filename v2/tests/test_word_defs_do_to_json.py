@@ -6,6 +6,7 @@ from src.def_parser import DefParser
 from lxml import etree
 
 from src.html_parser import HtmlParser
+from src import config
 
 
 class HtmlToJsonTest(unittest.TestCase):
@@ -14,8 +15,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        path = os.path.dirname(os.path.abspath(__file__))
-        file_name = os.path.join(path, "html_files", "do_defs.html")
+        file_name = os.path.join(config.HTML_SOURCE_PATH, "do_defs.html")
 
         with open(file_name) as f:
             cls.word_name = "do"

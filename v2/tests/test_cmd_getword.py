@@ -17,8 +17,6 @@ class GetWordCmdTest(unittest.TestCase):
     do_learn_json = None
     do_syn_json = None
 
-    old_html_dir_path = None
-
     @classmethod
     def retrieve_json_content(cls, file_path: str):
         with open(file_path) as f:
@@ -28,16 +26,9 @@ class GetWordCmdTest(unittest.TestCase):
     def setUpClass(cls):
         path = os.path.dirname(os.path.abspath(__file__))
 
-        cls.old_html_dir_path = config.HTML_DIR_PATH
-        config.HTML_DIR_PATH = os.path.join(path, "html_files")
-
         cls.do_def_json = cls.retrieve_json_content(os.path.join(path, "json_files", "expected_do.def"))
         cls.do_learn_json = cls.retrieve_json_content(os.path.join(path, "json_files", "expected_do.learn"))
         cls.do_syn_json = cls.retrieve_json_content(os.path.join(path, "json_files", "expected_do.syn"))
-
-    @classmethod
-    def tearDownClass(cls):
-        config.HTML_DIR_PATH = cls.old_html_dir_path
 
     def test_get_word_do_defs(self):
         """

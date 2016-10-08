@@ -4,7 +4,7 @@ import os
 import unittest
 
 from src.html_parser import HtmlParser
-from src.json_save import JsonSaver
+from src import config
 
 
 class HtmlParserTest(unittest.TestCase):
@@ -13,7 +13,7 @@ class HtmlParserTest(unittest.TestCase):
     @classmethod
     def read_content(cls, html_file, json_file):
         json_file_name = os.path.join(cls.tests_path, "json_files", json_file)
-        html_file_name = os.path.join(cls.tests_path, "html_files", html_file)
+        html_file_name = os.path.join(config.HTML_SOURCE_PATH, html_file)
 
         with open(json_file_name) as f:
             expected_json = json.load(f)

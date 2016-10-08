@@ -52,8 +52,6 @@ class SynParser:
 
         result = SynParser.syn_opp_result(syn_line)
 
-        print("syn line: ", syn_line)
-
         return result
 
     @staticmethod
@@ -94,7 +92,7 @@ class SynParser:
             categ = SynParser._update_categ(categ, item)
 
             if item.tail is not None:
-                if item.tail.startswith("),") or item.tail.startswith(") •"):
+                if item.tail.startswith("),") or item.tail.startswith(") •") or item.tail.startswith(")\n"):
                     line[text] = categ
                     text = ""
                     categ = ""
@@ -131,6 +129,10 @@ class SynParser:
         assert len(items) <= 1
 
         if len(items) == 0:
-            return ""
+            items = sense_item.xpath('./div[@class="cit"]/span[@class="orth"]/q/text()')
+            assert len(items) <= 1
+
+            if len(items) == 0:
+                return ""
 
         return "; ".join(items)

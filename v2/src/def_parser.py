@@ -225,7 +225,11 @@ class DefParser:
         assert len(items) <= 1
 
         if len(items) == 0:
-            return ""
+            items = def_group.xpath('.//div[@class="content etyms"]')
+            assert len(items) <= 1
+
+            if len(items) == 0:
+                return ""
 
         # first child is "Word origin", but its tail is, e.g. "Old english" -- i.e. the first text elem in the sentence.
         etym_text = items[0].getchildren()[0].tail
@@ -245,7 +249,9 @@ class DefParser:
         if len(items) == 0:
             return "", ""
 
-        form_items = items[0].xpath('./span[@class=" form"]')
+        form_items = items[0].xpath('./span[@class=" form"]/span[@class=" orth"]')
+        if len(form_items) == 0:
+            form_items = items[0].xpath('./span[@class=" form"]')
         assert len(form_items) == 1
         form_text = ParentHtmlItem(form_items[0], strip=True).read()
         form_text = form_text.replace("ˈ", "")
