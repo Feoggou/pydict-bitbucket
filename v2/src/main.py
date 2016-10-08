@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 import sys
+from . import config
 
-sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
+sys.path.append(config.PROJECT_PATH)
 
 from src.input_processor import process_input
 

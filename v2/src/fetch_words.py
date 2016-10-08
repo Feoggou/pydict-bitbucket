@@ -9,7 +9,9 @@ import os
 import time
 from gi.repository import Notify
 
-sys.path.append("/home/zenith/PycharmProjects/EDictionary/v2")
+from . import config
+
+sys.path.append(config.PROJECT_PATH)
 
 from src import config
 
@@ -26,8 +28,8 @@ def get_rand_range(maximum):
 LETTER = ""
 print("LETTER: ", LETTER)
 
-HTML_ALLWORDS_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/{}.json".format(LETTER)
-HTML_PERMANENT_PATH = "/home/zenith/PycharmProjects/EDictionary/v2/html_permanent/html"
+HTML_ALLWORDS_PATH = os.path.join(config.PROJECT_PATH, "html_permanent/{}.json".format(LETTER))
+HTML_PERMANENT_PATH = os.path.join(config.PROJECT_PATH, "html_permanent/html")
 WORDS_RETRIEVED = 0
 ALL_ITEMS = []
 FAILED_ITEMS = []
