@@ -14,8 +14,6 @@ remaining old features:
 words:
 exactly - has unicode " "
 lead - have subdefs
-soliloquy
---- has USAGE
 
 local fetcher: do not fetch if already have!
 
