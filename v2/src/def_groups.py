@@ -261,14 +261,7 @@ class MainDefGroup:
         self.examples = ExamplesGroup(self.dict_parser)
         self.examples.build()
 
-        self.translations = []
-        for item in self.dict_parser.get_all_translations():
-            word = item[0]
-            value = item[1]
-            definition = item[2]
-            example = item[3]
-
-            self.translations.append({"word": word, "value": value, "def": definition, "example": example})
+        self.translations = self.dict_parser.get_all_translations()
 
     def translate(self):
         json_object = {}

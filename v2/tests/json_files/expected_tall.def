@@ -65,6 +65,7 @@
     "translations": [
         {
             "def": "Someone or something that is tall is above average height.",
+            "category": "",
             "example": "He was very tall.",
             "value": "adjective",
             "word": "tall"

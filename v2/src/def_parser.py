@@ -188,36 +188,51 @@ class DefParser:
         items = self.root.xpath('//*[@class="translation_list clear"]/'
                                 '*[@class="translation"]/'
                                 '*[@class="hom lang_EN-GB"]')
-        assert len(items) <= 1
-        if len(items) == 0:
-            return None
 
-        sequence = items[0]
+        result = []
+        for sequence in items:
+            translation = self.get_one_translation(sequence)
+            result.append(translation)
 
+        return result
+
+    @staticmethod
+    def get_one_translation(sequence):
         word = sequence.xpath('./*[@class="inline"]/'
                               '*[@class="orth"]')
+
         assert len(word) == 1
 
         word_text = ParentHtmlItem(word[0]).read()
 
+        categ_items = sequence.xpath('./span[@class="def"]')
+        assert len(categ_items) <= 1
+
+        categ_text = HtmlItem(categ_items[0]).read() if len(categ_items) else ""
+
         neutral = sequence.xpath('./*[@class="neutral"]')
         assert len(neutral) == 3
+
         value_text = neutral[1].tail
         value_text = value_text.lower()
 
         item = neutral[2]
-
         def_text = ""
         assert isinstance(item, etree._Element)
-        while not ("class" in item.keys() and item.get("class") == "example"):
+
+        while item is not None and \
+                not ("class" in item.keys() and item.get("class") == "example"):
             def_text += ParentHtmlItem(item).read()
             item = item.getnext()
 
         def_text = def_text.strip()
 
-        ex_text = sequence.xpath('./*[@class="example"]/text()')[0]
+        examples = sequence.xpath('./*[@class="example"]/text()')
+        assert len(examples) <= 1
 
-        return [(word_text, value_text, def_text, ex_text)]
+        ex_text = examples[0] if len(examples) else ""
+
+        return {"word": word_text, "category": categ_text, "value": value_text, "def": def_text, "example": ex_text}
 
     @staticmethod
     def get_etymology(def_group: etree._Element):

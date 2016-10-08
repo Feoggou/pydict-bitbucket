@@ -644,6 +644,7 @@ class HtmlToJsonTest(unittest.TestCase):
 
         self.assertEqual(json_obj["translations"],
                          [{"def": "If you do something, you spend some time on it or finish it.",
+                           "category": "",
                            "example": "I tried to do some work.",
                            "word": "do",
                            "value": "verb",
