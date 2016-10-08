@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import sys
-from . import config
+from src import config
 
 sys.path.append(config.PROJECT_PATH)
 
