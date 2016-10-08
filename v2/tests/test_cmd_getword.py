@@ -64,15 +64,6 @@ class GetWordCmdTest(unittest.TestCase):
         mock_print.assert_called_once_with(defs_content)
         mock_print_learn.assert_called_once_with(learn_content)
 
-    def test_get_word_do_defs_Local(self):
-        with patch.object(JsonSaver, 'save') as mock_save_defs:
-            with patch.object(JsonPrinter, 'print'):
-                with patch.object(JsonPrinter, 'print_learn'):
-                    process_input("do")
-
-        calls = [call("do.def", self.do_def_json), call("do.learn", self.do_learn_json), call("do.syn", self.do_syn_json)]
-        mock_save_defs.assert_has_calls(calls)
-
     def test_get_word_tall_defs(self):
         """
         input: string "tall"
@@ -97,6 +88,17 @@ class GetWordCmdTest(unittest.TestCase):
         mock_save_defs.assert_has_calls(calls)
         mock_print.assert_called_once_with(defs_content)
         mock_print_learn.assert_called_once_with(learn_content)
+
+    def test_get_word_do_defs_usingRealFetcher(self):
+        """uses  "Real" HtmlFetcher"""
+
+        with patch.object(JsonSaver, 'save') as mock_save_defs:
+            with patch.object(JsonPrinter, 'print'):
+                with patch.object(JsonPrinter, 'print_learn'):
+                    process_input("do")
+
+        calls = [call("do.def", self.do_def_json), call("do.learn", self.do_learn_json), call("do.syn", self.do_syn_json)]
+        mock_save_defs.assert_has_calls(calls)
 
 
 if __name__ == '__main__':
