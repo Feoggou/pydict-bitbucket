@@ -11,9 +11,13 @@ remaining old features:
     blase
 
 
+word forms: doing, done -- displayed.
+derived forms: quiet - quietly.
+words without synonyms (local web fetcher)
+
 words:
-exactly - has unicode " "
-lead - have subdefs
+lead - have subdefs for "learn"
+blase
 
 local fetcher: do not fetch if already have!
 
@@ -27,8 +31,6 @@ defs(with the hand) --- doesn't work, probably because it does substitution (wit
 "we found a definitin for" --- when requesting "have to do with" (translated as "have-to-do-with"), it asks if you want "have to do with" also.
 update(word): remove cached .json, then make json again (from html local)
 
-word forms: doing, done -- displayed.
-derived forms: quiet - quietly.
 tags
 
 
