@@ -1,5 +1,3 @@
-from collections import OrderedDict
-
 from src.html_item import *
 
 
@@ -38,33 +36,40 @@ class SynParser:
 
     @staticmethod
     def get_syn_line(sense_item: etree._Element):
-        syn_line = OrderedDict()
+        syn_line = list()
         syn_text = categ = ""
 
         for item in sense_item.getchildren():
-            categ, syn_text = SynParser._read_syn_or_opp(categ, item, syn_line, syn_text, "syn")
+            categ, syn_text, result = SynParser._read_syn_or_opp(categ, item, syn_text, "syn")
+
+            if result is not None and result != ():
+                syn_line = [x for x in syn_line if x[0] != result[0]]
+                syn_line.append(result)
+
             if categ is None and syn_text is None:
                 # we reached the opposites => have already reached the end and have all.
                 return SynParser.syn_opp_result(syn_line)
 
         if categ != "":
-            syn_line[syn_text] = categ
+            last_item = (syn_text, categ)
+            syn_line = [x for x in syn_line if x[0] != syn_text]
+            syn_line.append(last_item)
 
         result = SynParser.syn_opp_result(syn_line)
 
         return result
 
     @staticmethod
-    def syn_opp_result(line):
+    def syn_opp_result(line: list):
         result = []
-        for word in line.keys():
-            item = {word: line[word]}
+        for syn_item in line:
+            item = {syn_item[0]: syn_item[1]}
             result.append(item)
         return result
 
     @staticmethod
     def get_opp_line(sense_item: etree._Element):
-        opp_line = OrderedDict()
+        opp_line = list()
         opp_text = categ = ""
 
         scbold_items = sense_item.xpath('./span[@class="scbold"]')
@@ -75,17 +80,25 @@ class SynParser:
 
         # sense_item.
         for item in scbold_items[0].itersiblings():
-            categ, opp_text = SynParser._read_syn_or_opp(categ, item, opp_line, opp_text, "ant")
+            categ, opp_text, result = SynParser._read_syn_or_opp(categ, item, opp_text, "ant")
+
+            if result is not None and result != ():
+                opp_line = [x for x in opp_line if x[0] != result[0]]
+                opp_line.append(result)
 
         if categ != "":
-            opp_line[opp_text] = categ
+            last_item = (opp_text, categ)
+            opp_line = [x for x in opp_line if x[0] != opp_text]
+            opp_line.append(last_item)
 
         return SynParser.syn_opp_result(opp_line)
 
     @staticmethod
-    def _read_syn_or_opp(categ: str, item: etree._Element, line: OrderedDict, text: str, class_value: str):
+    def _read_syn_or_opp(categ: str, item: etree._Element, text: str, class_value: str):
         if "class" in item.keys() and "scbold" == item.get("class"):
-            return None, None
+            return None, None, None
+
+        result = ()
 
         if "class" in item.keys() and re.match("lbl.*", item.get("class")):
             # HERE we check category
@@ -93,22 +106,22 @@ class SynParser:
 
             if item.tail is not None:
                 if item.tail.startswith("),") or item.tail.startswith(") •") or item.tail.startswith(")\n"):
-                    line[text] = categ
+                    result = (text, categ)
                     text = ""
                     categ = ""
 
         elif "class" in item.keys() and item.get("class") == class_value:
             # HERE we check the synonym
             text = ParentHtmlItem(item, use_tail=False, strip=True).read()
-            line[text] = ""
+            result = (text, "")
 
             if item.tail is not None:
                 if item.tail.startswith(",") or item.tail.startswith(" •"):
-                    line[text] = categ
+                    result = (text, categ)
                     text = ""
                     categ = ""
 
-        return categ, text
+        return categ, text, result
 
     @staticmethod
     def _update_categ(categ, item):
