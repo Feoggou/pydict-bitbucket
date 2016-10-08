@@ -1,9 +1,9 @@
 syn items: don't reorder.
 
-word lead:
+word "lead":
     has multiple translations
 
-word soliloquy:
+word "soliloquy":
     has no translations
 
 update:
@@ -43,9 +43,10 @@ derived forms: quiet - quietly.
 tags
 
 
+old files:
+o) regenerate all .json files from v1
+o) regenerate all "my examples", etc.
 
 =============================
 LOW PRIORITY
 ------------
-
-derived forms: "(noun) tallness (tallness)"
