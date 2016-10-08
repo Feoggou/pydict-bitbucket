@@ -155,7 +155,19 @@ class DefGroupReader:
 
     @staticmethod
     def _read_word(obj: dict):
-        return ColoredText.colored_word(obj["word"]) + "\n"
+        # should always be in obj.keys(). in some tests it is not.
+        if "word" in obj.keys():
+            return ColoredText.colored_word(obj["word"]) + "\n"
+
+        return ""
+
+    @staticmethod
+    def _read_note(obj: dict):
+        text = ""
+        if "note" in obj.keys():
+            text = ColoredText.colored_usage("NOTE\n") + obj["note"]
+
+        return text
 
     @staticmethod
     def _read_origin(obj: dict):
@@ -183,10 +195,13 @@ class DefGroupReader:
 
     def read_def_group(self, def_group: dict):
         text = self._read_word(def_group)
-
         text += self._read_frequency(def_group)
         text += self._read_origin(def_group)
         text += self._read_derived_forms(def_group)
+
+        note = self._read_note(def_group)
+        if len(note):
+            text += note + "\n\n"
 
         g_reader = GramGroupReader(def_group["gram_groups"])
         text += g_reader()
