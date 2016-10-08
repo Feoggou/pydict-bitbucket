@@ -25,6 +25,20 @@ class DefParser:
         return self.collins_dict.getchildren()
 
     @staticmethod
+    def get_note(def_group: etree._Element):
+        note_item = def_group.xpath('.//*[@class=" note"]')
+        assert len(note_item) <= 1
+
+        if len(note_item) == 0:
+            return None
+
+        note_text = ParentHtmlItem(note_item[0]).read()
+        if note_text.startswith("▶ USAGE "):
+            note_text = note_text[len("▶ USAGE "):]
+
+        return note_text
+
+    @staticmethod
     def get_def_group_text(def_group):
         h1_items = def_group.xpath('.//*[@class="h1_entry"]')
         assert(len(h1_items) == 1)

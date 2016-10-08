@@ -184,9 +184,12 @@ class DefGroup(JsonGroup):
         self.derived_forms = None
 
         self.origin = None
+        self.note = None
         self.word = dict_parser.get_def_group_text(etree)
 
     def build(self):
+        self.note = self.dict_parser.get_note(self.etree_elem)
+
         gram_groups = self.dict_parser.get_all_grammar_groups(self.etree_elem)
         for etree_item in gram_groups:
             child = GramGroup(self.dict_parser, etree_item)
@@ -220,6 +223,9 @@ class DefGroup(JsonGroup):
 
         if self.derived_forms is not None:
             json_obj["derived_forms"] = self.derived_forms
+
+        if self.note is not None:
+            json_obj["note"] = self.note
 
         return json_obj
 
