@@ -3,29 +3,13 @@ from src.html_parser import HtmlParser
 
 
 class ContentRetrieval:
-    def try_fetch(self, word: str, what: str):
-        html_content = self.try_fetch_local(word, what)
-        if html_content is None:
-            html_content = self.fetch_web(word, what)
-
-        return html_content
-
-    def fetch_web(self, word, what: str):
-        fetcher = html_fetcher.WebHtmlFetcher(word)
-        html_content = fetcher.fetch(what)
-        return html_content
-
-    def try_fetch_local(self, word, what: str):
-        fetcher = html_fetcher.LocalHtmlFetcher(word)
-        try:
-            html_content = fetcher.fetch(what)
-        except FileNotFoundError:
-            return None
-        else:
-            return html_content
+    @staticmethod
+    def fetch(word: str, what: str):
+        fetcher = html_fetcher.HtmlFetcher(word)
+        return fetcher.fetch(what)
 
     def get_def_content(self, word: str):
-        html_content = self.try_fetch(word, "def")
+        html_content = self.fetch(word, "def")
         # TODO: save html
 
         parser = HtmlParser()
@@ -35,7 +19,7 @@ class ContentRetrieval:
         return def_content, learn_content
 
     def get_syn_content(self, word: str):
-        html_content = self.try_fetch(word, "syn")
+        html_content = self.fetch(word, "syn")
         # TODO: save html
 
         parser = HtmlParser()
