@@ -368,6 +368,7 @@
     ],
     "translations": [
         {
+            "category": "",
             "def": "If you do something, you spend some time on it or finish it.",
             "example": "I tried to do some work.",
             "value": "verb",
