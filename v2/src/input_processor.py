@@ -1,5 +1,8 @@
 import re
+import os
+import subprocess
 
+from src import config
 from src.json_save import JsonSaver
 from src.json_load import JsonLoader
 from src.json_print import JsonPrinter
@@ -14,6 +17,24 @@ def print_syn(word: str):
     content = JsonLoader().load(file_name)
 
     printer.print_syn(content)
+
+
+def call_browser(word: str, browser: str):
+    file_name = word
+    if word.endswith("_defs") or word.endswith("_syn"):
+        file_name += ".html"
+    else:
+        file_name += "_defs.html"
+    file_path = os.path.join(config.HTML_SOURCE_PATH, file_name)
+    subprocess.Popen([browser, file_path])
+
+
+def call_firefox(word: str):
+    call_browser(word, "firefox")
+
+
+def call_chrome(word: str):
+    call_browser(word, "/opt/google/chrome/chrome")
 
 
 def get_word(word: str):
@@ -44,7 +65,9 @@ def call_search(expr: str):
 def get_command_obj(cmd_name: str):
     switch = {
         "syn": print_syn,
-        "search": call_search
+        "search": call_search,
+        "firefox": call_firefox,
+        "chrome": call_chrome,
     }
 
     cmd_obj = switch[cmd_name]
