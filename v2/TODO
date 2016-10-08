@@ -1,29 +1,34 @@
-new features:
-    tags - all_tags(), tags(word), addtag(word)
-    all words (for, related)
-    know = True
+BUGS
+=======
+* words without synonyms (local web fetcher) - crashes (e.g. blase)
+* "lead" - have subdefs for "cobuild", but not displayed properly.
+* (search) non-ASCII: blase
+* Fetcher: do not fetch if already have!
 
-remaining old features:
-    search
-    main
-    my defs, examples, idioms
-    ask creating => finds create
-    blase
-
-
+GLITCHES
+---------
 word forms: doing, done -- displayed.
 derived forms: quiet - quietly.
-words without synonyms (local web fetcher)
 
-words:
-lead - have subdefs for "learn"
-blase
 
-local fetcher: do not fetch if already have!
+FEATURES
+========
+v1
+------------
+search
+main
+my defs, examples, idioms
+ask creating => finds create
 
-commands:
-html() - call firefox / chrome.
-edit - use nano
+new features
+------------
+tags - all_tags(), tags(word), addtag(word)
+all words (for, related)
+know = True
+
+commands
+------------
+gedit()
 idioms() -- add idiom for word.
 adddef() -- add a definition, when I got smth clearer.
 know()    (prev, see)  -- decide which definitions will be visible, and which not, for a word.
@@ -31,13 +36,10 @@ defs(with the hand) --- doesn't work, probably because it does substitution (wit
 "we found a definitin for" --- when requesting "have to do with" (translated as "have-to-do-with"), it asks if you want "have to do with" also.
 update(word): remove cached .json, then make json again (from html local)
 
-tags
 
-
+TASKS
+==========
 old files:
 o) regenerate all .json files from v1
 o) regenerate all "my examples", etc.
-
-=============================
-LOW PRIORITY
-------------
+o) refactor
