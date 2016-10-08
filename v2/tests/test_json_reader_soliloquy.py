@@ -25,9 +25,7 @@ class JsonReaderTest(unittest.TestCase):
         reader = DefGroupReader(dict())
         result = reader.read_def_group(json_obj)
 
-        self.maxDiff = None
-
-        self.assertEqual("NOTE: Soliloquy is sometimes wrongly used where monologue is meant. Both words refer to a "
+        self.assertEqual("NOTE\nSoliloquy is sometimes wrongly used where monologue is meant. Both words refer to a "
                          "long speech by one person, but a monologue can be addressed to other people, whereas in a "
                          "soliloquy the speaker is always talking to himself or herself\n\n", result)
 
