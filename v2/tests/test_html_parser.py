@@ -10,16 +10,22 @@ from src import config
 class HtmlParserTest(unittest.TestCase):
     tests_path = None
 
-    @classmethod
-    def read_content(cls, html_file, json_file):
-        json_file_name = os.path.join(cls.tests_path, "json_files", json_file)
+    @staticmethod
+    def read_html(html_file):
         html_file_name = os.path.join(config.HTML_SOURCE_PATH, html_file)
-
-        with open(json_file_name) as f:
-            expected_json = json.load(f)
 
         with open(html_file_name) as f:
             html_content = f.read()
+
+        return html_content
+
+    @classmethod
+    def read_content(cls, html_file, json_file):
+        html_content = cls.read_html(html_file)
+        json_file_name = os.path.join(cls.tests_path, "json_files", json_file)
+
+        with open(json_file_name) as f:
+            expected_json = json.load(f)
 
         return html_content, expected_json
 
@@ -83,6 +89,12 @@ class HtmlParserTest(unittest.TestCase):
         result = parser.parse_learn("tall", html_contant)
 
         self.assertEqual(exp_json, result)
+
+    def test_htmlParse_learn_lead_doesNotRaiseError(self):
+        html_contant = self.read_html("lead_defs.html")
+
+        parser = HtmlParser()
+        parser.parse_learn("tall", html_contant)
 
 
 if __name__ == '__main__':
