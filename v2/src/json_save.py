@@ -12,3 +12,6 @@ class JsonSaver:
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(content, f, indent=4, sort_keys=True, ensure_ascii=False)
 
+    @staticmethod
+    def save_to_string(content: dict):
+        return json.dumps(content, indent=4, sort_keys=True, ensure_ascii=False)

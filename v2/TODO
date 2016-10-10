@@ -1,7 +1,5 @@
 BUGS
 =======
-* "lead" - have subdefs for "cobuild", but not displayed properly.
-* (search) non-ASCII: blase
 * Fetcher: do not fetch if already have!
 
 GLITCHES
@@ -14,7 +12,7 @@ FEATURES
 ========
 v1
 ------------
-search
+search --- with non-ASCII: blase
 main
 my defs, examples, idioms
 ask creating => finds create

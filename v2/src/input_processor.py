@@ -3,11 +3,11 @@ import os
 import subprocess
 
 from src import config
-from src.json_save import JsonSaver
 from src.json_load import JsonLoader
+from src.json_save import JsonSaver
 from src.json_print import JsonPrinter
-from src.content_retrieval import ContentRetrieval
 from src.cmd_search import Search
+from src.cmd_getword import get_word
 
 
 def print_syn(word: str):
@@ -17,6 +17,13 @@ def print_syn(word: str):
     content = JsonLoader().load(file_name)
 
     printer.print_syn(content)
+
+
+def show_json(word: str):
+    json_content = JsonLoader().load(word + ".def")
+    json_str = JsonSaver().save_to_string(json_content)
+
+    print(json_str)
 
 
 def call_browser(word: str, browser: str):
@@ -37,21 +44,6 @@ def call_chrome(word: str):
     call_browser(word, "/opt/google/chrome/chrome")
 
 
-def get_word(word: str):
-    content_retrieval = ContentRetrieval()
-    def_content, learn_content = content_retrieval.get_def_content(word)
-    syn_content = content_retrieval.get_syn_content(word)
-    saver = JsonSaver()
-
-    saver.save(word + ".def", def_content)
-    saver.save(word + ".learn", learn_content)
-    saver.save(word + ".syn", syn_content)
-
-    printer = JsonPrinter()
-    printer.print(def_content)
-    printer.print_learn(learn_content)
-
-
 def output_text(results):
     print(results)
 
@@ -68,6 +60,7 @@ def get_command_obj(cmd_name: str):
         "search": call_search,
         "firefox": call_firefox,
         "chrome": call_chrome,
+        "json": show_json,
     }
 
     cmd_obj = switch[cmd_name]
