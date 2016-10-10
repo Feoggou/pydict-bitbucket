@@ -1,13 +1,3 @@
-BUGS
-=======
-* Fetcher: do not fetch if already have!
-
-GLITCHES
----------
-word forms: doing, done -- displayed.
-derived forms: quiet - quietly.
-
-
 FEATURES
 ========
 v1
@@ -25,13 +15,28 @@ know = True
 
 commands
 ------------
+quit()
+exit()
 gedit()
 idioms() -- add idiom for word.
 adddef() -- add a definition, when I got smth clearer.
 know()    (prev, see)  -- decide which definitions will be visible, and which not, for a word.
+BETTER: mark(prev, markname)
+
+explain(word, value) - find defs containing word
+uses(word, value) - find examples containing word
+
+myexplain(word, value) - find my defs containing word
+myuses(word, value) - find my examples containing word
+mine() - show a list of all words containing 'my' items
+related(word) - all words whose definition word  / expression contains "word" or any derived forms thereof.
+word(w) - search regular expression for a def word matching w. (for words in the liking of w).
+
+(unimporant / obsolete)
 defs(with the hand) --- doesn't work, probably because it does substitution (with-the-hand?)
 "we found a definitin for" --- when requesting "have to do with" (translated as "have-to-do-with"), it asks if you want "have to do with" also.
 update(word): remove cached .json, then make json again (from html local)
+
 
 
 TASKS
