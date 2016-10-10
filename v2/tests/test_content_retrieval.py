@@ -20,13 +20,15 @@ class ContentRetrievalTest(unittest.TestCase):
         # must:
         # a. fetch html
         # b. transform to json (parse)
-        with patch.object(HtmlFetcher, 'fetch') as mock_fetch:
-            mock_fetch.return_value = html_content
-            with patch.object(HtmlParser, 'parse') as mock_parser:
-                mock_parser.return_value = exp_json
-                with patch.object(HtmlParser, 'parse_learn'):
-                    content_retrieval = ContentRetrieval()
-                    result, learn_content = content_retrieval.get_def_content("tall")
+        with patch.object(ContentRetrieval, "have_word") as mock_have_word:
+            mock_have_word.return_value = False
+            with patch.object(HtmlFetcher, 'fetch') as mock_fetch:
+                mock_fetch.return_value = html_content
+                with patch.object(HtmlParser, 'parse') as mock_parser:
+                    mock_parser.return_value = exp_json
+                    with patch.object(HtmlParser, 'parse_learn'):
+                        content_retrieval = ContentRetrieval()
+                        result, learn_content, found = content_retrieval.get_def_content("tall")
 
         mock_fetch.assert_called_once_with(mock.ANY)
         mock_parser.assert_called_once_with("tall", html_content)
@@ -37,13 +39,15 @@ class ContentRetrievalTest(unittest.TestCase):
         exp_json = "dummy_value"
         html_content = "dummy_html_content"
 
-        with patch.object(HtmlFetcher, 'fetch') as mock_fetch:
-            mock_fetch.return_value = html_content
-            with patch.object(HtmlParser, 'parse') as mock_parser:
-                mock_parser.return_value = exp_json
-                with patch.object(HtmlParser, 'parse_learn'):
-                    content_retrieval = ContentRetrieval()
-                    result, learn_content = content_retrieval.get_def_content("do")
+        with patch.object(ContentRetrieval, "have_word") as mock_have_word:
+            mock_have_word.return_value = False
+            with patch.object(HtmlFetcher, 'fetch') as mock_fetch:
+                mock_fetch.return_value = html_content
+                with patch.object(HtmlParser, 'parse') as mock_parser:
+                    mock_parser.return_value = exp_json
+                    with patch.object(HtmlParser, 'parse_learn'):
+                        content_retrieval = ContentRetrieval()
+                        result, learn_content, found = content_retrieval.get_def_content("do")
 
         self.assertEqual(exp_json, result)
         mock_fetch.assert_called_once_with(mock.ANY)
@@ -65,6 +69,19 @@ class ContentRetrievalTest(unittest.TestCase):
         self.assertEqual(exp_json, result)
         mock_fetch_obj.fetch.assert_called_once_with("syn")
         MockHtmlFetcher.assert_called_once_with("tall")
+
+    def test_whenContentAlreadyExists_readJson(self):
+
+        with patch.object(ContentRetrieval, "read_json_file") as mock_read_json:
+            with patch.object(ContentRetrieval, "have_word") as mock_have:
+                mock_have.return_value = True
+                with patch.object(HtmlFetcher, "fetch") as mock_fetch:
+                    contentRetrieval = ContentRetrieval()
+
+                    def_content, learn_content, found = contentRetrieval.get_def_content("my_word")
+
+        mock_fetch.assert_not_called()
+        self.assertEqual(found, True)
 
 
 if __name__ == '__main__':

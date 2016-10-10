@@ -42,7 +42,7 @@ class GetWordCmdTest(unittest.TestCase):
         syn_content = "syn_content_dummy"
 
         with patch.object(ContentRetrieval, 'get_def_content') as mock_get_defs:
-            mock_get_defs.return_value = defs_content, learn_content
+            mock_get_defs.return_value = defs_content, learn_content, False
             with patch.object(ContentRetrieval, 'get_syn_content') as mock_get_syns:
                 mock_get_syns.return_value = syn_content
                 with patch.object(JsonSaver, 'save') as mock_save_defs:
@@ -67,7 +67,7 @@ class GetWordCmdTest(unittest.TestCase):
         syn_content = "syn_content_dummy"
 
         with patch.object(ContentRetrieval, 'get_def_content') as mock_get_defs:
-            mock_get_defs.return_value = defs_content, learn_content
+            mock_get_defs.return_value = defs_content, learn_content, False
             with patch.object(ContentRetrieval, 'get_syn_content') as mock_get_syns:
                 mock_get_syns.return_value = syn_content
                 with patch.object(JsonSaver, 'save') as mock_save_defs:
@@ -83,10 +83,12 @@ class GetWordCmdTest(unittest.TestCase):
     def test_get_word_do_defs_usingRealFetcher(self):
         """uses  "Real" HtmlFetcher"""
 
-        with patch.object(JsonSaver, 'save') as mock_save_defs:
-            with patch.object(JsonPrinter, 'print'):
-                with patch.object(JsonPrinter, 'print_learn'):
-                    process_input("do")
+        with patch.object(ContentRetrieval, "have_word") as mock_have_word:
+            mock_have_word.return_value = False
+            with patch.object(JsonSaver, 'save') as mock_save_defs:
+                with patch.object(JsonPrinter, 'print'):
+                    with patch.object(JsonPrinter, 'print_learn'):
+                        process_input("do")
 
         calls = [call("do.def", self.do_def_json), call("do.learn", self.do_learn_json), call("do.syn", self.do_syn_json)]
         mock_save_defs.assert_has_calls(calls)
@@ -96,7 +98,7 @@ class GetWordCmdTest(unittest.TestCase):
             with patch.object(JsonPrinter, 'print'):
                 with patch.object(JsonPrinter, 'print_learn'):
                     with patch.object(ContentRetrieval, "get_def_content") as mock_get_def:
-                        mock_get_def.return_value = "def_content", "learn_content"
+                        mock_get_def.return_value = "def_content", "learn_content", False
 
                         with patch.object(ContentRetrieval, "get_syn_content") as mock_get_syn:
                             mock_get_syn.side_effect = FileNotFoundError()
@@ -105,6 +107,21 @@ class GetWordCmdTest(unittest.TestCase):
 
         calls = [call("blase.def", "def_content"), call("blase.learn", "learn_content")]
         mock_save_defs.assert_has_calls(calls)
+
+    def test_getWord_whenAlreadyHaveJson_doesNotRewrite(self):
+        with patch.object(ContentRetrieval, "read_json_file") as mock_read_json:
+            mock_read_json.side_effect = ["def_content", "learn_content"]
+            with patch.object(JsonPrinter, 'print') as mock_print_def:
+                with patch.object(JsonPrinter, 'print_learn') as mock_print_learn:
+                    with patch.object(JsonSaver, "save") as mock_save:
+                        with patch.object(ContentRetrieval, "have_word") as mock_have_word:
+                            mock_have_word.return_value = True
+
+                            get_word("my_word")
+
+        mock_save.assert_not_called()
+        mock_print_def.assert_called_once_with("def_content")
+        mock_print_learn.assert_called_once_with("learn_content")
 
 
 if __name__ == '__main__':

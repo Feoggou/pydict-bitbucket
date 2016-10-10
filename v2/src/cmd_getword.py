@@ -5,17 +5,19 @@ from src.json_print import JsonPrinter
 
 def get_word(word: str):
     content_retrieval = ContentRetrieval()
-    def_content, learn_content = content_retrieval.get_def_content(word)
-    saver = JsonSaver()
+    def_content, learn_content, found = content_retrieval.get_def_content(word)
 
-    saver.save(word + ".def", def_content)
-    saver.save(word + ".learn", learn_content)
+    if not found:
+        saver = JsonSaver()
 
-    try:
-        syn_content = content_retrieval.get_syn_content(word)
-        saver.save(word + ".syn", syn_content)
-    except FileNotFoundError:
-        print("Word '{}' has no synonyms.".format(word))
+        saver.save(word + ".def", def_content)
+        saver.save(word + ".learn", learn_content)
+
+        try:
+            syn_content = content_retrieval.get_syn_content(word)
+            saver.save(word + ".syn", syn_content)
+        except FileNotFoundError:
+            print("Word '{}' has no synonyms.".format(word))
 
     printer = JsonPrinter()
     printer.print(def_content)
