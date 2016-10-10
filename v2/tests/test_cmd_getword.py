@@ -9,7 +9,7 @@ from src.json_save import JsonSaver
 from src.json_print import JsonPrinter
 from src.content_retrieval import ContentRetrieval
 
-from src import config
+from src.cmd_getword import get_word
 
 
 class GetWordCmdTest(unittest.TestCase):
@@ -89,6 +89,21 @@ class GetWordCmdTest(unittest.TestCase):
                     process_input("do")
 
         calls = [call("do.def", self.do_def_json), call("do.learn", self.do_learn_json), call("do.syn", self.do_syn_json)]
+        mock_save_defs.assert_has_calls(calls)
+
+    def test_getword_whenWordHasNoSynonyms(self):
+        with patch.object(JsonSaver, 'save') as mock_save_defs:
+            with patch.object(JsonPrinter, 'print'):
+                with patch.object(JsonPrinter, 'print_learn'):
+                    with patch.object(ContentRetrieval, "get_def_content") as mock_get_def:
+                        mock_get_def.return_value = "def_content", "learn_content"
+
+                        with patch.object(ContentRetrieval, "get_syn_content") as mock_get_syn:
+                            mock_get_syn.side_effect = FileNotFoundError()
+
+                            get_word("blase")
+
+        calls = [call("blase.def", "def_content"), call("blase.learn", "learn_content")]
         mock_save_defs.assert_has_calls(calls)
 
 

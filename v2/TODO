@@ -1,6 +1,5 @@
 BUGS
 =======
-* words without synonyms (local web fetcher) - crashes (e.g. blase)
 * "lead" - have subdefs for "cobuild", but not displayed properly.
 * (search) non-ASCII: blase
 * Fetcher: do not fetch if already have!
