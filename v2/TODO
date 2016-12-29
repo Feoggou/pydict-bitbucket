@@ -13,6 +13,8 @@ tags - all_tags(), tags(word), addtag(word)
 all words (for, related)
 know = True
 
+main.py -i = interactive; otherwise just get word.
+
 commands
 ------------
 quit()
