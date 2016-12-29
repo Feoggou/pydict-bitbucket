@@ -54,6 +54,7 @@
     ],
     "translations": [
         {
+            "category": "",
             "def": "Exactly means in an exact manner, accurately or precisely.",
             "example": "Where exactly is the smell coming from?",
             "value": "adverb",

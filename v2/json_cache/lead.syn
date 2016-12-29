@@ -1,0 +1,449 @@
+{
+    "gram_groups": [
+        {
+            "syns": [
+                {
+                    "example": "Tom was leading, a rifle slung over his back.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "go in front (of)": ""
+                        },
+                        {
+                            "head": ""
+                        },
+                        {
+                            "be in front": ""
+                        },
+                        {
+                            "be at the head (of)": ""
+                        },
+                        {
+                            "walk in front (of)": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "He led him into the house.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "guide": ""
+                        },
+                        {
+                            "conduct": ""
+                        },
+                        {
+                            "steer": ""
+                        },
+                        {
+                            "escort": ""
+                        },
+                        {
+                            "precede": ""
+                        },
+                        {
+                            "usher": ""
+                        },
+                        {
+                            "pilot": ""
+                        },
+                        {
+                            "show the way": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "the doors that led to the yard",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "connect to": ""
+                        },
+                        {
+                            "link": ""
+                        },
+                        {
+                            "open onto": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "So far he leads by five games to two.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "be ahead (of)": ""
+                        },
+                        {
+                            "be first": ""
+                        },
+                        {
+                            "exceed": ""
+                        },
+                        {
+                            "be winning": ""
+                        },
+                        {
+                            "excel": ""
+                        },
+                        {
+                            "surpass": ""
+                        },
+                        {
+                            "come first": ""
+                        },
+                        {
+                            "transcend": ""
+                        },
+                        {
+                            "outstrip": ""
+                        },
+                        {
+                            "outdo": ""
+                        },
+                        {
+                            "blaze a trail": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "He led the country between 1949 and 1984.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "command": ""
+                        },
+                        {
+                            "rule": ""
+                        },
+                        {
+                            "govern": ""
+                        },
+                        {
+                            "preside over": ""
+                        },
+                        {
+                            "head": ""
+                        },
+                        {
+                            "control": ""
+                        },
+                        {
+                            "manage": ""
+                        },
+                        {
+                            "direct": ""
+                        },
+                        {
+                            "supervise": ""
+                        },
+                        {
+                            "be in charge of": ""
+                        },
+                        {
+                            "head up": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "She led a normal happy life with her sister and brother.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "live": ""
+                        },
+                        {
+                            "have": ""
+                        },
+                        {
+                            "spend": ""
+                        },
+                        {
+                            "experience": ""
+                        },
+                        {
+                            "pass": ""
+                        },
+                        {
+                            "undergo": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "He warned that a pay rise would lead to job cuts.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "result in": ""
+                        },
+                        {
+                            "cause": ""
+                        },
+                        {
+                            "produce": ""
+                        },
+                        {
+                            "contribute": ""
+                        },
+                        {
+                            "generate": ""
+                        },
+                        {
+                            "bring about": ""
+                        },
+                        {
+                            "bring on": ""
+                        },
+                        {
+                            "give rise to": ""
+                        },
+                        {
+                            "conduce": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "It was not as straightforward as we were led to believe.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "cause": ""
+                        },
+                        {
+                            "prompt": ""
+                        },
+                        {
+                            "persuade": ""
+                        },
+                        {
+                            "move": ""
+                        },
+                        {
+                            "draw": ""
+                        },
+                        {
+                            "influence": ""
+                        },
+                        {
+                            "motivate": ""
+                        },
+                        {
+                            "prevail": ""
+                        },
+                        {
+                            "induce": ""
+                        },
+                        {
+                            "incline": ""
+                        },
+                        {
+                            "dispose": ""
+                        }
+                    ]
+                }
+            ],
+            "value": "verb"
+        },
+        {
+            "syns": [
+                {
+                    "example": "Labour are still in the lead in the opinion polls.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "first place": ""
+                        },
+                        {
+                            "winning position": ""
+                        },
+                        {
+                            "primary position": ""
+                        },
+                        {
+                            "vanguard": ""
+                        },
+                        {
+                            "van": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "He now has a lead of 30 points.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "advantage": ""
+                        },
+                        {
+                            "start": ""
+                        },
+                        {
+                            "advance": ""
+                        },
+                        {
+                            "edge": ""
+                        },
+                        {
+                            "margin": ""
+                        },
+                        {
+                            "winning margin": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "the need for the president to give a moral lead",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "example": ""
+                        },
+                        {
+                            "direction": ""
+                        },
+                        {
+                            "leadership": ""
+                        },
+                        {
+                            "guidance": ""
+                        },
+                        {
+                            "model": ""
+                        },
+                        {
+                            "pattern": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "The inquiry team is following up possible leads.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "clue": ""
+                        },
+                        {
+                            "tip": ""
+                        },
+                        {
+                            "suggestion": ""
+                        },
+                        {
+                            "trace": ""
+                        },
+                        {
+                            "hint": ""
+                        },
+                        {
+                            "guide": ""
+                        },
+                        {
+                            "indication": ""
+                        },
+                        {
+                            "pointer": ""
+                        },
+                        {
+                            "tip-off": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "Two dancers from the Bolshoi Ballet dance the leads.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "leading role": ""
+                        },
+                        {
+                            "principal": ""
+                        },
+                        {
+                            "protagonist": ""
+                        },
+                        {
+                            "title role": ""
+                        },
+                        {
+                            "star part": ""
+                        },
+                        {
+                            "principal part": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "He came out with a little dog on a lead.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "leash": ""
+                        },
+                        {
+                            "line": ""
+                        },
+                        {
+                            "cord": ""
+                        },
+                        {
+                            "rein": ""
+                        },
+                        {
+                            "tether": ""
+                        }
+                    ]
+                }
+            ],
+            "value": "noun"
+        },
+        {
+            "syns": [
+                {
+                    "example": "Cossiga's reaction is the lead story in the Italian press.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "main": ""
+                        },
+                        {
+                            "prime": ""
+                        },
+                        {
+                            "top": ""
+                        },
+                        {
+                            "leading": ""
+                        },
+                        {
+                            "first": ""
+                        },
+                        {
+                            "head": ""
+                        },
+                        {
+                            "chief": ""
+                        },
+                        {
+                            "premier": ""
+                        },
+                        {
+                            "primary": ""
+                        },
+                        {
+                            "most important": ""
+                        },
+                        {
+                            "principal": ""
+                        },
+                        {
+                            "foremost": ""
+                        }
+                    ]
+                }
+            ],
+            "value": "adjective"
+        }
+    ],
+    "word": "lead"
+}

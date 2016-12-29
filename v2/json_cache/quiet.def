@@ -1,0 +1,113 @@
+{
+    "def_groups": [
+        {
+            "derived_forms": {
+                "quietness": "noun"
+            },
+            "frequency": "Very Common",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "characterized by an absence or near absence of noise",
+                                "example": "a quiet street",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "characterized by an absence of turbulent motion or disturbance; peaceful, calm, or tranquil",
+                                "example": "a quiet glade; the sea is quiet tonight",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "free from activities, distractions, worries, etc; untroubled",
+                                "example": "a quiet life; a quiet day at work",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "marked by an absence of work, orders, etc; not busy",
+                                "example": "the factory is very quiet at the moment",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "private; not public; secret",
+                                "example": "a quiet word with someone",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "free from anger, impatience, or other extreme emotion",
+                                "example": "a quiet disposition",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "free from pretentiousness or vain display; modest or reserved",
+                                "example": "quiet humour",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "astronomy",
+                                "def": "(of the sun) exhibiting a very low number of sunspots, solar flares, and other surface phenomena; inactive",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "adjective"
+                },
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "the state of being silent, peaceful, or untroubled",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See on the quiet",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "noun"
+                },
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "(i) a less common word for quieten",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "verb"
+                }
+            ],
+            "origin": "C14: from Latin quiētus, past participle of quiēscere to rest, from quiēs repose, rest",
+            "word": "quiet"
+        }
+    ],
+    "examples": [
+        "She felt the lips on the back of her neck, heard quiet words against her skin, moving over her scalp.",
+        "The basin where Temptation was moored was quiet at that time of night.",
+        "I padded downstairs in bare feet, the staircase creaking loudly in the quiet , empty house."
+    ],
+    "translations": [
+        {
+            "category": "",
+            "def": "Something or someone that is quiet makes only a small amount of noise.",
+            "example": "She kept the children reasonably quiet.",
+            "value": "adjective",
+            "word": "quiet"
+        }
+    ]
+}

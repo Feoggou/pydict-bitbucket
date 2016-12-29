@@ -5,39 +5,89 @@
                 {
                     "example": "Can you describe exactly what he looked like?",
                     "mark": "good",
-                    "syn_line": {
-                        "accurately": "",
-                        "correctly": "",
-                        "definitely": "",
-                        "explicitly": "",
-                        "faithfully": "",
-                        "faultlessly": "",
-                        "literally": "",
-                        "methodically": "",
-                        "precisely": "",
-                        "rigorously": "",
-                        "scrupulously": "",
-                        "strictly": "",
-                        "truly": "",
-                        "truthfully": "",
-                        "unequivocally": "",
-                        "unerringly": "",
-                        "veraciously": ""
-                    }
+                    "syn_line": [
+                        {
+                            "accurately": ""
+                        },
+                        {
+                            "correctly": ""
+                        },
+                        {
+                            "definitely": ""
+                        },
+                        {
+                            "truly": ""
+                        },
+                        {
+                            "precisely": ""
+                        },
+                        {
+                            "strictly": ""
+                        },
+                        {
+                            "literally": ""
+                        },
+                        {
+                            "faithfully": ""
+                        },
+                        {
+                            "explicitly": ""
+                        },
+                        {
+                            "rigorously": ""
+                        },
+                        {
+                            "unequivocally": ""
+                        },
+                        {
+                            "scrupulously": ""
+                        },
+                        {
+                            "truthfully": ""
+                        },
+                        {
+                            "methodically": ""
+                        },
+                        {
+                            "unerringly": ""
+                        },
+                        {
+                            "faultlessly": ""
+                        },
+                        {
+                            "veraciously": ""
+                        }
+                    ]
                 },
                 {
                     "example": "He arrived at exactly five o'clock.",
                     "mark": "good",
-                    "syn_line": {
-                        "bang on": "informal",
-                        "expressly": "",
-                        "just": "",
-                        "on the button": "informal",
-                        "precisely": "",
-                        "prompt": "informal",
-                        "specifically": "",
-                        "to the letter": ""
-                    }
+                    "syn_line": [
+                        {
+                            "precisely": ""
+                        },
+                        {
+                            "just": ""
+                        },
+                        {
+                            "expressly": ""
+                        },
+                        {
+                            "prompt": "informal"
+                        },
+                        {
+                            "specifically": ""
+                        },
+                        {
+                            "bang on": "informal"
+                        },
+                        {
+                            "to the letter": ""
+                        },
+                        {
+                            "on the button": "informal"
+                        }
+                    ]
                 }
             ],
             "value": "adverb"
@@ -47,25 +97,59 @@
                 {
                     "example": "`We don't know the answer to that.' - 'Exactly. So shut up and stop speculating.'",
                     "mark": "good",
-                    "syn_line": {
-                        "absolutely": "",
-                        "as you say": "",
-                        "assuredly": "",
-                        "certainly": "",
-                        "indeed": "",
-                        "just so": "",
-                        "of course": "",
-                        "precisely": "",
-                        "quite": "",
-                        "quite so": "",
-                        "spot-on": "British, informal",
-                        "that's right": "",
-                        "truly": "",
-                        "ya": "South Africa",
-                        "yebo": "South Africa, informal",
-                        "yes": "",
-                        "you got it": "informal"
-                    }
+                    "syn_line": [
+                        {
+                            "precisely": ""
+                        },
+                        {
+                            "yes": ""
+                        },
+                        {
+                            "quite": ""
+                        },
+                        {
+                            "of course": ""
+                        },
+                        {
+                            "certainly": ""
+                        },
+                        {
+                            "indeed": ""
+                        },
+                        {
+                            "truly": ""
+                        },
+                        {
+                            "that's right": ""
+                        },
+                        {
+                            "absolutely": ""
+                        },
+                        {
+                            "spot-on": "British, informal"
+                        },
+                        {
+                            "just so": ""
+                        },
+                        {
+                            "quite so": ""
+                        },
+                        {
+                            "ya": "South Africa"
+                        },
+                        {
+                            "as you say": ""
+                        },
+                        {
+                            "you got it": "informal"
+                        },
+                        {
+                            "assuredly": ""
+                        },
+                        {
+                            "yebo": "South Africa, informal"
+                        }
+                    ]
                 }
             ],
             "value": "sentence substitute"

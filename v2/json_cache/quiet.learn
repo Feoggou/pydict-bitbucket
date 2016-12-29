@@ -1,0 +1,142 @@
+[
+    {
+        "forms": [
+            "quieter",
+            "quietest",
+            "quiets",
+            "quieting",
+            "quieted"
+        ],
+        "gram_groups": [
+            {
+                "defs": [
+                    {
+                        "def": "If you refer, for example, to someone's quiet confidence or quiet despair, you mean that they do not say much about the way they are feeling.",
+                        "examples": [
+                            "He has a quiet confidence in his ability.",
+                            "All through his life he has shown a quiet determination to get things done."
+                        ],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "You describe activities as quiet when they happen in secret or in such a way that people do not notice them.",
+                        "examples": [
+                            "The Swedes had sought his freedom through quiet diplomacy.",
+                            "Then it was back to the house for a quiet celebration.",
+                            "Can I have a quiet word with you, son?"
+                        ],
+                        "mark": "good"
+                    }
+                ],
+                "value": "adjective [ADJ n]"
+            },
+            {
+                "defs": [
+                    {
+                        "category": "mainly US",
+                        "def": "If someone or something quiets or if you quiet them, they become less noisy, less active, or silent.",
+                        "examples": [
+                            "The wind dropped and the sea quieted.",
+                            "Estela started to say something but a gesture from her husband quieted her at once."
+                        ],
+                        "mark": "good"
+                    }
+                ],
+                "value": "ergative verb & verb"
+            },
+            {
+                "defs": [
+                    {
+                        "def": "You describe colours or clothes as quiet when they are not bright or not very noticeable. ",
+                        "examples": [
+                            "They dress in quiet colors so as not to call attention to themselves."
+                        ],
+                        "mark": "good"
+                    }
+                ],
+                "value": "graded adjective"
+            },
+            {
+                "defs": [
+                    {
+                        "def": "Someone or something that is quiet makes only a small amount of noise.",
+                        "examples": [
+                            "Tania kept the children reasonably quiet and contented.",
+                            "A quiet murmur passed through the classroom.",
+                            "The airlines have invested enormous sums in new, quieter aircraft."
+                        ],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If a place is quiet, there is very little noise there.",
+                        "examples": [
+                            "She was received in a small, quiet office.",
+                            "The street was unnaturally quiet."
+                        ],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "If a place, situation, or time is quiet, there is no excitement, activity, or trouble.",
+                        "examples": [
+                            "...a quiet rural backwater.",
+                            "It is very quiet without him.",
+                            "While he wanted Los Angeles and partying, she wanted a quiet life.",
+                            "The city is now relatively quiet but there's palpable anger as people cope with shortages."
+                        ],
+                        "mark": "good"
+                    },
+                    {
+                        "def": "A quiet person behaves in a calm way and is not easily made angry or upset. ",
+                        "examples": [
+                            "He's a nice quiet man."
+                        ],
+                        "mark": "good"
+                    }
+                ],
+                "value": "graded adjective & adjective"
+            },
+            {
+                "defs": [
+                    {
+                        "def": "If you are quiet, you are not saying anything.",
+                        "examples": [
+                            "I told them to be quiet and go to sleep.",
+                            "I just went quiet, embarrassed, and couldn't answer.",
+                            "They were both quiet for a while. Then Charlie said: 'I must go.'.",
+                            "Then a voice called out, 'Quiet, everybody, please!'"
+                        ],
+                        "mark": "good"
+                    }
+                ],
+                "value": "graded adjective & adjective [v-link ADJ]"
+            },
+            {
+                "defs": [
+                    {
+                        "def": "Quiet is silence.",
+                        "examples": [
+                            "He called for quiet and announced that the next song was in our honor.",
+                            "Jeremy wants some peace and quiet before his big match."
+                        ],
+                        "mark": "good"
+                    }
+                ],
+                "value": "uncount noun"
+            },
+            {
+                "defs": [
+                    {
+                        "category": "mainly US",
+                        "def": "To quiet fears or complaints means to persuade people that there is no good reason for them.",
+                        "examples": [
+                            "Music seemed to quiet her anxiety and loneliness."
+                        ],
+                        "mark": "good"
+                    }
+                ],
+                "value": "verb"
+            }
+        ],
+        "word": "quiet"
+    }
+]

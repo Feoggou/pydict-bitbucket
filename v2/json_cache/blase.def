@@ -1,0 +1,58 @@
+{
+    "def_groups": [
+        {
+            "frequency": "",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "indifferent or bored through familiarity",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "adjective"
+                }
+            ],
+            "word": "blase"
+        },
+        {
+            "frequency": "",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "indifferent to something because of familiarity or surfeit",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "lacking enthusiasm; bored",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "adjective"
+                }
+            ],
+            "origin": "C19: from French, past participle of blaser to cloy",
+            "word": "blasé"
+        }
+    ],
+    "examples": [
+        "She was appalled at his blasé narration, not its content, simply the tone.",
+        "He had the slightly blasé air of someone who is incapable of being shocked.",
+        "I could trace this blasé attitude towards the appropriateness of foot underwear to my early youth rebellion.",
+        "Mary Ann turned away from her, only to confront another woman, looking blasé in a macramé halter, black fingernails and a crew cut."
+    ],
+    "translations": []
+}

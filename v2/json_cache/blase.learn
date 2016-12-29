@@ -1,0 +1,22 @@
+[
+    {
+        "forms": [],
+        "gram_groups": [
+            {
+                "defs": [
+                    {
+                        "category": "disapproval",
+                        "def": "If you describe someone as blasé, you mean that they are not easily impressed, excited, or worried by things, usually because they have seen or experienced them before.",
+                        "examples": [
+                            "Far too many people are blasé about their driving skills.",
+                            "...his seemingly blasé attitude."
+                        ],
+                        "mark": "good"
+                    }
+                ],
+                "value": "graded adjective & adjective"
+            }
+        ],
+        "word": "blaséblase"
+    }
+]

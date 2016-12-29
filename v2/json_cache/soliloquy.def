@@ -1,0 +1,38 @@
+{
+    "def_groups": [
+        {
+            "frequency": "Used Occasionally",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "the act of speaking alone or to oneself, esp as a theatrical device",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "a speech in a play that is spoken in soliloquy",
+                                "example": "Hamlet's first soliloquy",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "noun"
+                }
+            ],
+            "note": "Soliloquy is sometimes wrongly used where monologue is meant. Both words refer to a long speech by one person, but a monologue can be addressed to other people, whereas in a soliloquy the speaker is always talking to himself or herself",
+            "origin": "C17: via Late Latin sōliloquium, from Latin sōlus sole + loquī to speak",
+            "word": "soliloquy"
+        }
+    ],
+    "examples": [
+        "He composed his face as if to deliver Hamlet's saddest soliloquy.",
+        "soliloquy might have succeeded in doing just that if he hadn't been in love and overflowing with a marvellous sense of aliveness.",
+        "Steil wondered if the Lexus woman had been more surprised by the perforations than by his soliloquy."
+    ],
+    "translations": []
+}

@@ -1,0 +1,642 @@
+{
+    "gram_groups": [
+        {
+            "syns": [
+                {
+                    "example": "I was trying to do some work.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "perform": ""
+                        },
+                        {
+                            "work": ""
+                        },
+                        {
+                            "achieve": ""
+                        },
+                        {
+                            "carry out": ""
+                        },
+                        {
+                            "produce": ""
+                        },
+                        {
+                            "effect": ""
+                        },
+                        {
+                            "complete": ""
+                        },
+                        {
+                            "conclude": ""
+                        },
+                        {
+                            "undertake": ""
+                        },
+                        {
+                            "accomplish": ""
+                        },
+                        {
+                            "execute": ""
+                        },
+                        {
+                            "discharge": ""
+                        },
+                        {
+                            "pull off": ""
+                        },
+                        {
+                            "transact": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "I go where I will and I do as I please.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "behave": ""
+                        },
+                        {
+                            "act": ""
+                        },
+                        {
+                            "conduct yourself": ""
+                        },
+                        {
+                            "deport yourself": ""
+                        },
+                        {
+                            "bear yourself": ""
+                        },
+                        {
+                            "acquit yourself": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "I'll do the dinner, you can help.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "make": ""
+                        },
+                        {
+                            "prepare": ""
+                        },
+                        {
+                            "fix": ""
+                        },
+                        {
+                            "arrange": ""
+                        },
+                        {
+                            "look after": ""
+                        },
+                        {
+                            "organize": ""
+                        },
+                        {
+                            "be responsible for": ""
+                        },
+                        {
+                            "see to": ""
+                        },
+                        {
+                            "get ready": ""
+                        },
+                        {
+                            "make ready": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "I could have done the crossword.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "solve": ""
+                        },
+                        {
+                            "work out": ""
+                        },
+                        {
+                            "resolve": ""
+                        },
+                        {
+                            "figure out": ""
+                        },
+                        {
+                            "decode": ""
+                        },
+                        {
+                            "decipher": ""
+                        },
+                        {
+                            "puzzle out": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "She did well at school.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "get on": ""
+                        },
+                        {
+                            "manage": ""
+                        },
+                        {
+                            "fare": ""
+                        },
+                        {
+                            "proceed": ""
+                        },
+                        {
+                            "make out": ""
+                        },
+                        {
+                            "prosper": ""
+                        },
+                        {
+                            "get along": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "And what does he do for a living?",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "work as": ""
+                        },
+                        {
+                            "be employed at": ""
+                        },
+                        {
+                            "earn a living at": ""
+                        },
+                        {
+                            "have as an occupation": ""
+                        },
+                        {
+                            "have as a profession": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "I've always wanted to do a show on his life.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "present": ""
+                        },
+                        {
+                            "give": ""
+                        },
+                        {
+                            "show": ""
+                        },
+                        {
+                            "act": ""
+                        },
+                        {
+                            "produce": ""
+                        },
+                        {
+                            "stage": ""
+                        },
+                        {
+                            "perform": ""
+                        },
+                        {
+                            "mount": ""
+                        },
+                        {
+                            "put on": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "A plain old `I love you' won't do.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "be adequate": ""
+                        },
+                        {
+                            "be enough": ""
+                        },
+                        {
+                            "be sufficient": ""
+                        },
+                        {
+                            "answer": ""
+                        },
+                        {
+                            "serve": ""
+                        },
+                        {
+                            "suit": ""
+                        },
+                        {
+                            "content": ""
+                        },
+                        {
+                            "satisfy": ""
+                        },
+                        {
+                            "suffice": ""
+                        },
+                        {
+                            "be of use": ""
+                        },
+                        {
+                            "pass muster": ""
+                        },
+                        {
+                            "cut the mustard": ""
+                        },
+                        {
+                            "fill the bill": "informal"
+                        },
+                        {
+                            "meet requirements": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "I'll tell you how they did me.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "cheat": "informal"
+                        },
+                        {
+                            "trick": ""
+                        },
+                        {
+                            "con": "informal"
+                        },
+                        {
+                            "skin": "slang"
+                        },
+                        {
+                            "stiff": "slang"
+                        },
+                        {
+                            "sting": "informal"
+                        },
+                        {
+                            "deceive": ""
+                        },
+                        {
+                            "fleece": ""
+                        },
+                        {
+                            "hoax": ""
+                        },
+                        {
+                            "defraud": ""
+                        },
+                        {
+                            "dupe": ""
+                        },
+                        {
+                            "swindle": ""
+                        },
+                        {
+                            "diddle": "informal"
+                        },
+                        {
+                            "take (someone) for a ride": "informal"
+                        },
+                        {
+                            "pull a fast one on": "informal"
+                        },
+                        {
+                            "cozen": ""
+                        },
+                        {
+                            "scam": "slang"
+                        }
+                    ]
+                },
+                {
+                    "example": "The company have done a range of tops.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "produce": ""
+                        },
+                        {
+                            "make": ""
+                        },
+                        {
+                            "create": ""
+                        },
+                        {
+                            "develop": ""
+                        },
+                        {
+                            "turn out": ""
+                        },
+                        {
+                            "manufacture": ""
+                        },
+                        {
+                            "construct": ""
+                        },
+                        {
+                            "invent": ""
+                        },
+                        {
+                            "put together": ""
+                        },
+                        {
+                            "originate": ""
+                        },
+                        {
+                            "fabricate": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "The bedroom is done in lavenders and pinks.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "decorate": ""
+                        },
+                        {
+                            "paper": ""
+                        },
+                        {
+                            "paint": ""
+                        },
+                        {
+                            "colour": ""
+                        },
+                        {
+                            "wallpaper": ""
+                        },
+                        {
+                            "renovate": ""
+                        },
+                        {
+                            "do up": "informal"
+                        },
+                        {
+                            "furbish": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "I did her hair and her make-up.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "design": ""
+                        },
+                        {
+                            "style": ""
+                        },
+                        {
+                            "dress": ""
+                        },
+                        {
+                            "arrange": ""
+                        },
+                        {
+                            "fashion": ""
+                        },
+                        {
+                            "shape": ""
+                        },
+                        {
+                            "adapt": ""
+                        },
+                        {
+                            "tailor": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "Would you do me a favour?",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "grant": ""
+                        },
+                        {
+                            "give": ""
+                        },
+                        {
+                            "allow": ""
+                        },
+                        {
+                            "accord": ""
+                        },
+                        {
+                            "permit": ""
+                        },
+                        {
+                            "render": ""
+                        },
+                        {
+                            "confer": ""
+                        },
+                        {
+                            "bestow": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "She's doing English for her Higher Certificate.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "study": ""
+                        },
+                        {
+                            "read": ""
+                        },
+                        {
+                            "learn": ""
+                        },
+                        {
+                            "research": ""
+                        },
+                        {
+                            "investigate": ""
+                        },
+                        {
+                            "analyse": ""
+                        },
+                        {
+                            "be taught": ""
+                        },
+                        {
+                            "read up on": ""
+                        },
+                        {
+                            "take a course in": ""
+                        },
+                        {
+                            "take classes in": ""
+                        },
+                        {
+                            "swot (up) on": "British, informal"
+                        }
+                    ]
+                },
+                {
+                    "example": "He was clocked doing 138mph.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "travel at": ""
+                        },
+                        {
+                            "go at": ""
+                        },
+                        {
+                            "move at": ""
+                        },
+                        {
+                            "drive at": ""
+                        },
+                        {
+                            "proceed at": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "Families doing Europe can hire one of these motor-homes.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "visit": "informal"
+                        },
+                        {
+                            "tour in or around": ""
+                        },
+                        {
+                            "look at": ""
+                        },
+                        {
+                            "cover": ""
+                        },
+                        {
+                            "explore": ""
+                        },
+                        {
+                            "take in": "informal"
+                        },
+                        {
+                            "stop in": ""
+                        },
+                        {
+                            "journey through or around": ""
+                        },
+                        {
+                            "travel in or around": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "A course of antibiotics might do some good.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "cause": ""
+                        },
+                        {
+                            "effect": ""
+                        },
+                        {
+                            "bring about": ""
+                        }
+                    ]
+                }
+            ],
+            "value": "verb"
+        },
+        {
+            "syns": [
+                {
+                    "example": "They always have all-night dos there.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "party": "informal, mainly British & New Zealand"
+                        },
+                        {
+                            "gathering": ""
+                        },
+                        {
+                            "function": ""
+                        },
+                        {
+                            "social": ""
+                        },
+                        {
+                            "event": ""
+                        },
+                        {
+                            "affair": ""
+                        },
+                        {
+                            "at-home": ""
+                        },
+                        {
+                            "occasion": ""
+                        },
+                        {
+                            "celebration": ""
+                        },
+                        {
+                            "reception": ""
+                        },
+                        {
+                            "bash": "informal"
+                        },
+                        {
+                            "rave": "British, slang"
+                        },
+                        {
+                            "get-together": "informal"
+                        },
+                        {
+                            "festivity": ""
+                        },
+                        {
+                            "knees-up": "British, informal"
+                        },
+                        {
+                            "beano": "British, slang"
+                        },
+                        {
+                            "social gathering": ""
+                        },
+                        {
+                            "shindig": "informal"
+                        },
+                        {
+                            "soirée": ""
+                        },
+                        {
+                            "rave-up": "British, slang"
+                        },
+                        {
+                            "hooley or hoolie": "mainly Irish & New Zealand"
+                        }
+                    ]
+                }
+            ],
+            "value": "noun"
+        }
+    ],
+    "word": "do"
+}

@@ -1,0 +1,34 @@
+{
+    "gram_groups": [
+        {
+            "syns": [
+                {
+                    "example": "On stage Hamlet is delivering his soliloquy.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "monologue": ""
+                        },
+                        {
+                            "address": ""
+                        },
+                        {
+                            "speech": ""
+                        },
+                        {
+                            "aside": ""
+                        },
+                        {
+                            "oration": ""
+                        },
+                        {
+                            "dramatic monologue": ""
+                        }
+                    ]
+                }
+            ],
+            "value": "noun"
+        }
+    ],
+    "word": "soliloquy"
+}

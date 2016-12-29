@@ -1,0 +1,535 @@
+{
+    "gram_groups": [
+        {
+            "syns": [
+                {
+                    "example": "A quiet murmur passed through the classroom.",
+                    "mark": "good",
+                    "opp_line": [
+                        {
+                            "loud": ""
+                        },
+                        {
+                            "noisy": ""
+                        },
+                        {
+                            "deafening": ""
+                        },
+                        {
+                            "high-volume": ""
+                        },
+                        {
+                            "ear-splitting": ""
+                        },
+                        {
+                            "stentorian": ""
+                        },
+                        {
+                            "high-decibel": ""
+                        }
+                    ],
+                    "syn_line": [
+                        {
+                            "soft": ""
+                        },
+                        {
+                            "low": ""
+                        },
+                        {
+                            "muted": ""
+                        },
+                        {
+                            "lowered": ""
+                        },
+                        {
+                            "whispered": ""
+                        },
+                        {
+                            "faint": ""
+                        },
+                        {
+                            "suppressed": ""
+                        },
+                        {
+                            "stifled": ""
+                        },
+                        {
+                            "hushed": ""
+                        },
+                        {
+                            "muffled": ""
+                        },
+                        {
+                            "inaudible": ""
+                        },
+                        {
+                            "indistinct": ""
+                        },
+                        {
+                            "low-pitched": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "She was received in a small, quiet office.",
+                    "mark": "good",
+                    "opp_line": [
+                        {
+                            "loud": ""
+                        },
+                        {
+                            "noisy": ""
+                        },
+                        {
+                            "deafening": ""
+                        }
+                    ],
+                    "syn_line": [
+                        {
+                            "peaceful": ""
+                        },
+                        {
+                            "silent": ""
+                        },
+                        {
+                            "still": ""
+                        },
+                        {
+                            "hushed": ""
+                        },
+                        {
+                            "soundless": ""
+                        },
+                        {
+                            "noiseless": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "She wanted a quiet life.",
+                    "mark": "good",
+                    "opp_line": [
+                        {
+                            "troubled": ""
+                        },
+                        {
+                            "exciting": ""
+                        },
+                        {
+                            "turbulent": ""
+                        },
+                        {
+                            "agitated": ""
+                        },
+                        {
+                            "violent": ""
+                        },
+                        {
+                            "frenetic": ""
+                        }
+                    ],
+                    "syn_line": [
+                        {
+                            "calm": ""
+                        },
+                        {
+                            "peaceful": ""
+                        },
+                        {
+                            "tranquil": ""
+                        },
+                        {
+                            "contented": ""
+                        },
+                        {
+                            "gentle": ""
+                        },
+                        {
+                            "mild": ""
+                        },
+                        {
+                            "serene": ""
+                        },
+                        {
+                            "pacific": ""
+                        },
+                        {
+                            "placid": ""
+                        },
+                        {
+                            "restful": ""
+                        },
+                        {
+                            "untroubled": ""
+                        },
+                        {
+                            "chilled": "informal"
+                        }
+                    ]
+                },
+                {
+                    "example": "a look of quiet satisfaction",
+                    "mark": "good",
+                    "opp_line": [
+                        {
+                            "troubled": ""
+                        },
+                        {
+                            "turbulent": ""
+                        },
+                        {
+                            "agitated": ""
+                        }
+                    ],
+                    "syn_line": [
+                        {
+                            "still": ""
+                        },
+                        {
+                            "motionless": ""
+                        },
+                        {
+                            "calm": ""
+                        },
+                        {
+                            "peaceful": ""
+                        },
+                        {
+                            "tranquil": ""
+                        },
+                        {
+                            "untroubled": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "a quiet rural backwater",
+                    "mark": "good",
+                    "opp_line": [
+                        {
+                            "popular": ""
+                        },
+                        {
+                            "crowded": ""
+                        },
+                        {
+                            "busy": ""
+                        },
+                        {
+                            "lively": ""
+                        },
+                        {
+                            "fashionable": ""
+                        },
+                        {
+                            "bustling": ""
+                        }
+                    ],
+                    "syn_line": [
+                        {
+                            "undisturbed": ""
+                        },
+                        {
+                            "isolated": ""
+                        },
+                        {
+                            "secluded": ""
+                        },
+                        {
+                            "private": ""
+                        },
+                        {
+                            "secret": ""
+                        },
+                        {
+                            "retired": ""
+                        },
+                        {
+                            "sequestered": ""
+                        },
+                        {
+                            "unfrequented": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "I told them to be quiet and go to sleep.",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "silent": ""
+                        },
+                        {
+                            "dumb": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "Can I have a quiet word with you, son?",
+                    "mark": "good",
+                    "syn_line": [
+                        {
+                            "discreet": ""
+                        },
+                        {
+                            "private": ""
+                        },
+                        {
+                            "confidential": ""
+                        },
+                        {
+                            "secret": ""
+                        },
+                        {
+                            "unofficial": ""
+                        },
+                        {
+                            "off the record": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "He's a nice quiet man.",
+                    "mark": "good",
+                    "opp_line": [
+                        {
+                            "excited": ""
+                        },
+                        {
+                            "passionate": ""
+                        },
+                        {
+                            "restless": ""
+                        },
+                        {
+                            "violent": ""
+                        },
+                        {
+                            "impatient": ""
+                        },
+                        {
+                            "high-spirited": ""
+                        },
+                        {
+                            "excitable": ""
+                        },
+                        {
+                            "talkative": ""
+                        },
+                        {
+                            "loquacious": ""
+                        },
+                        {
+                            "verbose": ""
+                        }
+                    ],
+                    "syn_line": [
+                        {
+                            "reserved": ""
+                        },
+                        {
+                            "retiring": ""
+                        },
+                        {
+                            "shy": ""
+                        },
+                        {
+                            "collected": ""
+                        },
+                        {
+                            "gentle": ""
+                        },
+                        {
+                            "mild": ""
+                        },
+                        {
+                            "composed": ""
+                        },
+                        {
+                            "serene": ""
+                        },
+                        {
+                            "sedate": ""
+                        },
+                        {
+                            "meek": ""
+                        },
+                        {
+                            "placid": ""
+                        },
+                        {
+                            "docile": ""
+                        },
+                        {
+                            "unflappable": "informal"
+                        },
+                        {
+                            "phlegmatic": ""
+                        },
+                        {
+                            "peaceable": ""
+                        },
+                        {
+                            "imperturbable": ""
+                        },
+                        {
+                            "equable": ""
+                        },
+                        {
+                            "even-tempered": ""
+                        },
+                        {
+                            "unexcitable": ""
+                        }
+                    ]
+                },
+                {
+                    "example": "They dress in quiet colours.",
+                    "mark": "good",
+                    "opp_line": [
+                        {
+                            "bright": ""
+                        },
+                        {
+                            "loud": ""
+                        },
+                        {
+                            "glaring": ""
+                        },
+                        {
+                            "vibrant": ""
+                        },
+                        {
+                            "blatant": ""
+                        },
+                        {
+                            "conspicuous": ""
+                        },
+                        {
+                            "brash": ""
+                        },
+                        {
+                            "pretentious": ""
+                        },
+                        {
+                            "showy": ""
+                        },
+                        {
+                            "ostentatious": ""
+                        },
+                        {
+                            "obtrusive": ""
+                        }
+                    ],
+                    "syn_line": [
+                        {
+                            "subdued": ""
+                        },
+                        {
+                            "conservative": ""
+                        },
+                        {
+                            "plain": ""
+                        },
+                        {
+                            "sober": ""
+                        },
+                        {
+                            "simple": ""
+                        },
+                        {
+                            "modest": ""
+                        },
+                        {
+                            "restrained": ""
+                        },
+                        {
+                            "unassuming": ""
+                        },
+                        {
+                            "unpretentious": ""
+                        },
+                        {
+                            "unobtrusive": ""
+                        }
+                    ]
+                }
+            ],
+            "value": "adjective"
+        },
+        {
+            "syns": [
+                {
+                    "example": "He wants some peace and quiet.",
+                    "mark": "good",
+                    "opp_line": [
+                        {
+                            "noise": ""
+                        },
+                        {
+                            "disturbance": ""
+                        },
+                        {
+                            "racket": ""
+                        },
+                        {
+                            "bustle": ""
+                        },
+                        {
+                            "din": ""
+                        },
+                        {
+                            "commotion": ""
+                        },
+                        {
+                            "activity": ""
+                        }
+                    ],
+                    "syn_line": [
+                        {
+                            "peace": ""
+                        },
+                        {
+                            "rest": ""
+                        },
+                        {
+                            "tranquillity": ""
+                        },
+                        {
+                            "ease": ""
+                        },
+                        {
+                            "silence": ""
+                        },
+                        {
+                            "solitude": ""
+                        },
+                        {
+                            "serenity": ""
+                        },
+                        {
+                            "stillness": ""
+                        },
+                        {
+                            "repose": ""
+                        },
+                        {
+                            "calmness": ""
+                        },
+                        {
+                            "quietness": ""
+                        },
+                        {
+                            "peacefulness": ""
+                        },
+                        {
+                            "restfulness": ""
+                        }
+                    ]
+                }
+            ],
+            "value": "noun"
+        }
+    ],
+    "word": "quiet"
+}

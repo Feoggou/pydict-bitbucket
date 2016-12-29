@@ -1,0 +1,393 @@
+{
+    "def_groups": [
+        {
+            "frequency": "Extremely Common",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "to show the way to (an individual or a group) by going with or ahead",
+                                "example": "lead the party into the garden",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to guide or be guided by holding, pulling, etc",
+                                "example": "he led the horse by its reins",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to guide, control, or direct",
+                                "example": "to lead an army",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to initiate the action of (something); have the principal part in (something)",
+                                "example": "to lead a discussion",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to go at the head of or have the top position in (something)",
+                                "example": "he leads his class in geography",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "music",
+                                "def_subgroup": [
+                                    {
+                                        "category": "British",
+                                        "def": "to play first violin in (an orchestra)",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "category": "intransitive",
+                                        "def": "(of an instrument or voice) to be assigned an important entry in a piece of music",
+                                        "mark": "good"
+                                    }
+                                ]
+                            },
+                            {
+                                "def": "to direct and guide (one's partner) in a dance",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to initiate a round of cards by putting down (the first card) or to have the right to do this",
+                                "example": "she led a diamond",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See lead astray",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See lead by the nose",
+                                "mark": "good"
+                            }
+                        ],
+                        "intransitive": [
+                            {
+                                "category": "boxing",
+                                "def": "to make an offensive blow, esp as one's habitual attacking punch",
+                                "example": "southpaws lead with their right",
+                                "mark": "good"
+                            }
+                        ],
+                        "intransitive; foll by to": [
+                            {
+                                "def": "to tend (to) or result (in)",
+                                "example": "this will only lead to misery",
+                                "mark": "good"
+                            }
+                        ],
+                        "intransitive; foll by with": [
+                            {
+                                "def": "to have as the first or principal item",
+                                "example": "the newspaper led with the royal birth",
+                                "mark": "good"
+                            }
+                        ],
+                        "transitive": [
+                            {
+                                "def": "to cause to act, feel, think, or behave in a certain way; induce; influence",
+                                "example": "he led me to believe that he would go",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to phrase a question to (a witness) that tends to suggest the desired answer",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to go ahead so as to indicate (esp in the phrase lead the way)",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to direct the course of or conduct (water, a rope or wire, etc) along or as if along a channel",
+                                "mark": "good"
+                            },
+                            {
+                                "def_subgroup": [
+                                    {
+                                        "def": "to pass or spend",
+                                        "example": "I lead a miserable life",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "to cause to pass a life of a particular kind",
+                                        "example": "to lead a person a dog's life",
+                                        "mark": "good"
+                                    }
+                                ]
+                            },
+                            {
+                                "def": "to aim at a point in front of (a moving target) in shooting, etc, in order to allow for the time of flight",
+                                "mark": "good"
+                            }
+                        ],
+                        "when intr, foll by to": [
+                            {
+                                "def": "(of a road, route, etc) to serve as the means of reaching a place",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": [
+                            "leads",
+                            "leading",
+                            "led"
+                        ]
+                    },
+                    "value": "verb"
+                },
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def_subgroup": [
+                                    {
+                                        "def": "the first, foremost, or most prominent place",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "(as modifier)",
+                                        "example": "lead singer",
+                                        "mark": "good"
+                                    }
+                                ]
+                            },
+                            {
+                                "def": "example, precedence, or leadership",
+                                "example": "the class followed the teacher's lead",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "an advance or advantage held over others",
+                                "example": "the runner had a lead of twenty yards",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "anything that guides or directs; indication; clue",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) another name for leash",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "the act or prerogative of playing the first card in a round of cards or the card so played",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "the principal role in a play, film, etc, or the person playing such a role",
+                                "mark": "good"
+                            },
+                            {
+                                "def_subgroup": [
+                                    {
+                                        "def": "the principal news story in a newspaper",
+                                        "example": "the scandal was the lead in the papers",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "the opening paragraph of a news story",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "(as modifier)",
+                                        "example": "lead story",
+                                        "mark": "good"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": "music",
+                                "def": "an important entry assigned to one part usually at the beginning of a movement or section",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "a wire, cable, or other conductor for making an electrical connection",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "boxing",
+                                "def_subgroup": [
+                                    {
+                                        "def": "one's habitual attacking punch",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "a blow made with this",
+                                        "mark": "good"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": "nautical",
+                                "def": "the direction in which a rope runs",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "a deposit of metal or ore; lode",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "the firing of a gun, missile, etc, ahead of a moving target to correct for the time of flight of the projectile",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "noun"
+                }
+            ],
+            "origin": "Old English lǣdan; related to līthan to travel, Old High German līdan to go",
+            "word": "lead"
+        },
+        {
+            "derived_forms": {
+                "leadless": "adjective"
+            },
+            "frequency": "",
+            "gram_groups": [
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "a heavy toxic bluish-white metallic element that is highly malleable: occurs principally as galena and used in alloys, accumulators, cable sheaths, paints, and as a radiation shield. Symbol: Pb; atomic no: 82; atomic wt: 207.2; valency: 2 or 4; relative density: 11.35; melting pt: 327.502°C; boiling pt: 1750°C",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "a lead weight suspended on a line used to take soundings of the depth of water",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "(i) See swing the lead",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "lead weights or shot, as used in cartridges, fishing lines, etc",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "a thin grooved strip of lead for holding small panes of glass or pieces of stained glass",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "printing",
+                                "def": "a thin strip of type metal used for spacing between lines of hot-metal type",
+                                "mark": "good"
+                            },
+                            {
+                                "def_subgroup": [
+                                    {
+                                        "def": "graphite or a mixture containing graphite, clay, etc, used for drawing",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "a thin stick of this material, esp the core of a pencil",
+                                        "mark": "good"
+                                    }
+                                ]
+                            },
+                            {
+                                "def": "(i) See go down like a lead balloon",
+                                "mark": "good"
+                            }
+                        ],
+                        "modifier": [
+                            {
+                                "def": "of, consisting of, relating to, or containing lead",
+                                "mark": "good"
+                            }
+                        ],
+                        "plural": [
+                            {
+                                "def_subgroup": [
+                                    {
+                                        "def": "thin sheets or strips of lead used as a roof covering",
+                                        "mark": "good"
+                                    },
+                                    {
+                                        "def": "a flat or low-pitched roof covered with such sheets",
+                                        "mark": "good"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "noun"
+                },
+                {
+                    "defs": {
+                        "": [
+                            {
+                                "def": "to fill or treat with lead",
+                                "mark": "good"
+                            },
+                            {
+                                "def": "to surround, cover, or secure with lead or leads",
+                                "mark": "good"
+                            },
+                            {
+                                "category": "printing",
+                                "def": "to space (type) by use of leads",
+                                "mark": "good"
+                            }
+                        ]
+                    },
+                    "forms": {
+                        "info": "",
+                        "items": []
+                    },
+                    "value": "verb"
+                }
+            ],
+            "origin": "Old English; related to Dutch lood, German Lot",
+            "word": "lead"
+        }
+    ],
+    "examples": [
+        "Inexplicably, the Kariens sent their infantry to lead the attack.",
+        "The dog continued, yanked the lead tight, walked back huffily, looked at their feet.",
+        "In each pack there was a tin containing fishing line, a selection of hooks and some split lead weights.",
+        "From gold, sapphire, amber and rust, suddenly everything was the color of bruises and lead."
+    ],
+    "translations": [
+        {
+            "category": "metal",
+            "def": "Lead is a soft, grey, heavy metal.",
+            "example": "",
+            "value": "noun",
+            "word": "lead"
+        },
+        {
+            "category": "in a play or film",
+            "def": "The lead in a play, film, or show is the most important role in it.",
+            "example": "She recently played the lead in a film.",
+            "value": "noun",
+            "word": "lead"
+        },
+        {
+            "category": "in a race or competition",
+            "def": "If you are in the lead in a race or competition, you are winning.",
+            "example": "Our team was in the lead after ten minutes.",
+            "value": "noun",
+            "word": "lead"
+        },
+        {
+            "category": "",
+            "def": "If you lead someone to a place, you take them there.",
+            "example": "I took his hand and started to lead him into the house.",
+            "value": "verb",
+            "word": "lead"
+        }
+    ]
+}
