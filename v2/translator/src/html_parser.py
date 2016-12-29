@@ -38,3 +38,4 @@ class HtmlParser:
         self.def_groups = LearnDefGroups(dict_parser)
         self.def_groups.build()
         return self.def_groups.translate()
+
