@@ -1,6 +1,6 @@
 import os
 
-USE_COLORS = True
+# USE_COLORS = True
 
 HOSTNAME = "www.collinsdictionary.com"
 HTTP_PATH = "/dictionary/english/"
